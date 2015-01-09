@@ -47,10 +47,26 @@ namespace MS.Managers
 
         protected void OnStart()
         {
+            StartGame("TestScenario");
         }
 
         protected void OnFinish()
         {
+
+        }
+
+        #endregion
+
+        #region Public methods
+
+        public static void StartGame(string scenarioName)
+        {
+            m_game              =   new Game();
+            m_currentScenario   =   new Scenario();
+
+            m_currentScenario.Load(MS.Utils.Path.ToScenario("TestScenario"));
+
+            m_game.Scenario = m_currentScenario;
         }
 
         #endregion
@@ -58,6 +74,8 @@ namespace MS.Managers
         #region Attributes
 
         private static  GameManager     m_instance;
+        private static  Game            m_game;
+        private static  Scenario        m_currentScenario;
 
         #endregion
     }	
