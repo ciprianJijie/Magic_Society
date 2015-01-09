@@ -1,0 +1,63 @@
+{
+    "name": "Test",
+    "players":
+    [
+    	{
+    		"name": "Player_01",
+    		"terrain": "Human"
+    	},
+    	{
+    		"name": "AI_01",
+    		"terrain": "AI"
+    	}
+    ],
+    "map":
+    {
+        "grid":
+        {
+            "size": 
+            { 
+                "horizontal": 5,
+                "vertical": 5
+            },
+            "tiles": 
+            [
+                [
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" }
+                ],
+                [
+                    { "terrain": "Water" },
+                    { "terrain": "Water" },
+                    { "terrain": "Water" },
+                    { "terrain": "Water" },
+                    { "terrain": "Water" }
+                ],
+                [
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" }
+                ],
+                [
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" }
+                ],
+                [
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" },
+                    { "terrain": "Grass" }
+                ]            
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "Assets/Scripts",
+			"file_exclude_patterns": [ "*.meta" ]
+		},
+		{
+			"follow_symlinks": true,
+			"path": "Assets/Data",
+			"file_exclude_patterns": [ "*.meta" ]
+		}
+	]
+}
