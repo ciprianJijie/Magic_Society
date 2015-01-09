@@ -17,4 +17,22 @@ namespace MS
 		{
 		}
 	}
+
+    public class NoFileFound : Exception
+    {
+        public NoFileFound(string filePath)
+            :base ("File " + filePath + " can't be found. Does it exist?")
+        {
+
+        }
+    }
+
+    public class FailedToParseJSON : Exception
+    {
+        public FailedToParseJSON(string filePath)
+            : base("Failed to parse JSON file " + filePath)
+        {
+
+        }
+    }
 }
