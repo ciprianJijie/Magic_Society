@@ -27,5 +27,17 @@ namespace MS.Core
                 return m_instance;
             }
         }
+
+        void Awake()
+        {
+            if (m_instance != null)
+            {
+                throw new AlreadyInstantiated(this);
+            }
+
+            m_instance = this as T;
+
+            MS.Debug.Core.Log("Singleton for " + typeof(T) + " initialised.");
+        }
     }
 }
