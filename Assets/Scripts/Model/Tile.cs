@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MS.Model
 {
-	public class Tile : MS.IParseable
+	public class Tile : ModelElement
 	{
 		public enum TerrainType { None, Grass, Water, Forest, Mountain }
 
@@ -19,7 +19,7 @@ namespace MS.Model
 			FromJSON(json);
 		}
 
-		public void FromJSON(SimpleJSON.JSONNode json)
+		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
 			string type;
 
@@ -43,7 +43,7 @@ namespace MS.Model
 			}
 		}
 
-		public SimpleJSON.JSONNode ToJSON()
+		public override SimpleJSON.JSONNode ToJSON()
 		{
 			SimpleJSON.JSONNode json;
 

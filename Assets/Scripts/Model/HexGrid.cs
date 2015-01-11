@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MS.Model
 {
-	public class HexGrid : IParseable
+	public class HexGrid : ModelElement
 	{
 		private Tile[,] m_tiles;
 
@@ -29,7 +29,7 @@ namespace MS.Model
 			}
 		}
 
-		public void FromJSON(SimpleJSON.JSONNode json)
+		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
 			SimpleJSON.JSONArray 	gridRow;
 			SimpleJSON.JSONArray 	gridColumn;
@@ -52,7 +52,7 @@ namespace MS.Model
 			}
 		}
 
-		public SimpleJSON.JSONNode ToJSON()
+		public override SimpleJSON.JSONNode ToJSON()
 		{
 			SimpleJSON.JSONNode json;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MS.Model
 {
-	public class Map : IParseable
+	public class Map : ModelElement
 	{
 		public HexGrid Grid;
 
@@ -12,12 +12,12 @@ namespace MS.Model
 			FromJSON(json);
 		}
 
-		public void FromJSON(SimpleJSON.JSONNode json)
+		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
 			Grid = new HexGrid(json["grid"]);
 		}
 
-		public SimpleJSON.JSONNode ToJSON()
+		public override SimpleJSON.JSONNode ToJSON()
 		{
 			SimpleJSON.JSONNode json;
 
