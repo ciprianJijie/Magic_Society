@@ -2,37 +2,26 @@
 using System;
 using System.Collections;
 using MS.Model;
+using MS.Core;
 
 namespace MS.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
+        #region Attributes
+
+        private static  Game            m_game;
+        private static  Scenario        m_currentScenario;
+
+        #endregion
+
         #region Properties
-        public static GameManager Instance
-        {
-            get
-            {
-                if (m_instance == null)
-                {
-                    throw new NoInstance(null);
-                }
-                return m_instance;
-            }
-        }
 
         #endregion
 
         #region Monobehaviour methods
-        void Awake()
+        void Start()
         {
-            if (m_instance != null)
-            {
-                throw new AlreadyInstantiated(this);
-            }
-            MS.Debug.Core.Log("Game Manager singleton instantiated.");
-
-            m_instance = this;
-
             OnStart();
         }
 
@@ -71,12 +60,6 @@ namespace MS.Managers
 
         #endregion
 
-        #region Attributes
 
-        private static  GameManager     m_instance;
-        private static  Game            m_game;
-        private static  Scenario        m_currentScenario;
-
-        #endregion
     }	
 }

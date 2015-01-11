@@ -1,39 +1,19 @@
 ﻿using UnityEngine;
 using System;
+using MS.Core;
 
 namespace MS.Managers
 {
-    public class ResourceManager : MonoBehaviour
+    public class ResourceManager : Singleton<ResourceManager>
     {
 
-        #region Properties
+        #region Attributes
 
-        public static ResourceManager Instance
-        {
-            get
-            {
-                if (m_instance == null)
-                {
-                    throw new NoInstance(null);
-                }
-                return m_instance;
-            }
-        }
-
-        #endregion
-
-        #region MonoBehaviour methods
-
-        void Awake()
-        {
-            if (m_instance != null)
-            {
-                throw new AlreadyInstantiated(this);
-            }
-            MS.Debug.Core.Log("Resources Manager singleton instantiated.");
-
-            m_instance = this;
-        }
+        public Sprite GrassTile;
+        public Sprite ForestTile;
+        public Sprite MountainTile;
+        public Sprite WaterTile;
+        public Sprite NoneTile;
 
         #endregion
 
@@ -51,18 +31,6 @@ namespace MS.Managers
                 default:                                    return Instance.NoneTile;
             }
         }
-
-        #endregion
-
-        #region Attributes
-
-        public Sprite GrassTile;
-        public Sprite ForestTile;
-        public Sprite MountainTile;
-        public Sprite WaterTile;
-        public Sprite NoneTile;
-
-        private static ResourceManager m_instance;
 
         #endregion
     }
