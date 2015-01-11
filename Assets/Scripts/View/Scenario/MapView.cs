@@ -1,0 +1,217 @@
+﻿using UnityEngine;
+using System;
+using MS.Core;
+
+namespace MS.View
+{
+    public class MapView : View<MS.Model.Map>
+    {
+        #region Attributes
+
+        /// <summary>
+        /// Tile prefab used to instantiate new map tiles
+        /// </summary>
+        public TileView     TilePrefab;
+
+        public int          TileWidth;
+        public int          TileHeight;
+        public float        TileSize            =   1.0f;
+
+        private TileView[,] m_tiles;
+
+        #endregion
+
+        public override void UpdateView()
+        {
+            this.transform.RemoveChildren();
+
+            m_tiles = new TileView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
+
+            System.GC.Collect();
+
+            for (int y = 0; y < m_model.Grid.VerticalSize; ++y)
+            {
+                for (int x = 0; x < m_model.Grid.HorizontalSize; ++x)
+                {
+                    TileView tile;
+
+                    tile = CreateTile(m_model.Grid[x,y], x, y);
+
+                    tile.UpdateView();
+
+                    m_tiles[x, y] = tile;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates a new tile to display information about a given tile of the map model.
+        /// </summary>
+        /// <returns>The tile.</returns>
+        /// <param name="model">Map's model tile to associate with the new view.</param>
+        /// <param name="x">The x coordinate in the grid.</param>
+        /// <param name="y">The y coordinate in the grid.</param>
+        protected TileView CreateTile(MS.Model.Tile model, int x, int y)
+        {
+            GameObject  obj;
+            TileView    tile;
+            Vector3     worldPosition;
+
+            worldPosition   =   LocalToWorld(x, y);
+            obj             =   Instantiate(TilePrefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
+            tile            =   obj.GetComponent<TileView>();
+
+            tile.BindTo(model);
+            tile.transform.parent = this.transform;
+            tile.gameObject.name = string.Format("Tile ({0},{1}) @ {2}", x, y, model.Type);
+
+            return tile;
+        }
+
+        /// <summary>
+        /// Converts local coordinates to world coordiantes (relative to the parent).
+        /// </summary>
+        /// <returns>The to world.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        protected Vector3 LocalToWorld(int x, int y)
+        {
+            Vector2 pos = new Vector2 (0.0f, 0.0f);
+
+            pos.x = this.transform.position.x + (TileWidth / 100.0f) * Mathf.Sqrt (3) * (x + (float)y / 2.0f);
+            pos.y = this.transform.position.y + (TileHeight / 100.0f) * 3.0f / 2.0f * y;
+
+            return pos;
+        }
+
+        /// <summary>
+        /// Converts local coordinates to world coordinates (relative to the parent).
+        /// </summary>
+        /// <returns>The to world.</returns>
+        /// <param name="localPosition">Local position.</param>
+        protected Vector3 LocalToWorld(Vector2 localPosition)
+        {
+            return LocalToWorld((int)localPosition.x, (int)localPosition.y);
+        }
+
+        /// <summary>
+        /// Converts a position in world coordinates to a local coordinate in the grid.
+        /// </summary>
+        /// <returns>The to local.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <param name="z">The z coordinate.</param>
+        protected Vector2 WorldToLocal(int x, int y, int z)
+        {
+            Vector2 pos;
+
+            // We calculate the approximate location
+            float vertical;
+            float horizontal;
+
+            horizontal = 2.0f / 3.0f * x / TileSize - this.transform.position.x;
+            vertical = (1.0f / 3.0f * Mathf.Sqrt (3) * y - 1.0f / 3.0f * x) / TileSize - this.transform.position.y;
+
+            // And now we find the nearest hexagon to that position
+            Vector3 cubePos = AxialToCube ((int)horizontal, (int)vertical);
+            cubePos = RoundToCube (cubePos);
+
+            pos = CubeToAxial (cubePos);
+
+            return pos;
+        }
+
+        /// <summary>
+        /// Converts a position in world coordinates to a local coordinate in the grid.
+        /// </summary>
+        /// <returns>The to local.</returns>
+        /// <param name="worldPosition">World position.</param>
+        protected Vector2 WorldToLocal(Vector3 worldPosition)
+        {
+            return WorldToLocal((int)worldPosition.x, (int)worldPosition.y, (int)worldPosition.z);
+        }
+
+        /// <summary>
+        /// Calculates the nearest grid tile to the coordinates passed.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="cubePos">Cube position.</param>
+        public static Vector3 RoundToCube (Vector3 cubePos)
+        {
+            Vector3 pos;
+
+            int rx = Mathf.RoundToInt (cubePos.x);
+            int ry = Mathf.RoundToInt (cubePos.y);
+            int rz = Mathf.RoundToInt (cubePos.z);
+
+            float x_diff = Mathf.Abs (rx - cubePos.x);
+            float y_diff = Mathf.Abs (ry - cubePos.y);
+            float z_diff = Mathf.Abs (rz - cubePos.z);
+
+            if (x_diff > y_diff && x_diff > z_diff)
+            {
+                rx = -ry - rz;
+            }
+            else if (y_diff > z_diff)
+            {
+                ry = -rx - rz;
+            }
+            else
+            {
+                rz = -rx - ry;
+            }
+
+            pos = new Vector3 (rx, ry, rz);
+
+            return pos;
+        }
+
+        /// <summary>
+        /// Converts from axial coordinates to cube coordinates.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        public static Vector3 AxialToCube(int x, int y)
+        {
+            float cubeX = x;
+            float cubeZ = y;
+            float cubeY = - cubeX - cubeZ;
+
+            return new Vector3 (cubeX, cubeY, cubeZ);
+        }
+
+        /// <summary>
+        /// Converts from axial coordinates to cube coordinates.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="axialPos">Axial position.</param>
+        public static Vector3 AxialToCube (Vector2 axialPos)
+        {
+            return AxialToCube((int)axialPos.x, (int)axialPos.y);
+        }
+
+        /// <summary>
+        /// Converts from axual coordinate to cube coordinates.
+        /// </summary>
+        /// <returns>The to axial.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <param name="z">The z coordinate.</param>
+        public static Vector2 CubeToAxial(int x, int y, int z)
+        {
+            return new Vector2(x, z);
+        }
+
+        /// <summary>
+        /// Converst from cube coordinates to axial coordinates.
+        /// </summary>
+        /// <returns>The to axial.</returns>
+        /// <param name="cubePos">Cube position.</param>
+        public static Vector2 CubeToAxial (Vector3 cubePos)
+        {
+            return CubeToAxial((int)cubePos.x, (int)cubePos.y, (int)cubePos.z);
+        }
+    }
+}
+

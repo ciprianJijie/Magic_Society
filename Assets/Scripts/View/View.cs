@@ -3,17 +3,22 @@ using System;
 
 namespace MS.View
 {
-    public abstract class View : MonoBehaviour
+    public abstract class View<T> : MonoBehaviour where T : MS.Model.ModelElement
     {
-        /// <summary>
-        /// Inits this view, binding it to an element of the model.
-        /// Any changes made to the view should automatically update the model.
-        /// </summary>
-        /// <param name="model">Model's elemento to bind this view to.</param>
-        public abstract void Init(MS.Model.ModelElement model);
+        protected T m_model;
 
         /// <summary>
-        /// Updates the view to reflect the state of the model.
+        /// Binds this view with an element of the model, so what the view shows is
+        /// the information from the element of the model.
+        /// </summary>
+        /// <param name="model">Element of the model to show using this view.</param>
+        public void BindTo(T model)
+        {
+            m_model = model;
+        }
+
+        /// <summary>
+        /// Updates the view to show the state of the model.
         /// </summary>
         public abstract void UpdateView();
     }

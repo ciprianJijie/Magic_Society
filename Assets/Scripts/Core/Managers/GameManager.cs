@@ -4,14 +4,15 @@ using System.Collections;
 using MS.Model;
 using MS.Core;
 
-namespace MS.Managers
+namespace MS.Manager
 {
     public class GameManager : Singleton<GameManager>
     {
         #region Attributes
 
-        private static  Game            m_game;
-        private static  Scenario        m_currentScenario;
+        private static  Game    m_game;
+
+        public MS.View.MapView  m_map;
 
         #endregion
 
@@ -50,12 +51,16 @@ namespace MS.Managers
 
         public static void StartGame(string scenarioName)
         {
-            m_game              =   new Game();
-            m_currentScenario   =   new Scenario();
+            string filePath;
 
-            m_currentScenario.Load(MS.Utils.Path.ToScenario("TestScenario"));
+            filePath        =   MS.Utils.Path.ToScenario(scenarioName);
+            m_game          =   new Game();
+            m_game.Scenario =   new Scenario(filePath);
 
-            m_game.Scenario = m_currentScenario;
+            // TODO: Remove after testing
+            Instance.m_map.BindTo(m_game.Scenario.Map);
+            Instance.m_map.UpdateView();
+            // ---
         }
 
         #endregion

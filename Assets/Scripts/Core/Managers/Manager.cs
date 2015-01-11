@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace MS.Managers
+namespace MS.Manager
 {
     public abstract class Manager : MonoBehaviour
     {

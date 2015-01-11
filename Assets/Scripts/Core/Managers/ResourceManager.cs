@@ -2,7 +2,7 @@
 using System;
 using MS.Core;
 
-namespace MS.Managers
+namespace MS.Manager
 {
     public class ResourceManager : Singleton<ResourceManager>
     {

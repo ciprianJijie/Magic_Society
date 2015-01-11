@@ -13,6 +13,11 @@ namespace MS.Model
 
         }
 
+        public Scenario(string filePath)
+        {
+            this.Load(filePath);
+        }
+
         public void Load(string filePath)
         {
             string      jsonText;
