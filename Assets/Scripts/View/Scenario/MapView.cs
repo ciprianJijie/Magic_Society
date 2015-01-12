@@ -12,6 +12,7 @@ namespace MS.View
         /// Tile prefab used to instantiate new map tiles
         /// </summary>
         public TileView     TilePrefab;
+        public GameObject   SelectorPrefab;
 
         public int          TileWidth;
         public int          TileHeight;
@@ -19,7 +20,19 @@ namespace MS.View
 
         private TileView[,] m_tiles;
 
+        /// <summary>
+        /// Plane used to detect interaction between the cursor and the map.
+        /// </summary>
+        private Plane       m_plane;
+
+        /// <summary>
+        /// Visual selector for tiles
+        /// </summary>
+        private GameObject  m_selector;
+
         #endregion
+
+        #region Public Methods
 
         public override void UpdateView()
         {
@@ -43,6 +56,92 @@ namespace MS.View
                 }
             }
         }
+
+        /// <summary>
+        /// Calculates the nearest grid tile to the coordinates passed.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="cubePos">Cube position.</param>
+        public static Vector3 RoundToCube (Vector3 cubePos)
+        {
+            Vector3 pos;
+            
+            int rx = Mathf.RoundToInt (cubePos.x);
+            int ry = Mathf.RoundToInt (cubePos.y);
+            int rz = Mathf.RoundToInt (cubePos.z);
+            
+            float x_diff = Mathf.Abs (rx - cubePos.x);
+            float y_diff = Mathf.Abs (ry - cubePos.y);
+            float z_diff = Mathf.Abs (rz - cubePos.z);
+            
+            if (x_diff > y_diff && x_diff > z_diff)
+            {
+                rx = -ry - rz;
+            }
+            else if (y_diff > z_diff)
+            {
+                ry = -rx - rz;
+            }
+            else
+            {
+                rz = -rx - ry;
+            }
+            
+            pos = new Vector3 (rx, ry, rz);
+            
+            return pos;
+        }
+        
+        /// <summary>
+        /// Converts from axial coordinates to cube coordinates.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        public static Vector3 AxialToCube(float x, float y)
+        {
+            float cubeX = x;
+            float cubeZ = y;
+            float cubeY = - cubeX - cubeZ;
+            
+            return new Vector3 (cubeX, cubeY, cubeZ);
+        }
+        
+        /// <summary>
+        /// Converts from axial coordinates to cube coordinates.
+        /// </summary>
+        /// <returns>The to cube.</returns>
+        /// <param name="axialPos">Axial position.</param>
+        public static Vector3 AxialToCube (Vector2 axialPos)
+        {
+            return AxialToCube((int)axialPos.x, (int)axialPos.y);
+        }
+        
+        /// <summary>
+        /// Converts from axual coordinate to cube coordinates.
+        /// </summary>
+        /// <returns>The to axial.</returns>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <param name="z">The z coordinate.</param>
+        public static Vector2 CubeToAxial(int x, int y, int z)
+        {
+            return new Vector2(x, z);
+        }
+        
+        /// <summary>
+        /// Converst from cube coordinates to axial coordinates.
+        /// </summary>
+        /// <returns>The to axial.</returns>
+        /// <param name="cubePos">Cube position.</param>
+        public static Vector2 CubeToAxial (Vector3 cubePos)
+        {
+            return CubeToAxial((int)cubePos.x, (int)cubePos.y, (int)cubePos.z);
+        }
+
+        #endregion
+
+        #region Protected and private methods
 
         /// <summary>
         /// Creates a new tile to display information about a given tile of the map model.
@@ -78,6 +177,9 @@ namespace MS.View
         {
             Vector2 pos = new Vector2 (0.0f, 0.0f);
 
+            x = x - m_model.Grid.HorizontalSize / 2;
+            y = y - m_model.Grid.VerticalSize / 2;
+
             pos.x = this.transform.position.x + (TileWidth / 100.0f) * Mathf.Sqrt (3) * (x + (float)y / 2.0f);
             pos.y = this.transform.position.y + (TileHeight / 100.0f) * 3.0f / 2.0f * y;
 
@@ -105,15 +207,17 @@ namespace MS.View
         {
             Vector2 pos;
 
-            // We calculate the approximate location
-            float vertical;
-            float horizontal;
+            float approximateX;
+            float approximateY;
 
-            horizontal = 2.0f / 3.0f * x / TileSize - this.transform.position.x;
-            vertical = (1.0f / 3.0f * Mathf.Sqrt (3) * y - 1.0f / 3.0f * x) / TileSize - this.transform.position.y;
+            approximateX = ((float)x * Mathf.Sqrt(3) / 3.0f - (float)y / 3.0f) / (TileWidth / 100.0f) - this.transform.position.x;
+            approximateY = ((float)y * 2.0f / 3.0f ) / (TileHeight / 100.0f) - this.transform.position.y;
+
+            approximateX += m_model.Grid.HorizontalSize / 2;
+            approximateY += m_model.Grid.VerticalSize / 2;
 
             // And now we find the nearest hexagon to that position
-            Vector3 cubePos = AxialToCube ((int)horizontal, (int)vertical);
+            Vector3 cubePos = AxialToCube (approximateX, approximateY);
             cubePos = RoundToCube (cubePos);
 
             pos = CubeToAxial (cubePos);
@@ -131,87 +235,47 @@ namespace MS.View
             return WorldToLocal((int)worldPosition.x, (int)worldPosition.y, (int)worldPosition.z);
         }
 
-        /// <summary>
-        /// Calculates the nearest grid tile to the coordinates passed.
-        /// </summary>
-        /// <returns>The to cube.</returns>
-        /// <param name="cubePos">Cube position.</param>
-        public static Vector3 RoundToCube (Vector3 cubePos)
+        private void HandleInput()
         {
-            Vector3 pos;
+            Vector3     mousePos;
+            Ray         ray;
+            float       distance;
+            Vector2     hexSelected;
+            Vector3     finalPosition;
 
-            int rx = Mathf.RoundToInt (cubePos.x);
-            int ry = Mathf.RoundToInt (cubePos.y);
-            int rz = Mathf.RoundToInt (cubePos.z);
+            ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
 
-            float x_diff = Mathf.Abs (rx - cubePos.x);
-            float y_diff = Mathf.Abs (ry - cubePos.y);
-            float z_diff = Mathf.Abs (rz - cubePos.z);
-
-            if (x_diff > y_diff && x_diff > z_diff)
+            if (m_plane.Raycast (ray, out distance))
             {
-                rx = -ry - rz;
+                mousePos = ray.GetPoint (distance);
+
+                if (m_selector != null)
+                {
+                    hexSelected     =   WorldToLocal (mousePos);
+                    finalPosition   =   LocalToWorld(hexSelected);
+                    m_selector.transform.position = finalPosition;
+                }
             }
-            else if (y_diff > z_diff)
-            {
-                ry = -rx - rz;
-            }
-            else
-            {
-                rz = -rx - ry;
-            }
-
-            pos = new Vector3 (rx, ry, rz);
-
-            return pos;
         }
 
-        /// <summary>
-        /// Converts from axial coordinates to cube coordinates.
-        /// </summary>
-        /// <returns>The to cube.</returns>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
-        public static Vector3 AxialToCube(int x, int y)
+        #endregion
+
+        #region Unity methods
+
+        void Start()
         {
-            float cubeX = x;
-            float cubeZ = y;
-            float cubeY = - cubeX - cubeZ;
+            m_plane     =   new Plane (Vector3.back, this.transform.position);
+            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
 
-            return new Vector3 (cubeX, cubeY, cubeZ);
+            m_selector.transform.parent = this.transform;
         }
 
-        /// <summary>
-        /// Converts from axial coordinates to cube coordinates.
-        /// </summary>
-        /// <returns>The to cube.</returns>
-        /// <param name="axialPos">Axial position.</param>
-        public static Vector3 AxialToCube (Vector2 axialPos)
+        void LateUpdate()
         {
-            return AxialToCube((int)axialPos.x, (int)axialPos.y);
+            HandleInput();
         }
 
-        /// <summary>
-        /// Converts from axual coordinate to cube coordinates.
-        /// </summary>
-        /// <returns>The to axial.</returns>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
-        /// <param name="z">The z coordinate.</param>
-        public static Vector2 CubeToAxial(int x, int y, int z)
-        {
-            return new Vector2(x, z);
-        }
-
-        /// <summary>
-        /// Converst from cube coordinates to axial coordinates.
-        /// </summary>
-        /// <returns>The to axial.</returns>
-        /// <param name="cubePos">Cube position.</param>
-        public static Vector2 CubeToAxial (Vector3 cubePos)
-        {
-            return CubeToAxial((int)cubePos.x, (int)cubePos.y, (int)cubePos.z);
-        }
+        #endregion
     }
 }
 
