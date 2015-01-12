@@ -2,37 +2,27 @@
 using System;
 using System.Collections;
 using MS.Model;
+using MS.Core;
 
-namespace MS.Managers
+namespace MS.Manager
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
+        #region Attributes
+
+        private static  Game    m_game;
+
+        public MS.View.MapView  m_map;
+
+        #endregion
+
         #region Properties
-        public static GameManager Instance
-        {
-            get
-            {
-                if (m_instance == null)
-                {
-                    throw new NoInstance(null);
-                }
-                return m_instance;
-            }
-        }
 
         #endregion
 
         #region Monobehaviour methods
-        void Awake()
+        void Start()
         {
-            if (m_instance != null)
-            {
-                throw new AlreadyInstantiated(this);
-            }
-            MS.Debug.Core.Log("Game Manager singleton instantiated.");
-
-            m_instance = this;
-
             OnStart();
         }
 
@@ -61,22 +51,20 @@ namespace MS.Managers
 
         public static void StartGame(string scenarioName)
         {
-            m_game              =   new Game();
-            m_currentScenario   =   new Scenario();
+            string filePath;
 
-            m_currentScenario.Load(MS.Utils.Path.ToScenario("TestScenario"));
+            filePath        =   MS.Utils.Path.ToScenario(scenarioName);
+            m_game          =   new Game();
+            m_game.Scenario =   new Scenario(filePath);
 
-            m_game.Scenario = m_currentScenario;
+            // TODO: Remove after testing
+            Instance.m_map.BindTo(m_game.Scenario.Map);
+            Instance.m_map.UpdateView();
+            // ---
         }
 
         #endregion
 
-        #region Attributes
 
-        private static  GameManager     m_instance;
-        private static  Game            m_game;
-        private static  Scenario        m_currentScenario;
-
-        #endregion
     }	
 }

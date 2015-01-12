@@ -24,10 +24,10 @@
             [
                 [
                     { "terrain": "Grass" },
+                    { "terrain": "Mountain" },
                     { "terrain": "Grass" },
                     { "terrain": "Grass" },
-                    { "terrain": "Grass" },
-                    { "terrain": "Grass" }
+                    { "terrain": "Mountain" }
                 ],
                 [
                     { "terrain": "Water" },
@@ -38,24 +38,24 @@
                 ],
                 [
                     { "terrain": "Grass" },
+                    { "terrain": "Mountain" },
                     { "terrain": "Grass" },
                     { "terrain": "Grass" },
-                    { "terrain": "Grass" },
-                    { "terrain": "Grass" }
+                    { "terrain": "Mountain" }
                 ],
                 [
                     { "terrain": "Grass" },
                     { "terrain": "Grass" },
+                    { "terrain": "Forest" },
                     { "terrain": "Grass" },
-                    { "terrain": "Grass" },
-                    { "terrain": "Grass" }
+                    { "terrain": "Forest" }
                 ],
                 [
                     { "terrain": "Grass" },
+                    { "terrain": "Mountain" },
+                    { "terrain": "Forest" },
                     { "terrain": "Grass" },
-                    { "terrain": "Grass" },
-                    { "terrain": "Grass" },
-                    { "terrain": "Grass" }
+                    { "terrain": "Forest" }
                 ]            
             ]
         }
