@@ -257,8 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 11400000, guid: deef90e0f685e4739b7217a41f5d8df6, type: 2}
   SelectorPrefab: {fileID: 100000, guid: 9a380c1e969fe415aa1ff51403700469, type: 2}
-  TileWidth: 142
-  TileHeight: 142
+  TileWidth: 145
+  TileHeight: 115
   TileSize: 1
 --- !u!1 &1657160169
 GameObject:
