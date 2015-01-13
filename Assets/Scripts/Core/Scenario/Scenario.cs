@@ -24,14 +24,11 @@ namespace MS.Model
             JSONNode    root;
             JSONArray   playersArray;
 
-            if (System.IO.File.Exists(filePath) == false)
-            {
-                throw new MS.NoFileFound(filePath);
-            }
-
             MS.Debug.Core.Log("Parsing file " + filePath);
 
-            jsonText = System.IO.File.ReadAllText(filePath);
+            //jsonText = System.IO.File.ReadAllText(filePath);
+            TextAsset textAsset = (TextAsset)Resources.Load(filePath, typeof(TextAsset));
+            jsonText = textAsset.text;
 
             root = JSON.Parse(jsonText);
 
