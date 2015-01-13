@@ -263,21 +263,26 @@ namespace MS.View
             Ray         ray;
             float       distance;
 
+#if UNITY_STANDALONE
             ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
-
+            
             if (m_plane.Raycast (ray, out distance))
             {
                 mousePos = ray.GetPoint (distance);
-
-#if UNITY_STANDALONE
                 SelectTile(mousePos);
+            }
 #elif UNITY_ANDROID || UNITY_IOS
-                if (Input.GetMouseButton(0))
+            if (MS.Core.InputManager.GetButton("Touch"))
+            {
+                ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
+                
+                if (m_plane.Raycast (ray, out distance))
                 {
+                    mousePos = ray.GetPoint (distance);
                     SelectTile(mousePos);
                 }
-#endif
             }
+#endif
         }
 
         #endregion

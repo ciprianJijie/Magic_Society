@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 
 namespace MS.Core
 {
@@ -8,13 +9,20 @@ namespace MS.Core
         {
             get
             {
-                throw new NotImplementedException();
+                return Input.GetTouch(0).position;
             }
         }
 
         public override bool GetButton(string name)
         {
-            throw new NotImplementedException();
+            if (name == "Touch")
+            {
+                if (Input.touchCount > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
