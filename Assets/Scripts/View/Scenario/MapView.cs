@@ -16,7 +16,6 @@ namespace MS.View
 
         public int          TileWidth;
         public int          TileHeight;
-        public float        TileSize            =   1.0f;
 
         private TileView[,] m_tiles;
 
@@ -55,6 +54,29 @@ namespace MS.View
                     m_tiles[x, y] = tile;
                 }
             }
+        }
+
+        public void SelectTile(float x, float y)
+        {
+            Vector3 finalPosition;
+
+            finalPosition = LocalToWorld(x, y);
+            m_selector.transform.position = finalPosition;
+        }
+
+        public void SelectTile(float x, float y, float z)
+        {
+            SelectTile(WorldToLocal(x, y, z));
+        }
+
+        public void SelectTile(Vector3 worldPosition)
+        {
+            SelectTile(worldPosition.x, worldPosition.y, worldPosition.z);
+        }
+
+        public void SelectTile(Vector2 localPosition)
+        {
+            SelectTile((int)localPosition.x, (int)localPosition.y);
         }
 
         /// <summary>
@@ -173,14 +195,14 @@ namespace MS.View
         /// <returns>The to world.</returns>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        protected Vector3 LocalToWorld(int x, int y)
+        protected Vector3 LocalToWorld(float x, float y)
         {
             Vector2 pos = new Vector2 (0.0f, 0.0f);
 
             x = x - m_model.Grid.HorizontalSize / 2;
             y = y - m_model.Grid.VerticalSize / 2;
 
-            pos.x = this.transform.position.x + (TileWidth / 100.0f) * Mathf.Sqrt (3) * (x + (float)y / 2.0f);
+            pos.x = this.transform.position.x + (TileWidth / 100.0f) * Mathf.Sqrt (3) * (x + y / 2.0f);
             pos.y = this.transform.position.y + (TileHeight / 100.0f) * 3.0f / 2.0f * y;
 
             return pos;
@@ -193,7 +215,7 @@ namespace MS.View
         /// <param name="localPosition">Local position.</param>
         protected Vector3 LocalToWorld(Vector2 localPosition)
         {
-            return LocalToWorld((int)localPosition.x, (int)localPosition.y);
+            return LocalToWorld(localPosition.x, localPosition.y);
         }
 
         /// <summary>
@@ -203,15 +225,15 @@ namespace MS.View
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
         /// <param name="z">The z coordinate.</param>
-        protected Vector2 WorldToLocal(int x, int y, int z)
+        protected Vector2 WorldToLocal(float x, float y, float z)
         {
             Vector2 pos;
 
             float approximateX;
             float approximateY;
 
-            approximateX = ((float)x * Mathf.Sqrt(3) / 3.0f - (float)y / 3.0f) / (TileWidth / 100.0f) - this.transform.position.x;
-            approximateY = ((float)y * 2.0f / 3.0f ) / (TileHeight / 100.0f) - this.transform.position.y;
+            approximateX = (x * Mathf.Sqrt(3) / 3.0f - y / 3.0f) / (TileWidth / 100.0f) - this.transform.position.x;
+            approximateY = (y * 2.0f / 3.0f ) / (TileHeight / 100.0f) - this.transform.position.y;
 
             approximateX += m_model.Grid.HorizontalSize / 2;
             approximateY += m_model.Grid.VerticalSize / 2;
@@ -232,7 +254,7 @@ namespace MS.View
         /// <param name="worldPosition">World position.</param>
         protected Vector2 WorldToLocal(Vector3 worldPosition)
         {
-            return WorldToLocal((int)worldPosition.x, (int)worldPosition.y, (int)worldPosition.z);
+            return WorldToLocal(worldPosition.x, worldPosition.y, worldPosition.z);
         }
 
         private void HandleInput()
@@ -240,8 +262,6 @@ namespace MS.View
             Vector3     mousePos;
             Ray         ray;
             float       distance;
-            Vector2     hexSelected;
-            Vector3     finalPosition;
 
             ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
 
@@ -249,12 +269,14 @@ namespace MS.View
             {
                 mousePos = ray.GetPoint (distance);
 
-                if (m_selector != null)
+#if UNITY_STANDALONE
+                SelectTile(mousePos);
+#elif UNITY_ANDROID || UNITY_IOS
+                if (Input.GetMouseButton(0))
                 {
-                    hexSelected     =   WorldToLocal (mousePos);
-                    finalPosition   =   LocalToWorld(hexSelected);
-                    m_selector.transform.position = finalPosition;
+                    SelectTile(mousePos);
                 }
+#endif
             }
         }
 
