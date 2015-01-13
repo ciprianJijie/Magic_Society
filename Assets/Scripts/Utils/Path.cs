@@ -11,7 +11,7 @@ namespace MS.Utils
 		/// <param name="scenarioName">Name of the scenario, without .json. If the scenario is in a subfolder, include the folder name like '/subfolder/scenario'.</param>
 		public static string ToScenario(string scenarioName)
 		{
-			return Application.dataPath + "/Data/Scenarios/" + scenarioName + ".json";
+			return "Data/Scenarios/" + scenarioName;
 		}
 
 		/// <summary>
@@ -24,11 +24,11 @@ namespace MS.Utils
 		{
 			int minLength;
 
-			minLength = Application.dataPath.Length + scenarioName.Length + 24;
+			minLength = scenarioName.Length + 24;
 
 			buffer.Remove(0, buffer.Length);
 			buffer.EnsureCapacity(minLength);
-			buffer.AppendFormat("{0}/Data/Scenarios/{1}.json", Application.dataPath, scenarioName);
+			buffer.AppendFormat("Data/Scenarios/{0}", scenarioName);
 		}
 	}
 }

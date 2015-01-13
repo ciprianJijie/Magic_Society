@@ -259,7 +259,6 @@ MonoBehaviour:
   SelectorPrefab: {fileID: 100000, guid: 9a380c1e969fe415aa1ff51403700469, type: 2}
   TileWidth: 145
   TileHeight: 115
-  TileSize: 1
 --- !u!1 &1657160169
 GameObject:
   m_ObjectHideFlags: 0
