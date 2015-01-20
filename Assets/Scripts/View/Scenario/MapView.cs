@@ -54,6 +54,11 @@ namespace MS.View
                     m_tiles[x, y] = tile;
                 }
             }
+
+            m_plane     =   new Plane (Vector3.back, this.transform.position);
+            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
+
+            m_selector.transform.parent = this.transform;
         }
 
         public void SelectTile(float x, float y)
@@ -288,14 +293,6 @@ namespace MS.View
         #endregion
 
         #region Unity methods
-
-        void Start()
-        {
-            m_plane     =   new Plane (Vector3.back, this.transform.position);
-            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
-
-            m_selector.transform.parent = this.transform;
-        }
 
         void LateUpdate()
         {
