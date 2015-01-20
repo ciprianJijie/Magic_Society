@@ -4,11 +4,11 @@
     [
     	{
     		"name": "Player_01",
-    		"terrain": "Human"
+    		"type": "Human"
     	},
     	{
     		"name": "AI_01",
-    		"terrain": "AI"
+    		"type": "AI"
     	}
     ],
     "map":
@@ -58,6 +58,13 @@
                     { "terrain": "Forest" }
                 ]            
             ]
-        }
+        },
+        "elements":
+        [
+            {
+                "type": "City",
+                "location": { "x": 2, "y": 2}
+            }
+        ]
     }
 }

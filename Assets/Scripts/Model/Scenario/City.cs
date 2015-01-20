@@ -1,19 +1,20 @@
 ﻿using System;
+using UnityEngine;
 using SimpleJSON;
 
 namespace MS.Model
 {
-    public class AIPlayer : Player
+    public class City : MapElement
     {
-        public AIPlayer(JSONNode json)
-            : base(json)
+        public City(JSONNode json)
+            : base(json["location"]["x"].AsInt, json["location"]["y"].AsInt)
         {
-            MS.Debug.Core.Log("Created AI player " + Name);
+
         }
 
         public override void FromJSON(SimpleJSON.JSONNode node)
         {
-            this.m_name = node["name"];
+            throw new NotImplementedException();
         }
 
         public override SimpleJSON.JSONNode ToJSON()

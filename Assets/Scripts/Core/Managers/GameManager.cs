@@ -3,19 +3,12 @@ using System;
 using System.Collections;
 using MS.Model;
 using MS.Core;
+using SimpleJSON;
 
 namespace MS.Manager
 {
     public class GameManager : Singleton<GameManager>
     {
-        #region Attributes
-
-        private static  Game    m_game;
-
-        public MS.View.MapView  m_map;
-
-        #endregion
-
         #region Properties
 
         #endregion
@@ -51,20 +44,49 @@ namespace MS.Manager
 
         public static void StartGame(string scenarioName)
         {
-            string filePath;
+            string      filePath;
+            TextAsset   jsonFile;
+            string      jsonText;
+            JSONNode    json;
 
             filePath        =   MS.Utils.Path.ToScenario(scenarioName);
+            jsonFile        =   (TextAsset)Resources.Load(filePath, typeof(TextAsset));
+            jsonText        =   jsonFile.text;
+            json            =   JSON.Parse(jsonText);
             m_game          =   new Game();
-            m_game.Scenario =   new Scenario(filePath);
+            m_game.Scenario =   new Scenario(json);
 
             // TODO: Remove after testing
-            Instance.m_map.BindTo(m_game.Scenario.Map);
-            Instance.m_map.UpdateView();
+            Instance.m_mapView.BindTo(m_game.Scenario.Map);
+            Instance.m_mapView.UpdateView();
             // ---
+        }
+
+        /// <summary>
+        /// Searchs for a player with the given name that is playing the game in this scenario.
+        /// </summary>
+        /// <returns>The player.</returns>
+        /// <param name="name">Name of the player to search for.</param>
+        public static MS.Model.Player GetPlayer(string name)
+        {
+            for (int playerIndex = 0; playerIndex < m_game.Scenario.Players.Length; ++playerIndex)
+            {
+                if (m_game.Scenario.Players[playerIndex].Name == name)
+                {
+                    return m_game.Scenario.Players[playerIndex];
+                }
+            }
+            throw new Exceptions.PlayerNotFound(name);
         }
 
         #endregion
 
+        #region Attributes
 
+        private static  Game    m_game;
+
+        public MS.View.MapView  m_mapView;
+
+        #endregion
     }	
 }

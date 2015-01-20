@@ -1,19 +1,24 @@
 ﻿using System;
+using SimpleJSON;
 
 namespace MS.Model
 {
     public class HumanPlayer : Player
     {
-        public HumanPlayer()
-            : base()
+        public HumanPlayer(JSONNode json)
+            : base(json)
         {
-            MS.Debug.Core.Log("Creating unnamed human player");
+            MS.Debug.Core.Log("Created human player " + Name);
         }
 
-        public HumanPlayer(string name)
-            : base(name)
+        public override void FromJSON(JSONNode node)
         {
-            MS.Debug.Core.Log("Creating human player " + name);
+            this.m_name = node["name"];
+        }
+
+        public override JSONNode ToJSON()
+        {
+            throw new NotImplementedException();
         }
     }
 }
