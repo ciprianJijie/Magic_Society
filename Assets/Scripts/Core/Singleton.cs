@@ -32,7 +32,7 @@ namespace MS.Core
         {
             if (m_instance != null)
             {
-                throw new AlreadyInstantiated(this);
+                throw new Exceptions.AlreadyInstantiated(this);
             }
 
             m_instance = this as T;

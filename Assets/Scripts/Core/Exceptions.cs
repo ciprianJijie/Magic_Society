@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MS
+namespace MS.Exceptions
 {
 	public class NoInstance : Exception
 	{
@@ -31,6 +31,30 @@ namespace MS
     {
         public FailedToParseJSON(string filePath)
             : base("Failed to parse JSON file " + filePath)
+        {
+
+        }
+    }
+
+    public class PlayerNotFound : Exception
+    {
+        public PlayerNotFound(string playerName)
+            : base ("No player named " + playerName + " exists in the current game")
+        {
+
+        }
+    }
+
+    public class FactoryMethodWrongType : Exception
+    {
+        public FactoryMethodWrongType(Type classType)
+            : base("Factory method can't create an object of class " + classType)
+        {
+
+        }
+
+        public FactoryMethodWrongType(string typeName)
+            : base("Factory method can't create an object of class " + typeName)
         {
 
         }

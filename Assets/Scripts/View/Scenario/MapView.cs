@@ -54,6 +54,11 @@ namespace MS.View
                     m_tiles[x, y] = tile;
                 }
             }
+
+            m_plane     =   new Plane (Vector3.back, this.transform.position);
+            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
+
+            m_selector.transform.parent = this.transform;
         }
 
         public void SelectTile(float x, float y)
@@ -263,7 +268,7 @@ namespace MS.View
             Ray         ray;
             float       distance;
 
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
             ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
             
             if (m_plane.Raycast (ray, out distance))
@@ -288,14 +293,6 @@ namespace MS.View
         #endregion
 
         #region Unity methods
-
-        void Start()
-        {
-            m_plane     =   new Plane (Vector3.back, this.transform.position);
-            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
-
-            m_selector.transform.parent = this.transform;
-        }
 
         void LateUpdate()
         {

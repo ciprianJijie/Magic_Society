@@ -6,65 +6,34 @@ using SimpleJSON;
 
 namespace MS.Model
 {
-    public class Scenario
+    public class Scenario : ModelElement
     {
-        public Scenario()
+
+        public Scenario(JSONNode node)
         {
+            FromJSON(node);
+        }
+
+        public override void FromJSON(JSONNode node)
+        {
+            JSONArray playersArray;
+
+            Map             =   new Map(node["map"]);
+            Name            =   node["name"];
+            playersArray    =   node["players"].AsArray;
+            Players         =   new Player[playersArray.Count];
+
+            for (int playerIndex = 0; playerIndex < playersArray.Count; ++playerIndex)
+            {
+                Players[playerIndex] = Player.Create(playersArray[playerIndex]);
+            }
+
 
         }
 
-        public Scenario(string filePath)
+        public override JSONNode ToJSON()
         {
-            this.Load(filePath);
-        }
-
-        public void Load(string filePath)
-        {
-            string      jsonText;
-            JSONNode    root;
-            JSONArray   playersArray;
-
-            MS.Debug.Core.Log("Parsing file " + filePath);
-
-            //jsonText = System.IO.File.ReadAllText(filePath);
-            TextAsset textAsset = (TextAsset)Resources.Load(filePath, typeof(TextAsset));
-            jsonText = textAsset.text;
-
-            root = JSON.Parse(jsonText);
-
-            if (root == null)
-            {
-                throw new MS.FailedToParseJSON(filePath);
-            }
-
-            Name            =   root["name"];
-            playersArray    =   root["players"].AsArray;
-            Players         =   new MS.Model.Player[playersArray.Count];
-
-            JSONNode node;
-            string playerName;
-            string playerType;
-
-            for (int index = 0; index < playersArray.Count; ++index)
-            {
-                node        =   playersArray[index];
-                playerName  =   node["name"].Value;
-                playerType  =   node["type"].Value;
-
-                if (playerType == "Human")
-                {
-                    Players[index] = new Model.HumanPlayer(playerName);
-                }
-                else if (playerType == "AI")
-                {
-                    Players[index] = new Model.AIPlayer(playerName);
-                }
-            }
-
-            Map = new Map(root["map"]);
-
-            MS.Debug.Core.Log("Loaded scenario " + Name);
-            MS.Debug.Core.Log(Map);
+            throw new System.NotImplementedException();
         }
 
         public string Name;

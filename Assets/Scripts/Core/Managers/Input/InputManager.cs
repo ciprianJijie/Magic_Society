@@ -9,7 +9,7 @@ namespace MS.Core
 
         void Start()
         {
-            #if UNITY_STANDALONE
+            #if UNITY_STANDALONE || UNITY_EDITOR
             m_input = new DesktopInput();
             #elif UNITY_IOS || UNITY_ANDROID
             m_input = new TouchInput();

@@ -5,58 +5,37 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 namespace MS.Model
 {
-    [Serializable, XmlRoot("Player")]
-    public class Player
+    public abstract class Player : ModelElement
     {
         #region Constructors, Destructor, ...
-        public Player()
+
+        public Player(JSONNode json)
         {
+            FromJSON(json);
         }
 
-        public Player(string name)
-        {
-            m_name = name;
-        }
         #endregion
 
         #region Static methods
-        public static void ToXML(Player player, string filePath)
+        /// <summary>
+        /// Factory method to create different types of players.
+        /// </summary>
+        /// <param name="json">Json.</param>
+        public static Player Create(JSONNode json)
         {
-            XmlSerializer serializer;
-            string path;
-            FileStream stream;
-
-            serializer  =   new XmlSerializer(typeof(Player));
-            path        =   Application.dataPath + filePath;
-            stream      =   new FileStream(path, FileMode.Create);
-
-            MS.Debug.Core.Log("Writting file " + path);
-
-            serializer.Serialize(stream, player);
-            stream.Close();
-        }
-
-        public static Player FromXML(string filePath)
-        {
-            XmlSerializer serializer;
-            FileStream stream;
-            string path;
-            Player dataRead;
-
-            serializer  =   new XmlSerializer(typeof(Player));
-            path        =   Application.dataPath + filePath;
-            stream      =   new FileStream(path, FileMode.Open);
-
-            MS.Debug.Core.Log("Reading file " + path);
-
-            dataRead    =   serializer.Deserialize(stream) as Player;
-
-            stream.Close();
-
-            return dataRead;
+            if (json["type"].Value == "Human")
+            {
+                return new HumanPlayer(json);
+            }
+            else if (json["type"].Value == "AI")
+            {
+                return new AIPlayer(json);
+            }
+            throw new Exceptions.FactoryMethodWrongType(json["type"]);
         }
 
         #endregion
