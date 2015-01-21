@@ -268,7 +268,7 @@ namespace MS.View
             Ray         ray;
             float       distance;
 
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
             ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
             
             if (m_plane.Raycast (ray, out distance))

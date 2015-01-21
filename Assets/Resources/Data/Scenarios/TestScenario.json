@@ -63,7 +63,8 @@
         [
             {
                 "type": "City",
-                "location": { "x": 2, "y": 2}
+                "location": { "x": 2, "y": 2},
+                "population": 2
             }
         ]
     }

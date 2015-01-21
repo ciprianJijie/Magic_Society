@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 namespace MS.Model
 {
 	public class Map : ModelElement
 	{
-		public HexGrid Grid;
-
 		public Map(SimpleJSON.JSONNode json)
 		{
 			FromJSON(json);
@@ -15,6 +14,13 @@ namespace MS.Model
 		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
 			Grid = new HexGrid(json["grid"]);
+
+            m_elements = new List<MapElement>(json["elements"].Count);
+
+            foreach (JSONNode element in json["elements"].AsArray)
+            {
+                m_elements.Add(MapElement.Create(element));
+            }
 		}
 
 		public override SimpleJSON.JSONNode ToJSON()
@@ -42,5 +48,14 @@ namespace MS.Model
 
 			return str;
 		}
+
+        #region Attributes
+
+        public HexGrid Grid;
+
+        private List<MapElement> m_elements;
+
+
+        #endregion
 	}
 }

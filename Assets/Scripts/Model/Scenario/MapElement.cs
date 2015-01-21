@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using SimpleJSON;
 
 namespace MS.Model
 {
@@ -7,10 +8,20 @@ namespace MS.Model
     {
         public MapElement(int x, int y)
         {
-            Position = new Vector2(x, y);
+            Location = new Vector2(x, y);
         }
 
-        public Vector2 Position;
+        public static MapElement Create(JSONNode node)
+        {
+            if (node["type"].Value == "City")
+            {
+                return new City(node);
+            }
+
+            throw new Exceptions.FactoryMethodWrongType(node["type"].Value);
+        }
+
+        public Vector2 Location;
     }
 }
 
