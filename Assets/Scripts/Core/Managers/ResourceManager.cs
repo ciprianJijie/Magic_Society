@@ -15,6 +15,9 @@ namespace MS.Manager
         public Sprite WaterTile;
         public Sprite NoneTile;
 
+        public Sprite CityElement;
+        public Sprite NoneElement;
+
         #endregion
 
         #region Public Methods
@@ -30,6 +33,16 @@ namespace MS.Manager
 
                 default:                                    return Instance.NoneTile;
             }
+        }
+
+        public static Sprite GetSprite(MS.Model.MapElement element)
+        {
+            if (element is MS.Model.City)
+            {
+                return Instance.CityElement;
+            }
+
+            return Instance.NoneElement;
         }
 
         #endregion

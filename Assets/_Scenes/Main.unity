@@ -74,6 +74,69 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &82877381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 82877382}
+  - 108: {fileID: 82877383}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82877382
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82877381}
+  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1492585046}
+  m_RootOrder: 0
+--- !u!108 &82877383
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82877381}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &234263971
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,11 +273,39 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1110060527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: .382683456, y: 0, z: 0, w: .923879504}
+  m_LocalPosition: {x: 0, y: 5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234263972}
+  m_RootOrder: 0
+--- !u!1 &1492585045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1492585046}
+  m_Layer: 0
+  m_Name: Lightning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1492585046
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1492585045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 82877382}
+  m_Father: {fileID: 1691672730}
   m_RootOrder: 0
 --- !u!1 &1643960317
 GameObject:
@@ -243,7 +334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1691672730}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1643960319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,10 +346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5688a838ea6b24728aecfdf6c5f6d9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 11400000, guid: deef90e0f685e4739b7217a41f5d8df6, type: 2}
-  SelectorPrefab: {fileID: 100000, guid: 9a380c1e969fe415aa1ff51403700469, type: 2}
-  TileWidth: 145
-  TileHeight: 115
+  GrassTilePrefab: {fileID: 11493038, guid: 88c737d0ae29e482fad8f549be6ca612, type: 2}
+  WaterTilePrefab: {fileID: 11429464, guid: e70880b07dc1441ce92f9e5a422adaae, type: 2}
+  MountainTilePrefab: {fileID: 11460280, guid: 1d059eb85780e424bb32dd7f536c95fc, type: 2}
+  MissingTilePrefab: {fileID: 0}
+  CityPrefab: {fileID: 0}
+  SelectorPrefab: {fileID: 0}
+  TileWidth: .86500001
+  TileHeight: .850000024
 --- !u!1 &1657160169
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +398,8 @@ MonoBehaviour:
   MountainTile: {fileID: 21300000, guid: a4c4137c1428642c29224d33ce4af64c, type: 3}
   WaterTile: {fileID: 21300000, guid: e13f3f6f922d94cec901a30e9bdd6beb, type: 3}
   NoneTile: {fileID: 21300000, guid: c7d5102d7301d4245aaafa316f2d6f86, type: 3}
+  CityElement: {fileID: 21300000, guid: 5ea7b10bb37024b53b520589a4dabfb7, type: 3}
+  NoneElement: {fileID: 21300000, guid: 351ad82b8dfae4bd083915a64ebe91c9, type: 3}
 --- !u!1 &1691672729
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +425,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1492585046}
   - {fileID: 1643960318}
   m_Father: {fileID: 0}
   m_RootOrder: 2
