@@ -11,16 +11,11 @@ namespace MS.View
         /// <summary>
         /// Tile prefab used to instantiate new map tiles
         /// </summary>
-        public GrassTileView    GrassTilePrefab;
-        public WaterTileView    WaterTilePrefab;
-        public MountainTileView MountainTilePrefab;
-        public TileView         MissingTilePrefab;
+        public TileView     TilePrefab;
+        public GameObject   SelectorPrefab;
 
-        public CityView         CityPrefab;
-        public GameObject       SelectorPrefab;
-
-        public float            TileWidth;
-        public float            TileHeight;
+        public int          TileWidth;
+        public int          TileHeight;
 
         private TileView[,] m_tiles;
 
@@ -60,19 +55,7 @@ namespace MS.View
                 }
             }
 
-            foreach (MS.Model.MapElement element in m_model.Elements)
-            {
-                if (element is MS.Model.City)
-                {
-                    CityView city;
-
-                    city = CreateCity(element as MS.Model.City);
-
-                    city.UpdateView();
-                }
-            }
-
-            m_plane     =   new Plane (this.transform.up, this.transform.position);
+            m_plane     =   new Plane (Vector3.back, this.transform.position);
             m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
 
             m_selector.transform.parent = this.transform;
@@ -199,27 +182,9 @@ namespace MS.View
             GameObject  obj;
             TileView    tile;
             Vector3     worldPosition;
-            TileView    tilePrefab;
 
             worldPosition   =   LocalToWorld(x, y);
-
-            tilePrefab = GrassTilePrefab;
-            switch (model.Type)
-            {
-                case MS.Model.Tile.TerrainType.Grass:
-                    tilePrefab = GrassTilePrefab;
-                    break;
-
-                case MS.Model.Tile.TerrainType.Water:
-                    tilePrefab = WaterTilePrefab;
-                    break;
-
-                case MS.Model.Tile.TerrainType.Mountain:
-                    tilePrefab = MountainTilePrefab;
-                    break;
-            }
-
-            obj             =   Instantiate(tilePrefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
+            obj             =   Instantiate(TilePrefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
             tile            =   obj.GetComponent<TileView>();
 
             tile.BindTo(model);
@@ -227,23 +192,6 @@ namespace MS.View
             tile.gameObject.name = string.Format("Tile ({0},{1}) @ {2}", x, y, model.Type);
 
             return tile;
-        }
-
-        protected CityView CreateCity(MS.Model.City model)
-        {
-            GameObject  obj;
-            CityView    city;
-            Vector3     worldPosition;
-
-            worldPosition   =   LocalToWorld(model.Location);
-            obj             =   Instantiate(CityPrefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
-            city            =   obj.GetComponent<CityView>();
-
-            city.BindTo(model);
-            city.transform.parent = this.transform;
-            city.gameObject.name = string.Format("City @ {0}", model.Location);
-
-            return city;
         }
 
         /// <summary>
@@ -254,13 +202,13 @@ namespace MS.View
         /// <param name="y">The y coordinate.</param>
         protected Vector3 LocalToWorld(float x, float y)
         {
-            Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
+            Vector2 pos = new Vector2 (0.0f, 0.0f);
 
             x = x - m_model.Grid.HorizontalSize / 2;
             y = y - m_model.Grid.VerticalSize / 2;
 
-            pos.x = this.transform.position.x + TileWidth * Mathf.Sqrt (3) * (x + y / 2.0f);
-            pos.z = this.transform.position.y + TileHeight * 3.0f / 2.0f * y;
+            pos.x = this.transform.position.x + (TileWidth / 100.0f) * Mathf.Sqrt (3) * (x + y / 2.0f);
+            pos.y = this.transform.position.y + (TileHeight / 100.0f) * 3.0f / 2.0f * y;
 
             return pos;
         }
@@ -289,8 +237,8 @@ namespace MS.View
             float approximateX;
             float approximateY;
 
-            approximateX = (x * Mathf.Sqrt(3) / 3.0f - y / 3.0f) / TileWidth - this.transform.position.x;
-            approximateY = (y * 2.0f / 3.0f ) / TileHeight - this.transform.position.y;
+            approximateX = (x * Mathf.Sqrt(3) / 3.0f - y / 3.0f) / (TileWidth / 100.0f) - this.transform.position.x;
+            approximateY = (y * 2.0f / 3.0f ) / (TileHeight / 100.0f) - this.transform.position.y;
 
             approximateX += m_model.Grid.HorizontalSize / 2;
             approximateY += m_model.Grid.VerticalSize / 2;
