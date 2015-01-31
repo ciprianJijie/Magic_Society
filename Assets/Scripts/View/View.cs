@@ -20,7 +20,7 @@ namespace MS.View
         /// <summary>
         /// Updates the view to show the state of the model.
         /// </summary>
-        public abstract void UpdateView();
+        public virtual void UpdateView() {}
     }
 }
 

@@ -8,37 +8,54 @@ namespace MS.View
     {
         #region Attributes
 
-        /// <summary>
-        /// Tile prefab used to instantiate new map tiles
-        /// </summary>
-        public TileView     TilePrefab;
-        public GameObject   SelectorPrefab;
+        // Tiles
+        public GameObject           TilesContainer;
+        public GrassTileView        GrassTilePrefab;
+        public WaterTileView        WaterTilePrefab;
+        public MountainTileView     MountainTilePrefab;
+        public ForestTileView       ForestTilePrefab;
+        // ---
 
-        public int          TileWidth;
-        public int          TileHeight;
+        // Elements
+        public GameObject           ElementsContainer;           
+        public CityView             HumanCityPrefab;
+        public MapElementView       MissingElementPrefab;
+        // ---
 
-        private TileView[,] m_tiles;
+        public GameObject           SelectorPrefab;
+
+        public int                  TileWidth;
+        public int                  TileHeight;
+
+        private TileView[,]         m_tiles;
+        private MapElementView[,]   m_elements;
 
         /// <summary>
         /// Plane used to detect interaction between the cursor and the map.
         /// </summary>
-        private Plane       m_plane;
+        private Plane               m_plane;
 
         /// <summary>
         /// Visual selector for tiles
         /// </summary>
-        private GameObject  m_selector;
+        private GameObject          m_selector;
 
         #endregion
 
         #region Public Methods
 
+        /// <summary>
+        /// Updates the view to show the state of the model.
+        /// </summary>
         public override void UpdateView()
         {
-            this.transform.RemoveChildren();
+            TilesContainer.transform.RemoveChildren();
+            ElementsContainer.transform.RemoveChildren();
 
-            m_tiles = new TileView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
+            m_tiles     =   new TileView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
+            m_elements  =   new MapElementView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
 
+            Resources.UnloadUnusedAssets();
             System.GC.Collect();
 
             for (int y = 0; y < m_model.Grid.VerticalSize; ++y)
@@ -49,18 +66,39 @@ namespace MS.View
 
                     tile = CreateTile(m_model.Grid[x,y], x, y);
 
+                    tile.Location = new Vector2(x, y);
                     tile.UpdateView();
 
                     m_tiles[x, y] = tile;
                 }
             }
 
+            foreach (Model.MapElement element in this.m_model.Elements)
+            {
+                MapElementView view;
+
+                view = CreateElement(element);
+
+                view.UpdateView();
+
+                m_elements[(int)element.Location.x, (int)element.Location.y] = view;
+            }
+
             m_plane     =   new Plane (Vector3.back, this.transform.position);
             m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
 
             m_selector.transform.parent = this.transform;
+
+            // Add it to the static batching system
+            //StaticBatchingUtility.Combine(TilesContainer);
+            //StaticBatchingUtility.Combine(ElementsContainer);
         }
 
+        /// <summary>
+        /// Selects a given tile, positioning the selection marker over it.
+        /// </summary>
+        /// <param name="x">The x map local coordinate.</param>
+        /// <param name="y">The y map local coordinate.</param>
         public void SelectTile(float x, float y)
         {
             Vector3 finalPosition;
@@ -69,16 +107,30 @@ namespace MS.View
             m_selector.transform.position = finalPosition;
         }
 
+        /// <summary>
+        /// Selects a tile given world coordinates.
+        /// </summary>
+        /// <param name="x">The x world coordinate.</param>
+        /// <param name="y">The y world coordinate.</param>
+        /// <param name="z">The z world coordinate.</param>
         public void SelectTile(float x, float y, float z)
         {
             SelectTile(WorldToLocal(x, y, z));
         }
 
+        /// <summary>
+        /// Selects the tile in a given position.
+        /// </summary>
+        /// <param name="worldPosition">World position.</param>
         public void SelectTile(Vector3 worldPosition)
         {
             SelectTile(worldPosition.x, worldPosition.y, worldPosition.z);
         }
 
+        /// <summary>
+        /// Selects the tile at a map local position.
+        /// </summary>
+        /// <param name="localPosition">Local position.</param>
         public void SelectTile(Vector2 localPosition)
         {
             SelectTile((int)localPosition.x, (int)localPosition.y);
@@ -180,18 +232,94 @@ namespace MS.View
         protected TileView CreateTile(MS.Model.Tile model, int x, int y)
         {
             GameObject  obj;
+            TileView    prefab;
             TileView    tile;
             Vector3     worldPosition;
 
+            prefab = SelectPrefab(model.Type);
+
             worldPosition   =   LocalToWorld(x, y);
-            obj             =   Instantiate(TilePrefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
+            obj             =   Instantiate(prefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
             tile            =   obj.GetComponent<TileView>();
 
             tile.BindTo(model);
-            tile.transform.parent = this.transform;
+            tile.transform.parent = TilesContainer.transform;
             tile.gameObject.name = string.Format("Tile ({0},{1}) @ {2}", x, y, model.Type);
 
             return tile;
+        }
+
+        /// <summary>
+        /// Creates a map element that can be placed in the map.
+        /// </summary>
+        /// <returns>The element.</returns>
+        /// <param name="model">Model.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        protected MapElementView CreateElement(MS.Model.MapElement model)
+        {
+            GameObject      obj;
+            MapElementView  prefab;
+            MapElementView  element;
+            Vector3         worldPosition;
+            float x;
+            float y;
+
+            try
+            {
+                prefab = SelectPrefab(model);
+            }
+            catch (Exceptions.WrongType ex)
+            {
+                prefab = MissingElementPrefab;
+                MS.Debug.Core.LogError(ex.Message);
+            }
+
+            x               =   model.Location.x;
+            y               =   model.Location.y;
+            worldPosition   =   LocalToWorld(x, y);
+            obj             =   Instantiate(prefab.gameObject, worldPosition, Quaternion.identity) as GameObject;
+            element         =   obj.GetComponent<MapElementView>();
+
+            element.BindTo(model);
+            element.transform.parent = ElementsContainer.transform;
+            element.gameObject.name = element.ToString();
+
+            return element;
+        }
+
+        /// <summary>
+        /// Selects what prefab use to represent a given type of terrain.
+        /// </summary>
+        /// <returns>The prefab that should be used to represent the terrain type.</returns>
+        /// <param name="terrain">Terrain type we want to know the prefab to use.</param>
+        protected TileView SelectPrefab(MS.Model.Tile.TerrainType terrain)
+        {
+            switch (terrain)
+            {
+                case MS.Model.Tile.TerrainType.Grass:       return GrassTilePrefab;
+                case MS.Model.Tile.TerrainType.Water:       return WaterTilePrefab;
+                case MS.Model.Tile.TerrainType.Mountain:    return MountainTilePrefab;
+                case MS.Model.Tile.TerrainType.Forest:      return ForestTilePrefab;
+                default:                                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Selects the prefab to represent the map element specified.
+        /// </summary>
+        /// <returns>The prefab.</returns>
+        /// <param name="model">Model.</param>
+        protected MapElementView SelectPrefab(MS.Model.MapElement model)
+        {
+            if (model is Model.City)
+            {
+                return HumanCityPrefab;
+            }
+            else
+            {
+                throw new Exceptions.WrongType(model, typeof(MS.Model.MapElement));
+            }
         }
 
         /// <summary>
