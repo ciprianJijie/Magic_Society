@@ -59,4 +59,13 @@ namespace MS.Exceptions
 
         }
     }
+
+    public class WrongType : Exception
+    {
+        public WrongType(object obj, Type baseClass)
+            : base("Object " + obj + " is not of type " + baseClass + " neither it derives from it.")
+        {
+
+        }
+    }
 }

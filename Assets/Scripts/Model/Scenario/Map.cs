@@ -15,11 +15,11 @@ namespace MS.Model
 		{
 			Grid = new HexGrid(json["grid"]);
 
-            m_elements = new List<MapElement>(json["elements"].Count);
+            Elements = new List<MapElement>(json["elements"].Count);
 
             foreach (JSONNode element in json["elements"].AsArray)
             {
-                m_elements.Add(MapElement.Create(element));
+                Elements.Add(MapElement.Create(element));
             }
 		}
 
@@ -53,7 +53,7 @@ namespace MS.Model
 
         public HexGrid Grid;
 
-        private List<MapElement> m_elements;
+        public List<MapElement> Elements;
 
 
         #endregion

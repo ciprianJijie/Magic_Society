@@ -41,3 +41,15 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Map Tiles
+    userID: 1
+    uniqueID: 2364776653
+    locked: 0
+  - name: Map Elements
+    userID: 2
+    uniqueID: 3221295361
+    locked: 0
+  - name: UI
+    userID: 3
+    uniqueID: 2806194697
+    locked: 0

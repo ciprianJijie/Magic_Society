@@ -74,6 +74,33 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &71196143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 71196144}
+  m_Layer: 0
+  m_Name: Tiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &71196144
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 71196143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1643960318}
+  m_RootOrder: 0
 --- !u!1 &234263971
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +208,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -241,7 +268,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 71196144}
+  - {fileID: 1999302991}
   m_Father: {fileID: 1691672730}
   m_RootOrder: 0
 --- !u!114 &1643960319
@@ -255,7 +284,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5688a838ea6b24728aecfdf6c5f6d9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 11400000, guid: deef90e0f685e4739b7217a41f5d8df6, type: 2}
+  TilesContainer: {fileID: 71196143}
+  GrassTilePrefab: {fileID: 11436686, guid: 22dc18bbbdc8a4a6885f8fdf968a4263, type: 2}
+  WaterTilePrefab: {fileID: 11433796, guid: d766fb45b42bf42b4b2db103de226152, type: 2}
+  MountainTilePrefab: {fileID: 11460052, guid: 16cbc1c6c1a3c48438156a21f5e9a220, type: 2}
+  ForestTilePrefab: {fileID: 11442996, guid: 232964e83c7c54e3a992d33f979b2de1, type: 2}
+  ElementsContainer: {fileID: 1999302990}
+  HumanCityPrefab: {fileID: 11432802, guid: 104e000fb2a364b9da402dcaa24af6a8, type: 2}
+  MissingElementPrefab: {fileID: 11449156, guid: 95dfaac9065f148ee908f061d0447c96,
+    type: 2}
   SelectorPrefab: {fileID: 100000, guid: 9a380c1e969fe415aa1ff51403700469, type: 2}
   TileWidth: 145
   TileHeight: 115
@@ -370,6 +407,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 809093985}
   m_RootOrder: 2
+--- !u!1 &1999302990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1999302991}
+  m_Layer: 0
+  m_Name: Elements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999302991
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1999302990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1643960318}
+  m_RootOrder: 1
 --- !u!1 &2001885816
 GameObject:
   m_ObjectHideFlags: 0
