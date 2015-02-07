@@ -90,8 +90,8 @@ namespace MS.View
             m_selector.transform.parent = this.transform;
 
             // Add it to the static batching system
-            //StaticBatchingUtility.Combine(TilesContainer);
-            //StaticBatchingUtility.Combine(ElementsContainer);
+            StaticBatchingUtility.Combine(TilesContainer);
+            StaticBatchingUtility.Combine(ElementsContainer);
         }
 
         /// <summary>
