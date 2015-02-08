@@ -9,10 +9,6 @@ namespace MS.Manager
 {
     public class GameManager : Singleton<GameManager>
     {
-        #region Properties
-
-        #endregion
-
         #region Monobehaviour methods
         void Start()
         {
@@ -81,12 +77,20 @@ namespace MS.Manager
 
         #endregion
 
-        #region Attributes
+        #region Attributes and properties
+
+        public static Game Game
+        {
+            get
+            {
+                return m_game;
+            }
+        }
 
         private static  Game    m_game;
 
         public MS.View.MapView  m_mapView;
 
         #endregion
-    }	
+    }
 }

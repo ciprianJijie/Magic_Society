@@ -13,14 +13,19 @@ namespace MS.Model
 
 		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
-			Grid = new HexGrid(json["grid"]);
-
-            Elements = new List<MapElement>(json["elements"].Count);
+			Grid 		= 	new HexGrid(json["grid"]);
+            Elements 	= 	new List<MapElement>(json["elements"].Count);
+			Resources 	=	new List<GameResource>(json["resources"].Count);
 
             foreach (JSONNode element in json["elements"].AsArray)
             {
                 Elements.Add(MapElement.Create(element));
             }
+
+			foreach (JSONNode resourceNode in json["resources"].AsArray)
+			{
+				Resources.Add(GameResource.Create(resourceNode));
+			}
 		}
 
 		public override SimpleJSON.JSONNode ToJSON()
@@ -53,7 +58,8 @@ namespace MS.Model
 
         public HexGrid Grid;
 
-        public List<MapElement> Elements;
+        public List<MapElement> 	Elements;
+		public List<GameResource>	Resources;
 
 
         #endregion
