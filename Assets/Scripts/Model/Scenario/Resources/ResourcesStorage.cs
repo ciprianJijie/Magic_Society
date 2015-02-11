@@ -29,7 +29,6 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
-            MS.Debug.Core.Log("Trying to load resource " + json["resource"]);
             Resource = GameManager.Game.Scenario.Map.GetResource(json["resource"].Value);
             m_amount = json["amount"].AsInt;
         }
@@ -44,6 +43,10 @@ namespace MS.Model
             return json;
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} x{1}", Resource.Name, m_amount);
+        }
 
         public GameResource Resource;
         private int         m_amount;

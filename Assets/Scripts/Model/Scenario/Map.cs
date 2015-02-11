@@ -9,7 +9,7 @@ namespace MS.Model
 	{
 		public Map()
 		{
-			
+
 		}
 
 		public Map(SimpleJSON.JSONNode json)
@@ -45,7 +45,15 @@ namespace MS.Model
 
 		public GameResource GetResource(string name)
 		{
-			return Resources.Where(i => i.Name == name) as GameResource;
+			foreach (GameResource resource in Resources)
+			{
+				if (resource.Name == name)
+				{
+					return resource;
+				}
+			}
+
+			throw new Exceptions.ResourceNotFound(name);
 		}
 
 		public override string ToString()

@@ -77,4 +77,13 @@ namespace MS.Exceptions
 
 		}
 	}
+
+	public class ResourceNotFound : Exception
+	{
+		public ResourceNotFound(string name)
+		: base ("No resource named " + name + " is registered for this map")
+		{
+			
+		}
+	}
 }

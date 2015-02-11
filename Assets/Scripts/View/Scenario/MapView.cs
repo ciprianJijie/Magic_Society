@@ -19,6 +19,7 @@ namespace MS.View
         // Elements
         public GameObject           ElementsContainer;
         public CityView             HumanCityPrefab;
+        public PickableResourceView PickableResourcePrefab;
         public MapElementView       MissingElementPrefab;
         // ---
 
@@ -55,6 +56,11 @@ namespace MS.View
             m_tiles     =   new TileView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
             m_elements  =   new MapElementView[m_model.Grid.HorizontalSize, m_model.Grid.VerticalSize];
 
+            m_plane     =   new Plane (Vector3.back, this.transform.position);
+            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
+
+            m_selector.transform.parent = this.transform;
+
             Resources.UnloadUnusedAssets();
             System.GC.Collect();
 
@@ -77,24 +83,12 @@ namespace MS.View
             {
                 MapElementView view;
 
-                try
-                {
-                    view = CreateElement(element);
-                    view.UpdateView();
+                view = CreateElement(element);
+                view.UpdateView();
 
-                    m_elements[(int)element.Location.x, (int)element.Location.y] = view;
-                }
-                catch (Exception ex)
-                {
-                    MS.Debug.Core.LogError(ex.Message);
-                }
+                m_elements[(int)element.Location.x, (int)element.Location.y] = view;
             }
-
-            m_plane     =   new Plane (Vector3.back, this.transform.position);
-            m_selector  =   Instantiate(SelectorPrefab, LocalToWorld(0, 0), Quaternion.identity) as GameObject;
-
-            m_selector.transform.parent = this.transform;
-
+            
             // Add it to the static batching system
             StaticBatchingUtility.Combine(TilesContainer);
             StaticBatchingUtility.Combine(ElementsContainer);
@@ -321,6 +315,10 @@ namespace MS.View
             if (model is Model.City)
             {
                 return HumanCityPrefab;
+            }
+            else if (model is Model.PickableResource)
+            {
+                return PickableResourcePrefab;
             }
             else
             {

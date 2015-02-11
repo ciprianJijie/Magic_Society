@@ -34,6 +34,11 @@ namespace MS.Model
             return json;
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} @ {1}", Storage, Location);
+        }
+
         public ResourceStorage Storage;
     }
 }
