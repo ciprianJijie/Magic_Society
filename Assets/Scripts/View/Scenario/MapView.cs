@@ -77,11 +77,17 @@ namespace MS.View
             {
                 MapElementView view;
 
-                view = CreateElement(element);
+                try
+                {
+                    view = CreateElement(element);
+                    view.UpdateView();
 
-                view.UpdateView();
-
-                m_elements[(int)element.Location.x, (int)element.Location.y] = view;
+                    m_elements[(int)element.Location.x, (int)element.Location.y] = view;
+                }
+                catch (Exception ex)
+                {
+                    MS.Debug.Core.LogError(ex.Message);
+                }
             }
 
             m_plane     =   new Plane (Vector3.back, this.transform.position);
