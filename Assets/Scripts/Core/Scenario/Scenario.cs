@@ -8,6 +8,10 @@ namespace MS.Model
 {
     public class Scenario : ModelElement
     {
+        public Scenario()
+        {
+            
+        }
 
         public Scenario(JSONNode node)
         {
@@ -18,7 +22,6 @@ namespace MS.Model
         {
             JSONArray playersArray;
 
-            Map             =   new Map(node["map"]);
             Name            =   node["name"];
             playersArray    =   node["players"].AsArray;
             Players         =   new Player[playersArray.Count];
@@ -28,7 +31,9 @@ namespace MS.Model
                 Players[playerIndex] = Player.Create(playersArray[playerIndex]);
             }
 
-
+            //Map = new Map(node["map"]);
+            Map = new Map();
+            Map.FromJSON(node["map"]);
         }
 
         public override JSONNode ToJSON()

@@ -9,10 +9,6 @@ namespace MS.Manager
 {
     public class GameManager : Singleton<GameManager>
     {
-        #region Properties
-
-        #endregion
-
         #region Monobehaviour methods
         void Start()
         {
@@ -54,7 +50,8 @@ namespace MS.Manager
             jsonText        =   jsonFile.text;
             json            =   JSON.Parse(jsonText);
             m_game          =   new Game();
-            m_game.Scenario =   new Scenario(json);
+
+            m_game.FromJSON(json);
 
             // TODO: Remove after testing
             Instance.m_mapView.BindTo(m_game.Scenario.Map);
@@ -81,12 +78,20 @@ namespace MS.Manager
 
         #endregion
 
-        #region Attributes
+        #region Attributes and properties
+
+        public static Game Game
+        {
+            get
+            {
+                return m_game;
+            }
+        }
 
         private static  Game    m_game;
 
         public MS.View.MapView  m_mapView;
 
         #endregion
-    }	
+    }
 }

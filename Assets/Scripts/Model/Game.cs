@@ -23,12 +23,14 @@ namespace MS.Model
 
         public override void FromJSON(SimpleJSON.JSONNode node)
         {
-            throw new System.NotImplementedException();
+            m_currentScenario = new Scenario();
+
+			m_currentScenario.FromJSON(node);
         }
 
         public override SimpleJSON.JSONNode ToJSON()
         {
-            throw new System.NotImplementedException();
+            return m_currentScenario.ToJSON();
         }
 	}
 }

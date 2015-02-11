@@ -13,9 +13,17 @@ namespace MS.Model
 
         public static MapElement Create(JSONNode node)
         {
-            if (node["type"].Value == "City")
+            string type;
+
+            type = node["type"].Value;
+
+            if (type == "City")
             {
                 return new City(node);
+            }
+            else if (type == "Pickable Resource")
+            {
+                return new PickableResource(node);
             }
 
             throw new Exceptions.FactoryMethodWrongType(node["type"].Value);
@@ -24,4 +32,3 @@ namespace MS.Model
         public Vector2 Location;
     }
 }
-

@@ -291,6 +291,8 @@ MonoBehaviour:
   ForestTilePrefab: {fileID: 11442996, guid: 232964e83c7c54e3a992d33f979b2de1, type: 2}
   ElementsContainer: {fileID: 1999302990}
   HumanCityPrefab: {fileID: 11432802, guid: 104e000fb2a364b9da402dcaa24af6a8, type: 2}
+  PickableResourcePrefab: {fileID: 11445848, guid: 13d3595b8ea8f471898150f8c479baa2,
+    type: 2}
   MissingElementPrefab: {fileID: 11449156, guid: 95dfaac9065f148ee908f061d0447c96,
     type: 2}
   SelectorPrefab: {fileID: 100000, guid: 9a380c1e969fe415aa1ff51403700469, type: 2}

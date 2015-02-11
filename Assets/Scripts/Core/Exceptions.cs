@@ -9,7 +9,7 @@ namespace MS.Exceptions
 		{
 		}
 	}
-	
+
 	public class AlreadyInstantiated : Exception
 	{
 		public AlreadyInstantiated(object obj)
@@ -68,4 +68,22 @@ namespace MS.Exceptions
 
         }
     }
+
+	public class MissingPrefabForType : Exception
+	{
+		public MissingPrefabForType(Type baseClass)
+		: base ("No prefab is associated to visualize objects of type " + baseClass)
+		{
+
+		}
+	}
+
+	public class ResourceNotFound : Exception
+	{
+		public ResourceNotFound(string name)
+		: base ("No resource named " + name + " is registered for this map")
+		{
+			
+		}
+	}
 }
