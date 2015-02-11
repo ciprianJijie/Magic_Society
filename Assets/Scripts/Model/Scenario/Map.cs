@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
+using System.Linq;
 
 namespace MS.Model
 {
 	public class Map : ModelElement
 	{
+		public Map()
+		{
+			
+		}
+
 		public Map(SimpleJSON.JSONNode json)
 		{
 			FromJSON(json);
@@ -14,18 +20,18 @@ namespace MS.Model
 		public override void FromJSON(SimpleJSON.JSONNode json)
 		{
 			Grid 		= 	new HexGrid(json["grid"]);
-            Elements 	= 	new List<MapElement>(json["elements"].Count);
 			Resources 	=	new List<GameResource>(json["resources"].Count);
-
-            foreach (JSONNode element in json["elements"].AsArray)
-            {
-                Elements.Add(MapElement.Create(element));
-            }
+			Elements 	= 	new List<MapElement>(json["elements"].Count);
 
 			foreach (JSONNode resourceNode in json["resources"].AsArray)
 			{
 				Resources.Add(GameResource.Create(resourceNode));
 			}
+
+            foreach (JSONNode element in json["elements"].AsArray)
+            {
+                Elements.Add(MapElement.Create(element));
+            }
 		}
 
 		public override SimpleJSON.JSONNode ToJSON()
@@ -35,6 +41,11 @@ namespace MS.Model
 			json = new SimpleJSON.JSONNode();
 
 			return json;
+		}
+
+		public GameResource GetResource(string name)
+		{
+			return Resources.Where(i => i.Name == name) as GameResource;
 		}
 
 		public override string ToString()

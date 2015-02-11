@@ -26,6 +26,8 @@ namespace MS.Model
         {
             GameResource resource = new GameResource(json);
 
+            MS.Debug.Core.Log("Created resource " + resource);
+
             return resource;
         }
 
@@ -45,8 +47,13 @@ namespace MS.Model
             return json;
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
         // Properties
-        
+
         public string Name
         {
             get

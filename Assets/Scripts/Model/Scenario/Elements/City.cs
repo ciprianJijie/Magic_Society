@@ -13,14 +13,21 @@ namespace MS.Model
             MS.Debug.Core.Log("Loaded city at " + Location + "(" + m_population + ")");
         }
 
-        public override void FromJSON(SimpleJSON.JSONNode node)
+        public override void FromJSON(SimpleJSON.JSONNode json)
         {
-            throw new NotImplementedException();
+            this.Location       =   new Vector2(json["location"]["x"].AsInt, json["location"]["y"].AsInt);
+            this.m_population   =   json["population"].AsInt;
         }
 
         public override SimpleJSON.JSONNode ToJSON()
         {
-            throw new NotImplementedException();
+            JSONNode json = new JSONNode();
+
+            json["location"]["x"]   =   this.Location.x.ToString();
+            json["location"]["y"]   =   this.Location.y.ToString();
+            json["population"]      =   this.m_population.ToString();
+
+            return json;
         }
 
         #region Properties
@@ -46,4 +53,3 @@ namespace MS.Model
         #endregion
     }
 }
-

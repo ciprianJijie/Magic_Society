@@ -17,7 +17,7 @@ namespace MS.View
         // ---
 
         // Elements
-        public GameObject           ElementsContainer;           
+        public GameObject           ElementsContainer;
         public CityView             HumanCityPrefab;
         public MapElementView       MissingElementPrefab;
         // ---
@@ -144,15 +144,15 @@ namespace MS.View
         public static Vector3 RoundToCube (Vector3 cubePos)
         {
             Vector3 pos;
-            
+
             int rx = Mathf.RoundToInt (cubePos.x);
             int ry = Mathf.RoundToInt (cubePos.y);
             int rz = Mathf.RoundToInt (cubePos.z);
-            
+
             float x_diff = Mathf.Abs (rx - cubePos.x);
             float y_diff = Mathf.Abs (ry - cubePos.y);
             float z_diff = Mathf.Abs (rz - cubePos.z);
-            
+
             if (x_diff > y_diff && x_diff > z_diff)
             {
                 rx = -ry - rz;
@@ -165,12 +165,12 @@ namespace MS.View
             {
                 rz = -rx - ry;
             }
-            
+
             pos = new Vector3 (rx, ry, rz);
-            
+
             return pos;
         }
-        
+
         /// <summary>
         /// Converts from axial coordinates to cube coordinates.
         /// </summary>
@@ -182,10 +182,10 @@ namespace MS.View
             float cubeX = x;
             float cubeZ = y;
             float cubeY = - cubeX - cubeZ;
-            
+
             return new Vector3 (cubeX, cubeY, cubeZ);
         }
-        
+
         /// <summary>
         /// Converts from axial coordinates to cube coordinates.
         /// </summary>
@@ -195,7 +195,7 @@ namespace MS.View
         {
             return AxialToCube((int)axialPos.x, (int)axialPos.y);
         }
-        
+
         /// <summary>
         /// Converts from axual coordinate to cube coordinates.
         /// </summary>
@@ -207,7 +207,7 @@ namespace MS.View
         {
             return new Vector2(x, z);
         }
-        
+
         /// <summary>
         /// Converst from cube coordinates to axial coordinates.
         /// </summary>
@@ -318,7 +318,7 @@ namespace MS.View
             }
             else
             {
-                throw new Exceptions.WrongType(model, typeof(MS.Model.MapElement));
+                throw new Exceptions.MissingPrefabForType(typeof(MS.Model.MapElement));
             }
         }
 
@@ -398,7 +398,7 @@ namespace MS.View
 
 #if UNITY_STANDALONE || UNITY_EDITOR
             ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
-            
+
             if (m_plane.Raycast (ray, out distance))
             {
                 mousePos = ray.GetPoint (distance);
@@ -408,7 +408,7 @@ namespace MS.View
             if (MS.Core.InputManager.GetButton("Touch"))
             {
                 ray = Camera.main.ScreenPointToRay (MS.Core.InputManager.CursorPosition);
-                
+
                 if (m_plane.Raycast (ray, out distance))
                 {
                     mousePos = ray.GetPoint (distance);
@@ -430,4 +430,3 @@ namespace MS.View
         #endregion
     }
 }
-

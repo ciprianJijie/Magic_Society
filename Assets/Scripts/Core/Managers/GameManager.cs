@@ -50,7 +50,8 @@ namespace MS.Manager
             jsonText        =   jsonFile.text;
             json            =   JSON.Parse(jsonText);
             m_game          =   new Game();
-            m_game.Scenario =   new Scenario(json);
+
+            m_game.FromJSON(json);
 
             // TODO: Remove after testing
             Instance.m_mapView.BindTo(m_game.Scenario.Map);

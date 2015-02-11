@@ -80,6 +80,15 @@
                 "type": "City",
                 "location": { "x": 2, "y": 2},
                 "population": 1
+            },
+            {
+                "type": "Pickable Resource",
+                "location": { "x": 1, "y": 3},
+                "storage":
+                {
+                    "resource": "Wood",
+                    "amount": 4
+                }
             }
         ]
     }
