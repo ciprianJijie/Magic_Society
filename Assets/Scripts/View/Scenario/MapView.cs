@@ -20,6 +20,7 @@ namespace MS.View
         public GameObject           ElementsContainer;
         public CityView             HumanCityPrefab;
         public PickableResourceView PickableResourcePrefab;
+        public ResourceProducerView ResourceProducerPrefab;
         public MapElementView       MissingElementPrefab;
         // ---
 
@@ -319,6 +320,10 @@ namespace MS.View
             else if (model is Model.PickableResource)
             {
                 return PickableResourcePrefab;
+            }
+            else if (model is Model.ResourceProducer)
+            {
+                return ResourceProducerPrefab;
             }
             else
             {

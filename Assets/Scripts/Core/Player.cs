@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using System.Xml;
-using System.Xml.Serialization;
-using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
@@ -13,8 +10,15 @@ namespace MS.Model
     {
         #region Constructors, Destructor, ...
 
+        public Player(string name)
+        {
+            m_name = name;
+            m_resources = CreateResourceStorage();
+        }
+
         public Player(JSONNode json)
         {
+            m_resources = CreateResourceStorage();
             FromJSON(json);
         }
 
@@ -38,12 +42,51 @@ namespace MS.Model
             throw new Exceptions.FactoryMethodWrongType(json["type"]);
         }
 
+        public List<ResourceStorage> CreateResourceStorage()
+        {
+            List<ResourceStorage> storage;
+
+            storage = new List<ResourceStorage>();
+
+            foreach (GameResource resource in Manager.GameManager.Game.Scenario.Map.Resources)
+            {
+                storage.Add(new ResourceStorage(resource, 0));
+            }
+
+            return storage;
+        }
+
         #endregion
 
         #region Public methods
+
+        public void AddResource(string name, int amount)
+        {
+            ResourceStorage resource;
+
+            resource = m_resources.Find(i => i.Resource.Name == name);
+
+            if (resource != null)
+            {
+                resource.Add(amount);
+            }
+            else
+            {
+                throw new MS.Exceptions.ResourceNotFound(name);
+            }
+
+        }
+
         public override string ToString()
         {
-            return string.Format("[Player: Name={0}]", Name);
+            string resourcesStr = "";
+
+            foreach (ResourceStorage resource in m_resources)
+            {
+                resourcesStr += resource.Resource.Name + ":" + resource.Amount + " ";
+            }
+
+            return string.Format("[Player: Name={0}, Resources={1}]", Name, resourcesStr);
         }
         #endregion
 
@@ -54,14 +97,14 @@ namespace MS.Model
 
         #region Properties
 
-        [XmlAttribute("name")]
         public string Name { get { return m_name; } set { m_name = value; } }
 
         #endregion
 
         #region Attributes
 
-        protected   string              m_name  =   "No name";
+        protected   string                  m_name  =   "No name";
+        protected   List<ResourceStorage>   m_resources;
 
         #endregion
     }

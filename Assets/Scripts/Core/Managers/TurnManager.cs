@@ -21,11 +21,6 @@ namespace MS.Manager
         public static event TurnEvent OnTurnEnded;
 
         ///<summary>
-        /// List of players currently playing the game.
-        ///</summary>
-        private List<Player>    m_players;
-
-        ///<summary>
         /// Index of the current player playing this turn
         ///</summary>
         private int             m_currentPlayerIndex;
@@ -39,23 +34,31 @@ namespace MS.Manager
         {
             get
             {
-                return Instance.m_players[Instance.m_currentPlayerIndex];
+                return Manager.GameManager.Game.Scenario.Players[Instance.m_currentPlayerIndex];
             }
         }
+
+        public static void NextTurn()
+        {
+            Instance.AdvanceTurn();
+        }
+
 
         ///<summary>
         /// Triggers the end of the current turn and starts the next one
         ///</summary>
-        public static void NextTurn()
+        public void AdvanceTurn()
         {
+            MS.Debug.Core.Log("Ending turn of " + CurrentPlayer);
             if (OnTurnEnded != null)
             {
                 OnTurnEnded(CurrentPlayer, Instance.m_turnCount);
             }
 
-            Instance.m_currentPlayerIndex = (Instance.m_currentPlayerIndex + 1) % Instance.m_players.Count;
+            Instance.m_currentPlayerIndex = (Instance.m_currentPlayerIndex + 1) % Manager.GameManager.Game.Scenario.Players.Length;
             Instance.m_turnCount++;
 
+            MS.Debug.Core.Log("Starting turn of " + CurrentPlayer);
             if (OnTurnStarted != null)
             {
                 OnTurnStarted(CurrentPlayer, Instance.m_turnCount);
@@ -70,7 +73,6 @@ namespace MS.Manager
 
         void Start()
         {
-            m_players               =   new List<Player>();
             m_currentPlayerIndex    =   0;
             m_turnCount             =   0;
         }

@@ -14,6 +14,11 @@ namespace MS.Model
         public override void FromJSON(SimpleJSON.JSONNode node)
         {
             this.m_name = node["name"];
+
+            foreach (JSONNode resourceNode in node["resources"].AsArray)
+            {
+                AddResource(resourceNode["name"], resourceNode["amount"].AsInt);
+            }
         }
 
         public override SimpleJSON.JSONNode ToJSON()

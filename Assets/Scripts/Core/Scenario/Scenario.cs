@@ -23,6 +23,10 @@ namespace MS.Model
             JSONArray playersArray;
 
             Name            =   node["name"];
+
+            Map = new Map();
+            Map.FromJSON(node["map"]);
+
             playersArray    =   node["players"].AsArray;
             Players         =   new Player[playersArray.Count];
 
@@ -30,10 +34,6 @@ namespace MS.Model
             {
                 Players[playerIndex] = Player.Create(playersArray[playerIndex]);
             }
-
-            //Map = new Map(node["map"]);
-            Map = new Map();
-            Map.FromJSON(node["map"]);
         }
 
         public override JSONNode ToJSON()
