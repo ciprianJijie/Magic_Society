@@ -27,6 +27,16 @@ namespace MS.Model
             FromJSON(json);
         }
 
+        public void Add(int amount)
+        {
+            m_amount += amount;
+        }
+
+        public void Substract(int amount)
+        {
+            m_amount -= amount;
+        }
+
         public override void FromJSON(JSONNode json)
         {
             Resource = GameManager.Game.Scenario.Map.GetResource(json["resource"].Value);
@@ -46,6 +56,14 @@ namespace MS.Model
         public override string ToString()
         {
             return string.Format("{0} x{1}", Resource.Name, m_amount);
+        }
+
+        public int Amount
+        {
+            get
+            {
+                return m_amount;
+            }
         }
 
         public GameResource Resource;

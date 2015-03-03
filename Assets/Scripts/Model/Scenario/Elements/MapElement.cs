@@ -25,6 +25,10 @@ namespace MS.Model
             {
                 return new PickableResource(node);
             }
+            else if (type == "Resource Producer")
+            {
+                return new ResourceProducer(node);
+            }
 
             throw new Exceptions.FactoryMethodWrongType(node["type"].Value);
         }

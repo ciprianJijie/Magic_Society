@@ -26,6 +26,14 @@
             {
                 "name": "Iron",
                 "description": "Obtained from deep mines, it's used to craft armours, weapons and the toughtess buildings."
+            },
+            {
+                "name": "Food",
+                "description": "Your citizens needs to eat, you know?"
+            },
+            {
+                "name": "Stone",
+                "description": "Used to build more resiliant buildings."
             }
         ],
         "grid":
@@ -89,6 +97,13 @@
                     "resource": "Wood",
                     "amount": 4
                 }
+            },
+            {
+                "type": "Resource Producer",
+                "location": { "x": 3, "y": 4},
+                "resource": "Wood",
+                "production": 1,
+                "owner": "Human_01"
             }
         ]
     }
