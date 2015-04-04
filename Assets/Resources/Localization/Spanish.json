@@ -1,0 +1,19 @@
+{
+    "language": "Spanish",
+    "values":
+    [
+        {
+            "ID": "NEW_GAME",
+            "Text": "Nueva partida"
+        },
+        {
+            "ID": "LOAD_GAME",
+            "Text": "Cargar"
+        },
+        {
+            "ID": "EXIT",
+            "Text": "Salir"
+        }
+    ]
+
+}
