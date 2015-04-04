@@ -12,16 +12,12 @@ namespace MS
 
         public override void FromJSON(JSONNode json)
         {
-
+            throw new System.NotImplementedException();
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json;
-
-            json = new JSONNode();
-
-            return json;
+            throw new System.NotImplementedException();
         }
 
         public string Name;
