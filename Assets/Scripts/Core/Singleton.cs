@@ -37,6 +37,8 @@ namespace MS.Core
 
             m_instance = this as T;
 
+            DontDestroyOnLoad(this.gameObject);
+
             MS.Debug.Core.Log("Singleton for " + typeof(T) + " initialised.");
         }
     }

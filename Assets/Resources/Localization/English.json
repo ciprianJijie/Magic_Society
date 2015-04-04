@@ -1,0 +1,19 @@
+{
+    "language": "English",
+    "values":
+    [
+        {
+            "ID": "NEW_GAME",
+            "Text": "New Game"
+        },
+        {
+            "ID": "LOAD_GAME",
+            "Text": "Load Game"
+        },
+        {
+            "ID": "EXIT",
+            "Text": "Exit"
+        }
+    ]
+
+}
