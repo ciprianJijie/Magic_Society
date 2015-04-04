@@ -7,7 +7,7 @@ namespace MS
     {
         public Player()
         {
-
+            Name = "Name not set";
         }
 
         public override void FromJSON(JSONNode json)
