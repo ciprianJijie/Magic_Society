@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 
 namespace MS.Model
 {
 	public class Tile : ModelElement
 	{
         public enum EStatus
-        { 
+        {
             Available,      // Player can interact with it normally
             Disabled,       // Can't be interacted with
-            Blocked         // Some effect prevents some interaction
+            Blocked         // Some effect prevents some interactions
         }
 
         public enum EVisibility
-        { 
+        {
             Visible,        // The tile is visible under normal circunstances
             Invisible,      // The tile is not visible under normal circunstances
             Blocking        // The tile is visible, but blocks further vision
@@ -37,14 +35,21 @@ namespace MS.Model
             Vulcan
         }
 
-        public EStatus      Status;
-        public EVisibility  Visibility;
-        public EType        Type;
-        public ESurface     Surface;
+        public      EStatus         Status;
+        public      EVisibility     Visibility;
+        public      EType           Type;
+        public      ESurface        Surface;
+        public      Resource        Resource;
+        public      Building        Building;
 
 		public override void FromJSON(SimpleJSON.JSONNode node)
         {
-            throw new System.NotImplementedException();
+			switch (node["status"])
+			{
+				case "Available": this.Status = EStatus.Available; break;
+				case "Disabled": this.Status = EStatus.Disabled; break;
+				case "Blocked": this.Status = EStatus.Blocked; break;
+			}
         }
 
         public override SimpleJSON.JSONNode ToJSON()
