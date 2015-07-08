@@ -39,8 +39,6 @@ namespace MS
         public      EVisibility     		Visibility;
         public      EType           		Type;
         public      ESurface        		Surface;
-        public      CollectableResource     Resource;
-        public      Building        		Building;
 
 		public override void FromJSON(SimpleJSON.JSONNode node)
         {
