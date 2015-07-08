@@ -1,5 +1,5 @@
 
-namespace MS.Model
+namespace MS
 {
 	public class Tile : ModelElement
 	{
@@ -35,12 +35,12 @@ namespace MS.Model
             Vulcan
         }
 
-        public      EStatus         Status;
-        public      EVisibility     Visibility;
-        public      EType           Type;
-        public      ESurface        Surface;
-        public      Resource        Resource;
-        public      Building        Building;
+        public      EStatus         		Status;
+        public      EVisibility     		Visibility;
+        public      EType           		Type;
+        public      ESurface        		Surface;
+        public      CollectableResource     Resource;
+        public      Building        		Building;
 
 		public override void FromJSON(SimpleJSON.JSONNode node)
         {

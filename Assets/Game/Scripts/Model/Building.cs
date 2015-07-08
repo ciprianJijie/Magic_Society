@@ -1,11 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace MS.Model
+namespace MS
 {
     public abstract class Building : ModelElement
     {
 
     }
 }
-

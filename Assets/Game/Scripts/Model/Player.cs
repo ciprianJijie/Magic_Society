@@ -1,25 +1,28 @@
 using SimpleJSON;
 
-public class Player : ModelElement
-{
-    public Player()
+namespace MS
+{    
+    public class Player : ModelElement
     {
-        Name = "Name not set";
+        public Player()
+        {
+            Name = "Name not set";
+        }
+
+        public override void FromJSON(JSONNode json)
+        {
+
+        }
+
+        public override JSONNode ToJSON()
+        {
+            JSONNode json;
+
+            json = new JSONNode();
+
+            return json;
+        }
+
+        public string Name;
     }
-
-    public override void FromJSON(JSONNode json)
-    {
-
-    }
-
-    public override JSONNode ToJSON()
-    {
-        JSONNode json;
-
-        json = new JSONNode();
-
-        return json;
-    }
-
-    public string Name;
 }

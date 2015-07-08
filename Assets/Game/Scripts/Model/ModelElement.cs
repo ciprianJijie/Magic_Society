@@ -1,9 +1,10 @@
-﻿using System;
 using SimpleJSON;
 
-
-public abstract class ModelElement : IParseable
+namespace MS
 {
-    public abstract void FromJSON(JSONNode node);
-    public abstract JSONNode ToJSON();
+    public abstract class ModelElement : IParseable
+    {
+        public abstract void FromJSON(JSONNode node);
+        public abstract JSONNode ToJSON();
+    }    
 }
