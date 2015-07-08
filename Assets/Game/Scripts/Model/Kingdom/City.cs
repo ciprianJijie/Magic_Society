@@ -7,7 +7,8 @@ namespace MS
     {
         public City()
         {
-            Name        =   "No name";
+            Name        =   "CITY";
+            CityName    =   "No name";
 
             Citizens    =   0;
             CitizensMax =   0;
@@ -27,7 +28,9 @@ namespace MS
 
         public override void FromJSON(JSONNode json)
         {
-            Name        =   json["name"];
+            base.FromJSON(json);
+
+            CityName        =   json["name"];
 
             Citizens    =   json["citizens"]["amount"].AsInt;
             CitizensMax =   json["citizens"]["max"].AsInt;
@@ -51,9 +54,9 @@ namespace MS
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
+            JSONNode json = base.ToJSON();
 
-            json["name"]                            =   Name;
+            json["name"]                            =   CityName;
 
             json["citizens"]["amount"]              =   Citizens.ToString();
             json["citizens"]["max"]                 =   CitizensMax.ToString();
@@ -70,7 +73,7 @@ namespace MS
             return json;
         }
 
-        public string   Name;
+        public string   CityName;
 
         public int      Citizens;
         public int      Food;
