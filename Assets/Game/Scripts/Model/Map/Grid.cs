@@ -14,5 +14,7 @@ namespace MS
         {
             throw new System.NotImplementedException();
         }
+
+        public string ID;
     }
 }
