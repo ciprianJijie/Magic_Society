@@ -1,8 +1,9 @@
 using SimpleJSON;
+using System.Collections.Generic;
 
 namespace MS
 {
-    public class City : ModelElement
+    public class City : Building
     {
         public City()
         {
@@ -20,6 +21,8 @@ namespace MS
             WoodMax     =   0;
             IronMax     =   0;
             StoneMax    =   0;
+
+            m_Buildings = new List<Building>();
         }
 
         public override void FromJSON(JSONNode json)
@@ -37,6 +40,13 @@ namespace MS
             IronMax     =   json["resources"]["iron"]["max"].AsInt;
             Stone       =   json["resources"]["stone"]["amount"].AsInt;
             StoneMax    =   json["resources"]["stone"]["max"].AsInt;
+
+            foreach (JSONNode buildingNode in json["buildings"].AsArray)
+            {
+                Building building = Factory.Building.Create(buildingNode["type"]);
+
+                m_Buildings.Add(building);
+            }
         }
 
         public override JSONNode ToJSON()
@@ -73,5 +83,7 @@ namespace MS
         protected int   WoodMax;
         protected int   IronMax;
         protected int   StoneMax;
+
+        protected List<Building> m_Buildings;
     }
 }
