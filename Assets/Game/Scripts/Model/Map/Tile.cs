@@ -1,8 +1,31 @@
+using SimpleJSON;
 
 namespace MS
 {
 	public class Tile : ModelElement
 	{
+		public override void FromJSON(JSONNode json)
+        {
+			Position.FromJSON(json["position"]);
+
+            Status 		= 	EnumUtils.ParseEnum<EStatus>(json["status"]);
+            Visibility 	= 	EnumUtils.ParseEnum<EVisibility>(json["visibility"]);
+            Type 		= 	EnumUtils.ParseEnum<EType>(json["type"]);
+            Surface 	= 	EnumUtils.ParseEnum<ESurface>(json["surface"]);
+        }
+
+        public override JSONNode ToJSON()
+        {
+            JSONNode json = new JSONNode();
+
+            json["status"] = Status.ToString();
+            json["visibility"] = Visibility.ToString();
+            json["type"] = Type.ToString();
+            json["surface"] = Surface.ToString();
+
+            return json;
+        }
+
         public enum EStatus
         {
             Available,      // Player can interact with it normally
@@ -40,19 +63,6 @@ namespace MS
         public      EType           		Type;
         public      ESurface        		Surface;
 
-		public override void FromJSON(SimpleJSON.JSONNode node)
-        {
-			switch (node["status"])
-			{
-				case "Available": this.Status = EStatus.Available; break;
-				case "Disabled": this.Status = EStatus.Disabled; break;
-				case "Blocked": this.Status = EStatus.Blocked; break;
-			}
-        }
-
-        public override SimpleJSON.JSONNode ToJSON()
-        {
-            throw new System.NotImplementedException();
-        }
-	}
+        public 		GridPosition 			Position;
+    }
 }
