@@ -9,6 +9,10 @@ namespace MS.Factory
 
             switch (type)
             {
+                case "city":
+                    building = new City();
+                    break;
+
                 default:
                     building = null;
                     break;
