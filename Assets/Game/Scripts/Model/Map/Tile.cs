@@ -18,10 +18,10 @@ namespace MS
         {
             JSONNode json = new JSONNode();
 
-            json["status"] = Status.ToString();
-            json["visibility"] = Visibility.ToString();
-            json["type"] = Type.ToString();
-            json["surface"] = Surface.ToString();
+            json["status"] 		= 	Status.ToString();
+            json["visibility"] 	= 	Visibility.ToString();
+            json["type"] 		= 	Type.ToString();
+            json["surface"] 	= 	Surface.ToString();
 
             return json;
         }
