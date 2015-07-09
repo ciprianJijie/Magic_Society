@@ -4,6 +4,14 @@ namespace MS
 {
 	public class Tile : ModelElement
 	{
+		public Tile()
+		{
+            Status 		= 	EStatus.Available;
+            Visibility 	= 	EVisibility.Visible;
+            Type 		= 	EType.Fertile;
+            Surface 	= 	ESurface.Prairie;
+        }
+
 		public override void FromJSON(JSONNode json)
         {
 			Position.FromJSON(json["position"]);

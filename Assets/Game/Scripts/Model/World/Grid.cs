@@ -4,6 +4,11 @@ namespace MS
 {
     public class Grid : ModelElement
     {
+        public Grid(int x, int y)
+        {
+            m_Tiles = new Tile[x, y];
+        }
+
         public override void FromJSON(JSONNode node)
         {
             int hSize;
