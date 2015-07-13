@@ -20,6 +20,9 @@ namespace MS
         public override void FromJSON(JSONNode json)
         {
             Name = json["name"];
+
+            Tiles = new Grid(0, 0);
+
             Tiles.FromJSON(json["grid"]);
         }
 
@@ -35,7 +38,7 @@ namespace MS
             return json;
         }
 
-        public string Name;
-        protected Grid Tiles;
+        public string   Name;
+        public Grid     Tiles;
     }
 }

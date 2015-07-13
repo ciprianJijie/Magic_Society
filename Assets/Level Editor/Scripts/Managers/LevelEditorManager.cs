@@ -10,7 +10,6 @@ namespace MS
 		{
             m_FileBrowserWindow = Instantiate(FileBrowserPrefab.gameObject);
             m_FileBrowserWindow.transform.SetParent(WindowsContainer, false);
-            //m_FileBrowserWindow.transform.position = Vector3.zero;
         }
 
 		public void HideFileBrowserWindow()
@@ -29,7 +28,7 @@ namespace MS
 
             m_CurrentFilePath = Application.streamingAssetsPath + "/Maps/" + levelName + ".json";
 
-            Debug.Core.Log("Created map " + m_CurrentMap.Name + " that will be saved at " + m_CurrentFilePath);
+            ShowGrid(m_CurrentMap.Tiles);
         }
 
 		public void Load(string file)
@@ -45,6 +44,8 @@ namespace MS
 			m_CurrentFilePath 	= 	file;
 
             m_CurrentMap.FromJSON(json);
+
+            ShowGrid(m_CurrentMap.Tiles);
         }
 
 		public void Save()
@@ -53,15 +54,27 @@ namespace MS
 
 			json = m_CurrentMap.ToJSON();
 
-            Debug.Core.Log("Saving map " + json["name"] + " in file " + m_CurrentFilePath);
-
-            Debug.Core.Log("JSON: " + json.ToString());
-
-            //json.SaveToFile(m_CurrentFilePath);
 			System.IO.File.WriteAllText(m_CurrentFilePath, json.ToString(""));
         }
 
+        public void ShowGrid(Grid grid)
+        {
+            HideGrid();
+
+            GridVisualizer.BindTo(grid);
+            GridVisualizer.UpdateView();
+
+            GridVisualizer.enabled = true;
+        }
+
+        public void HideGrid()
+        {
+            GridVisualizer.enabled = false;
+        }
+
         public Transform 		WindowsContainer;
+        public Transform        WorldContainer;
+        public GridView         GridVisualizer;
         public GameObject 		FileBrowserPrefab;
         public GameObject 		NameLevelPrefab;
 

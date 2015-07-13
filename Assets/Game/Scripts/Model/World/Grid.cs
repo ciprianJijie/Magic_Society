@@ -82,7 +82,17 @@ namespace MS
             return json;
         }
 
-        
+        // Properties
+
+        public int HorizontalSize
+        {
+            get { return hSize; }
+        }
+
+        public int VerticalSize
+        {
+            get { return vSize;  }
+        }
 
         // Variables
 

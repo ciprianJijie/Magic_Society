@@ -44,7 +44,7 @@ LevelGameManager:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -68,7 +68,8 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightmapSnapshot: {fileID: 112000000, guid: b94f3d29e0ab84367833e35461d36ec8,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -127,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WindowsContainer: {fileID: 1654557290}
+  WorldContainer: {fileID: 1943292659}
+  GridVisualizer: {fileID: 994683245}
   FileBrowserPrefab: {fileID: 177840, guid: 9ffa0f538a17b46c98f53ff455f1f62a, type: 2}
   NameLevelPrefab: {fileID: 179820, guid: 0e610280808194f278a205a1bfd6f504, type: 2}
 --- !u!1 &419062569
@@ -195,6 +198,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 419062569}
+--- !u!1001 &419942901
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1943292659}
+    m_Modifications:
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &796310129
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +422,16 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 934031507}
+--- !u!4 &994683244 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 405750, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4, type: 2}
+  m_PrefabInternal: {fileID: 419942901}
+--- !u!114 &994683245 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11475134, guid: 44da1bbcd9a384dd5a57f4c45ff2a5f4,
+    type: 2}
+  m_PrefabInternal: {fileID: 419942901}
+  m_Script: {fileID: 11500000, guid: ae68aa9faf8a64fba83089c61fe8d04e, type: 3}
 --- !u!1 &1172426004
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,8 +577,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1200242327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1651676423}
@@ -1378,7 +1433,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 994683244}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &1956278617
