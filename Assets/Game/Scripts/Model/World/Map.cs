@@ -1,4 +1,5 @@
 using SimpleJSON;
+using UnityEngine;
 
 namespace MS
 {
@@ -6,7 +7,7 @@ namespace MS
     {
         public Map()
         {
-            
+
         }
 
         public Map(string name, int x, int y)
@@ -24,10 +25,11 @@ namespace MS
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
+            JSONNode json;
+
+            json = JSON.Parse((Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
 
             json["name"] = Name;
-
             json["grid"] = Tiles.ToJSON();
 
             return json;

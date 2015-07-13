@@ -24,7 +24,7 @@ namespace MS
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
+            JSONNode json = JSON.Parse("{ }");
 
             json["status"] 		= 	Status.ToString();
             json["visibility"] 	= 	Visibility.ToString();

@@ -1,4 +1,5 @@
 using SimpleJSON;
+using UnityEngine;
 
 namespace MS
 {
@@ -6,14 +7,22 @@ namespace MS
     {
         public Grid(int x, int y)
         {
-            m_Tiles = new Tile[x, y];
+            hSize = x;
+            vSize = y;
+
+            m_Tiles = new Tile[hSize, vSize];
+
+            for (int i = 0; i < hSize; ++i)
+            {
+                for (int j = 0; j < vSize; ++j)
+                {
+                    m_Tiles[i, j] = new Tile();
+                }
+            }
         }
 
         public override void FromJSON(JSONNode node)
         {
-            int hSize;
-            int vSize;
-
             hSize = node["size"]["horizontal"].AsInt;
             vSize = node["size"]["vertical"].AsInt;
 
@@ -43,20 +52,29 @@ namespace MS
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
+            JSONNode json = JSON.Parse(Resources.Load<TextAsset>("Data/JSON/Templates/Grid").text);
             JSONArray tilesArray;
+            JSONArray row;
+            JSONNode tileNode;
 
-            json["size"]["horizontal"]  =   m_Tiles.Length.ToString();
-            json["size"]["vertical"]    =   m_Tiles.GetLength(0).ToString();
+            json["size"]["horizontal"].AsInt = hSize;
+            json["size"]["vertical"].AsInt = vSize;
 
             tilesArray = new JSONArray();
 
-            for (int x = 0; x < m_Tiles.Length; x++)
+            for (int x = 0; x < hSize; x++)
             {
-                for (int y = 0; y < m_Tiles.GetLength(0); y++)
+                row = new JSONArray();
+                for (int y = 0; y < vSize; y++)
                 {
-                    tilesArray.Add(m_Tiles[x,y].ToJSON());
+                    if (m_Tiles[x, y] != null)
+                    {
+                        tileNode = m_Tiles[x, y].ToJSON();
+
+                        row.Add(tileNode);
+                    }
                 }
+                tilesArray.Add(row);
             }
 
             json["tiles"] = tilesArray;
@@ -64,8 +82,14 @@ namespace MS
             return json;
         }
 
+        
+
+        // Variables
+
         public string ID;
 
         protected Tile[,] m_Tiles;
+        protected int hSize;
+        protected int vSize;
     }
 }
