@@ -18,11 +18,18 @@ namespace MS
             Destroy(m_FileBrowserWindow);
         }
 
+		public void ShowNameLevelWindow()
+		{
+            Instantiate(NameLevelPrefab).transform.SetParent(WindowsContainer, false);
+		}
+
 		public void New(string levelName, int x, int y)
 		{
             m_CurrentMap = new Map(levelName, x, y);
 
             m_CurrentFilePath = Application.streamingAssetsPath + "/Maps/" + levelName + ".json";
+
+            Debug.Core.Log("Created map " + m_CurrentMap.Name + " that will be saved at " + m_CurrentFilePath);
         }
 
 		public void Load(string file)
@@ -44,12 +51,19 @@ namespace MS
 		{
             JSONNode json;
 
-            json = m_CurrentMap.ToJSON();
-			json.SaveToFile(m_CurrentFilePath);
+			json = m_CurrentMap.ToJSON();
+
+            Debug.Core.Log("Saving map " + json["name"] + " in file " + m_CurrentFilePath);
+
+            Debug.Core.Log("JSON: " + json.ToString());
+
+            //json.SaveToFile(m_CurrentFilePath);
+			System.IO.File.WriteAllText(m_CurrentFilePath, json.ToString(""));
         }
 
         public Transform 		WindowsContainer;
         public GameObject 		FileBrowserPrefab;
+        public GameObject 		NameLevelPrefab;
 
         protected Map 			m_CurrentMap;
         protected GameObject 	m_FileBrowserWindow;
