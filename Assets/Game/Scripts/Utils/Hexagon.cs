@@ -32,7 +32,7 @@ namespace MS
         /// </summary>
         /// <param name="hexagonSize">Distance from the hexagon's center to any of its corners.</param>
         /// <return>Height of the hexagon.</return>
-        public static float HexagonHeight(float hexagonSize)
+        public static float Height(float hexagonSize)
         {
             return hexagonSize * 2.0f;
         }
@@ -42,9 +42,9 @@ namespace MS
         /// </summary>
         /// <param name="hexagonSize">Distance from the hexagon's center to any of its corners.</param>
         /// <return>Width of the hexagon.</return>
-        public static float HexagonWidth(float hexagonSize)
+        public static float Width(float hexagonSize)
         {
-            return Mathf.Sqrt(3) / 2.0f * HexagonHeight(hexagonSize);
+            return Mathf.Sqrt(3) / 2.0f * Height(hexagonSize);
         }
 
         // Conversions
@@ -54,8 +54,8 @@ namespace MS
             float column;
             float row;
 
-            column = (x * (Mathf.Sqrt(3f) / 3f) - (y / 3f)) / hexagonSize;
-            row = y * (2f / 3f) / hexagonSize;
+            column = (x * (Mathf.Sqrt(3f) / 3f) - (z / 3f)) / hexagonSize;
+            row = z * (2f / 3f) / hexagonSize;
 
             return new Vector2(Mathf.RoundToInt(column), Mathf.RoundToInt(row));
         }
@@ -72,17 +72,18 @@ namespace MS
             return new Vector2(x, z);
         }
 
-        public static Vector3 AxialToCube(int column, int row)
+        public static Vector2 CubeToAxial(Vector3 cubePoint)
         {
-            float x;
-            float y;
-            float z;
+            return new Vector2(cubePoint.x, cubePoint.z);
+        }
 
-            x = column;
-            y = row;
-            z = - x - y;
-
-            return new Vector3(x, y, z);
+        public static Vector3 AxialToCube(float x, float y)
+        {
+            float cubeX = x;
+            float cubeZ = y;
+            float cubeY = - cubeX - cubeZ;
+            
+            return new Vector3 (cubeX, cubeY, cubeZ);
         }
 
         public static Vector2 AxialToWorld(int column, int row, float hexagonSize)
@@ -226,6 +227,36 @@ namespace MS
         public static float CalculateCubeDistance(int aX, int aY, int aZ, int bX, int bY, int bZ)
         {
             return Mathf.Max(Mathf.Abs(aX - bX), Mathf.Abs(aY - bY), Mathf.Abs(aZ - bZ));
+        }
+
+        public static Vector3 RoundToCube (Vector3 cubePos)
+        {
+            Vector3 pos;
+            
+            int rx = Mathf.RoundToInt (cubePos.x);
+            int ry = Mathf.RoundToInt (cubePos.y);
+            int rz = Mathf.RoundToInt (cubePos.z);
+            
+            float x_diff = Mathf.Abs (rx - cubePos.x);
+            float y_diff = Mathf.Abs (ry - cubePos.y);
+            float z_diff = Mathf.Abs (rz - cubePos.z);
+            
+            if (x_diff > y_diff && x_diff > z_diff)
+            {
+                rx = -ry - rz;
+            }
+            else if (y_diff > z_diff)
+            {
+                ry = -rx - rz;
+            }
+            else
+            {
+                rz = -rx - ry;
+            }
+            
+            pos = new Vector3 (rx, ry, rz);
+            
+            return pos;
         }
     }
 }

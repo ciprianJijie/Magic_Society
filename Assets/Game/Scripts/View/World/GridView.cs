@@ -7,15 +7,18 @@ namespace MS
     {
         public float            HexagonSize = 1f;
         public TileView         TileViewPrefab;
-        
+
+        protected float         TileWidth;
+        protected float         TileHeight;
+
         private Plane           m_Plane;
         private List<TileView>  m_TileViews;
 
         public override void UpdateView()
         {
-            Debug.Core.Log("Updating grid view.");
-
-            m_Plane = new Plane(this.transform.up, this.transform.position);
+            m_Plane     =   new Plane(this.transform.up, this.transform.position);
+            TileWidth   =   Hexagon.Width(HexagonSize);
+            TileHeight  =   Hexagon.Height(HexagonSize);
 
             if (m_TileViews != null)
             {
@@ -27,8 +30,6 @@ namespace MS
             }
 
             TileView    tileView;
-            Vector2     hexagonCenter;
-            Vector2     point;
             
             Gizmos.color = Color.magenta;
             
@@ -36,26 +37,51 @@ namespace MS
             {
                 for (int y = 0; y < m_Model.VerticalSize; ++y)
                 {
-                    hexagonCenter = Hexagon.OffsetToWorld(x, y, HexagonSize);
-
-                    GameObject obj = Instantiate(TileViewPrefab.gameObject, ProjectToPlane(hexagonCenter), Quaternion.identity) as GameObject;
+                    GameObject obj = Instantiate(TileViewPrefab.gameObject, LocalToWorld(x, y), Quaternion.identity) as GameObject;
 
                     tileView = obj.GetComponent<TileView>();
                     tileView.transform.SetParent(this.transform);
+
+                    tileView.name = "Tile [" + x + "," + y + "]";
 
                     m_TileViews.Add(tileView);
                 }
             }
         }
 
-        protected Vector3 ProjectToPlane(Vector3 point)
+        protected Vector3 LocalToWorld(float x, float y)
         {
-            return this.transform.position + point;
+            Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
+            
+            x = x - (float) m_Model.HorizontalSize / 2f;
+            y = y - (float) m_Model.VerticalSize / 2f;
+
+            pos.x = this.transform.position.x + (HexagonSize * Mathf.Sqrt (3f) * (x + y / 2.0f));
+            pos.z = this.transform.position.z + (HexagonSize * 3.0f / 2.0f * y);
+            
+            return pos;
         }
 
-        protected Vector3 ProjectToPlane(Vector2 point)
+        protected Vector2 WorldToLocal(float x, float y, float z)
         {
-            return ProjectToPlane(new Vector3(point.x, point.y, 0f));
+            Vector2 pos;
+            
+            float approximateX;
+            float approximateY;
+            
+            approximateX = (x * Mathf.Sqrt(3) / 3.0f - y / 3.0f) / TileWidth - this.transform.position.x;
+            approximateY = (y * 2.0f / 3.0f ) / TileHeight - this.transform.position.y;
+            
+            approximateX += m_Model.HorizontalSize / 2;
+            approximateY += m_Model.VerticalSize / 2;
+            
+            // And now we find the nearest hexagon to that position
+            Vector3 cubePos = Hexagon.AxialToCube (approximateX, approximateY);
+            cubePos = Hexagon.RoundToCube (cubePos);
+            
+            pos = Hexagon.CubeToAxial(cubePos);
+            
+            return pos;
         }
 
 
