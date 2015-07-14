@@ -2,66 +2,67 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Controller<T, R> : MonoBehaviour where T : View<R> where R : ModelElement
+namespace MS
 {
-    public T            ViewPrefab;
-    public Transform    Holder;
-
-    protected IList<View<R>>  m_Views;
-
-    protected virtual void Initialize()
+    public abstract class Controller<T, R> : MonoBehaviour where T : View<R> where R : ModelElement
     {
-        m_Views = new List<View<R>>();
-    }
+        public T            ViewPrefab;
+        public Transform    Holder;
 
-    public virtual T CreateView(R model)
-    {
-        T view;
+        protected IList<View<R>>  m_Views;
 
-        view                    =   Instantiate(ViewPrefab);
-        view.Transform.parent   =   Holder;
-        view.Transform.position =   Holder.position;
-        view.Transform.rotation =   Holder.rotation;
-
-        view.BindTo(model);
-        view.UpdateView();
-        view.OnDestroyed += OnViewDestroyed;
-
-        m_Views.Add(view);
-
-        return view;
-    }
-
-    public T FindView(R model)
-    {
-        foreach (T view in m_Views)
+        protected virtual void Initialize()
         {
-            if (view.IsViewOf(model))
+            m_Views = new List<View<R>>();
+        }
+
+        public virtual T CreateView(R model)
+        {
+            T view;
+
+            view                    =   Instantiate(ViewPrefab);
+            view.Transform.parent   =   Holder;
+            view.Transform.position =   Holder.position;
+            view.Transform.rotation =   Holder.rotation;
+
+            view.BindTo(model);
+            view.UpdateView();
+            view.OnDestroyed += OnViewDestroyed;
+
+            m_Views.Add(view);
+
+            return view;
+        }
+
+        public T FindView(R model)
+        {
+            foreach (T view in m_Views)
             {
-                return view;
+                if (view.IsViewOf(model))
+                {
+                    return view;
+                }
+            }
+            return null;
+        }
+
+        public void ClearViews()
+        {
+            foreach (T view in m_Views)
+            {
+                Destroy(view.gameObject);
             }
         }
-        return null;
-    }
 
-    public void ClearViews()
-    {
-        foreach (T view in m_Views)
+        private void OnViewDestroyed(View<R> view)
         {
-            Destroy(view.gameObject);
+            view.OnDestroyed -= OnViewDestroyed;
+            m_Views.Remove(view);
+        }
+
+        void Awake()
+        {
+            Initialize();
         }
     }
-
-    private void OnViewDestroyed(View<R> view)
-    {
-        view.OnDestroyed -= OnViewDestroyed;
-        m_Views.Remove(view);
-    }
-
-    void Awake()
-    {
-        Initialize();
-    }
-
-
 }

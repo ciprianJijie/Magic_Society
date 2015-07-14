@@ -13,6 +13,38 @@
         {
             "ID": "EXIT",
             "Text": "Exit"
+        },
+        {
+            "ID": "FOOD",
+            "Text": "Food"
+        },
+        {
+            "ID": "FOOD_DESCRIPTION",
+            "Text": "Your citizens and armies need food to survive."
+        },
+        {
+            "ID": "STONE",
+            "Text": "Stone"
+        },
+        {
+            "ID": "STONE_DESCRIPTION",
+            "Text": "Collected from quarries, is used to build structures."
+        },
+        {
+            "ID": "IRON",
+            "Text": "Iron"
+        },
+        {
+            "ID": "IRON_DESCRIPTION",
+            "Text": "Mined in the deeps of the mountains, smithers can create weapons for your soldiers."
+        },
+        {
+            "ID": "WOOD",
+            "Text": "Wood"
+        },
+        {
+            "ID": "WOOD_DESCRIPTION",
+            "Text": "Trees provide the wood necessary to build some buildings and simpler weapons."
         }
     ]
 
