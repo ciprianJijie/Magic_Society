@@ -35,13 +35,13 @@ namespace MS
                 fileButton.Text 	= 	shortName;
 				fileButton.FilePath = 	file;
 
-				button.onClick.AddListener(() => { SelectFile(file);  } );
+				button.onClick.AddListener(() => { SelectFile(fileButton);  } );
             }
         }
 
-		protected void SelectFile(string filePath)
+		protected void SelectFile(FileButtonManager button)
 		{
-            LevelEditorManager.Instance.Load(filePath);
+            LevelEditorManager.Instance.Load(button.FilePath);
             Close();
         }
 
