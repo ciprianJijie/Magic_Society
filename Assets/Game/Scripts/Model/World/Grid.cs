@@ -21,6 +21,16 @@ namespace MS
             }
         }
 
+        public Tile GetTile(int x, int y)
+        {
+            if (x < 0 || x > hSize || y < 0 || y > vSize)
+            {
+                throw new System.IndexOutOfRangeException();
+            }
+
+            return m_Tiles[x, y];
+        }
+
         public override void FromJSON(JSONNode node)
         {
             hSize = node["size"]["horizontal"].AsInt;
