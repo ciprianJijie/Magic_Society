@@ -14,8 +14,6 @@ namespace MS
 
 		public override void FromJSON(JSONNode json)
         {
-			Position.FromJSON(json["position"]);
-
             Status 		= 	EnumUtils.ParseEnum<EStatus>(json["status"]);
             Visibility 	= 	EnumUtils.ParseEnum<EVisibility>(json["visibility"]);
             Type 		= 	EnumUtils.ParseEnum<EType>(json["type"]);
@@ -70,7 +68,5 @@ namespace MS
         public      EVisibility     		Visibility;
         public      EType           		Type;
         public      ESurface        		Surface;
-
-        public 		GridPosition 			Position;
     }
 }
