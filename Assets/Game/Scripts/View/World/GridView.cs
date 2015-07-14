@@ -44,6 +44,9 @@ namespace MS
 
                     tileView.name = "Tile [" + x + "," + y + "]";
 
+                    tileView.BindTo(m_Model.GetTile(x, y));
+                    tileView.UpdateView();
+
                     m_TileViews.Add(tileView);
                 }
             }
