@@ -22,6 +22,11 @@ namespace MS
 
             if (m_TileViews != null)
             {
+                foreach (TileView tile in m_TileViews)
+                {
+                    Destroy(tile.gameObject);
+                }
+
                 m_TileViews.Clear();
             }
             else
@@ -30,8 +35,6 @@ namespace MS
             }
 
             TileView    tileView;
-            
-            Gizmos.color = Color.magenta;
             
             for (int x = 0; x < m_Model.HorizontalSize; ++x)
             {

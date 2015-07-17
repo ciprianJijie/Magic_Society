@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using SimpleJSON;
 using System.IO;
 
@@ -21,6 +22,11 @@ namespace MS
 		{
             Instantiate(NameLevelPrefab).transform.SetParent(WindowsContainer, false);
 		}
+
+        public void ShowResizeWindow()
+        {
+            Instantiate(ResizeWindowPrefab).transform.SetParent(WindowsContainer, false);
+        }
 
 		public void New(string levelName, int x, int y)
 		{
@@ -57,6 +63,14 @@ namespace MS
 			System.IO.File.WriteAllText(m_CurrentFilePath, json.ToString(""));
         }
 
+        public void Resize(int hSize, int vSize)
+        {
+            m_CurrentMap.Resize(hSize, vSize);
+
+            GridVisualizer.BindTo(m_CurrentMap.Tiles);
+            GridVisualizer.UpdateView();
+        }
+
         public void ShowGrid(Grid grid)
         {
             HideGrid();
@@ -77,6 +91,7 @@ namespace MS
         public GridView         GridVisualizer;
         public GameObject 		FileBrowserPrefab;
         public GameObject 		NameLevelPrefab;
+        public GameObject       ResizeWindowPrefab;
 
         protected Map 			m_CurrentMap;
         protected GameObject 	m_FileBrowserWindow;

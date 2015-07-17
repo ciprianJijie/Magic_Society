@@ -132,6 +132,7 @@ MonoBehaviour:
   GridVisualizer: {fileID: 994683245}
   FileBrowserPrefab: {fileID: 177840, guid: 9ffa0f538a17b46c98f53ff455f1f62a, type: 2}
   NameLevelPrefab: {fileID: 179820, guid: 0e610280808194f278a205a1bfd6f504, type: 2}
+  ResizeWindowPrefab: {fileID: 134454, guid: 583f651bf1c4a4cefb08789041a61eac, type: 2}
 --- !u!1 &419062569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save as
+  m_Text: Resize
 --- !u!222 &1734517414
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1277,7 +1278,7 @@ GameObject:
   - 114: {fileID: 1907933229}
   - 114: {fileID: 1907933228}
   m_Layer: 5
-  m_Name: Save As Button
+  m_Name: Resize Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1324,7 +1325,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 91760128}
-        m_MethodName: Save
+        m_MethodName: ShowResizeWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
