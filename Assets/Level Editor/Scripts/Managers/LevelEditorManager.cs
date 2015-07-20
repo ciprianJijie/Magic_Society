@@ -123,12 +123,15 @@ namespace MS
 
         public void ApplyBrush(int x, int y)
         {
-            Debug.Core.Log("Applying brush to " + x + "," + y);
-
             if (x < 0 || y < 0 || x >= m_CurrentMap.Tiles.HorizontalSize || y >= m_CurrentMap.Tiles.VerticalSize)
             {
                 return;
             }
+
+			if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+			{
+				return;
+			}
 
             Tile tile;
 
