@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 1200242331}
-  MovementSpeed: 4
+  MovementSpeed: 8
 --- !u!4 &58682921
 Transform:
   m_ObjectHideFlags: 0
