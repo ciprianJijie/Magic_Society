@@ -32,6 +32,7 @@ namespace MS
             return json;
         }
 
+        [System.Serializable]
         public enum EStatus
         {
             Available,      // Player can interact with it normally
@@ -39,6 +40,7 @@ namespace MS
             Blocked         // Some effect prevents some interactions
         }
 
+        [System.Serializable]
         public enum EVisibility
         {
             Visible,        // The tile is visible under normal circunstances
@@ -46,6 +48,7 @@ namespace MS
             Blocking        // The tile is visible, but blocks further vision
         }
 
+        [System.Serializable]
         public enum EType
         {
             Fertile,
@@ -55,6 +58,7 @@ namespace MS
             Volcanic
         }
 
+        [System.Serializable]
         public enum ESurface
         {
             Prairie,

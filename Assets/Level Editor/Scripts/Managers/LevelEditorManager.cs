@@ -79,6 +79,10 @@ namespace MS
             GridVisualizer.UpdateView();
 
             GridVisualizer.enabled = true;
+
+            Brush = new Brush();
+
+            MouseToGridHandler.enabled = true;
         }
 
         public void HideGrid()
@@ -86,12 +90,85 @@ namespace MS
             GridVisualizer.enabled = false;
         }
 
+        // Brush
+        public void ChangeBrush(Tile.EType terrain)
+        {
+            Debug.Core.Log("Brush changed to " + terrain);
+            Brush.Terrain = terrain;
+        }
+
+        public void ChangeBrush(Tile.ESurface surface)
+        {
+            Debug.Core.Log("Brush changed to " + surface);
+            Brush.Surface = surface;
+        }
+
+        public void ChangeBrushTerrain(string terrainString)
+        {
+            Tile.EType terrain;
+
+            terrain = EnumUtils.ParseEnum<Tile.EType>(terrainString);
+
+            ChangeBrush(terrain);
+        }
+
+        public void ChangeBrushSurface(string surfaceString)
+        {
+            Tile.ESurface surface;
+
+            surface = EnumUtils.ParseEnum<Tile.ESurface>(surfaceString);
+
+            ChangeBrush(surface);
+        }
+
+        public void ApplyBrush(int x, int y)
+        {
+            Debug.Core.Log("Applying brush to " + x + "," + y);
+
+            if (x < 0 || y < 0 || x >= m_CurrentMap.Tiles.HorizontalSize || y >= m_CurrentMap.Tiles.VerticalSize)
+            {
+                return;
+            }
+
+            Tile tile;
+
+            tile = m_CurrentMap.Tiles.GetTile(x, y);
+
+            Brush.Draw(tile);
+
+            // Search Tile View
+            GridVisualizer.UpdateView(x, y);
+        }
+
+        // ---
+
+        // Unity methods
+
+        protected void Start()
+        {
+            // Subscribe to events
+            MouseToGridHandler.OnMouseLeftClick += ApplyBrush;
+            MouseToGridHandler.enabled = false;
+        }
+
+        protected void OnDestroy()
+        {
+            // Unsubscribe to events
+            MouseToGridHandler.OnMouseLeftClick -= ApplyBrush;
+        }
+
+        // ---
+
         public Transform 		WindowsContainer;
         public Transform        WorldContainer;
         public GridView         GridVisualizer;
         public GameObject 		FileBrowserPrefab;
         public GameObject 		NameLevelPrefab;
         public GameObject       ResizeWindowPrefab;
+        public MouseToGrid      MouseToGridHandler;
+
+        [HideInInspector]
+        public Brush            Brush;
 
         protected Map 			m_CurrentMap;
         protected GameObject 	m_FileBrowserWindow;
