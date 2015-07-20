@@ -16,7 +16,7 @@ namespace MS
         public event GridEvent OnMouseLeftClick     =   DefaultAction;
         public event GridEvent OnMouseRightClick    =   DefaultAction;
 
-        private Plane m_ProjectionPlane;
+        private Plane       m_ProjectionPlane;
 
         protected void Start()
         {
@@ -37,8 +37,6 @@ namespace MS
                 mousePosition = ray.GetPoint(distance);
 
                 tilePosition = GridView.WorldToLocal(mousePosition);
-
-                //Debug.Core.Log("World position: " + mousePosition + " (" + tilePosition + ")");
 
                 if (Input.GetMouseButtonDown(0))
                 {

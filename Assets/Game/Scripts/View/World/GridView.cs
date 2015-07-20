@@ -118,11 +118,11 @@ namespace MS
             float approximateX;
             float approximateY;
 
-            approximateX = (x * Mathf.Sqrt(3) / 3.0f - z / 3.0f) / TileWidth;
-            approximateY = (z * 2.0f / 3.0f ) / TileHeight;
+            approximateX = (x * (Mathf.Sqrt(3.0f) / 3.0f) - (z / 3.0f) / HexagonSize);
+            approximateY = (z * (2.0f / 3.0f) / HexagonSize);
 
-            approximateX += m_Model.HorizontalSize / 2f;
-            approximateY += m_Model.VerticalSize / 2f;
+            approximateX += (float)m_Model.HorizontalSize / 2f;
+            approximateY += (float)m_Model.VerticalSize / 2f;
 
             // And now we find the nearest hexagon to that position
             Vector3 cubePos = Hexagon.AxialToCube(approximateX, approximateY);
