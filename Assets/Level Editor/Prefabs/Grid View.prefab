@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &141272
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 482832}
+  - 33: {fileID: 3388896}
+  - 23: {fileID: 2345582}
+  m_Layer: 0
+  m_Name: Grid_Base_Tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &151562
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,8 +26,25 @@ GameObject:
   m_Component:
   - 4: {fileID: 405750}
   - 114: {fileID: 11475134}
+  - 114: {fileID: 11403658}
   m_Layer: 0
   m_Name: Grid View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &167198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423822}
+  - 114: {fileID: 11417108}
+  m_Layer: 0
+  m_Name: Tile Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,9 +59,90 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 423822}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &423822
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 482832}
+  m_Father: {fileID: 405750}
+  m_RootOrder: 0
+--- !u!4 &482832
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141272}
+  m_LocalRotation: {x: -.49999994, y: -.500000119, z: -.500000119, w: .49999997}
+  m_LocalPosition: {x: 0, y: .00600000005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 423822}
+  m_RootOrder: 0
+--- !u!23 &2345582
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141272}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6abcc773d4409468590029a57e635ba2, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3388896
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141272}
+  m_Mesh: {fileID: 4300000, guid: e8e0e5c05a3d2430fa68c3a322ceab85, type: 3}
+--- !u!114 &11403658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972a1d97d5e654d79ae918d84964c2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridView: {fileID: 11475134}
+--- !u!114 &11417108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e8f6fc35f5f48dc93b953ddbc7df89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputToReact: {fileID: 11403658}
 --- !u!114 &11475134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HexagonSize: 1
   TileViewPrefab: {fileID: 11440078, guid: 6a813ddb0afab475e975060e2b6e47a2, type: 2}
+  Selector: {fileID: 11417108}
+  TileWidth: 0
+  TileHeight: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

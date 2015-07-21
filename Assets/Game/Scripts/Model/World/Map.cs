@@ -17,6 +17,29 @@ namespace MS
             Tiles = new Grid(x, y);
         }
 
+        public void Resize(int hSize, int vSize)
+        {
+            Grid newGrid;
+            int maxX;
+            int maxY;
+
+            newGrid = new Grid(hSize, vSize);
+            maxX = Mathf.Min(hSize, Tiles.HorizontalSize);
+            maxY = Mathf.Min(vSize, Tiles.VerticalSize);
+
+            for(int x = 0; x < maxX; ++x)
+            {
+                for (int y = 0; y < maxY; ++y)
+                {
+                    newGrid.SetTile(x, y, Tiles.GetTile(x, y));
+                }
+            }
+
+            Tiles = newGrid;
+
+            System.GC.Collect();
+        }
+
         public override void FromJSON(JSONNode json)
         {
             Name = json["name"];

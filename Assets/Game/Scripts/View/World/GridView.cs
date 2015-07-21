@@ -7,21 +7,46 @@ namespace MS
     {
         public float            HexagonSize = 1f;
         public TileView         TileViewPrefab;
+        public TileSelector     Selector;
 
-        protected float         TileWidth;
-        protected float         TileHeight;
+        [HideInInspector]
+        public float         TileWidth;
 
-        private Plane           m_Plane;
+        [HideInInspector]
+        public float         TileHeight;
+
         private List<TileView>  m_TileViews;
+
+        public int HorizontalSize
+        {
+            get
+            {
+                if (m_Model != null) return m_Model.HorizontalSize;
+                else return 0;
+            }
+        }
+
+        public int VerticalSize
+        {
+            get
+            {
+                if (m_Model != null) return m_Model.VerticalSize;
+                else return 0;
+            }
+        }
 
         public override void UpdateView()
         {
-            m_Plane     =   new Plane(this.transform.up, this.transform.position);
             TileWidth   =   Hexagon.Width(HexagonSize);
             TileHeight  =   Hexagon.Height(HexagonSize);
 
             if (m_TileViews != null)
             {
+                foreach (TileView tile in m_TileViews)
+                {
+                    Destroy(tile.gameObject);
+                }
+
                 m_TileViews.Clear();
             }
             else
@@ -30,9 +55,7 @@ namespace MS
             }
 
             TileView    tileView;
-            
-            Gizmos.color = Color.magenta;
-            
+
             for (int x = 0; x < m_Model.HorizontalSize; ++x)
             {
                 for (int y = 0; y < m_Model.VerticalSize; ++y)
@@ -50,41 +73,69 @@ namespace MS
                     m_TileViews.Add(tileView);
                 }
             }
+
+            Selector.enabled = true;
         }
 
-        protected Vector3 LocalToWorld(float x, float y)
+        public void UpdateView(int x, int y)
+        {
+            foreach (TileView tileView in m_TileViews)
+            {
+                if (tileView.name.Contains("[" + x + "," + y + "]"))
+                {
+                    tileView.UpdateView();
+                    break;
+                }
+            }
+
+            Selector.enabled = true;
+        }
+
+        /// <summary>
+        /// Transforms from axial local coordinates to world coordinates.
+        /// </summary>
+        public Vector3 LocalToWorld(float x, float y)
         {
             Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
-            
+
             x = x - (float) m_Model.HorizontalSize / 2f;
             y = y - (float) m_Model.VerticalSize / 2f;
 
             pos.x = this.transform.position.x + (HexagonSize * Mathf.Sqrt (3f) * (x + y / 2.0f));
+            pos.y = this.transform.position.y;
             pos.z = this.transform.position.z + (HexagonSize * 3.0f / 2.0f * y);
-            
+
             return pos;
         }
 
-        protected Vector2 WorldToLocal(float x, float y, float z)
+        /// <summary>
+        /// Transform a world coordinate to axial local coordinate.
+        /// </summary>
+        public Vector2 WorldToLocal(float x, float y, float z)
         {
             Vector2 pos;
-            
+
             float approximateX;
             float approximateY;
-            
-            approximateX = (x * Mathf.Sqrt(3) / 3.0f - y / 3.0f) / TileWidth - this.transform.position.x;
-            approximateY = (y * 2.0f / 3.0f ) / TileHeight - this.transform.position.y;
-            
-            approximateX += m_Model.HorizontalSize / 2;
-            approximateY += m_Model.VerticalSize / 2;
-            
+
+            approximateX = (x * (Mathf.Sqrt(3.0f) / 3.0f) - (z / 3.0f) / HexagonSize);
+            approximateY = (z * (2.0f / 3.0f) / HexagonSize);
+
+            approximateX += (float)m_Model.HorizontalSize / 2f;
+            approximateY += (float)m_Model.VerticalSize / 2f;
+
             // And now we find the nearest hexagon to that position
-            Vector3 cubePos = Hexagon.AxialToCube (approximateX, approximateY);
-            cubePos = Hexagon.RoundToCube (cubePos);
-            
+            Vector3 cubePos = Hexagon.AxialToCube(approximateX, approximateY);
+            cubePos = Hexagon.RoundToCube(cubePos);
+
             pos = Hexagon.CubeToAxial(cubePos);
-            
+
             return pos;
+        }
+
+        public Vector2 WorldToLocal(Vector3 v)
+        {
+            return WorldToLocal(v.x, v.y, v.z);
         }
 
 

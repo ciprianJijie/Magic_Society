@@ -11,6 +11,10 @@
             "Text": "Load Game"
         },
         {
+            "ID": "LEVEL_EDITOR",
+            "Text": "Level Editor"
+        },
+        {
             "ID": "EXIT",
             "Text": "Exit"
         },
