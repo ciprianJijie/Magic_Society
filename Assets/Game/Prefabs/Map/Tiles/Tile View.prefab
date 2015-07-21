@@ -44,7 +44,7 @@ MonoBehaviour:
   FertileMountainPrefab: {fileID: 0}
   FertileWaterPrefab: {fileID: 0}
   BarrenPrairiePrefab: {fileID: 120912, guid: 400a5b76059344a6e94ba1355772705c, type: 2}
-  BarrenForestPrefab: {fileID: 0}
+  BarrenForestPrefab: {fileID: 193780, guid: 35588e67894a04174b7c1bfab1c153cb, type: 2}
   BarrenMountainPrefab: {fileID: 0}
   BarrenWaterPrefab: {fileID: 0}
   DesertPrairiePrefab: {fileID: 188846, guid: dfb213dca93714d8f85b73668a7d559e, type: 2}
@@ -71,6 +71,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BarrenForestPrefab
+      value: 
+      objectReference: {fileID: 193780, guid: 35588e67894a04174b7c1bfab1c153cb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178324}
