@@ -1,20 +1,83 @@
 fileFormatVersion: 2
-guid: e8e0e5c05a3d2430fa68c3a322ceab85
-timeCreated: 1436811548
+guid: 476fd872891994399bb0568430e60ac3
+timeCreated: 1437466240
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Tile
+    100004: Tree
+    100006: Tree_001
+    100008: Tree_002
+    100010: Tree_003
+    100012: Tree_004
+    100014: Tree_005
+    100016: Tree_006
+    100018: Tree_007
+    100020: Tree_008
+    100022: Tree_009
+    100024: Tree_010
+    100026: Trees
     400000: //RootNode
+    400002: Tile
+    400004: Tree
+    400006: Tree_001
+    400008: Tree_002
+    400010: Tree_003
+    400012: Tree_004
+    400014: Tree_005
+    400016: Tree_006
+    400018: Tree_007
+    400020: Tree_008
+    400022: Tree_009
+    400024: Tree_010
+    400026: Trees
     2300000: //RootNode
+    2300002: Tile
+    2300004: Tree
+    2300006: Tree_001
+    2300008: Tree_002
+    2300010: Tree_003
+    2300012: Tree_004
+    2300014: Tree_005
+    2300016: Tree_006
+    2300018: Tree_007
+    2300020: Tree_008
+    2300022: Tree_009
+    2300024: Tree_010
+    2300026: Trees
     3300000: //RootNode
-    4300000: Plane
-    4300002: Tile
+    3300002: Tile
+    3300004: Tree
+    3300006: Tree_001
+    3300008: Tree_002
+    3300010: Tree_003
+    3300012: Tree_004
+    3300014: Tree_005
+    3300016: Tree_006
+    3300018: Tree_007
+    3300020: Tree_008
+    3300022: Tree_009
+    3300024: Tree_010
+    3300026: Trees
+    4300000: Tile
+    4300002: Tree
+    4300004: Tree_010
+    4300006: Tree_009
+    4300008: Tree_008
+    4300010: Tree_007
+    4300012: Tree_006
+    4300014: Tree_005
+    4300016: Tree_004
+    4300018: Tree_003
+    4300020: Tree_002
+    4300022: Tree_001
+    4300024: Trees
     7400000: Default Take
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -37,11 +100,11 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
-    importBlendShapes: 0
+    importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

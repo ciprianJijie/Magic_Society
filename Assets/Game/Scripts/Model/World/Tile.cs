@@ -8,7 +8,7 @@ namespace MS
 		{
             Status 		= 	EStatus.Available;
             Visibility 	= 	EVisibility.Visible;
-            Type 		= 	EType.Fertile;
+            Type 		= 	ETerrain.Fertile;
             Surface 	= 	ESurface.Prairie;
         }
 
@@ -16,7 +16,7 @@ namespace MS
         {
             Status 		= 	EnumUtils.ParseEnum<EStatus>(json["status"]);
             Visibility 	= 	EnumUtils.ParseEnum<EVisibility>(json["visibility"]);
-            Type 		= 	EnumUtils.ParseEnum<EType>(json["type"]);
+            Type 		= 	EnumUtils.ParseEnum<ETerrain>(json["type"]);
             Surface 	= 	EnumUtils.ParseEnum<ESurface>(json["surface"]);
         }
 
@@ -49,7 +49,7 @@ namespace MS
         }
 
         [System.Serializable]
-        public enum EType
+        public enum ETerrain
         {
             Fertile,
             Barren,
@@ -64,13 +64,12 @@ namespace MS
             Prairie,
             Forest,
             Mountain,
-            Water,
-            Vulcan
+            Water
         }
 
         public      EStatus         		Status;
         public      EVisibility     		Visibility;
-        public      EType           		Type;
+        public      ETerrain           		Type;
         public      ESurface        		Surface;
     }
 }

@@ -17,6 +17,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &137706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403144}
+  - 33: {fileID: 3328378}
+  - 23: {fileID: 2395752}
+  m_Layer: 0
+  m_Name: Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &148982
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +45,7 @@ GameObject:
   - 33: {fileID: 3396102}
   - 23: {fileID: 2387560}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +67,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &403144
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 474212}
+  m_RootOrder: 2
 --- !u!4 &444134
 Transform:
   m_ObjectHideFlags: 1
@@ -86,6 +115,7 @@ Transform:
   m_Children:
   - {fileID: 462294}
   - {fileID: 444134}
+  - {fileID: 403144}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2331924
@@ -136,6 +166,37 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2395752
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137706}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3328378
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137706}
+  m_Mesh: {fileID: 0}
 --- !u!33 &3365906
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -149,7 +210,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148982}
-  m_Mesh: {fileID: 4300000, guid: e8e0e5c05a3d2430fa68c3a322ceab85, type: 3}
+  m_Mesh: {fileID: 4300002, guid: e8e0e5c05a3d2430fa68c3a322ceab85, type: 3}
 --- !u!114 &11440078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,12 +222,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e66e33f8ae82447dabc30c0f46e7b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FertileMaterial: {fileID: 2100000, guid: f9c5a12940c5a44adbe74473b5e1c905, type: 2}
-  BarrenMaterial: {fileID: 2100000, guid: 7a38fac9eb6ce43b4a25556bd08e58f2, type: 2}
-  DesertMaterial: {fileID: 2100000, guid: d4201a826751c40cd90d0f04cb88a1d3, type: 2}
-  FrozenMaterial: {fileID: 2100000, guid: 6b576f2a085854e4b802434f3a6773f9, type: 2}
-  VolcanicMaterial: {fileID: 2100000, guid: e2c3da0000d8f41f48cd182d161f5c85, type: 2}
-  TerrainRenderer: {fileID: 2387560}
+  FertilePrairiePrefab: {fileID: 0}
+  FertileForestPrefab: {fileID: 0}
+  FertileMountainPrefab: {fileID: 0}
+  FertileWaterPrefab: {fileID: 0}
+  BarrenPrairiePrefab: {fileID: 0}
+  BarrenForestPrefab: {fileID: 0}
+  BarrenMountainPrefab: {fileID: 0}
+  BarrenWaterPrefab: {fileID: 0}
+  DesertPrairiePrefab: {fileID: 0}
+  DesertForestPrefab: {fileID: 0}
+  DesertMountainPrefab: {fileID: 0}
+  DesertWaterPrefab: {fileID: 0}
+  FrozenPrairiePrefab: {fileID: 0}
+  FrozenForestPrefab: {fileID: 0}
+  FrozenMountainPrefab: {fileID: 0}
+  FrozenWaterPrefab: {fileID: 0}
+  VolcanicPrairiePrefab: {fileID: 0}
+  VolcanicForestPrefab: {fileID: 0}
+  VolcanicMountainPrefab: {fileID: 0}
+  VolcanicWaterPrefab: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
