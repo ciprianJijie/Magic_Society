@@ -41,15 +41,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FertilePrairiePrefab: {fileID: 163796, guid: ffd41c11cde69464e8bf451352072e08, type: 2}
   FertileForestPrefab: {fileID: 146222, guid: 16b64d17820374e66b6b3aed1ce27893, type: 2}
-  FertileMountainPrefab: {fileID: 0}
+  FertileMountainPrefab: {fileID: 134226, guid: 257a63b64d4d44b0b84c236613b803d6,
+    type: 2}
   FertileWaterPrefab: {fileID: 0}
   BarrenPrairiePrefab: {fileID: 120912, guid: 400a5b76059344a6e94ba1355772705c, type: 2}
   BarrenForestPrefab: {fileID: 193780, guid: 35588e67894a04174b7c1bfab1c153cb, type: 2}
-  BarrenMountainPrefab: {fileID: 0}
+  BarrenMountainPrefab: {fileID: 189272, guid: 1bbf8ca3ed0304a389fb6aaa24b698cd, type: 2}
   BarrenWaterPrefab: {fileID: 0}
   DesertPrairiePrefab: {fileID: 188846, guid: dfb213dca93714d8f85b73668a7d559e, type: 2}
   DesertForestPrefab: {fileID: 116822, guid: 539f8ef5f45d34886bdad61a5ef7a3ae, type: 2}
-  DesertMountainPrefab: {fileID: 0}
+  DesertMountainPrefab: {fileID: 179130, guid: c1433816f6f5c4a8cb88502688b8f7c5, type: 2}
   DesertWaterPrefab: {fileID: 0}
   FrozenPrairiePrefab: {fileID: 130936, guid: 9c1e0637dd14f41a78b56a34f4d284c5, type: 2}
   FrozenForestPrefab: {fileID: 141482, guid: b169f98c442514c97b108b4f7cffae1c, type: 2}
@@ -87,6 +88,18 @@ Prefab:
       propertyPath: VolcanicForestPrefab
       value: 
       objectReference: {fileID: 116638, guid: c32806273f94947d49bacf5bbb479109, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileMountainPrefab
+      value: 
+      objectReference: {fileID: 134226, guid: 257a63b64d4d44b0b84c236613b803d6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenMountainPrefab
+      value: 
+      objectReference: {fileID: 189272, guid: 1bbf8ca3ed0304a389fb6aaa24b698cd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertMountainPrefab
+      value: 
+      objectReference: {fileID: 179130, guid: c1433816f6f5c4a8cb88502688b8f7c5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178324}
