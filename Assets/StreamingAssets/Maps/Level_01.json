@@ -2757,7 +2757,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -3315,7 +3315,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -3521,7 +3521,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -3903,7 +3903,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -4479,7 +4479,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 

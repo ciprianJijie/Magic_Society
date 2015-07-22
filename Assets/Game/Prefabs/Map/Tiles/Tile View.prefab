@@ -57,7 +57,7 @@ MonoBehaviour:
   FrozenWaterPrefab: {fileID: 0}
   VolcanicPrairiePrefab: {fileID: 102126, guid: af47a707b18e74348b9323e104f13a5d,
     type: 2}
-  VolcanicForestPrefab: {fileID: 0}
+  VolcanicForestPrefab: {fileID: 116638, guid: c32806273f94947d49bacf5bbb479109, type: 2}
   VolcanicMountainPrefab: {fileID: 0}
   VolcanicWaterPrefab: {fileID: 0}
 --- !u!1001 &100100000
@@ -83,6 +83,10 @@ Prefab:
       propertyPath: FrozenForestPrefab
       value: 
       objectReference: {fileID: 141482, guid: b169f98c442514c97b108b4f7cffae1c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicForestPrefab
+      value: 
+      objectReference: {fileID: 116638, guid: c32806273f94947d49bacf5bbb479109, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178324}
