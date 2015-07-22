@@ -1175,7 +1175,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -1569,7 +1569,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -1769,7 +1769,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -1969,7 +1969,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
@@ -2157,7 +2157,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Prairie"
+               "surface" : "Forest"
             }, 
             { 
                "status" : "Available", 
