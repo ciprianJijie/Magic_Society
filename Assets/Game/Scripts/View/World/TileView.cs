@@ -8,44 +8,54 @@ namespace MS
         public GameObject FertileForestPrefab;
         public GameObject FertileMountainPrefab;
         public GameObject FertileWaterPrefab;
+        public Elevation  FertileElevationPrefab;
 
         public GameObject BarrenPrairiePrefab;
 		public GameObject BarrenForestPrefab;
         public GameObject BarrenMountainPrefab;
         public GameObject BarrenWaterPrefab;
+        public Elevation BarrenElevationPrefab;
 
-		public GameObject DesertPrairiePrefab;
+        public GameObject DesertPrairiePrefab;
 		public GameObject DesertForestPrefab;
         public GameObject DesertMountainPrefab;
         public GameObject DesertWaterPrefab;
+        public Elevation DesertElevationPrefab;
 
-		public GameObject FrozenPrairiePrefab;
+        public GameObject FrozenPrairiePrefab;
 		public GameObject FrozenForestPrefab;
         public GameObject FrozenMountainPrefab;
         public GameObject FrozenWaterPrefab;
+        public Elevation FrozenElevationPrefab;
 
-		public GameObject VolcanicPrairiePrefab;
+        public GameObject VolcanicPrairiePrefab;
 		public GameObject VolcanicForestPrefab;
         public GameObject VolcanicMountainPrefab;
         public GameObject VolcanicWaterPrefab;
+        public Elevation VolcanicElevationPrefab;
 
         private GameObject m_InstancedTile;
+        private GameObject m_InstancedElevation;
 
         public override void UpdateView()
         {
             GameObject tileToInstantiate;
+            Elevation elevationToInstantiate;
 
             if (m_InstancedTile != null)
 			{
                 Destroy(m_InstancedTile);
             }
 
-            tileToInstantiate = FertileWaterPrefab;
+			// Default prefabs
+            tileToInstantiate 		= 	FertileWaterPrefab;
+            elevationToInstantiate 	= 	FertileElevationPrefab;
 
             switch (m_Model.Type)
 			{
 				case Tile.ETerrain.Fertile:
-					switch (m_Model.Surface)
+                    elevationToInstantiate = FertileElevationPrefab;
+                    switch (m_Model.Surface)
 					{
 						case Tile.ESurface.Prairie:
                             tileToInstantiate = FertilePrairiePrefab;
@@ -62,7 +72,8 @@ namespace MS
 					}
 					break;
 				case Tile.ETerrain.Barren:
-					switch (m_Model.Surface)
+                    elevationToInstantiate = BarrenElevationPrefab;
+                    switch (m_Model.Surface)
 					{
 						case Tile.ESurface.Prairie:
                             tileToInstantiate = BarrenPrairiePrefab;
@@ -79,7 +90,8 @@ namespace MS
 					}
 					break;
 				case Tile.ETerrain.Desert:
-					switch (m_Model.Surface)
+                    elevationToInstantiate = DesertElevationPrefab;
+                    switch (m_Model.Surface)
 					{
 						case Tile.ESurface.Prairie:
                             tileToInstantiate = DesertPrairiePrefab;
@@ -96,7 +108,8 @@ namespace MS
 					}
 					break;
 				case Tile.ETerrain.Frozen:
-					switch (m_Model.Surface)
+                    elevationToInstantiate = FrozenElevationPrefab;
+                    switch (m_Model.Surface)
 					{
 						case Tile.ESurface.Prairie:
                             tileToInstantiate = FrozenPrairiePrefab;
@@ -113,7 +126,8 @@ namespace MS
 					}
 					break;
 				case Tile.ETerrain.Volcanic:
-					switch (m_Model.Surface)
+                    elevationToInstantiate = VolcanicElevationPrefab;
+                    switch (m_Model.Surface)
 					{
 						case Tile.ESurface.Prairie:
                             tileToInstantiate = VolcanicPrairiePrefab;
@@ -134,6 +148,20 @@ namespace MS
             m_InstancedTile = Instantiate(tileToInstantiate) as GameObject;
 			m_InstancedTile.transform.SetParent(this.gameObject.transform);
             m_InstancedTile.transform.localPosition = Vector3.zero;
+
+            m_InstancedTile.transform.position += Vector3.up * m_Model.Height * 0.5f;
+
+            // Elevation
+            if (m_InstancedElevation != null)
+			{
+                Destroy(m_InstancedElevation);
+            }
+
+            m_InstancedElevation = Instantiate(elevationToInstantiate.gameObject) as GameObject;
+
+			m_InstancedElevation.transform.SetParent(this.gameObject.transform);
+			m_InstancedElevation.transform.localPosition = Vector3.zero;
+			m_InstancedElevation.GetComponent<Elevation>().ChangeHeight(m_Model.Height);
         }
 	}
 }

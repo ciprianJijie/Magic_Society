@@ -1,3 +1,4 @@
+using UnityEngine;
 using SimpleJSON;
 
 namespace MS
@@ -10,6 +11,7 @@ namespace MS
             Visibility 	= 	EVisibility.Visible;
             Type 		= 	ETerrain.Fertile;
             Surface 	= 	ESurface.Prairie;
+            Height 		= 	0;
         }
 
 		public override void FromJSON(JSONNode json)
@@ -18,16 +20,18 @@ namespace MS
             Visibility 	= 	EnumUtils.ParseEnum<EVisibility>(json["visibility"]);
             Type 		= 	EnumUtils.ParseEnum<ETerrain>(json["type"]);
             Surface 	= 	EnumUtils.ParseEnum<ESurface>(json["surface"]);
+			Height 		=	json["height"].AsInt;
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = JSON.Parse("{ }");
+            JSONNode json = JSON.Parse(Resources.Load<TextAsset>("Data/JSON/Templates/Tile").text);
 
-            json["status"] 		= 	Status.ToString();
-            json["visibility"] 	= 	Visibility.ToString();
-            json["type"] 		= 	Type.ToString();
-            json["surface"] 	= 	Surface.ToString();
+            json["status"] 			= 	Status.ToString();
+            json["visibility"] 		= 	Visibility.ToString();
+            json["type"] 			= 	Type.ToString();
+            json["surface"] 		= 	Surface.ToString();
+            json["height"].AsInt 	= 	Height;
 
             return json;
         }
@@ -67,9 +71,10 @@ namespace MS
             Water
         }
 
-        public      EStatus         		Status;
-        public      EVisibility     		Visibility;
-        public      ETerrain           		Type;
-        public      ESurface        		Surface;
+        public EStatus      Status;
+        public EVisibility  Visibility;
+        public ETerrain     Type;
+        public ESurface     Surface;
+        public int 			Height;
     }
 }

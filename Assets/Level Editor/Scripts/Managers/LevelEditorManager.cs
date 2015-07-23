@@ -121,6 +121,11 @@ namespace MS
             ChangeBrush(surface);
         }
 
+		public void ChangeBrush(int height)
+		{
+            Brush.Height = height;
+        }
+
         public void ApplyBrush(int x, int y)
         {
             if (x < 0 || y < 0 || x >= m_CurrentMap.Tiles.HorizontalSize || y >= m_CurrentMap.Tiles.VerticalSize)

@@ -1,33 +1,19 @@
 fileFormatVersion: 2
-guid: ffa5235d7d27e48cea6512ffd9061083
-timeCreated: 1437582547
+guid: 70b4c0670a18840efab492837f8a0c20
+timeCreated: 1437637741
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Cube
-    100002: //RootNode
-    100004: Tile
-    100006: Desert_Mountain
-    400000: Cube
-    400002: //RootNode
-    400004: Tile
-    400006: Desert_Mountain
-    2300000: Cube
-    2300002: Tile
-    2300004: Desert_Mountain
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Tile
-    3300004: Desert_Mountain
-    3300006: //RootNode
-    4300000: Cube
-    4300002: Tile
-    4300004: Desert_Mountain
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

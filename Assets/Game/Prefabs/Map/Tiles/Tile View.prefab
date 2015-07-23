@@ -44,23 +44,33 @@ MonoBehaviour:
   FertileMountainPrefab: {fileID: 134226, guid: 257a63b64d4d44b0b84c236613b803d6,
     type: 2}
   FertileWaterPrefab: {fileID: 0}
+  FertileElevationPrefab: {fileID: 11497674, guid: 0a05eb18f7f614b8396fbe57961d929b,
+    type: 2}
   BarrenPrairiePrefab: {fileID: 120912, guid: 400a5b76059344a6e94ba1355772705c, type: 2}
   BarrenForestPrefab: {fileID: 193780, guid: 35588e67894a04174b7c1bfab1c153cb, type: 2}
   BarrenMountainPrefab: {fileID: 189272, guid: 1bbf8ca3ed0304a389fb6aaa24b698cd, type: 2}
   BarrenWaterPrefab: {fileID: 0}
+  BarrenElevationPrefab: {fileID: 11461678, guid: d90637100a8e94be7855c460756c1547,
+    type: 2}
   DesertPrairiePrefab: {fileID: 188846, guid: dfb213dca93714d8f85b73668a7d559e, type: 2}
   DesertForestPrefab: {fileID: 116822, guid: 539f8ef5f45d34886bdad61a5ef7a3ae, type: 2}
   DesertMountainPrefab: {fileID: 179130, guid: c1433816f6f5c4a8cb88502688b8f7c5, type: 2}
   DesertWaterPrefab: {fileID: 0}
+  DesertElevationPrefab: {fileID: 11472100, guid: 3df12d0e6471449d4a95e5ac42b46b7a,
+    type: 2}
   FrozenPrairiePrefab: {fileID: 130936, guid: 9c1e0637dd14f41a78b56a34f4d284c5, type: 2}
   FrozenForestPrefab: {fileID: 141482, guid: b169f98c442514c97b108b4f7cffae1c, type: 2}
   FrozenMountainPrefab: {fileID: 0}
   FrozenWaterPrefab: {fileID: 0}
+  FrozenElevationPrefab: {fileID: 11462370, guid: 269bfc91e587c4809ab464ebe50584a9,
+    type: 2}
   VolcanicPrairiePrefab: {fileID: 102126, guid: af47a707b18e74348b9323e104f13a5d,
     type: 2}
   VolcanicForestPrefab: {fileID: 116638, guid: c32806273f94947d49bacf5bbb479109, type: 2}
   VolcanicMountainPrefab: {fileID: 0}
   VolcanicWaterPrefab: {fileID: 0}
+  VolcanicElevationPrefab: {fileID: 11466904, guid: eb701452779bc4d238392a10b890a6ac,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -100,6 +110,31 @@ Prefab:
       propertyPath: DesertMountainPrefab
       value: 
       objectReference: {fileID: 179130, guid: c1433816f6f5c4a8cb88502688b8f7c5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenElevationPrefab
+      value: 
+      objectReference: {fileID: 11461678, guid: d90637100a8e94be7855c460756c1547,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertElevationPrefab
+      value: 
+      objectReference: {fileID: 11472100, guid: 3df12d0e6471449d4a95e5ac42b46b7a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileElevationPrefab
+      value: 
+      objectReference: {fileID: 11497674, guid: 0a05eb18f7f614b8396fbe57961d929b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenElevationPrefab
+      value: 
+      objectReference: {fileID: 11462370, guid: 269bfc91e587c4809ab464ebe50584a9,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicElevationPrefab
+      value: 
+      objectReference: {fileID: 11466904, guid: eb701452779bc4d238392a10b890a6ac,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178324}
