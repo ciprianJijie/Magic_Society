@@ -11,57 +11,78 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "surface" : "Mountain", 
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -74,57 +95,36 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -152,28 +152,28 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -215,21 +215,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -238,21 +238,21 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -287,7 +287,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -308,403 +308,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -732,63 +336,21 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -808,49 +370,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
+               "surface" : "Forest", 
                "height" : "0"
             }, 
             { 
@@ -858,6 +378,41 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
@@ -886,254 +441,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -1142,7 +464,685 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Mountain", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
                "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "2"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Mountain", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "3"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -1205,7 +1205,14 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -1217,13 +1224,6 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
                "height" : "0"
@@ -1240,14 +1240,14 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -1289,21 +1289,21 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -1345,21 +1345,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -1367,8 +1367,8 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Forest", 
-               "height" : "0"
+               "surface" : "Mountain", 
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -1452,21 +1452,21 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -1508,28 +1508,28 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -1564,28 +1564,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -1594,7 +1594,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -1671,14 +1671,14 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -1727,35 +1727,35 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -1797,21 +1797,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -1820,7 +1820,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -1897,7 +1897,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -1953,28 +1953,28 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -2016,28 +2016,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -2046,7 +2046,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -2116,14 +2116,14 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Mountain", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -2186,7 +2186,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -2249,21 +2249,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -2272,7 +2272,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -2398,28 +2398,28 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -2475,21 +2475,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -2498,7 +2498,7 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -2510,8 +2510,8 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Forest", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
@@ -2624,21 +2624,21 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -2694,28 +2694,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -2724,7 +2724,7 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -2857,7 +2857,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -2920,28 +2920,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -2950,7 +2950,7 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -3153,21 +3153,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -3175,8 +3175,8 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
+               "surface" : "Prairie", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -3204,7 +3204,7 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -3253,14 +3253,14 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -3379,21 +3379,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -3401,8 +3401,8 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
+               "surface" : "Prairie", 
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -3430,14 +3430,14 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -3479,21 +3479,21 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -3598,28 +3598,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -3705,21 +3705,21 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -3824,28 +3824,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -3938,7 +3938,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -4050,28 +4050,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -4080,7 +4080,7 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -4150,14 +4150,14 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "surface" : "Forest", 
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -4191,7 +4191,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Prairie", 
+               "surface" : "Forest", 
                "height" : "2"
             }, 
             { 
@@ -4283,21 +4283,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -4306,28 +4306,28 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -4369,14 +4369,14 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -4502,28 +4502,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -4532,14 +4532,14 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -4616,7 +4616,7 @@
                "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -4735,21 +4735,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -4758,7 +4758,685 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
                "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Volcanic", 
+               "surface" : "Prairie", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -4770,8 +5448,29 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Volcanic", 
+               "type" : "Desert", 
                "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
                "height" : "0"
             }, 
             { 
@@ -4805,37 +5504,9 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -4911,13 +5582,6 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
@@ -4932,6 +5596,34 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
@@ -4947,35 +5639,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -4984,6 +5662,27 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
+               "height" : "3"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
                "height" : "0"
             }, 
             { 
@@ -4991,7 +5690,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -5053,7 +5752,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
-               "surface" : "Prairie", 
+               "surface" : "Forest", 
                "height" : "0"
             }, 
             { 
@@ -5122,35 +5821,35 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
+               "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
@@ -5166,42 +5865,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -5210,685 +5888,7 @@
                "visibility" : "Visible", 
                "type" : "Volcanic", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Volcanic", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Volcanic", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Volcanic", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Volcanic", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Volcanic", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -6056,7 +6056,7 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -6091,21 +6091,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }
          ], 
          [ 
@@ -6114,14 +6114,14 @@
                "visibility" : "Visible", 
                "type" : "Barren", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -6289,7 +6289,7 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -6310,254 +6310,28 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }
-         ], 
-         [ 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Mountain", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -6566,28 +6340,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Barren", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Desert", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
@@ -6599,7 +6352,14 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Barren", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
                "surface" : "Prairie", 
                "height" : "0"
             }, 
@@ -6613,6 +6373,20 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
                "type" : "Fertile", 
                "surface" : "Prairie", 
                "height" : "0"
@@ -6628,162 +6402,162 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
                "surface" : "Forest", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ], 
          [ 
@@ -6792,7 +6566,7 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "3"
             }, 
             { 
                "status" : "Available", 
@@ -6805,7 +6579,7 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Barren", 
-               "surface" : "Mountain", 
+               "surface" : "Prairie", 
                "height" : "0"
             }, 
             { 
@@ -6818,7 +6592,7 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Barren", 
+               "type" : "Desert", 
                "surface" : "Mountain", 
                "height" : "0"
             }, 
@@ -6847,6 +6621,13 @@
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
                "surface" : "Forest", 
                "height" : "0"
             }, 
@@ -6972,20 +6753,6 @@
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
-               "type" : "Fertile", 
-               "surface" : "Prairie", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
-               "type" : "Frozen", 
-               "surface" : "Forest", 
-               "height" : "0"
-            }, 
-            { 
-               "status" : "Available", 
-               "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
                "height" : "0"
@@ -7002,14 +6769,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
             }
          ], 
          [ 
@@ -7018,7 +6792,233 @@
                "visibility" : "Visible", 
                "type" : "Desert", 
                "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
                "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Mountain", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Barren", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Fertile", 
+               "surface" : "Prairie", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Forest", 
+               "height" : "0"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "1"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "2"
+            }, 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Frozen", 
+               "surface" : "Prairie", 
+               "height" : "3"
+            }
+         ], 
+         [ 
+            { 
+               "status" : "Available", 
+               "visibility" : "Visible", 
+               "type" : "Desert", 
+               "surface" : "Prairie", 
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
@@ -7221,21 +7221,21 @@
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "1"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }, 
             { 
                "status" : "Available", 
                "visibility" : "Visible", 
                "type" : "Frozen", 
                "surface" : "Prairie", 
-               "height" : "0"
+               "height" : "2"
             }
          ]
       ]
