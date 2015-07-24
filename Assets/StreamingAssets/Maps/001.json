@@ -1,0 +1,39 @@
+{ 
+   "name" : "001", 
+   "grid" : { 
+      "size" : { 
+         "horizontal" : "2", 
+         "vertical" : "2"
+      }, 
+      "tiles" : [ 
+         [ 
+            { 
+               "x" : "0", 
+               "y" : "0", 
+               "height" : "0", 
+               "terrain" : "Fertile"
+            }, 
+            { 
+               "x" : "0", 
+               "y" : "1", 
+               "height" : "1", 
+               "terrain" : "Fertile"
+            }
+         ], 
+         [ 
+            { 
+               "x" : "1", 
+               "y" : "0", 
+               "height" : "-3", 
+               "terrain" : "Volcanic"
+            }, 
+            { 
+               "x" : "1", 
+               "y" : "1", 
+               "height" : "-2", 
+               "terrain" : "Frozen"
+            }
+         ]
+      ]
+   }
+}

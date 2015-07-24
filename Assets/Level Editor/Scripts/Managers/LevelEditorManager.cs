@@ -56,6 +56,7 @@ namespace MS
 
 		public void Save()
 		{
+            string jsonText;
             JSONNode json;
 
 			json = m_CurrentMap.ToJSON();

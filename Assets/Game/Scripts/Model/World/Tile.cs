@@ -8,6 +8,9 @@ namespace MS
 		// Terrain Type
 		public enum Terrain { Fertile, Barren, Desert, Frozen, Volcanic }
 		// ---
+        
+        public int          X;
+        public int          Y;
 
         public int 			Height;
         public Terrain 		TerrainType;
@@ -15,22 +18,34 @@ namespace MS
 
         public override void FromJSON(JSONNode json)
 		{
+            X               =   json["x"].AsInt;
+            Y               =   json["y"].AsInt;
             Height 			= 	json["height"].AsInt;
             TerrainType 	= 	EnumUtils.ParseEnum<Terrain>(json["terrain"]);
-            Element 		= 	ModelElement.FromJSON<MapElement>(json["element"]);
+            
+            if (json["element"] != null)
+            {
+                Element     = 	ModelElement.FromJSON<MapElement>(json["element"]);
+            }
         }
 
 		public override JSONNode ToJSON()
 		{
-            JSONNode node = JSON.Parse(Resources.Load<TextAsset>("Data/JSON/Templates/Tile").text);
-
-			node["height"].AsInt 	= 	Height;
-            node["terrain"] 		= 	TerrainType.ToString();
-
+            JSONNode root = JSON.Parse("{}");
+            
+            root.Add("x", new JSONData(X));
+            root.Add("y", new JSONData(Y));
+            root.Add("height", new JSONData(Height));
+            root.Add("terrain", TerrainType.ToString());
+            
             if (Element != null)
-                node["element"] 	= 	Element.ToJSON();
+            {
+                root.Add("element", Element.ToJSON());
+            }
+            
+            UnityEngine.Debug.Log(root.ToString(""));
 
-            return node;
+            return root;
         }
     }
 }

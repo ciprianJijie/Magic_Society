@@ -119,12 +119,17 @@ namespace MS
             }
         }
         
-        protected void FillElevations(int topHeight, int bottomHeight)
+        public void FillElevations(int topHeight, int bottomHeight)
         {
             for (int i = bottomHeight; i < topHeight; i++)
             {
                 AddElevation(i);
             }
+        }
+        
+        public void FillFromCurrentTo(int bottom)
+        {
+            FillElevations(m_CurrentHeight, bottom);
         }
 
         protected void MoveGround(int height)

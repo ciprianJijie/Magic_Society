@@ -64,6 +64,7 @@ namespace MS
 
                     tileView = obj.GetComponent<TileView>();
                     tileView.transform.SetParent(this.transform);
+                    tileView.Owner = this;
 
                     tileView.name = "Tile [" + x + "," + y + "]";
 
@@ -79,6 +80,7 @@ namespace MS
 
         public void UpdateView(int x, int y)
         {
+            // TODO: This is horrible, refactor this
             foreach (TileView tileView in m_TileViews)
             {
                 if (tileView.name.Contains("[" + x + "," + y + "]"))

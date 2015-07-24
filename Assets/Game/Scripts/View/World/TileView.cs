@@ -4,6 +4,7 @@ namespace MS
 {
 	public class TileView : View<Tile>
 	{
+                public GridView Owner;                
                 public Elevation FertileTilePrefab;
                 public Elevation BarrenTilePrefab;
                 public Elevation DesertTilePrefab;
@@ -43,7 +44,14 @@ namespace MS
                     
                     m_InstantiatedTile.ChangeHeight(m_Model.Height);
                     
+                    int heightToEnsure;
                     
+                    heightToEnsure = Owner.Model.GetLowestNeighborHeight(m_Model.X, m_Model.Y);
+                    
+                    if (m_Model.Height > heightToEnsure)
+                    {
+                        m_InstantiatedTile.FillFromCurrentTo(heightToEnsure);
+                    }
                 }
         }
 }

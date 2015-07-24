@@ -17,15 +17,22 @@ namespace MS
                 for (int j = 0; j < vSize; ++j)
                 {
                     m_Tiles[i, j] = new Tile();
+                    m_Tiles[i, j].X = i;
+                    m_Tiles[i, j].Y = j;
                 }
             }
         }
 
+        public Tile GetTile(Vector2 axial)
+        {
+            return GetTile((int)axial.x, (int)axial.y);
+        }
+
         public Tile GetTile(int x, int y)
         {
-            if (x < 0 || x > hSize || y < 0 || y > vSize)
+            if (x < 0 || x >= hSize || y < 0 || y >= vSize)
             {
-                throw new System.IndexOutOfRangeException();
+                return null;
             }
 
             return m_Tiles[x, y];
@@ -39,6 +46,27 @@ namespace MS
             }
 
             m_Tiles[x, y] = tile;
+        }
+        
+        public int GetLowestNeighborHeight(int x, int y)
+        {
+            var neighbors = Hexagon.GetCubeNeighbors(Hexagon.AxialToCube(x,y));
+            
+            Tile currentTile;
+            int lowestHeight;
+            
+            lowestHeight = int.MaxValue;
+            
+            foreach (Vector3 cubePos in neighbors)
+            {
+                currentTile = GetTile(Hexagon.CubeToAxial(cubePos));
+                
+                if (currentTile != null && currentTile.Height < lowestHeight)
+                {
+                    lowestHeight = currentTile.Height;
+                }
+            }
+            return lowestHeight;            
         }
 
         public override void FromJSON(JSONNode node)
