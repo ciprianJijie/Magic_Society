@@ -3,12 +3,17 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "Assets/Scripts",
+			"path": "Assets/Game/Scripts",
 			"file_exclude_patterns": [ "*.meta" ]
 		},
 		{
 			"follow_symlinks": true,
-			"path": "Assets/Data",
+			"path": "Assets/StreamingAssets",
+			"file_exclude_patterns": [ "*.meta" ]
+		},
+		{
+			"follow_symlinks": true,
+			"path": "Assets/Level Editor/Scripts",
 			"file_exclude_patterns": [ "*.meta" ]
 		}
 	],
@@ -25,45 +30,5 @@
 			]
 		}
 	],
-
-	"settings":
-	{
-		"completesharp_mono_path": "/Applications/Unity/MonoDevelop.app/Contents/MacOS/bin/MonoDevelop",
-		// Possible default directory paths for Unity:
-		// Windows: C:\Program Files\Unity\Editor\Data\
-		// Windows 64-bit: C:\Program Files (x86)\Unity\Editor\Data\
-		// Mac OS X: /Applications/Unity/Unity.app/Contents/Frameworks/
-
-	"completesharp_assemblies": [
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/UnityScript.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Core.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Managed/nunit.framework.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/mscorlib.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Core.dll",
-
-		"/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.dll",
-
-		"${project_path:Library}/ScriptAssemblies/Assembly-CSharp.dll",
-
-		"${project_path:Library}/ScriptAssemblies/Assembly-CSharp-Editor.dll",
-
-		"${project_path:Library}/ScriptAssemblies/Assembly-UnityScript-Editor.dll",
-
-		"${project_path:Library}/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
-	],
-
-	"completioncommon_inhibit_sublime_completions": true,
-
-	"completioncommon_shorten_names": true
-	}
+	"solution_file": "./Magic_Society.sln"
 }

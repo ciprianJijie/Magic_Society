@@ -1,7 +1,8 @@
 {
-    "status":       "Available",
-    "visibility":   "Visible",
-    "type":         "Fertile",
-    "surface":      "Praire",
-    "height": 0
+    "height": 0,
+    "terrain": "None",
+    "element":
+    {
+        
+    }
 }

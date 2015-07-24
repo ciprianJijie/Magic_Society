@@ -91,34 +91,19 @@ namespace MS
         }
 
         // Brush
-        public void ChangeBrush(Tile.ETerrain terrain)
+        public void ChangeBrush(Tile.Terrain terrain)
         {
             Debug.Core.Log("Brush changed to " + terrain);
             Brush.Terrain = terrain;
         }
 
-        public void ChangeBrush(Tile.ESurface surface)
-        {
-            Debug.Core.Log("Brush changed to " + surface);
-            Brush.Surface = surface;
-        }
-
         public void ChangeBrushTerrain(string terrainString)
         {
-            Tile.ETerrain terrain;
+            Tile.Terrain terrain;
 
-            terrain = EnumUtils.ParseEnum<Tile.ETerrain>(terrainString);
+            terrain = EnumUtils.ParseEnum<Tile.Terrain>(terrainString);
 
             ChangeBrush(terrain);
-        }
-
-        public void ChangeBrushSurface(string surfaceString)
-        {
-            Tile.ESurface surface;
-
-            surface = EnumUtils.ParseEnum<Tile.ESurface>(surfaceString);
-
-            ChangeBrush(surface);
         }
 
 		public void ChangeBrush(int height)

@@ -1,68 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &104878
+--- !u!1 &120536
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 410828}
-  - 33: {fileID: 3337384}
-  - 23: {fileID: 2394624}
+  - 4: {fileID: 495340}
+  - 33: {fileID: 3368978}
+  - 23: {fileID: 2382236}
   m_Layer: 0
-  m_Name: Mesh
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &145064
+--- !u!1 &125908
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404334}
+  - 4: {fileID: 416398}
   m_Layer: 0
-  m_Name: Desert Elevation
+  m_Name: Elevations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &404334
+--- !u!1 &144762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484768}
+  - 114: {fileID: 11449066}
+  m_Layer: 0
+  m_Name: Desert Tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &416398
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145064}
+  m_GameObject: {fileID: 125908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 484768}
+  m_RootOrder: 0
+--- !u!4 &484768
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 410828}
+  - {fileID: 416398}
+  - {fileID: 495340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &410828
+--- !u!4 &495340
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104878}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
+  m_GameObject: {fileID: 120536}
+  m_LocalRotation: {x: -.5, y: .5, z: .500000119, w: .49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 404334}
-  m_RootOrder: 0
---- !u!23 &2394624
+  m_Father: {fileID: 484768}
+  m_RootOrder: 1
+--- !u!23 &2382236
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104878}
+  m_GameObject: {fileID: 120536}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,13 +110,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3337384
+--- !u!33 &3368978
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104878}
-  m_Mesh: {fileID: 4300000, guid: 70b4c0670a18840efab492837f8a0c20, type: 3}
+  m_GameObject: {fileID: 120536}
+  m_Mesh: {fileID: 4300002, guid: e8e0e5c05a3d2430fa68c3a322ceab85, type: 3}
+--- !u!114 &11449066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9aff9ff3a2a94e898b8cc5913a25c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ElevationPrefab: {fileID: 145064, guid: 3df12d0e6471449d4a95e5ac42b46b7a, type: 2}
+  DepresionPrefab: {fileID: 148134, guid: 78333c3b72f05402f9f5e3bc3a786c1c, type: 2}
+  Container: {fileID: 416398}
+  Terrain: {fileID: 495340}
+  VerticalOffset: .5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -99,7 +144,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Terrain
+      value: 
+      objectReference: {fileID: 495340}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 145064}
+  m_RootGameObject: {fileID: 144762}
   m_IsPrefabParent: 1

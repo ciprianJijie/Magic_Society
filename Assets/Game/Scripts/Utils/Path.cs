@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace MS.Utils
+namespace MS
 {
 	public static class Path
 	{

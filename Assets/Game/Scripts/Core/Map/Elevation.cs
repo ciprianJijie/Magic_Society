@@ -5,8 +5,11 @@ namespace MS
 {
 	public class Elevation : MonoBehaviour
 	{
-	    public GameObject ElevationPrefab;
-	    public float VerticalOffset;
+	    public GameObject   ElevationPrefab;
+        public GameObject   DepresionPrefab;
+        public Transform    Container;
+        public Transform    Terrain;
+	    public float        VerticalOffset;
 
 	    protected List<GameObject> m_InstantiatedElevations;
 
@@ -24,19 +27,34 @@ namespace MS
 
 			m_InstantiatedElevations.Clear();
 
+            GameObject prefab;
 	        GameObject elevation;
+            float direction;
 	        float y;
 
-	        for (int i = 0; i < newHeight; ++i)
+            if (newHeight > 0)
+            {
+                prefab = ElevationPrefab;
+                direction = 1.0f;
+            }
+            else
+            {
+                prefab = DepresionPrefab;
+                direction = -1.0f;
+            }
+
+	        for (int i = 0; i < Mathf.Abs(newHeight); ++i)
 			{
 	            y = i * VerticalOffset;
-	            elevation = Instantiate(ElevationPrefab);
-				elevation.transform.SetParent(this.gameObject.transform);
-				elevation.transform.localPosition = Vector3.zero;
-				elevation.transform.position += Vector3.up * y;
-
-	            m_InstantiatedElevations.Add(elevation);
+                elevation = Instantiate(prefab);
+                elevation.transform.SetParent(Container);
+                elevation.transform.localPosition = Vector3.zero;
+                elevation.transform.position += Vector3.up * y * direction;
+                
+                m_InstantiatedElevations.Add(elevation.gameObject);
 	        }
+
+            Terrain.position += Vector3.up * newHeight * VerticalOffset;
 		}
 	}
 }
