@@ -138,6 +138,24 @@ namespace MS
             return WorldToLocal(v.x, v.y, v.z);
         }
 
+        public Vector3 GetSelectorPosition(int x, int y)
+        {
+            Vector3     worldPosition;
+            float       height;
+
+            worldPosition = LocalToWorld(x, y);
+
+            if (x < 0 || y < 0 || x >= m_Model.HorizontalSize || y >= m_Model.VerticalSize)
+            {
+                height = 0;
+            }
+            else
+            {
+                height = m_Model.GetTile(x, y).Height;
+            }
+
+            return worldPosition + Vector3.up * height * 0.5f;
+        }
 
     }
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HexagonSize: 1
-  TileViewPrefab: {fileID: 11440078, guid: 6a813ddb0afab475e975060e2b6e47a2, type: 2}
+  TileViewPrefab: {fileID: 11474344, guid: 886737605c2494695b44d1ebce27a26a, type: 2}
   Selector: {fileID: 11417108}
   TileWidth: 0
   TileHeight: 0
