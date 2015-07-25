@@ -1,25 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
 
 namespace MS
 {
-    public class Brush
+    public abstract class Brush
     {
-        public int              Radius;
-        public Tile.Terrain     Terrain;
-        public int              Height;
+        public int Radius;
 
-        public Brush()
-        {
-            Radius  = 1;
-            Terrain = Tile.Terrain.Fertile;
-            Height  = 0;
-        }
-
-        public void Draw(Tile tileToDraw)
-        {
-            tileToDraw.TerrainType  =   Terrain;
-            tileToDraw.Height       =   Height;
-        }
+        public abstract void Draw(Tile tileToDraw, int Radius);
     }
 }
