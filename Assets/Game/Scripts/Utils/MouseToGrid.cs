@@ -5,7 +5,7 @@ namespace MS
 {
     public class MouseToGrid : MonoBehaviour
     {
-        public GridView GridView;
+        public GridController GridController;
 
         // Events
         public delegate void GridEvent(int x, int y);
@@ -20,7 +20,7 @@ namespace MS
 
         protected void Start()
         {
-            m_ProjectionPlane = new Plane(GridView.transform.up, GridView.transform.position);
+            m_ProjectionPlane = new Plane(GridController.transform.up, GridController.transform.position);
         }
 
         protected void Update()
@@ -36,7 +36,7 @@ namespace MS
             {
                 mousePosition = ray.GetPoint(distance);
 
-                tilePosition = GridView.WorldToLocal(mousePosition);
+                tilePosition = GridController.WorldToLocal(mousePosition);
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -66,32 +66,32 @@ namespace MS
             Vector3 bottomRight;
             Vector3 bottomLeft;
 
-            hSize       =   Mathf.Max(1, GridView.HorizontalSize);
-            vSize       =   Mathf.Max(1, GridView.VerticalSize);
-            tileWidth   =   Mathf.Max(1, GridView.TileWidth);
-            tileHeight  =   Mathf.Max(1, GridView.TileHeight);
+            hSize       =   Mathf.Max(1, GridController.Grid.HorizontalSize);
+            vSize       =   Mathf.Max(1, GridController.Grid.VerticalSize);
+            tileWidth   =   Mathf.Max(1, GridController.TileWidth);
+            tileHeight  =   Mathf.Max(1, GridController.TileHeight);
             halfWidth   =   (hSize / 2f) * tileWidth;
             halfHeight  =   (vSize / 2f) * tileHeight;
 
-            topLeft = new Vector3(  GridView.transform.position.x - halfWidth,
-                                    GridView.transform.position.y,
-                                    GridView.transform.position.z + halfHeight);
+            topLeft = new Vector3(  GridController.transform.position.x - halfWidth,
+                                    GridController.transform.position.y,
+                                    GridController.transform.position.z + halfHeight);
 
-            topRight = new Vector3(  GridView.transform.position.x + halfWidth,
-                                    GridView.transform.position.y,
-                                    GridView.transform.position.z + halfHeight);
+            topRight = new Vector3(  GridController.transform.position.x + halfWidth,
+                                    GridController.transform.position.y,
+                                    GridController.transform.position.z + halfHeight);
 
-            bottomRight = new Vector3(  GridView.transform.position.x + halfWidth,
-                                    GridView.transform.position.y,
-                                    GridView.transform.position.z - halfHeight);
+            bottomRight = new Vector3(  GridController.transform.position.x + halfWidth,
+                                    GridController.transform.position.y,
+                                    GridController.transform.position.z - halfHeight);
 
-            bottomLeft = new Vector3(  GridView.transform.position.x - halfWidth,
-                                    GridView.transform.position.y,
-                                    GridView.transform.position.z - halfHeight);
+            bottomLeft = new Vector3(  GridController.transform.position.x - halfWidth,
+                                    GridController.transform.position.y,
+                                    GridController.transform.position.z - halfHeight);
 
             Gizmos.color = Color.magenta;
 
-            Gizmos.DrawLine(GridView.transform.position, GridView.transform.position + GridView.transform.up * 3f);
+            Gizmos.DrawLine(GridController.transform.position, GridController.transform.position + GridController.transform.up * 3f);
             Gizmos.DrawLine(topLeft, topRight);
             Gizmos.DrawLine(topRight, bottomRight);
             Gizmos.DrawLine(bottomRight, bottomLeft);

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace MS
@@ -26,7 +25,7 @@ namespace MS
             view.Transform.rotation =   Holder.rotation;
 
             view.BindTo(model);
-            view.UpdateView();
+            //view.UpdateView();
             view.OnDestroyed += OnViewDestroyed;
 
             m_Views.Add(view);

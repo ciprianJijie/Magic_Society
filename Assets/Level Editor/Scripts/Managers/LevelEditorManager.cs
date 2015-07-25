@@ -7,6 +7,24 @@ namespace MS
 {
 	public class LevelEditorManager : Singleton<LevelEditorManager>
 	{
+		// Attributes
+		public Transform 		WindowsContainer;
+        public Transform        WorldContainer;
+        public GridController   GridController;
+        public GameObject 		FileBrowserPrefab;
+        public GameObject 		NameLevelPrefab;
+        public GameObject       ResizeWindowPrefab;
+        public MouseToGrid      MouseToGridHandler;
+
+        [HideInInspector]
+        public Brush            Brush;
+
+        protected Map 			m_CurrentMap;
+        protected GameObject 	m_FileBrowserWindow;
+        protected string 		m_CurrentFilePath;
+
+		// Public methods
+
 		public void ShowFileBrowserWindow()
 		{
             m_FileBrowserWindow = Instantiate(FileBrowserPrefab.gameObject);
@@ -67,18 +85,16 @@ namespace MS
         {
             m_CurrentMap.Resize(hSize, vSize);
 
-            GridVisualizer.BindTo(m_CurrentMap.Tiles);
-            GridVisualizer.UpdateView();
+            GridController.Show(m_CurrentMap.Tiles);
         }
 
         public void ShowGrid(Grid grid)
         {
             HideGrid();
 
-            GridVisualizer.BindTo(grid);
-            GridVisualizer.UpdateView();
+            GridController.Show(grid);
 
-            GridVisualizer.enabled = true;
+            GridController.enabled = true;
 
             Brush = new Brush();
 
@@ -87,38 +103,23 @@ namespace MS
 
         public void HideGrid()
         {
-            GridVisualizer.enabled = false;
+            GridController.enabled = false;
         }
 
         // Brush
-        public void ChangeBrush(Tile.ETerrain terrain)
+        public void ChangeBrush(Tile.Terrain terrain)
         {
             Debug.Core.Log("Brush changed to " + terrain);
             Brush.Terrain = terrain;
         }
 
-        public void ChangeBrush(Tile.ESurface surface)
-        {
-            Debug.Core.Log("Brush changed to " + surface);
-            Brush.Surface = surface;
-        }
-
         public void ChangeBrushTerrain(string terrainString)
         {
-            Tile.ETerrain terrain;
+            Tile.Terrain terrain;
 
-            terrain = EnumUtils.ParseEnum<Tile.ETerrain>(terrainString);
+            terrain = EnumUtils.ParseEnum<Tile.Terrain>(terrainString);
 
             ChangeBrush(terrain);
-        }
-
-        public void ChangeBrushSurface(string surfaceString)
-        {
-            Tile.ESurface surface;
-
-            surface = EnumUtils.ParseEnum<Tile.ESurface>(surfaceString);
-
-            ChangeBrush(surface);
         }
 
 		public void ChangeBrush(int height)
@@ -145,10 +146,8 @@ namespace MS
             Brush.Draw(tile);
 
             // Search Tile View
-            GridVisualizer.UpdateView(x, y);
+            GridController.UpdateView(x, y);
         }
-
-        // ---
 
         // Unity methods
 
@@ -164,23 +163,5 @@ namespace MS
             // Unsubscribe to events
             MouseToGridHandler.OnMouseLeftClick -= ApplyBrush;
         }
-
-        // ---
-
-        public Transform 		WindowsContainer;
-        public Transform        WorldContainer;
-        public GridView         GridVisualizer;
-        public GameObject 		FileBrowserPrefab;
-        public GameObject 		NameLevelPrefab;
-        public GameObject       ResizeWindowPrefab;
-        public MouseToGrid      MouseToGridHandler;
-
-        [HideInInspector]
-        public Brush            Brush;
-
-        protected Map 			m_CurrentMap;
-        protected GameObject 	m_FileBrowserWindow;
-        protected string 		m_CurrentFilePath;
-
     }
 }

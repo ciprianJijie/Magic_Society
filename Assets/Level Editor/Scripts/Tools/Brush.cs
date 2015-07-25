@@ -6,23 +6,20 @@ namespace MS
     public class Brush
     {
         public int              Radius;
-        public Tile.ETerrain    Terrain;
-        public Tile.ESurface    Surface;
+        public Tile.Terrain     Terrain;
         public int              Height;
 
         public Brush()
         {
             Radius  = 1;
-            Terrain = Tile.ETerrain.Fertile;
-            Surface = Tile.ESurface.Prairie;
+            Terrain = Tile.Terrain.Fertile;
             Height  = 0;
         }
 
         public void Draw(Tile tileToDraw)
         {
-            tileToDraw.Type     =   Terrain;
-            tileToDraw.Surface  =   Surface;
-            tileToDraw.Height   =   Height;
+            tileToDraw.TerrainType  =   Terrain;
+            tileToDraw.Height       =   Height;
         }
     }
 }

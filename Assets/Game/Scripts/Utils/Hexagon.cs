@@ -134,6 +134,11 @@ namespace MS
 
             return new Vector2(x, y);
         }
+        
+        public static Vector3[] GetCubeNeighbors(Vector3 cube)
+        {
+            return GetCubeNeighbors((int)cube.x, (int)cube.y, (int)cube.z);
+        }
 
         public static Vector3[] GetCubeNeighbors(int x, int y, int z)
         {

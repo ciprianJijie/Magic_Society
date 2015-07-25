@@ -10,7 +10,7 @@ namespace MS
 		{
             Vector3 position;
 
-            position = InputToReact.GridView.GetSelectorPosition(x, y);
+            position = InputToReact.GridController.GetSelectorPosition(x, y);
 
 			this.transform.position = position;
         }

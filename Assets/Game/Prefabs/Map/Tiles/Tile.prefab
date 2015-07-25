@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &178324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403472}
+  - 114: {fileID: 11474344}
+  m_Layer: 0
+  m_Name: Tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &403472
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11474344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e66e33f8ae82447dabc30c0f46e7b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FertileTilePrefab: {fileID: 11464002, guid: dfd920945820e4371b1d4acf62e9e224, type: 2}
+  BarrenTilePrefab: {fileID: 11406576, guid: f2f06ba1226e34ac0ae40ec129ef711f, type: 2}
+  DesertTilePrefab: {fileID: 11449066, guid: 5a00c3146565a44a88033d77bf4e2802, type: 2}
+  FrozeTilePrefab: {fileID: 11471206, guid: 59037ec4850444da89b796dde4d266cb, type: 2}
+  VolcanicTilePrefab: {fileID: 11434118, guid: 01ad00c517bff43388e22da510efbdd9, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BarrenForestPrefab
+      value: 
+      objectReference: {fileID: 193780, guid: 35588e67894a04174b7c1bfab1c153cb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertForestPrefab
+      value: 
+      objectReference: {fileID: 116822, guid: 539f8ef5f45d34886bdad61a5ef7a3ae, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenForestPrefab
+      value: 
+      objectReference: {fileID: 141482, guid: b169f98c442514c97b108b4f7cffae1c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicForestPrefab
+      value: 
+      objectReference: {fileID: 116638, guid: c32806273f94947d49bacf5bbb479109, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileMountainPrefab
+      value: 
+      objectReference: {fileID: 134226, guid: 257a63b64d4d44b0b84c236613b803d6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenMountainPrefab
+      value: 
+      objectReference: {fileID: 189272, guid: 1bbf8ca3ed0304a389fb6aaa24b698cd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertMountainPrefab
+      value: 
+      objectReference: {fileID: 179130, guid: c1433816f6f5c4a8cb88502688b8f7c5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenElevationPrefab
+      value: 
+      objectReference: {fileID: 11461678, guid: d90637100a8e94be7855c460756c1547,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertElevationPrefab
+      value: 
+      objectReference: {fileID: 11472100, guid: 3df12d0e6471449d4a95e5ac42b46b7a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileElevationPrefab
+      value: 
+      objectReference: {fileID: 11497674, guid: 0a05eb18f7f614b8396fbe57961d929b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenElevationPrefab
+      value: 
+      objectReference: {fileID: 11462370, guid: 269bfc91e587c4809ab464ebe50584a9,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicElevationPrefab
+      value: 
+      objectReference: {fileID: 11466904, guid: eb701452779bc4d238392a10b890a6ac,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileWaterPrefab
+      value: 
+      objectReference: {fileID: 179464, guid: 75a067e97334e4f77a6e55b4b42400c0, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenWaterPrefab
+      value: 
+      objectReference: {fileID: 135784, guid: c97c2a88c0ea7417f95716e67b07ef1e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertWaterPrefab
+      value: 
+      objectReference: {fileID: 133376, guid: 041532b7421ac43c9ab37e6b4576bad5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenWaterPrefab
+      value: 
+      objectReference: {fileID: 122880, guid: e16ea682916d049559fe6e0a36206e8d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicWaterPrefab
+      value: 
+      objectReference: {fileID: 175020, guid: 3a616b9330c544772b3c49559831245d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileTilePrefab
+      value: 
+      objectReference: {fileID: 11464002, guid: dfd920945820e4371b1d4acf62e9e224,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenTilePrefab
+      value: 
+      objectReference: {fileID: 11406576, guid: f2f06ba1226e34ac0ae40ec129ef711f,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertTilePrefab
+      value: 
+      objectReference: {fileID: 11449066, guid: 5a00c3146565a44a88033d77bf4e2802,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozeTilePrefab
+      value: 
+      objectReference: {fileID: 11471206, guid: 59037ec4850444da89b796dde4d266cb,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicTilePrefab
+      value: 
+      objectReference: {fileID: 11434118, guid: 01ad00c517bff43388e22da510efbdd9,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 178324}
+  m_IsPrefabParent: 1
