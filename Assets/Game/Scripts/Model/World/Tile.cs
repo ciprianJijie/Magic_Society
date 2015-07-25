@@ -42,9 +42,6 @@ namespace MS
             {
                 root.Add("element", Element.ToJSON());
             }
-            
-            UnityEngine.Debug.Log(root.ToString(""));
-
             return root;
         }
     }
