@@ -64,9 +64,9 @@ namespace MS
 		/// </summary>
 		/// <param name="axial">Local coordinates of the tile to update (axial).</param>
 		/// <return>true if the tile was updated, false otherwise.</return>
-		public bool UpdateView(Vector2 axial)
+		public bool UpdateView(Vector2 axial, bool expandToNeighbors)
 		{
-			return UpdateView((int)axial.x, (int)axial.y);
+			return UpdateView((int)axial.x, (int)axial.y, expandToNeighbors);
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace MS
 		/// <param name="x">Horizontal local position (axial) of the tile to update.</param>
 		/// <param name="y">Vertical local position (axial) of the tile to update.</param>
 		/// <return>true if the tile was updated, false otherwise.</return>
-		public bool UpdateView(int x, int y)
+		public bool UpdateView(int x, int y, bool expandToNeighbors)
 		{
 			Tile 		tileToUpdateView;
 			TileView 	viewToUpdate;
@@ -89,6 +89,16 @@ namespace MS
 			}
 
 			viewToUpdate.UpdateView();
+
+			if (expandToNeighbors)
+			{
+                var neighbors = Hexagon.GetAxialNeighbors(x, y);
+
+				foreach (Vector2 tilePos in neighbors)
+				{
+                    UpdateView(tilePos, false);
+                }
+            }
 
 			return true;
 		}
