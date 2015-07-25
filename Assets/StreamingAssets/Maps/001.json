@@ -598,7 +598,7 @@
             { 
                "x" : "3", 
                "y" : "1", 
-               "height" : "0", 
+               "height" : "-3", 
                "terrain" : "Fertile"
             }, 
             { 
@@ -610,7 +610,7 @@
             { 
                "x" : "3", 
                "y" : "3", 
-               "height" : "0", 
+               "height" : "3", 
                "terrain" : "Fertile"
             }, 
             { 

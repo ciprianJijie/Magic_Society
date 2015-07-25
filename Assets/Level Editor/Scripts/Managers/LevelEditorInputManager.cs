@@ -5,10 +5,37 @@ namespace MS
 {
 	public class LevelEditorInputManager : Singleton<LevelEditorInputManager>
 	{
+		/// <summary>Component to translate between mouse position and grid position.</summary>
+        public MouseToGrid MouseToGrid;
+
+		/// <summary>Camera to move using the input.</summary>
         public Camera MainCamera;
+
+		/// <summary>Special tile used to identify what tile the cursor is hovering</summary>
+        public Transform TileSelector;
 
 		[RangeAttribute(0.1f, 8.0f)]
         public float MovementSpeed;
+
+		// Events
+
+		protected void OnMouseMove(int x, int y)
+		{
+            // Move the selector
+            TileSelector.position = MouseToGrid.GridController.GetSelectorPosition(x, y);
+        }
+
+		protected void OnMouseLeftClick(int x, int y)
+		{
+
+		}
+
+		protected void OnMouseRightClick(int x, int y)
+		{
+
+		}
+
+		// Unity Methods
 
         protected void LateUpdate()
 		{
@@ -33,5 +60,13 @@ namespace MS
             MainCamera.transform.position += MainCamera.transform.forward * zoom * 2.0f * MovementSpeed * Time.deltaTime;
 			MainCamera.transform.RotateAround(MainCamera.transform.position, Vector3.up, rotation * 10.0f * MovementSpeed * Time.deltaTime);
         }
+
+		protected void Start()
+		{
+			MouseToGrid.OnMouseOver += OnMouseMove;
+			MouseToGrid.OnMouseLeftClick += OnMouseLeftClick;
+			MouseToGrid.OnMouseRightClick += OnMouseRightClick;
+		}
+
     }
 }

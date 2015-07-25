@@ -7,6 +7,24 @@ namespace MS
 {
 	public class LevelEditorManager : Singleton<LevelEditorManager>
 	{
+		// Attributes
+		public Transform 		WindowsContainer;
+        public Transform        WorldContainer;
+        public GridController   GridController;
+        public GameObject 		FileBrowserPrefab;
+        public GameObject 		NameLevelPrefab;
+        public GameObject       ResizeWindowPrefab;
+        public MouseToGrid      MouseToGridHandler;
+
+        [HideInInspector]
+        public Brush            Brush;
+
+        protected Map 			m_CurrentMap;
+        protected GameObject 	m_FileBrowserWindow;
+        protected string 		m_CurrentFilePath;
+
+		// Public methods
+
 		public void ShowFileBrowserWindow()
 		{
             m_FileBrowserWindow = Instantiate(FileBrowserPrefab.gameObject);
@@ -56,7 +74,6 @@ namespace MS
 
 		public void Save()
 		{
-            string jsonText;
             JSONNode json;
 
 			json = m_CurrentMap.ToJSON();
@@ -68,18 +85,16 @@ namespace MS
         {
             m_CurrentMap.Resize(hSize, vSize);
 
-            GridVisualizer.BindTo(m_CurrentMap.Tiles);
-            GridVisualizer.UpdateView();
+            GridController.Show(m_CurrentMap.Tiles);
         }
 
         public void ShowGrid(Grid grid)
         {
             HideGrid();
 
-            GridVisualizer.BindTo(grid);
-            GridVisualizer.UpdateView();
+            GridController.Show(grid);
 
-            GridVisualizer.enabled = true;
+            GridController.enabled = true;
 
             Brush = new Brush();
 
@@ -88,7 +103,7 @@ namespace MS
 
         public void HideGrid()
         {
-            GridVisualizer.enabled = false;
+            GridController.enabled = false;
         }
 
         // Brush
@@ -131,10 +146,8 @@ namespace MS
             Brush.Draw(tile);
 
             // Search Tile View
-            GridVisualizer.UpdateView(x, y);
+            GridController.UpdateView(x, y);
         }
-
-        // ---
 
         // Unity methods
 
@@ -150,23 +163,5 @@ namespace MS
             // Unsubscribe to events
             MouseToGridHandler.OnMouseLeftClick -= ApplyBrush;
         }
-
-        // ---
-
-        public Transform 		WindowsContainer;
-        public Transform        WorldContainer;
-        public GridView         GridVisualizer;
-        public GameObject 		FileBrowserPrefab;
-        public GameObject 		NameLevelPrefab;
-        public GameObject       ResizeWindowPrefab;
-        public MouseToGrid      MouseToGridHandler;
-
-        [HideInInspector]
-        public Brush            Brush;
-
-        protected Map 			m_CurrentMap;
-        protected GameObject 	m_FileBrowserWindow;
-        protected string 		m_CurrentFilePath;
-
     }
 }

@@ -4,24 +4,24 @@ namespace MS
 {
 	public class TileView : View<Tile>
 	{
-                public GridView Owner;                
+                public GridController Owner;
                 public Elevation FertileTilePrefab;
                 public Elevation BarrenTilePrefab;
                 public Elevation DesertTilePrefab;
                 public Elevation FrozeTilePrefab;
                 public Elevation VolcanicTilePrefab;
-        
+
                 private Elevation m_InstantiatedTile;
-        
+
                 public override void UpdateView()
                 {
                     if (m_InstantiatedTile != null)
                     {
                         Destroy(m_InstantiatedTile.gameObject);
                     }
-        
+
                     Elevation tileToInstantiate;
-        
+
                     switch (m_Model.TerrainType)
                     {
                         case Tile.Terrain.Barren:
@@ -39,15 +39,15 @@ namespace MS
                         default:
                             tileToInstantiate = FertileTilePrefab;
                             break;
-                    }        
+                    }
                     m_InstantiatedTile = Utils.Instantiate<Elevation>(tileToInstantiate, this.transform, this.transform.position, this.transform.rotation);
-                    
+
                     m_InstantiatedTile.ChangeHeight(m_Model.Height);
-                    
+
                     int heightToEnsure;
-                    
-                    heightToEnsure = Owner.Model.GetLowestNeighborHeight(m_Model.X, m_Model.Y);
-                    
+
+                    heightToEnsure = Owner.Grid.GetLowestNeighborHeight(m_Model.X, m_Model.Y);
+
                     if (m_Model.Height > heightToEnsure)
                     {
                         m_InstantiatedTile.FillFromCurrentTo(heightToEnsure);
