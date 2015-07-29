@@ -8,7 +8,9 @@ namespace MS
 		/// <summary>Component to translate between mouse position and grid position.</summary>
         public MouseToGrid MouseToGrid;
 
-		/// <summary>Camera to move using the input.</summary>
+        public BrushToolsManager BrushToolsManager;
+
+        /// <summary>Camera to move using the input.</summary>
         public Camera MainCamera;
 
 		/// <summary>Special tile used to identify what tile the cursor is hovering</summary>
@@ -17,9 +19,9 @@ namespace MS
 		[RangeAttribute(0.1f, 8.0f)]
         public float MovementSpeed;
 
-		// Events
+        // Events
 
-		protected void OnMouseMove(int x, int y)
+        protected void OnMouseMove(int x, int y)
 		{
             // Move the selector
             TileSelector.position = MouseToGrid.GridController.GetSelectorPosition(x, y);
@@ -27,7 +29,7 @@ namespace MS
 
 		protected void OnMouseLeftClick(int x, int y)
 		{
-
+			BrushToolsManager.Draw(x, y);
 		}
 
 		protected void OnMouseRightClick(int x, int y)
@@ -63,10 +65,16 @@ namespace MS
 
 		protected void Start()
 		{
-			MouseToGrid.OnMouseOver += OnMouseMove;
-			MouseToGrid.OnMouseLeftClick += OnMouseLeftClick;
-			MouseToGrid.OnMouseRightClick += OnMouseRightClick;
-		}
+			MouseToGrid.OnMouseOver 		+= 	OnMouseMove;
+			MouseToGrid.OnMouseLeftClick 	+= 	OnMouseLeftClick;
+			MouseToGrid.OnMouseRightClick 	+= 	OnMouseRightClick;
+        }
 
+		protected void OnDestroy()
+		{
+			MouseToGrid.OnMouseOver 		-= 	OnMouseMove;
+			MouseToGrid.OnMouseLeftClick 	-= 	OnMouseLeftClick;
+			MouseToGrid.OnMouseRightClick 	-= 	OnMouseRightClick;
+		}
     }
 }
