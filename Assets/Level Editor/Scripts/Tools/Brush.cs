@@ -20,6 +20,7 @@ namespace MS
             foreach (Vector3 cube in TilesInRadius(x, y, radius))
             {
                 Draw(GridController.Grid.GetTile(Hexagon.CubeToAxial(cube)));
+                GridController.UpdateView(Hexagon.CubeToAxial(cube), true);
             }
         }
 

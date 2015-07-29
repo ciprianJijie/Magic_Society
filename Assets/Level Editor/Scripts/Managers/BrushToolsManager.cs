@@ -45,7 +45,6 @@ namespace MS
         public void Draw(int x, int y)
         {
             ActiveBrush.Draw(x, y, Radius);
-            GridController.UpdateView(x, y, true);
         }
 
         // Unity Methods
