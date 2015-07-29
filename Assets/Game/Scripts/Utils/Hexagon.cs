@@ -187,7 +187,7 @@ namespace MS
             directions[0] = new Vector2(1f, 0f);
             directions[1] = new Vector2(1f, -1f);
             directions[2] = new Vector2(0f, -1f);
-            directions[3] = new Vector2(1f, 0f);
+            directions[3] = new Vector2(-1f, 0f);
             directions[4] = new Vector2(-1f, 1f);
             directions[5] = new Vector2(0f, 1f);
 
