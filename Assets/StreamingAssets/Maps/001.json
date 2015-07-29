@@ -28,8 +28,8 @@
             { 
                "x" : "0", 
                "y" : "3", 
-               "height" : "0", 
-               "terrain" : "Fertile"
+               "height" : "-2", 
+               "terrain" : "Barren"
             }, 
             { 
                "x" : "0", 
@@ -2653,7 +2653,7 @@
                "x" : "13", 
                "y" : "20", 
                "height" : "0", 
-               "terrain" : "Fertile"
+               "terrain" : "Desert"
             }, 
             { 
                "x" : "13", 
