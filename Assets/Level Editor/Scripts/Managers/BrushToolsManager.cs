@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MS
 {
     public class BrushToolsManager : MonoBehaviour
     {
         public GridController   GridController;
-        public int              Radius;
+        public InputField       RadiusInput;
+        protected int              Radius;
 
         protected TerrainBrush  TerrainBrush;
         protected HeightBrush   HeightBrush;
         protected Brush         ActiveBrush;
 
+        public void UpdateRadius()
+        {
+            Radius = System.Int32.Parse(RadiusInput.text);
+        }
 
         public void ChangeTerrain(string terrainType)
         {
