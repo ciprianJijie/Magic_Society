@@ -15,7 +15,7 @@ namespace MS
 
         public void UpdateRadius()
         {
-            Radius = System.Int32.Parse(RadiusInput.text);
+            Radius = System.Int32.Parse(RadiusInput.text) - 1;
         }
 
         public void ChangeTerrain(string terrainType)
