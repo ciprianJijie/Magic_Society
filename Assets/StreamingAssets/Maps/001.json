@@ -2847,7 +2847,7 @@
                "x" : "14", 
                "y" : "20", 
                "height" : "0", 
-               "terrain" : "Fertile"
+               "terrain" : "Barren"
             }, 
             { 
                "x" : "14", 
@@ -3041,7 +3041,7 @@
                "x" : "15", 
                "y" : "20", 
                "height" : "0", 
-               "terrain" : "Fertile"
+               "terrain" : "Frozen"
             }, 
             { 
                "x" : "15", 
@@ -3235,7 +3235,7 @@
                "x" : "16", 
                "y" : "20", 
                "height" : "0", 
-               "terrain" : "Fertile"
+               "terrain" : "Volcanic"
             }, 
             { 
                "x" : "16", 
@@ -6214,6 +6214,38 @@
                "terrain" : "Fertile"
             }
          ]
+      ], 
+      "elements" : [ 
+         { 
+            "x" : "12", 
+            "y" : "21", 
+            "name" : "Forest"
+         }, 
+         { 
+            "x" : "13", 
+            "y" : "19", 
+            "name" : "Forest"
+         }, 
+         { 
+            "x" : "13", 
+            "y" : "20", 
+            "name" : "Forest"
+         }, 
+         { 
+            "x" : "14", 
+            "y" : "20", 
+            "name" : "Forest"
+         }, 
+         { 
+            "x" : "15", 
+            "y" : "20", 
+            "name" : "Forest"
+         }, 
+         { 
+            "x" : "16", 
+            "y" : "20", 
+            "name" : "Forest"
+         }
       ]
    }
 }

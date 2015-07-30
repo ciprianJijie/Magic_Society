@@ -5,13 +5,15 @@ namespace MS
 {
     public class BrushToolsManager : MonoBehaviour
     {
-        public GridController   GridController;
-        public InputField       RadiusInput;
-        protected int              Radius;
+        public GridController           GridController;
+        public MapElementsController    MapElementsController;
+        public InputField               RadiusInput;
+        protected int                   Radius;
 
-        protected TerrainBrush  TerrainBrush;
-        protected HeightBrush   HeightBrush;
-        protected Brush         ActiveBrush;
+        protected TerrainBrush          TerrainBrush;
+        protected HeightBrush           HeightBrush;
+        protected ObjectBrush           ObjectBrush;
+        protected Brush                 ActiveBrush;
 
         public void UpdateRadius()
         {
@@ -28,6 +30,11 @@ namespace MS
             HeightBrush.Height = height;
         }
 
+        public void ChangeObject(string name)
+        {
+            ObjectBrush.ElementName = name;
+        }
+
         public void SetActiveBrush(string brush)
         {
             switch(brush)
@@ -39,6 +46,9 @@ namespace MS
                 case "Height":
                     ActiveBrush = HeightBrush;
                     break;
+                case "Element":
+                    ActiveBrush = ObjectBrush;
+                    break;
             }
         }
 
@@ -47,6 +57,7 @@ namespace MS
             foreach (Vector2 drawnTile in ActiveBrush.Draw(x, y, Radius, GridController.Grid))
             {
                 GridController.UpdateView(drawnTile, true);
+                MapElementsController.UpdateView(drawnTile);
             }
         }
 
@@ -56,6 +67,7 @@ namespace MS
         {
             TerrainBrush    =   new TerrainBrush();
             HeightBrush     =   new HeightBrush();
+            ObjectBrush     =   new ObjectBrush();
 
             SetActiveBrush("Terrain");
         }

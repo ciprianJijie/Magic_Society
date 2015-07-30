@@ -8,16 +8,17 @@ namespace MS
 	public class LevelEditorManager : Singleton<LevelEditorManager>
 	{
 		// Attributes
-		public Transform 		WindowsContainer;
-        public Transform        WorldContainer;
-        public GridController   GridController;
-        public GameObject 		FileBrowserPrefab;
-        public GameObject 		NameLevelPrefab;
-        public GameObject       ResizeWindowPrefab;
+		public Transform 		        WindowsContainer;
+        public Transform                WorldContainer;
+        public GridController           GridController;
+        public MapElementsController    MapElementsController;
+        public GameObject 		        FileBrowserPrefab;
+        public GameObject 		        NameLevelPrefab;
+        public GameObject               ResizeWindowPrefab;
 
-        protected Map 			m_CurrentMap;
-        protected GameObject 	m_FileBrowserWindow;
-        protected string 		m_CurrentFilePath;
+        protected Map 			        m_CurrentMap;
+        protected GameObject 	        m_FileBrowserWindow;
+        protected string 		        m_CurrentFilePath;
 
 		// Public methods
 
@@ -82,6 +83,7 @@ namespace MS
             m_CurrentMap.Resize(hSize, vSize);
 
             GridController.Show(m_CurrentMap.Tiles);
+            MapElementsController.Show(m_CurrentMap.Tiles);
         }
 
         public void ShowGrid(Grid grid)
@@ -89,6 +91,7 @@ namespace MS
             HideGrid();
 
             GridController.Show(grid);
+            MapElementsController.Show(grid);
 
             GridController.enabled = true;
         }
