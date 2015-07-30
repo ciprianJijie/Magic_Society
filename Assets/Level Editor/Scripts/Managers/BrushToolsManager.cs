@@ -44,7 +44,10 @@ namespace MS
 
         public void Draw(int x, int y)
         {
-            ActiveBrush.Draw(x, y, Radius);
+            foreach (Vector2 drawnTile in ActiveBrush.Draw(x, y, Radius, GridController.Grid))
+            {
+                GridController.UpdateView(drawnTile, true);
+            }
         }
 
         // Unity Methods
@@ -53,9 +56,6 @@ namespace MS
         {
             TerrainBrush    =   new TerrainBrush();
             HeightBrush     =   new HeightBrush();
-
-            TerrainBrush.GridController   =   GridController;
-            HeightBrush.GridController    =   GridController;
 
             SetActiveBrush("Terrain");
         }

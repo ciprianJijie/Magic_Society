@@ -5,9 +5,9 @@ namespace MS
     {
         public Tile.Terrain TerrainType;
 
-        public override void Draw(Tile tileToDraw)
+        public override void Draw(int x, int y, Grid grid)
         {
-            tileToDraw.TerrainType = TerrainType;
+            grid.GetTile(x, y).TerrainType = TerrainType;
         }
     }
 }

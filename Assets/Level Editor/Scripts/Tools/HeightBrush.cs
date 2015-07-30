@@ -7,9 +7,9 @@ namespace MS
         [RangeAttribute(-3, 3)]
         public int Height;
 
-        public override void Draw(Tile tileToDraw)
+        public override void Draw(int x, int y, Grid grid)
         {
-            tileToDraw.Height = Height;
+            grid.GetTile(x, y).Height = Height;
         }
     }
 }
