@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MS
 {
@@ -77,12 +79,17 @@ namespace MS
             return new Vector2(cubePoint.x, cubePoint.z);
         }
 
+        public static Vector3 AxialToCube(Vector2 axial)
+        {
+            return AxialToCube(axial.x, axial.y);
+        }
+
         public static Vector3 AxialToCube(float x, float y)
         {
             float cubeX = x;
             float cubeZ = y;
             float cubeY = - cubeX - cubeZ;
-            
+
             return new Vector3 (cubeX, cubeY, cubeZ);
         }
 
@@ -134,7 +141,7 @@ namespace MS
 
             return new Vector2(x, y);
         }
-        
+
         public static Vector3[] GetCubeNeighbors(Vector3 cube)
         {
             return GetCubeNeighbors((int)cube.x, (int)cube.y, (int)cube.z);
@@ -180,7 +187,7 @@ namespace MS
             directions[0] = new Vector2(1f, 0f);
             directions[1] = new Vector2(1f, -1f);
             directions[2] = new Vector2(0f, -1f);
-            directions[3] = new Vector2(1f, 0f);
+            directions[3] = new Vector2(-1f, 0f);
             directions[4] = new Vector2(-1f, 1f);
             directions[5] = new Vector2(0f, 1f);
 
@@ -237,15 +244,15 @@ namespace MS
         public static Vector3 RoundToCube (Vector3 cubePos)
         {
             Vector3 pos;
-            
+
             int rx = Mathf.RoundToInt (cubePos.x);
             int ry = Mathf.RoundToInt (cubePos.y);
             int rz = Mathf.RoundToInt (cubePos.z);
-            
+
             float x_diff = Mathf.Abs (rx - cubePos.x);
             float y_diff = Mathf.Abs (ry - cubePos.y);
             float z_diff = Mathf.Abs (rz - cubePos.z);
-            
+
             if (x_diff > y_diff && x_diff > z_diff)
             {
                 rx = -ry - rz;
@@ -258,10 +265,67 @@ namespace MS
             {
                 rz = -rx - ry;
             }
-            
+
             pos = new Vector3 (rx, ry, rz);
-            
+
             return pos;
+        }
+
+        public static float Distance(Vector3 cubeA, Vector3 cubeB)
+        {
+            return Distance(cubeA.x, cubeA.y, cubeA.z, cubeB.x, cubeB.y, cubeB.z);
+        }
+
+        public static float Distance(float x1, float y1, float z1, float x2, float y2, float z2)
+        {
+            return Mathf.Max(Mathf.Abs(x1 - x2), Mathf.Abs(y1 - y2), Mathf.Abs(z1 - z2));
+        }
+
+        public static float Distance(Vector2 axialA, Vector2 axialB)
+        {
+            Vector3 cubeA;
+            Vector3 cubeB;
+
+            cubeA = Hexagon.AxialToCube(axialA);
+            cubeB = Hexagon.AxialToCube(axialB);
+
+            return Distance(cubeA, cubeB);
+        }
+
+        public static IEnumerable<Vector3> TilesInRange(Vector2 axial, int range)
+        {
+            return TilesInRange((int)axial.x, (int)axial.y, range);
+        }
+
+        public static IEnumerable<Vector3> TilesInRange(int axialX, int axialY, int range)
+        {
+            Vector3 cube;
+
+            cube = AxialToCube(axialX, axialY);
+
+            return TilesInRange(cube, range);
+        }
+
+        public static IEnumerable<Vector3> TilesInRange(Vector3 cube, int range)
+        {
+            return TilesInRange((int)cube.x, (int)cube.y, (int)cube.z, range);
+        }
+
+        public static IEnumerable<Vector3> TilesInRange(int cubeX, int cubeY, int cubeZ, int range)
+        {
+            for (int dx = -range; dx <= range; dx++)
+            {
+                for (int dy = -range; dy <= range; dy++)
+                {
+                    for (int dz = -range; dz <= range; dz++)
+                    {
+                        if (dx + dy + dz == 0)
+                        {
+                            yield return new Vector3(cubeX + dx, cubeY + dy, cubeZ + dz);
+                        }
+                    }
+                }
+            }
         }
     }
 }

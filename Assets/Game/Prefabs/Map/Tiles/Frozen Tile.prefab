@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9aff9ff3a2a94e898b8cc5913a25c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElevationPrefab: {fileID: 165672, guid: 0a05eb18f7f614b8396fbe57961d929b, type: 2}
+  ElevationPrefab: {fileID: 123624, guid: 269bfc91e587c4809ab464ebe50584a9, type: 2}
   DepresionPrefab: {fileID: 103856, guid: 26d03fdfca65c4c1b85b024f8f19949e, type: 2}
   Container: {fileID: 438488}
   Terrain: {fileID: 419410}
@@ -148,6 +148,14 @@ Prefab:
       propertyPath: Terrain
       value: 
       objectReference: {fileID: 419410}
+    - target: {fileID: 0}
+      propertyPath: Container
+      value: 
+      objectReference: {fileID: 431434, guid: 269bfc91e587c4809ab464ebe50584a9, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ElevationPrefab
+      value: 
+      objectReference: {fileID: 123624, guid: 269bfc91e587c4809ab464ebe50584a9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180676}
