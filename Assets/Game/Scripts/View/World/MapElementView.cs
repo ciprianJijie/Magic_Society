@@ -6,6 +6,7 @@ namespace MS
     {
         public TerrainDependant     ForestPrefab;
         public TerrainDependant     StonePrefab;
+        public TerrainDependant     GoldPrefab;
 
         public float                VerticalOffset;
 
@@ -36,6 +37,10 @@ namespace MS
             else if (Model is StoneDeposits)
             {
                 prefab = StonePrefab;
+            }
+            else if (Model is GoldDeposits)
+            {
+                prefab = GoldPrefab;
             }
 
             if (prefab != null)

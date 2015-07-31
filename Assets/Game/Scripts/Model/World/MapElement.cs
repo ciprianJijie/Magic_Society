@@ -73,6 +73,10 @@ namespace MS
             {
                 element = new StoneDeposits();
             }
+            else if (name == "Gold Deposits")
+            {
+                element = new GoldDeposits();
+            }
             else
             {
                 return null;

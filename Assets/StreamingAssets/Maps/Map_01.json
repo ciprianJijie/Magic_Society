@@ -6227,6 +6227,11 @@
             "name" : "Forest"
          }, 
          { 
+            "x" : "0", 
+            "y" : "29", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
             "x" : "1", 
             "y" : "2", 
             "name" : "Forest"
@@ -6413,6 +6418,11 @@
          }, 
          { 
             "x" : "3", 
+            "y" : "12", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
+            "x" : "3", 
             "y" : "16", 
             "name" : "Forest"
          }, 
@@ -6544,7 +6554,7 @@
          { 
             "x" : "6", 
             "y" : "30", 
-            "name" : "Forest"
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "7", 
@@ -6805,6 +6815,11 @@
             "x" : "13", 
             "y" : "1", 
             "name" : "Forest"
+         }, 
+         { 
+            "x" : "13", 
+            "y" : "3", 
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "13", 
@@ -6923,6 +6938,16 @@
          }, 
          { 
             "x" : "17", 
+            "y" : "6", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
+            "x" : "17", 
+            "y" : "16", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
+            "x" : "17", 
             "y" : "22", 
             "name" : "Forest"
          }, 
@@ -6947,6 +6972,11 @@
             "name" : "Forest"
          }, 
          { 
+            "x" : "18", 
+            "y" : "30", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
             "x" : "19", 
             "y" : "2", 
             "name" : "Forest"
@@ -6955,6 +6985,11 @@
             "x" : "19", 
             "y" : "3", 
             "name" : "Forest"
+         }, 
+         { 
+            "x" : "19", 
+            "y" : "5", 
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "20", 
@@ -6995,6 +7030,11 @@
             "x" : "21", 
             "y" : "30", 
             "name" : "Forest"
+         }, 
+         { 
+            "x" : "22", 
+            "y" : "10", 
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "22", 
@@ -7148,6 +7188,11 @@
          }, 
          { 
             "x" : "28", 
+            "y" : "2", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
+            "x" : "28", 
             "y" : "17", 
             "name" : "Forest"
          }, 
@@ -7160,6 +7205,11 @@
             "x" : "28", 
             "y" : "31", 
             "name" : "Forest"
+         }, 
+         { 
+            "x" : "29", 
+            "y" : "2", 
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "29", 
@@ -7178,6 +7228,11 @@
          }, 
          { 
             "x" : "29", 
+            "y" : "26", 
+            "name" : "Gold Deposits"
+         }, 
+         { 
+            "x" : "29", 
             "y" : "29", 
             "name" : "Forest"
          }, 
@@ -7190,6 +7245,11 @@
             "x" : "29", 
             "y" : "31", 
             "name" : "Forest"
+         }, 
+         { 
+            "x" : "30", 
+            "y" : "2", 
+            "name" : "Gold Deposits"
          }, 
          { 
             "x" : "30", 
