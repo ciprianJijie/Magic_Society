@@ -62,7 +62,6 @@ namespace MS
 
                 if (elementView == null)
                 {
-                    UnityEngine.Debug.Log("View not found. Creating a new one.");
                     elementView = CreateView(element);
 
                     elementView.name = element.Name;

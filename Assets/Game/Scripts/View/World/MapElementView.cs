@@ -5,6 +5,8 @@ namespace MS
     public class MapElementView : View<MapElement>
     {
         public TerrainDependant     ForestPrefab;
+        public TerrainDependant     StonePrefab;
+        public TerrainDependant     GoldPrefab;
 
         public float                VerticalOffset;
 
@@ -26,12 +28,27 @@ namespace MS
 
             verticalOffset = this.transform.up * tile.Height * VerticalOffset;
 
+            TerrainDependant prefab = null;
+
             if (Model is Forest)
             {
-                m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(ForestPrefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
+                prefab = ForestPrefab;
+            }
+            else if (Model is StoneDeposits)
+            {
+                prefab = StonePrefab;
+            }
+            else if (Model is GoldDeposits)
+            {
+                prefab = GoldPrefab;
             }
 
-            m_InstantiatedElement.UpdateObject(tile.TerrainType);
+            if (prefab != null)
+            {
+                m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
+                
+                m_InstantiatedElement.UpdateObject(tile.TerrainType);
+            }
         }
 
         /// <summary>

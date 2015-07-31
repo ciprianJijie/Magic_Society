@@ -69,6 +69,14 @@ namespace MS
             {
                 element = new Forest();
             }
+            else if (name == "Stone Deposits")
+            {
+                element = new StoneDeposits();
+            }
+            else if (name == "Gold Deposits")
+            {
+                element = new GoldDeposits();
+            }
             else
             {
                 return null;
