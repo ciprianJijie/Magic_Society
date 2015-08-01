@@ -49,7 +49,7 @@ namespace MS
 
             m_CurrentFilePath = Application.streamingAssetsPath + "/Maps/" + levelName + ".json";
 
-            ShowGrid(m_CurrentMap.Tiles);
+            ShowGrid(m_CurrentMap.Grid);
         }
 
 		public void Load(string file)
@@ -66,7 +66,7 @@ namespace MS
 
             m_CurrentMap.FromJSON(json);
 
-            ShowGrid(m_CurrentMap.Tiles);
+            ShowGrid(m_CurrentMap.Grid);
         }
 
 		public void Save()
@@ -82,8 +82,8 @@ namespace MS
         {
             m_CurrentMap.Resize(hSize, vSize);
 
-            GridController.Show(m_CurrentMap.Tiles);
-            MapElementsController.Show(m_CurrentMap.Tiles);
+            GridController.Show(m_CurrentMap.Grid);
+            MapElementsController.Show(m_CurrentMap.Grid);
         }
 
         public void ShowGrid(Grid grid)

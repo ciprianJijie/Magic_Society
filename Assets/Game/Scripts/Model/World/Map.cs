@@ -14,7 +14,7 @@ namespace MS
         {
             Name = name;
 
-            Tiles = new Grid(x, y);
+            Grid = new Grid(x, y);
         }
 
         public void Resize(int hSize, int vSize)
@@ -24,18 +24,18 @@ namespace MS
             int maxY;
 
             newGrid = new Grid(hSize, vSize);
-            maxX = Mathf.Min(hSize, Tiles.HorizontalSize);
-            maxY = Mathf.Min(vSize, Tiles.VerticalSize);
+            maxX = Mathf.Min(hSize, Grid.HorizontalSize);
+            maxY = Mathf.Min(vSize, Grid.VerticalSize);
 
             for(int x = 0; x < maxX; ++x)
             {
                 for (int y = 0; y < maxY; ++y)
                 {
-                    newGrid.SetTile(x, y, Tiles.GetTile(x, y));
+                    newGrid.SetTile(x, y, Grid.GetTile(x, y));
                 }
             }
 
-            Tiles = newGrid;
+            Grid = newGrid;
 
             System.GC.Collect();
         }
@@ -44,9 +44,9 @@ namespace MS
         {
             Name = json["name"];
 
-            Tiles = new Grid(0, 0);
+            Grid = new Grid(0, 0);
 
-            Tiles.FromJSON(json["grid"]);
+            Grid.FromJSON(json["grid"]);
         }
 
         public override JSONNode ToJSON()
@@ -56,12 +56,12 @@ namespace MS
             json = JSON.Parse((Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
 
             json["name"] = Name;
-            json["grid"] = Tiles.ToJSON();
+            json["grid"] = Grid.ToJSON();
 
             return json;
         }
 
         public string   Name;
-        public Grid     Tiles;
+        public Grid     Grid;
     }
 }

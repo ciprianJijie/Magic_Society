@@ -15,6 +15,11 @@
 			"follow_symlinks": true,
 			"path": "Assets/Level Editor/Scripts",
 			"file_exclude_patterns": [ "*.meta" ]
+		},
+		{
+			"follow_symlinks": true,
+			"path": "Assets/Resources",
+			"file_exclude_patterns": [ "*.meta" ]
 		}
 	],
 	"syntaxes":

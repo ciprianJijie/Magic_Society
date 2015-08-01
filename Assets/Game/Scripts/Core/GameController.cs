@@ -12,5 +12,10 @@ namespace MS
                 return m_Game;
             }
         }
+
+        protected void Start()
+        {
+            m_Game = new Game();
+        }
 	}
 }
