@@ -2,23 +2,16 @@ using SimpleJSON;
 
 namespace MS
 {
-    public class Model : ModelElement
-    {
-
-        public Model()
-        {
-
-        }
-
+	public class City : MapElement
+	{
         public override void FromJSON(JSONNode json)
         {
+            base.FromJSON(json);
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
-
-            return json;
+            return base.ToJSON();
         }
-    }
+	}
 }

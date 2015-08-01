@@ -57,7 +57,7 @@ namespace MS
         /// <param name="verticalOffset">Vertical offset to be applied to the element.</param>
         public void UpdateHeight(float verticalOffset)
         {
-            m_InstantiatedElement.transform.position += this.transform.up * verticalOffset;
+            m_InstantiatedElement.transform.position = this.transform.position + this.transform.up * verticalOffset;
         }
     }
 }

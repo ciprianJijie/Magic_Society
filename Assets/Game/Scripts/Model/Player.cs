@@ -4,9 +4,16 @@ namespace MS
 {    
     public class Player : ModelElement
     {
+        public string Name;
+
         public Player()
         {
-            Name = "Name not set";
+            Name = "Unnamed";
+        }
+
+        public Player(string name)
+        {
+            Name = name;
         }
 
         public override void FromJSON(JSONNode json)
@@ -22,7 +29,5 @@ namespace MS
 
             return json;
         }
-
-        public string Name;
     }
 }

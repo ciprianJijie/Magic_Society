@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Text;
 
 namespace MS
@@ -10,7 +11,7 @@ namespace MS
 		/// <param name="scenarioName">Name of the scenario, without .json. If the scenario is in a subfolder, include the folder name like '/subfolder/scenario'.</param>
 		public static string ToScenario(string scenarioName)
 		{
-			return "Data/Scenarios/" + scenarioName;
+			return Application.streamingAssetsPath + "/Maps/" + scenarioName + ".json";
 		}
 
 		/// <summary>
@@ -29,5 +30,36 @@ namespace MS
 			buffer.EnsureCapacity(minLength);
 			buffer.AppendFormat("Data/Scenarios/{0}", scenarioName);
 		}
+
+        public static string ToSaveGame(string fileName)
+        {
+            return Application.streamingAssetsPath + "/Save Games/" + fileName + ".json";
+        }
+
+        public static SimpleJSON.JSONNode FileToJSON(string filePath)
+        {
+            System.IO.StreamReader reader;
+            string text;
+
+            reader  =   new System.IO.StreamReader(filePath);
+            text    =   reader.ReadToEnd();
+
+            reader.Close();
+
+            return SimpleJSON.JSON.Parse(text);
+        }
+
+        public static void JSONToFile(SimpleJSON.JSONNode json, string filePath)
+        {
+            System.IO.StreamWriter writer;
+            string text;
+
+            writer = new System.IO.StreamWriter(filePath);
+            text = json.ToString("");
+
+            writer.Write(text);
+
+            writer.Close();
+        }
 	}
 }
