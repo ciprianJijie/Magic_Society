@@ -3,7 +3,7 @@ using System;
 
 namespace MS
 {
-    public abstract class View<T> : MonoBehaviour where T : ModelElement
+    public abstract class View<T> : MonoBehaviour, IUpdatableView where T : ModelElement
     {
         protected T m_Model;
         protected Transform m_Transform;
