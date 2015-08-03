@@ -2,7 +2,7 @@ using SimpleJSON;
 
 namespace MS
 {
-	public class City : MapElement
+	public class City : OwnableMapElement
 	{
         public override void FromJSON(JSONNode json)
         {

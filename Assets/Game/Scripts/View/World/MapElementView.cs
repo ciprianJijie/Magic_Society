@@ -7,6 +7,7 @@ namespace MS
         public TerrainDependant     ForestPrefab;
         public TerrainDependant     StonePrefab;
         public TerrainDependant     GoldPrefab;
+        public TerrainDependant     CityPrefab;
 
         public float                VerticalOffset;
 
@@ -42,11 +43,15 @@ namespace MS
             {
                 prefab = GoldPrefab;
             }
+            else if (Model is City)
+            {
+                prefab = CityPrefab;
+            }
 
             if (prefab != null)
             {
                 m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
-                
+
                 m_InstantiatedElement.UpdateObject(tile.TerrainType);
             }
         }

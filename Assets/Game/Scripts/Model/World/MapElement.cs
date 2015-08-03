@@ -77,6 +77,10 @@ namespace MS
             {
                 element = new GoldDeposits();
             }
+            else if (name == "City")
+            {
+                element = new City();
+            }
             else
             {
                 return null;

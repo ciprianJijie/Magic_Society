@@ -31,7 +31,7 @@ namespace MS
 
             json = base.ToJSON();
 
-            json.Add("Owner", new JSONData(Owner.Name));
+            json.Add("owner", new JSONData(Owner.Name));
 
             return json;
         }
