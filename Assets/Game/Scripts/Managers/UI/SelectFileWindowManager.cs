@@ -24,7 +24,6 @@ namespace MS
             foreach (Toggle toggle in ToggleGroup.ActiveToggles())
             {
                 OnFileSelected(toggle.GetComponent<SelectFileWindowSingleFileManager>().FilePath);
-                UnityEngine.Debug.Log("Triggered!");
             }
         }
 

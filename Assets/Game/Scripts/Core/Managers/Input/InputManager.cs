@@ -3,11 +3,14 @@ using System;
 
 namespace MS.Core
 {
+    /// <summary>
+    /// Abstracts the platform in terms of input. This mediates between the Unity input system and the game input system.
+    /// </summary>
 	public class InputManager : Singleton<InputManager>
 	{
-        protected static InputSystem     m_input;
+        protected InputSystem    m_input;
 
-        void Start()
+        protected void Start()
         {
             #if UNITY_STANDALONE || UNITY_EDITOR
             m_input = new DesktopInput();
@@ -18,7 +21,7 @@ namespace MS.Core
             #endif
         }
 
-        public static Vector3 CursorPosition
+        public Vector3 CursorPosition
         {
             get
             {
@@ -26,9 +29,14 @@ namespace MS.Core
             }
         }
 
-        public static bool GetButton(string name)
+        public bool GetButton(string name)
         {
             return m_input.GetButton(name);
+        }
+
+        public float GetAxis(string name)
+        {
+            return m_input.GetAxis(name);
         }
 	}
 }

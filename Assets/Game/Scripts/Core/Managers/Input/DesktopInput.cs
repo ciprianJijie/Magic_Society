@@ -14,7 +14,12 @@ namespace MS.Core
 
         public override bool GetButton(string name)
         {
-            return UnityEngine.Input.GetButton(name);
+            return UnityEngine.Input.GetButtonDown(name);
+        }
+
+        public override float GetAxis(string name)
+        {
+            return UnityEngine.Input.GetAxis(name);
         }
     }
 }

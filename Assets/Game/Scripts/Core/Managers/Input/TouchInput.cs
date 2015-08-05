@@ -24,6 +24,11 @@ namespace MS.Core
             }
             return false;
         }
+
+        public override float GetAxis(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

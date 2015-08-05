@@ -5,7 +5,10 @@ namespace MS
 {
     public class MouseToGrid : MonoBehaviour
     {
-        public GridController GridController;
+        public GridController   GridController;
+
+        [HideInInspector]
+        public Vector2          LastGridPosition;
 
         // Events
         public delegate void GridEvent(int x, int y);
@@ -39,6 +42,7 @@ namespace MS
                 mousePosition = ray.GetPoint(distance);
 
                 tilePosition = GridController.WorldToLocal(mousePosition);
+                LastGridPosition = tilePosition;
 
                 if (Input.GetMouseButtonDown(0))
                 {
