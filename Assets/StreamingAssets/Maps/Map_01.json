@@ -6349,7 +6349,10 @@
          { 
             "x" : "2", 
             "y" : "17", 
-            "name" : "City"
+            "name" : "City", 
+            "owner" : "Neutral", 
+            "districts" : [ 
+            ]
          }, 
          { 
             "x" : "2", 
