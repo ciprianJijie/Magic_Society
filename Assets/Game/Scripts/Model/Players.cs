@@ -11,6 +11,8 @@ namespace MS
         public Players()
         {
             m_Players = new List<Player>();
+
+            m_Players.Add(new MS.Model.NeutralPlayer());
         }
 
         public Player Find(string name)
