@@ -1,3 +1,4 @@
+using MS.Model;
 
 namespace MS
 {

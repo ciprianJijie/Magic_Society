@@ -2,7 +2,7 @@ using UnityEngine;
 using SimpleJSON;
 using System;
 
-namespace MS
+namespace MS.Model
 {
     public class MapElement : ModelElement
     {

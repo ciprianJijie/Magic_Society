@@ -1,7 +1,7 @@
 using SimpleJSON;
 using UnityEngine;
 
-namespace MS
+namespace MS.Model
 {
     public class Map : ModelElement
     {

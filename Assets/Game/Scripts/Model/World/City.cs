@@ -1,6 +1,7 @@
 using SimpleJSON;
 
 namespace MS
+namespace MS.Model
 {
 	public class City : OwnableMapElement
 	{

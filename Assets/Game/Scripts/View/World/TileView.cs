@@ -1,8 +1,9 @@
 using UnityEngine;
+using MS.Model;
 
 namespace MS
 {
-    public class TileView : View<Tile>
+    public class TileView : View<MS.Model.Tile>
     {
         public GridController Owner;
         public Elevation FertileTilePrefab;

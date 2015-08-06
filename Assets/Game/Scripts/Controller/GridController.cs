@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using MS.Model;
 
 namespace MS
 {
-	public class GridController : Controller<TileView, Tile>
+	public class GridController : Controller<TileView, MS.Model.Tile>
 	{
 		// Attributes
 		public float HexagonSize = 1.0f;

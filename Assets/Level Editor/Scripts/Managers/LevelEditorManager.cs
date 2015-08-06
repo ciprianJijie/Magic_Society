@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON;
 using System.IO;
+using MS.Model;
 
 namespace MS
 {

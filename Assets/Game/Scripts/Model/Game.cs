@@ -1,6 +1,7 @@
 using UnityEngine;
 using SimpleJSON;
 using System.Collections.Generic;
+using MS.Model;
 
 namespace MS
 {

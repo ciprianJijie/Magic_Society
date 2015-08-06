@@ -1,6 +1,6 @@
 using SimpleJSON;
 
-namespace MS
+namespace MS.Model
 {
 	public class OwnableMapElement : MapElement
 	{
@@ -31,7 +31,7 @@ namespace MS
 
             json = base.ToJSON();
 
-            json.Add("owner", new JSONData(Owner.Name));
+            json.Add("owner", Owner != null ? new JSONData(Owner.Name) : "None");
 
             return json;
         }

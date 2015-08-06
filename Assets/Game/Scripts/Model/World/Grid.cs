@@ -1,7 +1,9 @@
 using SimpleJSON;
 using UnityEngine;
+using MS.Model;
 
-namespace MS
+
+namespace MS.Model
 {
     public class Grid : ModelElement
     {

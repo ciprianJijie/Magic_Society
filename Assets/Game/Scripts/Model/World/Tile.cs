@@ -1,7 +1,7 @@
 using UnityEngine;
 using SimpleJSON;
 
-namespace MS
+namespace MS.Model
 {
 	public class Tile : ModelElement
 	{
@@ -14,7 +14,6 @@ namespace MS
 
         public int 			Height;
         public Terrain 		TerrainType;
-        public MapElement 	Element;
 
         public override void FromJSON(JSONNode json)
 		{
@@ -22,11 +21,6 @@ namespace MS
             Y               =   json["y"].AsInt;
             Height 			= 	json["height"].AsInt;
             TerrainType 	= 	EnumUtils.ParseEnum<Terrain>(json["terrain"]);
-            
-            if (json["element"] != null)
-            {
-                Element     = 	ModelElement.FromJSON<MapElement>(json["element"]);
-            }
         }
 
 		public override JSONNode ToJSON()
@@ -37,11 +31,7 @@ namespace MS
             root.Add("y", new JSONData(Y));
             root.Add("height", new JSONData(Height));
             root.Add("terrain", TerrainType.ToString());
-            
-            if (Element != null)
-            {
-                root.Add("element", Element.ToJSON());
-            }
+
             return root;
         }
     }
