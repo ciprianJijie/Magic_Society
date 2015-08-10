@@ -1,31 +1,30 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 namespace MS
 {
-    public abstract class Controller<T, R> : MonoBehaviour where T : View<R> where R : ModelElement
+    public abstract class Controller<T, R> : MonoBehaviour, IViewCreator<R> where T : class, IUpdatableView<R>, IObjectRelated where R : ModelElement
     {
         public T            ViewPrefab;
         public Transform    Holder;
 
-        protected IList<View<R>>  m_Views;
+        protected IList<T>  m_Views;
 
         protected virtual void Initialize()
         {
-            m_Views = new List<View<R>>();
+            m_Views = new List<T>();
         }
 
-        public virtual T CreateView(R model)
+        public IUpdatableView<R> CreateView(R modelElement)
         {
             T view;
 
-            view                    =   Instantiate(ViewPrefab);
-            view.Transform.parent   =   Holder;
-            view.Transform.position =   Holder.position;
-            view.Transform.rotation =   Holder.rotation;
+            var obj = Utils.Instantiate(ViewPrefab.Object, Holder, Holder.position, Holder.rotation);
 
-            view.BindTo(model);
-            //view.UpdateView();
+            view = obj.GetComponent<T>();
+
+            view.BindTo(modelElement);
             view.OnDestroyed += OnViewDestroyed;
 
             m_Views.Add(view);
@@ -49,14 +48,14 @@ namespace MS
         {
             foreach (T view in m_Views)
             {
-                Destroy(view.gameObject);
+                Destroy(view.Object);
             }
         }
 
-        private void OnViewDestroyed(View<R> view)
+        private void OnViewDestroyed(IUpdatableView<R> view)
         {
             view.OnDestroyed -= OnViewDestroyed;
-            m_Views.Remove(view);
+            m_Views.Remove(view as T);
         }
 
         void Awake()

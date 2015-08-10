@@ -42,7 +42,7 @@ namespace MS
 			{
 				for (int y = 0; y < grid.VerticalSize; y++)
 				{
-					var tile = CreateView(grid.GetTile(x, y));
+					var tile = CreateView(grid.GetTile(x, y)) as TileView;
 
 					tile.name = string.Format("Tile[{0},{1}]", x, y);
 					tile.transform.position = LocalToWorld(x, y);

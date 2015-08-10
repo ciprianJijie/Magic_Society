@@ -3,18 +3,35 @@ using System;
 
 namespace MS
 {
-    public abstract class View<T> : MonoBehaviour, IUpdatableView where T : ModelElement
+    public abstract class View<T> : MonoBehaviour, IModelRelated<T>, IObjectRelated, IUpdatableView, IUpdatableView<T> where T : ModelElement
     {
         protected T m_Model;
         protected Transform m_Transform;
 
-        public T Model { get { return m_Model; } }
+        protected ViewEvent<T> m_OnDestroyed;
 
-        // Events
-        protected static void DefaultAction(View<T> view) {}
-        public Action<View<T>> OnDestroyed = DefaultAction;
+        public event ViewEvent OnDestroyed;
 
-        protected void ReportDestruction(View<T> view) { OnDestroyed(view); }
+        event ViewEvent<T> IUpdatableView<T>.OnDestroyed
+        {
+            add
+            {
+                m_OnDestroyed += value;
+            }
+
+            remove
+            {
+                m_OnDestroyed -= value;
+            }
+        }
+
+        protected void ReportDestruction(View<T> view)
+        {
+            if (m_OnDestroyed != null)
+            {
+                m_OnDestroyed(view);
+            }
+        }
 
 
         public Transform Transform
@@ -22,6 +39,22 @@ namespace MS
             get
             {
                 return m_Transform;
+            }
+        }
+
+        public GameObject Object
+        {
+            get
+            {
+                return this.gameObject;
+            }
+        }
+
+        public T Model
+        {
+            get
+            {
+                return m_Model;
             }
         }
 
@@ -48,11 +81,21 @@ namespace MS
         /// <summary>
         /// Updates the view to show the state of the model.
         /// </summary>
-        public abstract void UpdateView();
+        public virtual void UpdateView()
+        {
+
+        }
+
+        public abstract void UpdateView(T element);
 
         public bool IsViewOf(T model)
         {
             return model == m_Model;
+        }
+
+        public bool IsViewOf(ModelElement element)
+        {
+            return element == m_Model;
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using MS.Model;
+using System;
 
 namespace MS
 {
@@ -64,6 +65,11 @@ namespace MS
         public void UpdateHeight(float verticalOffset)
         {
             m_InstantiatedElement.transform.position = this.transform.position + this.transform.up * verticalOffset;
+        }
+
+        public override void UpdateView(MapElement element)
+        {
+            throw new NotImplementedException();
         }
     }
 }

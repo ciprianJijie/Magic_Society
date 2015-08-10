@@ -29,7 +29,7 @@ namespace MS
                     
                     if (element != null)
                     {
-                        var view = CreateView(element);
+                        var view = CreateView(element) as MapElementView;
 
                         view.name = element.Name;
                         view.transform.position = GridController.LocalToWorld(x, y);
@@ -63,7 +63,7 @@ namespace MS
 
                 if (elementView == null)
                 {
-                    elementView = CreateView(element);
+                    elementView = CreateView(element) as MapElementView;
 
                     elementView.name = element.Name;
                     elementView.transform.position = GridController.LocalToWorld(x, y);

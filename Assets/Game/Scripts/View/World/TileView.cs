@@ -1,5 +1,6 @@
 using UnityEngine;
 using MS.Model;
+using System;
 
 namespace MS
 {
@@ -61,6 +62,11 @@ namespace MS
             {
                 m_InstantiatedTile.FillFromCurrentTo(heightToEnsure);
             }
+        }
+
+        public override void UpdateView(Tile element)
+        {
+            throw new NotImplementedException();
         }
     }
 }
