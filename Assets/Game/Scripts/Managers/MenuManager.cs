@@ -18,7 +18,14 @@ namespace MS
             int lastDotIndex;
             string mapName;
 
+            mapFilePath = Path.PlatformPath(mapFilePath);
+
+#if UNITY_STANDALONE_WIN
+            lastSlashIndex = mapFilePath.LastIndexOf(@"\");
+#else
             lastSlashIndex = mapFilePath.LastIndexOf("/");
+#endif
+
             lastDotIndex = mapFilePath.LastIndexOf(".");
             mapName = mapFilePath.Substring(lastSlashIndex + 1, lastDotIndex - lastSlashIndex - 1);
 

@@ -61,5 +61,22 @@ namespace MS
 
             writer.Close();
         }
+
+        /// <summary>
+        /// Converts a path so it works in the current platform.
+        /// </summary>
+        /// <param name="path">Path to convert.</param>
+        /// <returns>New path suitable for the current platform.</returns>
+        public static string PlatformPath(string path)
+        {
+            string platformPath;
+
+#if UNITY_STANDALONE_WIN
+            platformPath = path.Replace(@"/", @"\");
+#else
+            platformPath = path;
+#endif
+            return platformPath;
+        }
 	}
 }
