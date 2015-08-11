@@ -44,12 +44,42 @@ namespace MS
             return null;
         }
 
+        IUpdatableView<R> IViewCreator<R>.FindView(R modelElement)
+        {
+            return FindView(modelElement);
+        }
+
+        public void DestroyView(R modelElement)
+        {
+            IObjectRelated viewObj;
+
+            viewObj = FindView(modelElement);
+
+            if (viewObj != null)
+            {
+                Destroy(viewObj.Object);
+            }
+        }
+
         public void ClearViews()
         {
             foreach (T view in m_Views)
             {
                 Destroy(view.Object);
             }
+        }
+
+        public void UpdateAllViews()
+        {
+            foreach (IUpdatableView view in m_Views)
+            {
+                view.UpdateView();
+            }
+        }
+
+        public bool HasViewFor(R modelElement)
+        {
+            return FindView(modelElement) != null;
         }
 
         private void OnViewDestroyed(IUpdatableView<R> view)

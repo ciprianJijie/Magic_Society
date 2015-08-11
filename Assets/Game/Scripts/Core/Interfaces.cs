@@ -50,6 +50,16 @@ namespace MS
     public interface IViewCreator<T> where T : MS.ModelElement
     {
         IUpdatableView<T> CreateView(T modelElement);
+        void UpdateAllViews();
+        bool HasViewFor(T modelElement);
+        IUpdatableView<T> FindView(T modelElement);
+        void DestroyView(T modelElement);
     }
 
+    public interface IControllerCreator<T, R>
+        where T: IViewCreator<R>
+        where R: ModelElement
+    {
+        T CreateController<S>() where S: IUpdatableView<R>, IObjectRelated;
+    }
 }
