@@ -1,23 +1,24 @@
 using SimpleJSON;
 
-namespace MS
+namespace MS.Model
 {
-    public class Model : ModelElement
+    public class OwnableElement : ModelElement
     {
-        public Model()
-        {
-
-        }
+        public Player Owner;
 
         public override void FromJSON(JSONNode json)
         {
+            Owner = GameController.Instance.Game.Players.Find(json["owner"]);
         }
 
         public override JSONNode ToJSON()
         {
             JSONNode json = new JSONNode();
 
+            json.Add("owner", Owner.Name);
+
             return json;
         }
     }
 }
+

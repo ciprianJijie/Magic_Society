@@ -2,7 +2,7 @@ using UnityEngine;
 using SimpleJSON;
 using System;
 
-namespace MS
+namespace MS.Model
 {
     public class MapElement : ModelElement
     {
@@ -76,6 +76,10 @@ namespace MS
             else if (name == "Gold Deposits")
             {
                 element = new GoldDeposits();
+            }
+            else if (name == "City")
+            {
+                element = new City();
             }
             else
             {

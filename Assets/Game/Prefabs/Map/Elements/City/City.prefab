@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &138244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410174}
+  - 114: {fileID: 11442360}
+  m_Layer: 0
+  m_Name: City
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410174
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11442360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6b21d59f6384649ab739d3754ec0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FertilePrefab: {fileID: 173756, guid: 2b2d7a87fab4a46de9382e22f3011016, type: 2}
+  BarrenPrefab: {fileID: 173756, guid: 01d6073739fc74cb48638da685ae2fa6, type: 2}
+  DesertPrefab: {fileID: 173756, guid: 70b9472fc33d34475beee0de250f5b94, type: 2}
+  FrozenPrefab: {fileID: 173756, guid: 4b712eaf709744820a20b075f3be63db, type: 2}
+  VolcanicPrefab: {fileID: 173756, guid: 16309229e24d243d8bac0024e681f511, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: BarrenPrefab
+      value: 
+      objectReference: {fileID: 173756, guid: 01d6073739fc74cb48638da685ae2fa6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertPrefab
+      value: 
+      objectReference: {fileID: 173756, guid: 70b9472fc33d34475beee0de250f5b94, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertilePrefab
+      value: 
+      objectReference: {fileID: 173756, guid: 2b2d7a87fab4a46de9382e22f3011016, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenPrefab
+      value: 
+      objectReference: {fileID: 173756, guid: 4b712eaf709744820a20b075f3be63db, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicPrefab
+      value: 
+      objectReference: {fileID: 173756, guid: 16309229e24d243d8bac0024e681f511, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 138244}
+  m_IsPrefabParent: 1

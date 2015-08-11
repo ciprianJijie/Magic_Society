@@ -1,4 +1,6 @@
 using UnityEngine;
+using MS.Model;
+using System;
 
 namespace MS
 {
@@ -7,6 +9,7 @@ namespace MS
         public TerrainDependant     ForestPrefab;
         public TerrainDependant     StonePrefab;
         public TerrainDependant     GoldPrefab;
+        public TerrainDependant     CityPrefab;
 
         public float                VerticalOffset;
 
@@ -42,11 +45,15 @@ namespace MS
             {
                 prefab = GoldPrefab;
             }
+            else if (Model is City)
+            {
+                prefab = CityPrefab;
+            }
 
             if (prefab != null)
             {
                 m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
-                
+
                 m_InstantiatedElement.UpdateObject(tile.TerrainType);
             }
         }
@@ -57,7 +64,12 @@ namespace MS
         /// <param name="verticalOffset">Vertical offset to be applied to the element.</param>
         public void UpdateHeight(float verticalOffset)
         {
-            m_InstantiatedElement.transform.position += this.transform.up * verticalOffset;
+            m_InstantiatedElement.transform.position = this.transform.position + this.transform.up * verticalOffset;
+        }
+
+        public override void UpdateView(MapElement element)
+        {
+            throw new NotImplementedException();
         }
     }
 }

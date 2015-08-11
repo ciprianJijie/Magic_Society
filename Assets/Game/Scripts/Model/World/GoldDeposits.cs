@@ -1,5 +1,5 @@
 
-namespace MS
+namespace MS.Model
 {
 	public class GoldDeposits : MapElement
 	{

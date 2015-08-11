@@ -11,6 +11,7 @@ namespace MS.Core
         }
 
         public abstract bool GetButton(string name);
+        public abstract float GetAxis(string name);
     }
 }
 

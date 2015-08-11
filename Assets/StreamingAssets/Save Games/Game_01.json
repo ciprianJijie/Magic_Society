@@ -1,0 +1,13 @@
+{
+	"players": [
+		{
+			"name": "Human"
+		},
+		{
+			"name": "AI 01"
+		}
+	],
+	"map":
+	{
+	}
+}

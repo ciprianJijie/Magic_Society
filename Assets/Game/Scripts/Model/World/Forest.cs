@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MS
+namespace MS.Model
 {
     public class Forest : MapElement
     {

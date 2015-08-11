@@ -1,4 +1,5 @@
 using UnityEngine;
+using MS.Model;
 
 namespace MS
 {
@@ -43,6 +44,11 @@ namespace MS
             }
 
             m_InstantiatedPrefab = Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
+
+            foreach (IUpdatableView view in m_InstantiatedPrefab.GetComponents<IUpdatableView>())
+            {
+                view.UpdateView();
+            }
 
             return m_InstantiatedPrefab;
         }

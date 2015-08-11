@@ -19,6 +19,18 @@
             "Text": "Exit"
         },
         {
+            "ID": "PLAY",
+            "Text": "Play"
+        },
+        {
+            "ID": "CANCEL",
+            "Text": "Cancel"
+        },
+        {
+            "ID": "SELECT_MAP",
+            "Text": "Select Map"
+        },
+        {
             "ID": "FOOD",
             "Text": "Food"
         },

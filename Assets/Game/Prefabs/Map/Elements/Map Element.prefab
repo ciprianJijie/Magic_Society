@@ -42,6 +42,7 @@ MonoBehaviour:
   ForestPrefab: {fileID: 11463998, guid: c6dbd46c66d2a407a904988e2c1a2bd5, type: 2}
   StonePrefab: {fileID: 11450644, guid: 8234d829bd88542c6a4d54a035768e68, type: 2}
   GoldPrefab: {fileID: 11452052, guid: cd18afadfb9034c68b2b944ba2da267b, type: 2}
+  CityPrefab: {fileID: 11442360, guid: d916db59f29fc451aa2e7e2bcfff0fdb, type: 2}
   VerticalOffset: .5
 --- !u!1001 &100100000
 Prefab:
@@ -68,6 +69,11 @@ Prefab:
       propertyPath: GoldPrefab
       value: 
       objectReference: {fileID: 11452052, guid: cd18afadfb9034c68b2b944ba2da267b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: CityPrefab
+      value: 
+      objectReference: {fileID: 11442360, guid: d916db59f29fc451aa2e7e2bcfff0fdb,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

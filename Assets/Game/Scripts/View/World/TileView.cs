@@ -1,8 +1,10 @@
 using UnityEngine;
+using MS.Model;
+using System;
 
 namespace MS
 {
-    public class TileView : View<Tile>
+    public class TileView : View<MS.Model.Tile>
     {
         public GridController Owner;
         public Elevation FertileTilePrefab;
@@ -60,6 +62,11 @@ namespace MS
             {
                 m_InstantiatedTile.FillFromCurrentTo(heightToEnsure);
             }
+        }
+
+        public override void UpdateView(Tile element)
+        {
+            throw new NotImplementedException();
         }
     }
 }
