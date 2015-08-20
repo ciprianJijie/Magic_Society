@@ -1,6 +1,6 @@
 using SimpleJSON;
 
-namespace MS
+namespace MS.Model
 {    
     public class Player : ModelElement
     {
@@ -18,7 +18,7 @@ namespace MS
 
         public override void FromJSON(JSONNode json)
         {
-
+            Name = json["name"];
         }
 
         public override JSONNode ToJSON()
@@ -27,7 +27,26 @@ namespace MS
 
             json = new JSONNode();
 
+            json.Add("name", new JSONData(Name));
+
             return json;
+        }
+
+        public static Player Create(string type)
+        {
+            Player player;
+
+            switch (type)
+            {
+                case "AI":
+                    player = new AIPlayer();
+                    break;
+                default:
+                    player = new HumanPlayer();
+                    break;
+            }
+
+            return player;
         }
     }
 }

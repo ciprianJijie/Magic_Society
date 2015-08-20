@@ -1,6 +1,6 @@
 using SimpleJSON;
 
-namespace MS
+namespace MS.Model
 {
 	public class AIPlayer : Player
 	{
@@ -15,5 +15,16 @@ namespace MS
         {
 
         }
-	}
+
+        public override JSONNode ToJSON()
+        {
+            JSONNode json;
+
+            json = base.ToJSON();
+
+            json.Add("type", new JSONData("AI"));
+
+            return json;
+        }
+    }
 }
