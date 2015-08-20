@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using SimpleJSON;
 using System.IO;
 using MS.Model;
+using MS.Editor.UI;
 
 namespace MS
 {
@@ -16,6 +17,7 @@ namespace MS
         public GameObject 		        FileBrowserPrefab;
         public GameObject 		        NameLevelPrefab;
         public GameObject               ResizeWindowPrefab;
+        public ObjectInspectorManager   ObjectInspectorPanel;
 
         protected Map 			        m_CurrentMap;
         protected GameObject 	        m_FileBrowserWindow;
@@ -44,6 +46,17 @@ namespace MS
             Instantiate(ResizeWindowPrefab).transform.SetParent(WindowsContainer, false);
         }
 
+        public void ShowObjectProperties(MS.Model.MapElement element)
+        {
+            ObjectInspectorPanel.gameObject.SetActive(true);
+            ObjectInspectorPanel.Show(element);
+        }
+
+        public void HideObjectProperties()
+        {
+            ObjectInspectorPanel.gameObject.SetActive(false);
+        }
+
 		public void New(string levelName, int x, int y)
 		{
             m_CurrentMap = new Map(levelName, x, y);
@@ -65,8 +78,11 @@ namespace MS
             m_CurrentMap 		= 	new Map();
 			m_CurrentFilePath 	= 	file;
 
-            m_CurrentMap.FromJSON(json);
+            // Load players
+            GameController.Instance.Game.Players.FromJSON(json["players"]);
 
+            m_CurrentMap.FromJSON(json);
+            
             ShowGrid(m_CurrentMap.Grid);
         }
 
@@ -100,6 +116,13 @@ namespace MS
         public void HideGrid()
         {
             GridController.enabled = false;
+        }
+
+        // Unity
+
+        protected void Start()
+        {
+            HideObjectProperties();
         }
     }
 }

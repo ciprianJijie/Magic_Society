@@ -30,3 +30,7 @@ obj/
 ehthumbs.db
 Thumbs.db
 *.sublime-workspace
+
+Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+
+Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta

@@ -1,5 +1,15 @@
 { 
    "name" : "Map_01", 
+   "players" : [ 
+      { 
+         "name" : "Human 01", 
+         "type" : "Human"
+      }, 
+      { 
+         "name" : "AI 01", 
+         "type" : "AI"
+      }
+   ], 
    "grid" : { 
       "size" : { 
          "horizontal" : "32", 
@@ -6350,7 +6360,7 @@
             "x" : "2", 
             "y" : "17", 
             "name" : "City", 
-            "owner" : "Neutral", 
+            "owner" : "Human 01", 
             "districts" : [ 
             ]
          }, 

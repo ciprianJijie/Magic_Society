@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 23eec9026674f461eac16806ca199de7
-timeCreated: 1438163957
+timeCreated: 1439289169
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     21300020: UI_10
     21300022: UI_11
     21300024: UI_12
+    21300026: UI_13
+    21300028: UI_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -167,21 +169,21 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 80
-        width: 200
+        width: 181
         height: 20
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 8, y: 6, z: 1, w: 6}
     - name: UI_11
       rect:
         serializedVersion: 2
         x: 0
         y: 100
-        width: 200
+        width: 181
         height: 20
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 8, y: 6, z: 1, w: 6}
     - name: UI_12
       rect:
         serializedVersion: 2
@@ -192,6 +194,26 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UI_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 6, y: 6, z: 2, w: 6}
+    - name: UI_14
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 80
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 8, y: 6, z: 5, w: 5}
   spritePackingTag: 
   userData: 
   assetBundleName: 

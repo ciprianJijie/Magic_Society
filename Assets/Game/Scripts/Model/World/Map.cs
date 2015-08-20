@@ -56,6 +56,7 @@ namespace MS.Model
             json = JSON.Parse((Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
 
             json["name"] = Name;
+            json.Add("players", GameController.Instance.Game.Players.ToJSON());
             json["grid"] = Grid.ToJSON();
 
             return json;

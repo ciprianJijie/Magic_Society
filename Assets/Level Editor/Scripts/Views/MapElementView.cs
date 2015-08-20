@@ -1,0 +1,1 @@
+﻿using System;using MS.Model;using UnityEngine.UI;namespace MS.Views.Editor.UI{    public class MapElementView : View<MapElement>    {        public Text NameLabel;        public override void UpdateView(MapElement element)        {            NameLabel.text = element.Name;        }    }}

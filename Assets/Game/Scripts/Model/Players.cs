@@ -1,10 +1,11 @@
 using UnityEngine;
 using SimpleJSON;
 using System.Collections.Generic;
+using System.Collections;
 
-namespace MS
+namespace MS.Model
 {
-	public class Players : ModelElement
+	public class Players : ModelElement, IEnumerable
 	{
 		protected List<Player> m_Players;
 
@@ -53,7 +54,7 @@ namespace MS
 
             foreach (JSONNode node in json.AsArray)
             {
-                player = new Player();
+                player = Player.Create(node["type"]);
 
                 player.FromJSON(node);
                 m_Players.Add(player);
@@ -66,10 +67,20 @@ namespace MS
 
             foreach (Player player in m_Players)
             {
-                array.Add(player.ToJSON());
+                if (player is NeutralPlayer == false)
+                {
+                    array.Add(player.ToJSON());
+                }                
             }
 
             return array;
+        }
+
+        // IEnumerable
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Players.GetEnumerator();
         }
 	}
 }
