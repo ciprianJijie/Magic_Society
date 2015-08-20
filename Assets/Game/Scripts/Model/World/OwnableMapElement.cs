@@ -18,7 +18,8 @@ namespace MS.Model
 
                 if (player == null)
                 {
-                    throw new System.NullReferenceException("No player named " + json["owner"] + " found in the current game.");
+                    UnityEngine.Debug.LogWarning("No player named " + json["owner"] + " was found. Assigning Neutral Player by default.");
+                    player = GameController.Instance.Game.Players.Find("Neutral");
                 }
 
                 Owner = player;
