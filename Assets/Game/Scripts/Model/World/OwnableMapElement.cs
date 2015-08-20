@@ -32,7 +32,7 @@ namespace MS.Model
 
             json = base.ToJSON();
 
-            json.Add("owner", Owner != null ? new JSONData(Owner.Name) : "None");
+            json.Add("owner", Owner != null ? new JSONData(Owner.Name) : "Neutral");
 
             return json;
         }
