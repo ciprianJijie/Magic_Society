@@ -1,7 +1,7 @@
 using SimpleJSON;
 
 namespace MS.Model
-{    
+{
     public class Player : ModelElement
     {
         public string Name;
@@ -23,13 +23,11 @@ namespace MS.Model
 
         public override JSONNode ToJSON()
         {
-            JSONNode json;
+            JSONClass root = new JSONClass();
 
-            json = new JSONNode();
+            root.Add("name", Name);
 
-            json.Add("name", new JSONData(Name));
-
-            return json;
+            return root;
         }
 
         public static Player Create(string type)

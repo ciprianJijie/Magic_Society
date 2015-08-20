@@ -24,8 +24,6 @@ namespace MS.Model
 
             json.Add("type", new JSONData("Human"));
 
-            UnityEngine.Debug.Log("Player JSON = \n" + json.ToString(""));
-
             return json;
         }
     }
