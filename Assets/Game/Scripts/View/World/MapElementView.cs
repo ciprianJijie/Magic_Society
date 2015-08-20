@@ -2,7 +2,7 @@ using UnityEngine;
 using MS.Model;
 using System;
 
-namespace MS
+namespace MS.Views
 {
     public class MapElementView : View<MapElement>
     {

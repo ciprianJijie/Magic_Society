@@ -1,5 +1,6 @@
 using UnityEngine;
 using MS.Model;
+using MS.Views;
 
 namespace MS
 {

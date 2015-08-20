@@ -27,8 +27,6 @@ namespace MS
             }
 
             m_InstantedCity = Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
-
-            UnityEngine.Debug.Log("Instantiated city.");
         }
 
         public override void UpdateView(City element)
