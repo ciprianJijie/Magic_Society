@@ -10,6 +10,8 @@ namespace MS
 
         public BrushToolsManager BrushToolsManager;
 
+        public LevelEditorManager LevelEditorManager;
+
         /// <summary>Camera to move using the input.</summary>
         public Camera MainCamera;
 
@@ -34,7 +36,18 @@ namespace MS
 
 		protected void OnMouseRightClick(int x, int y)
 		{
+            MS.Model.MapElement element;
 
+            element = MouseToGrid.GridController.Grid.GetElement(x, y);
+
+            if (element != null)
+            {
+                LevelEditorManager.ShowObjectProperties(element);
+            }
+            else
+            {
+                LevelEditorManager.HideObjectProperties();
+            }
 		}
 
 		// Unity Methods
