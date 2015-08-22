@@ -18,6 +18,7 @@ namespace MS
         public GameObject 		        NameLevelPrefab;
         public GameObject               ResizeWindowPrefab;
         public ObjectInspectorManager   ObjectInspectorPanel;
+        public PlayersSetupManager      PlayerSetupPanel;
 
         protected Map 			        m_CurrentMap;
         protected GameObject 	        m_FileBrowserWindow;
@@ -55,6 +56,16 @@ namespace MS
         public void HideObjectProperties()
         {
             ObjectInspectorPanel.gameObject.SetActive(false);
+        }
+
+        public void ShowPlayerSetup()
+        {
+            PlayerSetupPanel.gameObject.SetActive(true);
+        }
+
+        public void HidePlayerSetup()
+        {
+            PlayerSetupPanel.gameObject.SetActive(false);
         }
 
 		public void New(string levelName, int x, int y)
@@ -123,6 +134,7 @@ namespace MS
         protected void Start()
         {
             HideObjectProperties();
+            HidePlayerSetup();
         }
     }
 }
