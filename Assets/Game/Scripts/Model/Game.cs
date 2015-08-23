@@ -40,19 +40,20 @@ namespace MS
             filePath    =   Path.ToScenario(mapName);
             json        =   Path.FileToJSON(filePath);
 
+            m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json);
 
-            for (int i = 0; i < numPlayers; i++)
-            {
-                if (i < humanPlayers)
-                {
-                    m_Players.AddPlayer(new HumanPlayer("Human Player " + i));
-                }
-                else
-                {
-                    m_Players.AddPlayer(new AIPlayer("AI Player " + i));
-                }
-            }
+//            for (int i = 0; i < numPlayers; i++)
+//            {
+//                if (i < humanPlayers)
+//                {
+//                    m_Players.AddPlayer(new HumanPlayer("Human Player " + i));
+//                }
+//                else
+//                {
+//                    m_Players.AddPlayer(new AIPlayer("AI Player " + i));
+//                }
+//            }
         }
 
         public void Save(string fileName)
