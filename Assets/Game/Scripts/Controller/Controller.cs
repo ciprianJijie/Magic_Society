@@ -16,7 +16,7 @@ namespace MS
             m_Views = new List<T>();
         }
 
-        public IUpdatableView<R> CreateView(R modelElement)
+        public virtual IUpdatableView<R> CreateView(R modelElement)
         {
             T view;
 

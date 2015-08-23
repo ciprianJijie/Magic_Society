@@ -1,7 +1,7 @@
 using SimpleJSON;
 using UnityEngine;
 using MS.Model;
-
+using System.Collections.Generic;
 
 namespace MS.Model
 {
@@ -149,6 +149,27 @@ namespace MS.Model
         public void SetElement(int x, int y, MapElement element)
         {
             m_Elements[x,y] = element;
+        }
+
+        public IEnumerable<OwnableMapElement> GetElements(Player owner)
+        {
+            List<OwnableMapElement>    elements;
+            OwnableMapElement          ownableElement;
+
+            elements = new List<OwnableMapElement>();
+
+            foreach (MapElement element in m_Elements)
+            {
+                ownableElement = element as OwnableMapElement;
+
+                if (ownableElement != null)
+                {
+                    elements.Add(ownableElement);
+                }
+            }
+
+            return elements;
+
         }
 
         /// <summary>

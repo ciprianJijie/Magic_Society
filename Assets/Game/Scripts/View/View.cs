@@ -83,7 +83,7 @@ namespace MS
         /// </summary>
         public virtual void UpdateView()
         {
-
+            UpdateView(m_Model);
         }
 
         public abstract void UpdateView(T element);
