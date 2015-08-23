@@ -83,8 +83,6 @@ namespace MS.Editor.UI
 
         public void RemovePlayer(string playerName)
         {
-            // TODO: Search elements in the map owned by the player and transfer them to the Neutral player
-
             PlayerButtonController button;
 
             if (m_Buttons.TryGetValue(playerName, out button))
@@ -97,6 +95,22 @@ namespace MS.Editor.UI
             }
 
             m_Buttons.Remove(playerName);
+
+            // Transfer ownership to Neutral player
+
+            Player neutralPlayer;
+            Player player;
+
+            neutralPlayer   =   GameController.Instance.Game.Players.Find("Neutral");
+            player          =   GameController.Instance.Game.Players.Find(playerName);
+
+            foreach (OwnableMapElement element in GameController.Instance.Game.Map.Grid.GetElements(player))
+            {
+                if (element.Owner == player)
+                {
+                    element.Owner = neutralPlayer;
+                }
+            }
 
             GameController.Instance.Game.Players.RemovePlayer(playerName);
         }

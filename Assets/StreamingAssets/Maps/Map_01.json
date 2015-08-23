@@ -6776,6 +6776,14 @@
          }, 
          { 
             "x" : "11", 
+            "y" : "23", 
+            "name" : "City", 
+            "owner" : "AI 01", 
+            "districts" : [ 
+            ]
+         }, 
+         { 
+            "x" : "11", 
             "y" : "25", 
             "name" : "Stone Deposits"
          }, 
@@ -7018,6 +7026,14 @@
             "x" : "21", 
             "y" : "2", 
             "name" : "Stone Deposits"
+         }, 
+         { 
+            "x" : "21", 
+            "y" : "11", 
+            "name" : "City", 
+            "owner" : "Neutral", 
+            "districts" : [ 
+            ]
          }, 
          { 
             "x" : "21", 

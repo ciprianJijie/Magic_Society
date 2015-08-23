@@ -6,6 +6,16 @@ namespace MS.Model
 	{
 		public Player Owner;
 
+        public OwnableMapElement()
+        {
+            Name = "City";
+
+            if (GameController.Instance != null && GameController.Instance.Game != null)
+            {
+                Owner = GameController.Instance.Game.Players.Find("Neutral");
+            }
+        }
+
         public override void FromJSON(JSONNode json)
         {
             base.FromJSON(json);
