@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace MS.Model
 {
-	public class Players : ModelElement, IEnumerable
+    public class Players : ModelElement, IEnumerable<Player>
 	{
 		protected List<Player> m_Players;
 
@@ -79,6 +79,11 @@ namespace MS.Model
         // IEnumerable
 
         IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Players.GetEnumerator();
+        }
+
+        IEnumerator<Player> IEnumerable<Player>.GetEnumerator()
         {
             return m_Players.GetEnumerator();
         }
