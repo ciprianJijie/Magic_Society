@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace AssemblyCSharp
+namespace MS.Model
 {
-    public class Wood
+    public class Wood : Resource
     {
         public Wood()
         {
+            Name = "Wood";
         }
     }
 }

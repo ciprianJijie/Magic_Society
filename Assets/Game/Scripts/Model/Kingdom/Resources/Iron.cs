@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace AssemblyCSharp
+namespace MS.Model
 {
-    public class Iron
+    public class Iron : Resource
     {
         public Iron()
         {
+            Name = "Iron";
         }
     }
 }
