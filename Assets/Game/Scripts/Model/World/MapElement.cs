@@ -51,7 +51,7 @@ namespace MS.Model
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = JSON.Parse(Resources.Load<TextAsset>("Data/JSON/Templates/MapElement").text);
+            JSONNode json = JSON.Parse(UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/MapElement").text);
             json["x"].AsInt = X;
             json["y"].AsInt = Y;
             json["name"] = Name;

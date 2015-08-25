@@ -242,7 +242,7 @@ namespace MS.Model
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = JSON.Parse(Resources.Load<TextAsset>("Data/JSON/Templates/Grid").text);
+            JSONNode json = JSON.Parse(UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/Grid").text);
             JSONArray tilesArray;
             JSONArray elementsArray;
             JSONArray row;

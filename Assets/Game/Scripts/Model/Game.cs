@@ -7,9 +7,10 @@ namespace MS
 {
 	public class Game : ModelElement
 	{
-        protected Map       m_Map;
-        protected Players   m_Players;
-        protected Turns     m_Turns;
+        protected Map               m_Map;
+        protected Players           m_Players;
+        protected Turns             m_Turns;
+        protected Model.Resources   m_Resources;
 
         public Map Map
         {
@@ -35,11 +36,20 @@ namespace MS
             }
         }
 
+        public Model.Resources Resources
+        {
+            get
+            {
+                return m_Resources;
+            }
+        }
+
         public Game()
         {
             m_Map       =   new Map();
             m_Players   =   new Players();
             m_Turns     =   new Turns(m_Players);
+            m_Resources =   new Model.Resources();
         }
 
         public void New(string mapName, int numPlayers, int humanPlayers)

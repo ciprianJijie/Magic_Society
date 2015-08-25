@@ -53,7 +53,7 @@ namespace MS.Model
         {
             JSONNode json;
 
-            json = JSON.Parse((Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
+            json = JSON.Parse((UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
 
             json["name"] = Name;
             json.Add("players", GameController.Instance.Game.Players.ToJSON());
