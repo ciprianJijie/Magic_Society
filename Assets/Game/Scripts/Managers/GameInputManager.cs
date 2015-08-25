@@ -16,6 +16,10 @@ namespace MS
         // Objects
         public Camera               MainCamera;
 
+        // Events
+        public MS.Events.GridPositionEvent  OnTileHover         =   MS.Events.DefaultAction;
+        public MS.Events.Event              OnTileHoverEnds     =   MS.Events.DefaultAction;
+
         protected void LateUpdate()
         {
             float horizontal;
@@ -50,6 +54,15 @@ namespace MS
                 movement = MS.Core.Actions.ActionsManager.Instance.Create<MS.Core.Actions.Movement>();
 
                 movement.Perform(MainCamera.transform, MainCamera.transform.position, worldPosition, FlyOverDuration, FlyOverCurve);
+            }
+
+            if (MouseToGrid.IsValidPosition(MouseToGrid.LastGridPosition))
+            {
+                OnTileHover((int)MouseToGrid.LastGridPosition.x, (int)MouseToGrid.LastGridPosition.y);
+            }
+            else
+            {
+                OnTileHoverEnds();
             }
         }
     }

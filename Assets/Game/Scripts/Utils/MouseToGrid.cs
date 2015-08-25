@@ -21,6 +21,21 @@ namespace MS
 
         private Plane       m_ProjectionPlane;
 
+        public bool IsValidPosition(Vector2 gridPosition)
+        {
+            return IsValidPosition((int)gridPosition.x, (int)gridPosition.y);
+        }
+
+        public bool IsValidPosition(int x, int y)
+        {
+            if (x < 0 || y < 0 || x >= GridController.Grid.HorizontalSize || y >= GridController.Grid.VerticalSize)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         protected void Start()
         {
             m_ProjectionPlane = new Plane(GridController.transform.up, GridController.transform.position);
