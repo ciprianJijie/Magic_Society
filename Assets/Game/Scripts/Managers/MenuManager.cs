@@ -29,8 +29,6 @@ namespace MS
             lastDotIndex = mapFilePath.LastIndexOf(".");
             mapName = mapFilePath.Substring(lastSlashIndex + 1, lastDotIndex - lastSlashIndex - 1);
 
-            UnityEngine.Debug.Log("New game in map " + mapName);
-
             GameController.Instance.Game.New(mapName, 2, 1);
 
             LoadScene("Main");

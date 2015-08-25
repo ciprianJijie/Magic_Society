@@ -1,4 +1,7 @@
+using UnityEngine;
 using SimpleJSON;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MS.Model
 {
@@ -14,6 +17,11 @@ namespace MS.Model
         public Player(string name)
         {
             Name = name;
+        }
+
+        public virtual void Play<T>(T phase) where T: Phase
+        {
+            phase.Finish();
         }
 
         public override void FromJSON(JSONNode json)

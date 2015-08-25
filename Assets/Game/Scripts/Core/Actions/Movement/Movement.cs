@@ -61,8 +61,6 @@ namespace MS.Core.Actions
 
                 alpha = (Time.time - m_TimeStarted) / m_Duration;
 
-                UnityEngine.Debug.Log("Alpha: " + alpha);
-
                 m_Target.position = Vector3.Lerp(m_InitialPosition, m_FinalPosition, m_SpeedCurve.Evaluate(alpha));
             }
             else

@@ -9,6 +9,7 @@ namespace MS
 	{
         protected Map       m_Map;
         protected Players   m_Players;
+        protected Turns     m_Turns;
 
         public Map Map
         {
@@ -26,10 +27,19 @@ namespace MS
             }
         }
 
+        public Turns Turns
+        {
+            get
+            {
+                return m_Turns;
+            }
+        }
+
         public Game()
         {
             m_Map       =   new Map();
             m_Players   =   new Players();
+            m_Turns     =   new Turns(m_Players);
         }
 
         public void New(string mapName, int numPlayers, int humanPlayers)
@@ -40,19 +50,22 @@ namespace MS
             filePath    =   Path.ToScenario(mapName);
             json        =   Path.FileToJSON(filePath);
 
+            m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json);
 
-            for (int i = 0; i < numPlayers; i++)
-            {
-                if (i < humanPlayers)
-                {
-                    m_Players.AddPlayer(new HumanPlayer("Human Player " + i));
-                }
-                else
-                {
-                    m_Players.AddPlayer(new AIPlayer("AI Player " + i));
-                }
-            }
+            m_Turns = new Turns(m_Players);
+
+//            for (int i = 0; i < numPlayers; i++)
+//            {
+//                if (i < humanPlayers)
+//                {
+//                    m_Players.AddPlayer(new HumanPlayer("Human Player " + i));
+//                }
+//                else
+//                {
+//                    m_Players.AddPlayer(new AIPlayer("AI Player " + i));
+//                }
+//            }
         }
 
         public void Save(string fileName)
@@ -79,6 +92,8 @@ namespace MS
         {
             m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json["map"]);
+
+            m_Turns = new Turns(m_Players);
         }
 
         public override JSONNode ToJSON()

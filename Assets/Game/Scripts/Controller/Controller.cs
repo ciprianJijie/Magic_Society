@@ -10,6 +10,7 @@ namespace MS
         public Transform    Holder;
 
         protected IList<T>  m_Views;
+        protected T         m_MainView;
 
         protected virtual void Initialize()
         {
@@ -28,6 +29,8 @@ namespace MS
             view.OnDestroyed += OnViewDestroyed;
 
             m_Views.Add(view);
+
+            m_MainView = view;
 
             return view;
         }

@@ -16,6 +16,11 @@ namespace MS.Model
 
         }
 
+        public override void Play<T>(T phase)
+        {
+            // Wait for player Input
+        }
+
         public override JSONNode ToJSON()
         {
             JSONNode json;
