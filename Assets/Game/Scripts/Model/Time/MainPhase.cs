@@ -12,9 +12,7 @@ namespace MS.Model
 
         public override void Execute()
         {
-            // TODO: Allow the player to move, build, etc
-
-            UnityEngine.Debug.Log("Entering in the main phase and waiting for " + Player.Name + " player to finish moving.");
+            Player.Play<MainPhase>(this);
         }
     }
 }

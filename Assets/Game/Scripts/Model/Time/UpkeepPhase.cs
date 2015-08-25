@@ -12,9 +12,6 @@ namespace MS.Model
 
         public override void Execute()
         {
-            // TODO: Pay units, buildings, etc
-            UnityEngine.Debug.Log("Paying upkeeps of player " + Player.Name);
-
             Finish();
         }
     }

@@ -12,10 +12,6 @@ namespace MS.Model
 
         public override void Execute()
         {
-            // TODO: Recollect resources
-
-            UnityEngine.Debug.Log("Recollecting resources for player " + Player.Name);
-
             Finish();
         }
     }
