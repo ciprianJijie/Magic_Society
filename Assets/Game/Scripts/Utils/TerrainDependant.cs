@@ -13,7 +13,7 @@ namespace MS
 
 	    protected GameObject m_InstantiatedPrefab;
 
-		public GameObject UpdateObject(Tile.Terrain terrainType)
+		public GameObject UpdateObject(ModelElement element, Tile.Terrain terrainType)
 		{
 			if (m_InstantiatedPrefab != null)
 			{
@@ -48,6 +48,11 @@ namespace MS
             foreach (IUpdatableView view in m_InstantiatedPrefab.GetComponents<IUpdatableView>())
             {
                 view.UpdateView();
+            }
+
+            foreach (IUpdatableView<City> view in m_InstantiatedPrefab.GetComponents<IUpdatableView<City>>())
+            {
+                view.UpdateView(element as City);
             }
 
             return m_InstantiatedPrefab;

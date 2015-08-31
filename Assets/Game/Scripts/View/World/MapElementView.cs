@@ -54,7 +54,18 @@ namespace MS.Views
             {
                 m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
 
-                m_InstantiatedElement.UpdateObject(tile.TerrainType);
+                m_InstantiatedElement.UpdateObject(Model, tile.TerrainType);
+
+                foreach (IModelRelated<City> view in m_InstantiatedElement.GetComponents<IModelRelated<City>>())
+                {
+                    view.BindTo(Model as City);
+                }
+
+                foreach (IUpdatableView view in m_InstantiatedElement.GetComponents<IUpdatableView>())
+                {
+                    view.UpdateView();
+                }
+
             }
         }
 

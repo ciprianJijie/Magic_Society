@@ -43,6 +43,7 @@ MonoBehaviour:
   TownPrefab: {fileID: 168212, guid: 69cd22e525f9e488f8cda0ed46f9bf82, type: 2}
   CityPrefab: {fileID: 168212, guid: b6d3ce01a27b94df7add2fbeb7dd805e, type: 2}
   MegapolisPrefab: {fileID: 168212, guid: c7bd139d5cc8747af83994f8245ab766, type: 2}
+  UIBanner: {fileID: 11442280, guid: ea5a6ff02034baa4f8cfa223b9c51dc0, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -66,6 +67,11 @@ Prefab:
       propertyPath: MegapolisPrefab
       value: 
       objectReference: {fileID: 168212, guid: c7bd139d5cc8747af83994f8245ab766, type: 2}
+    - target: {fileID: 0}
+      propertyPath: UIBanner
+      value: 
+      objectReference: {fileID: 11442280, guid: ea5a6ff02034baa4f8cfa223b9c51dc0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173756}
