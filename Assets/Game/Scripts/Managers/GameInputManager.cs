@@ -20,6 +20,10 @@ namespace MS
         public MS.Events.GridPositionEvent  OnTileHover         =   MS.Events.DefaultAction;
         public MS.Events.Event              OnTileHoverEnds     =   MS.Events.DefaultAction;
 
+        private readonly static float   m_TimeToShowTileInformation = 1.25f;
+        private float                   m_TimeHoveringTile;
+        private Vector2                 m_LastHoveredTile;
+
         protected void LateUpdate()
         {
             float horizontal;
@@ -58,11 +62,25 @@ namespace MS
 
             if (MouseToGrid.IsValidPosition(MouseToGrid.LastGridPosition))
             {
-                OnTileHover((int)MouseToGrid.LastGridPosition.x, (int)MouseToGrid.LastGridPosition.y);
+                if (m_LastHoveredTile == MouseToGrid.LastGridPosition)
+                {
+                    m_TimeHoveringTile += Time.deltaTime;
+
+                    if (m_TimeHoveringTile >= m_TimeToShowTileInformation)
+                    {
+                        OnTileHover((int)m_LastHoveredTile.x, (int)m_LastHoveredTile.y);
+                    }
+                }
+                else
+                {
+                    m_TimeHoveringTile = 0f;
+                    OnTileHoverEnds();
+                }
+                m_LastHoveredTile = MouseToGrid.LastGridPosition;
             }
             else
             {
-                OnTileHoverEnds();
+                //OnTileHoverEnds();
             }
         }
     }
