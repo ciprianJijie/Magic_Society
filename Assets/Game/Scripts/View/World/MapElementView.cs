@@ -9,11 +9,11 @@ namespace MS.Views
         public TerrainDependant     ForestPrefab;
         public TerrainDependant     StonePrefab;
         public TerrainDependant     GoldPrefab;
-        public TerrainDependant     CityPrefab;
+        public Controllers.Kingdom.CityController   CityPrefab;
 
         public float                VerticalOffset;
 
-        private TerrainDependant    m_InstantiatedElement;
+        private GameObject          m_InstantiatedElement;
 
         public override void UpdateView()
         {
@@ -31,42 +31,64 @@ namespace MS.Views
 
             verticalOffset = this.transform.up * tile.Height * VerticalOffset;
 
-            TerrainDependant prefab = null;
+            GameObject prefab = null;
 
             if (Model is Forest)
             {
-                prefab = ForestPrefab;
+                prefab = ForestPrefab.gameObject;
             }
             else if (Model is StoneDeposits)
             {
-                prefab = StonePrefab;
+                prefab = StonePrefab.gameObject;
             }
             else if (Model is GoldDeposits)
             {
-                prefab = GoldPrefab;
+                prefab = GoldPrefab.gameObject;
             }
             else if (Model is City)
             {
-                prefab = CityPrefab;
+                prefab = CityPrefab.gameObject;
             }
 
             if (prefab != null)
             {
-                m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
+                Controllers.Kingdom.CityController  cityController;
+                TerrainDependant                    terrainDependant;
 
-                m_InstantiatedElement.UpdateObject(Model, tile.TerrainType);
+                m_InstantiatedElement   =   Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
+                cityController          =   m_InstantiatedElement.GetComponent<Controllers.Kingdom.CityController>();
+                terrainDependant        =   m_InstantiatedElement.GetComponent<TerrainDependant>();
 
-                foreach (IModelRelated<City> view in m_InstantiatedElement.GetComponents<IModelRelated<City>>())
+                if (terrainDependant != null)
                 {
-                    view.BindTo(Model as City);
+                    terrainDependant.UpdateObject(Model, tile.TerrainType);
                 }
 
-                foreach (IUpdatableView view in m_InstantiatedElement.GetComponents<IUpdatableView>())
+                if (cityController != null)
                 {
-                    view.UpdateView();
+                    //UnityEngine.Debug.Log("Map element has City Controller. Creating view and updating.");
+                    //cityController.CreateView(Model as City);
+                    //cityController.UpdateAllViews();
                 }
-
             }
+
+            //if (prefab != null)
+            //{
+            //    m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
+
+            //    m_InstantiatedElement.UpdateObject(Model, tile.TerrainType);
+
+            //    foreach (IModelRelated<City> view in m_InstantiatedElement.GetComponents<IModelRelated<City>>())
+            //    {
+            //        view.BindTo(Model as City);
+            //    }
+
+            //    foreach (IUpdatableView view in m_InstantiatedElement.GetComponents<IUpdatableView>())
+            //    {
+            //        view.UpdateView();
+            //    }
+
+            //}
         }
 
         /// <summary>

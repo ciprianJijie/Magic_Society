@@ -8,10 +8,14 @@ namespace MS
         public static void DefaultAction() {}
         public static void DefaultAction(string text) {}
         public static void DefaultAction(int x, int y) {}
+        public static void DefaultAction(Model.Player player) {}
+        public static void DefaultAction(Model.City city) {}
 
         // Events Types
         public delegate void Event();
         public delegate void StringEvent(string text);
         public delegate void GridPositionEvent(int x, int y);
+        public delegate void PlayerEvent(Model.Player player);
+        public delegate void CityEvent(Model.City city);
     }
 }

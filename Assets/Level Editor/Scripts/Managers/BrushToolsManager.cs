@@ -7,7 +7,7 @@ namespace MS
     public class BrushToolsManager : MonoBehaviour
     {
         public GridController           GridController;
-        public MapElementsController    MapElementsController;
+        public MapElementsManager    MapElementsController;
         public InputField               RadiusInput;
         protected int                   Radius;
 
@@ -58,7 +58,7 @@ namespace MS
             foreach (Vector2 drawnTile in ActiveBrush.Draw(x, y, Radius, GridController.Grid))
             {
                 GridController.UpdateView(drawnTile, true);
-                MapElementsController.UpdateView(drawnTile);
+                MapElementsController.UpdateViews(drawnTile);
             }
         }
 

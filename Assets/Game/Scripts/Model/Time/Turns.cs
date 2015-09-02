@@ -13,7 +13,10 @@ namespace MS.Model
 
         private     int         m_TurnCounter;
 
-        public MS.Events.Event OnAllTurnsFinished = MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnRecollectionPhase     =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnUpkeepPhase           =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnMainPhase             =   MS.Events.DefaultAction;
+        public MS.Events.Event          OnAllTurnsFinished      =   MS.Events.DefaultAction;
 
         public Turn CurrentTurn
         {
@@ -65,6 +68,23 @@ namespace MS.Model
             else
             {
                 m_Turns[m_CurrentTurn].Start();
+            }
+
+            Turn currentTurn;
+
+            currentTurn = m_Turns[m_CurrentTurn];
+
+            if (currentTurn.CurrentPhase is UpkeepPhase)
+            {
+                OnUpkeepPhase(currentTurn.Player);
+            }
+            else if (currentTurn.CurrentPhase is RecollectionPhase)
+            {
+                OnRecollectionPhase(CurrentTurn.Player);
+            }
+            else if (currentTurn.CurrentPhase is MainPhase)
+            {
+                OnMainPhase(currentTurn.Player);
             }
         }
 

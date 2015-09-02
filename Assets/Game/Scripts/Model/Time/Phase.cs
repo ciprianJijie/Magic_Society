@@ -8,6 +8,7 @@ namespace MS.Model
         public string Name;
         public Player Player;
 
+        public MS.Events.Event OnStarted = MS.Events.DefaultAction;
         public MS.Events.Event OnFinished = MS.Events.DefaultAction;
 
         public abstract void Execute();

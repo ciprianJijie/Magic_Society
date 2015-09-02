@@ -12,6 +12,18 @@ namespace MS.Model
 
         public override void Execute()
         {
+            // Search all cities
+
+            foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
+            {
+                IResourceCollector collector = element as IResourceCollector;
+
+                if (collector != null)
+                {
+                    collector.CollectResources();
+                }
+            }
+
             Finish();
         }
     }

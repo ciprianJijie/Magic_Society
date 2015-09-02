@@ -6362,7 +6362,11 @@
             "name" : "City",
             "real_name": "City Human",
             "owner" : "Human 01",
-            "districts" : [
+            "tiles" : [
+              {
+                "x": 2,
+                "y": 16
+              }
             ]
          },
          {
@@ -6781,7 +6785,11 @@
             "name" : "City",
             "real_name": "City AI",
             "owner" : "AI 01",
-            "districts" : [
+            "tiles" : [
+              {
+                "x": 11,
+                "y": 14
+              }
             ]
          },
          {
@@ -7035,7 +7043,11 @@
             "name" : "City",
             "real_name": "City Neutral",
             "owner" : "Neutral",
-            "districts" : [
+            "tiles" : [
+              {
+                "x": 21,
+                "y": 11
+              }
             ]
          },
          {

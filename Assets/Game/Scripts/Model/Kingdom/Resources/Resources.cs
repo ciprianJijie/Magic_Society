@@ -1,5 +1,6 @@
 ﻿using System;
 using SimpleJSON;
+using UnityEngine;
 
 namespace MS.Model
 {
@@ -16,6 +17,11 @@ namespace MS.Model
             Production  =   new Production();
             Gold        =   new Gold();
             Research    =   new Research();
+        }
+
+        public int CalculateFoodGeneration(Vector2 position)
+        {
+            return CalculateFoodGeneration((int)position.x, (int)position.y);
         }
 
         public int CalculateFoodGeneration(int x, int y)
@@ -54,6 +60,11 @@ namespace MS.Model
             }
 
             return amount;
+        }
+
+        public int CalculateProductionGeneration(Vector2 tilePosition)
+        {
+            return CalculateProductionGeneration((int)tilePosition.x, (int)tilePosition.y);
         }
 
         public int CalculateProductionGeneration(int x, int y)
@@ -98,6 +109,11 @@ namespace MS.Model
             return amount;
         }
 
+        public int CalculateGoldGeneration(Vector2 tilePosition)
+        {
+            return CalculateGoldGeneration((int)tilePosition.x, (int)tilePosition.y);
+        }
+
         public int CalculateGoldGeneration(int x, int y)
         {
             Tile        tile;
@@ -135,6 +151,11 @@ namespace MS.Model
             }
 
             return amount;
+        }
+
+        public int CalculateResearchGeneration(Vector2 tilePosition)
+        {
+            return CalculateResearchGeneration((int)tilePosition.x, (int)tilePosition.y);
         }
 
         public int CalculateResearchGeneration(int x, int y)

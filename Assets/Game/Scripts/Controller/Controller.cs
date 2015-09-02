@@ -4,7 +4,7 @@ using System;
 
 namespace MS
 {
-    public abstract class Controller<T, R> : MonoBehaviour, IViewCreator<R> where T : class, IUpdatableView<R>, IObjectRelated where R : ModelElement
+    public abstract class Controller<T, R> : MonoBehaviour, IController, IViewCreator<R> where T : class, IUpdatableView<R>, IObjectRelated where R : ModelElement
     {
         public T            ViewPrefab;
         public Transform    Holder;
@@ -17,11 +17,11 @@ namespace MS
             m_Views = new List<T>();
         }
 
-        public virtual IUpdatableView<R> CreateView(R modelElement)
+        public virtual IUpdatableView<R> CreateView(R modelElement, T viewPrefab)
         {
             T view;
 
-            var obj = Utils.Instantiate(ViewPrefab.Object, Holder, Holder.position, Holder.rotation);
+            var obj = Utils.Instantiate(viewPrefab.Object, Holder, Holder.position, Holder.rotation);
 
             view = obj.GetComponent<T>();
 
@@ -33,6 +33,16 @@ namespace MS
             m_MainView = view;
 
             return view;
+        }
+
+        public IUpdatableView<R> CreateView(ModelElement element)
+        {
+            return CreateView(element as R);
+        }
+
+        public virtual IUpdatableView<R> CreateView(R modelElement)
+        {
+            return CreateView(modelElement, ViewPrefab);
         }
 
         public T FindView(R model)
@@ -72,7 +82,7 @@ namespace MS
             }
         }
 
-        public void UpdateAllViews()
+        public virtual void UpdateAllViews()
         {
             foreach (IUpdatableView view in m_Views)
             {
@@ -85,7 +95,7 @@ namespace MS
             return FindView(modelElement) != null;
         }
 
-        private void OnViewDestroyed(IUpdatableView<R> view)
+        protected void OnViewDestroyed(IUpdatableView<R> view)
         {
             view.OnDestroyed -= OnViewDestroyed;
             m_Views.Remove(view as T);
@@ -94,6 +104,31 @@ namespace MS
         void Awake()
         {
             Initialize();
+        }
+
+        public void UpdateView(ModelElement element)
+        {
+            throw new NotImplementedException();
+        }
+
+        IUpdatableView IViewCreator.CreateView(ModelElement modelElement)
+        {
+            return CreateView(modelElement as R) as IUpdatableView;
+        }
+
+        public bool HasViewFor(ModelElement modelElement)
+        {
+            return HasViewFor(modelElement as R);
+        }
+
+        public IUpdatableView FindView(ModelElement modelElement)
+        {
+            return FindView(modelElement as R) as IUpdatableView;
+        }
+
+        public void DestroyView(ModelElement modelElement)
+        {
+            DestroyView(modelElement as R);
         }
     }
 }

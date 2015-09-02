@@ -13,7 +13,7 @@ namespace MS
 		public Transform 		        WindowsContainer;
         public Transform                WorldContainer;
         public GridController           GridController;
-        public MapElementsController    MapElementsController;
+        public MapElementsManager    MapElementsController;
         public GameObject 		        FileBrowserPrefab;
         public GameObject 		        NameLevelPrefab;
         public GameObject               ResizeWindowPrefab;

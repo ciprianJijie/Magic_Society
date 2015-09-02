@@ -437,52 +437,6 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: 128
   m_FlexibleHeight: -1
---- !u!1001 &691206139
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1182689689}
-    m_Modifications:
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &691206140 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 453992, guid: 429a41d6e24d94ec1a6fd22c3f33158b, type: 2}
-  m_PrefabInternal: {fileID: 691206139}
 --- !u!1 &795771669
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +539,7 @@ Transform:
   - {fileID: 951349977}
   - {fileID: 433067460}
   - {fileID: 1017957850}
+  - {fileID: 1588698384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &946413980
@@ -932,8 +887,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 691206140}
+  m_Children: []
   m_Father: {fileID: 480005824}
   m_RootOrder: 1
 --- !u!1 &1197130358
@@ -1158,7 +1112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102178676}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1248358297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,7 +1413,7 @@ GameObject:
   - 4: {fileID: 1588698384}
   - 114: {fileID: 1588698385}
   m_Layer: 0
-  m_Name: Map Elements Conroller
+  m_Name: Map Elements Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,8 +1429,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2102178676}
-  m_RootOrder: 1
+  m_Father: {fileID: 809093985}
+  m_RootOrder: 3
 --- !u!114 &1588698385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,9 +1442,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6114d6a3234d545ce8ecaad22f313c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewPrefab: {fileID: 11499484, guid: e565ca3ecc6af47a286ca35819857cc1, type: 2}
-  Holder: {fileID: 1182689689}
   GridController: {fileID: 1277796676}
+  ElementsHolder: {fileID: 1182689689}
+  ForestControllerPrefab: {fileID: 11477942, guid: c6dbd46c66d2a407a904988e2c1a2bd5,
+    type: 2}
+  StoneDepositsControllerPrefab: {fileID: 11417168, guid: 8234d829bd88542c6a4d54a035768e68,
+    type: 2}
+  GoldDepositsControllerPrefab: {fileID: 11404392, guid: cd18afadfb9034c68b2b944ba2da267b,
+    type: 2}
+  CityControllerPrefab: {fileID: 11418484, guid: d916db59f29fc451aa2e7e2bcfff0fdb,
+    type: 2}
 --- !u!1 &1599655337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1913,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1277796675}
-  - {fileID: 1588698384}
   - {fileID: 1248358296}
   m_Father: {fileID: 0}
   m_RootOrder: 1

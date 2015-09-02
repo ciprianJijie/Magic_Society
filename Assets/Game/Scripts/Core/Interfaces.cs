@@ -16,6 +16,22 @@ namespace MS
         SimpleJSON.JSONNode ToJSON();
     }
 
+    public interface IEventListener
+    {
+        void SubscribeToEvents();
+        void UnsubscribeToEvents();
+    }
+
+    public interface IResourceCollector
+    {
+        void CollectResources();
+    }
+
+    public interface IUpkeepMaintained
+    {
+        void PayUpkeepCosts();
+    }
+
     public interface IModelRelated<T> where T : MS.ModelElement
     {
         void BindTo(T element);
@@ -47,13 +63,31 @@ namespace MS
         bool IsViewOf(MS.ModelElement element);
     }
 
+    public interface IViewCreator
+    {
+        IUpdatableView  CreateView(ModelElement modelElement);
+        bool            HasViewFor(ModelElement modelElement);
+        IUpdatableView  FindView(ModelElement modelElement);
+        void            DestroyView(ModelElement modelElement);
+    }
+
     public interface IViewCreator<T> where T : MS.ModelElement
     {
-        IUpdatableView<T> CreateView(T modelElement);
+        IUpdatableView<T>   CreateView(T modelElement);
+        bool                HasViewFor(T modelElement);
+        IUpdatableView<T>   FindView(T modelElement);
+        void                DestroyView(T modelElement);
+    }
+
+    public interface IViewUpdater
+    {
         void UpdateAllViews();
-        bool HasViewFor(T modelElement);
-        IUpdatableView<T> FindView(T modelElement);
-        void DestroyView(T modelElement);
+        void UpdateView(ModelElement element);
+    }
+
+    public interface IController : IViewCreator, IViewUpdater
+    {
+
     }
 
     public interface IControllerCreator<T, R>

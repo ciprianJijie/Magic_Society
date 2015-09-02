@@ -13,6 +13,25 @@ namespace MS
 
 	    protected GameObject m_InstantiatedPrefab;
 
+        public GameObject SelectPrefab(Tile.Terrain terrainType)
+        {
+            switch (terrainType)
+            {
+                case Tile.Terrain.Fertile:
+                    return FertilePrefab;
+                case Tile.Terrain.Barren:
+                    return BarrenPrefab;
+                case Tile.Terrain.Desert:
+                    return DesertPrefab;
+                case Tile.Terrain.Frozen:
+                    return FrozenPrefab;
+                case Tile.Terrain.Volcanic:
+                    return VolcanicPrefab;
+                default:
+                    return null;
+            }
+        }
+
 		public GameObject UpdateObject(ModelElement element, Tile.Terrain terrainType)
 		{
 			if (m_InstantiatedPrefab != null)
