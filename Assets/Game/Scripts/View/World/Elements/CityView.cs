@@ -41,6 +41,11 @@ namespace MS
             UpdateBanner(element);            
         }
 
+        public void UpdateBanner()
+        {
+            UpdateBanner(Model);
+        }
+
         public void UpdateBanner(City element)
         {
             if (m_InstancedUIBanner != null)

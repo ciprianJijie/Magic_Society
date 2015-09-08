@@ -27,10 +27,8 @@ namespace MS.Controllers.Kingdom
         {
             foreach (CityView view in m_Views)
             {
-                foreach (IUpdatableView childView in view.GetComponents<IUpdatableView>())
-                {
-                    childView.UpdateView();
-                }
+                view.UpdateView(view.Model);
+                view.UpdateBanner(view.Model);
             }
         }
     }

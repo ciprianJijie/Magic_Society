@@ -19,6 +19,4 @@
 
             BarImage.rectTransform.anchoredPosition = position;
             BarImage.rectTransform.sizeDelta = new Vector2(width, height);
-
-            UnityEngine.Debug.Log("Progress Bar " + this.gameObject.name + " updated with percentage " + percentage + ". Rect: " + position + " / " + width + "," + height);
         }    }}
