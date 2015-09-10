@@ -2,18 +2,34 @@ using SimpleJSON;
 
 namespace MS.Model.Kingdom
 {
-    public class Building : OwnableElement
+    public abstract class Building : OwnableElement
     {
-        public string Name;
+        public string   Name;
+        public City     City;
+        public int      GoldCost;
+        public int      ProductionCost;
 
         public Building()
         {
 
         }
 
+        public abstract void Use();
+        public abstract void OnRecollection();
+        public abstract void OnUpkeep(); 
+
         public override void FromJSON(JSONNode json)
         {
             base.FromJSON(json);
+
+            Name            =   json["name"];
+            GoldCost        =   json["gold_cost"].AsInt;
+            ProductionCost  =   json["production_cost"].AsInt;
+
+            if (json["city"] != null)
+            {
+                City = Game.Instance.Map.Grid.GetElement(Owner, json["city"]) as City;
+            }
         }
 
         public override JSONNode ToJSON()
@@ -21,6 +37,15 @@ namespace MS.Model.Kingdom
             JSONNode json;
 
             json = base.ToJSON();
+
+            json.Add("name", Name);
+            json.Add("gold_cost", new JSONData(GoldCost));
+            json.Add("production_cost", new JSONData(ProductionCost));
+            
+            if (City != null)
+            {
+                json.Add("city", City.Name);
+            }
 
             return json;
         }
