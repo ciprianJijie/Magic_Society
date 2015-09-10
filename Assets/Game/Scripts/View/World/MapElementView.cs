@@ -27,10 +27,6 @@ namespace MS.Views
                 Destroy(m_InstantiatedElement.gameObject);
             }
 
-            Vector3 verticalOffset;
-
-            verticalOffset = this.transform.up * tile.Height * VerticalOffset;
-
             GameObject prefab = null;
 
             if (Model is Forest)
@@ -52,43 +48,16 @@ namespace MS.Views
 
             if (prefab != null)
             {
-                Controllers.Kingdom.CityController  cityController;
                 TerrainDependant                    terrainDependant;
 
                 m_InstantiatedElement   =   Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
-                cityController          =   m_InstantiatedElement.GetComponent<Controllers.Kingdom.CityController>();
                 terrainDependant        =   m_InstantiatedElement.GetComponent<TerrainDependant>();
 
                 if (terrainDependant != null)
                 {
                     terrainDependant.UpdateObject(Model, tile.TerrainType);
                 }
-
-                if (cityController != null)
-                {
-                    //UnityEngine.Debug.Log("Map element has City Controller. Creating view and updating.");
-                    //cityController.CreateView(Model as City);
-                    //cityController.UpdateAllViews();
-                }
             }
-
-            //if (prefab != null)
-            //{
-            //    m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
-
-            //    m_InstantiatedElement.UpdateObject(Model, tile.TerrainType);
-
-            //    foreach (IModelRelated<City> view in m_InstantiatedElement.GetComponents<IModelRelated<City>>())
-            //    {
-            //        view.BindTo(Model as City);
-            //    }
-
-            //    foreach (IUpdatableView view in m_InstantiatedElement.GetComponents<IUpdatableView>())
-            //    {
-            //        view.UpdateView();
-            //    }
-
-            //}
         }
 
         /// <summary>
