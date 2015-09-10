@@ -3734,19 +3734,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 176
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchorMin.x
@@ -3754,7 +3754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchorMax.x
@@ -3762,7 +3762,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452662, guid: 5f54c8b592f29584eb4ff56e0633ac9d, type: 2}
       propertyPath: m_Pivot.x
@@ -4303,7 +4303,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -4311,11 +4311,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 176
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchorMin.x
@@ -4323,7 +4323,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchorMax.x
@@ -4331,7 +4331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401646, guid: 12afc8228e49fe24090458a3310af145, type: 2}
       propertyPath: m_Pivot.x
@@ -7891,9 +7891,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6114d6a3234d545ce8ecaad22f313c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewPrefab: {fileID: 11499484, guid: e565ca3ecc6af47a286ca35819857cc1, type: 2}
-  Holder: {fileID: 1021547631}
   GridController: {fileID: 1191486438}
+  ElementsHolder: {fileID: 1021547631}
+  ForestControllerPrefab: {fileID: 11477942, guid: c6dbd46c66d2a407a904988e2c1a2bd5,
+    type: 2}
+  StoneDepositsControllerPrefab: {fileID: 11417168, guid: 8234d829bd88542c6a4d54a035768e68,
+    type: 2}
+  GoldDepositsControllerPrefab: {fileID: 11404392, guid: cd18afadfb9034c68b2b944ba2da267b,
+    type: 2}
+  CityControllerPrefab: {fileID: 11418484, guid: d916db59f29fc451aa2e7e2bcfff0fdb,
+    type: 2}
 --- !u!1 &1880185517
 GameObject:
   m_ObjectHideFlags: 0

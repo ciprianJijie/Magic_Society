@@ -55,23 +55,26 @@ namespace MS
 
             ui = GameObject.FindWithTag("UI");
 
-            m_InstancedUIBanner = Utils.Instantiate<Managers.UI.CityBanner>(UIBanner, ui.transform, this.transform.position, this.transform.rotation);
-            m_InstancedUIBanner.Target = this.gameObject.transform;
-            m_InstancedUIBanner.Label.text = element.RealName;
-
-            if (GameController.Instance.Game.Turns.CurrentTurn.Player == element.Owner)
+            if (ui != null)
             {
-                m_InstancedUIBanner.ShowPopulationBar("" + element.Population);
-                m_InstancedUIBanner.ShowBuildingBar("Building...");
+                m_InstancedUIBanner = Utils.Instantiate<Managers.UI.CityBanner>(UIBanner, ui.transform, this.transform.position, this.transform.rotation);
+                m_InstancedUIBanner.Target = this.gameObject.transform;
+                m_InstancedUIBanner.Label.text = element.RealName;
 
-                m_InstancedUIBanner.PopulationBar.MinValue = 0f;
-                m_InstancedUIBanner.PopulationBar.MaxValue = element.CalculateFoodForNextPopulationUnit(element.Population);
-                m_InstancedUIBanner.PopulationBar.SetValue(element.Food);
-            }
-            else
-            {
-                m_InstancedUIBanner.HidePopulationBar();
-                m_InstancedUIBanner.HideBuildingBar();
+                if (GameController.Instance.Game.Turns.CurrentTurn.Player == element.Owner)
+                {
+                    m_InstancedUIBanner.ShowPopulationBar("" + element.Population);
+                    m_InstancedUIBanner.ShowBuildingBar("Building...");
+
+                    m_InstancedUIBanner.PopulationBar.MinValue = 0f;
+                    m_InstancedUIBanner.PopulationBar.MaxValue = element.CalculateFoodForNextPopulationUnit(element.Population);
+                    m_InstancedUIBanner.PopulationBar.SetValue(element.Food);
+                }
+                else
+                {
+                    m_InstancedUIBanner.HidePopulationBar();
+                    m_InstancedUIBanner.HideBuildingBar();
+                }
             }
         }
 

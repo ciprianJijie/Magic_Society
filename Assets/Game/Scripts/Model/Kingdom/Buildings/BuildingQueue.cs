@@ -18,12 +18,13 @@ namespace MS.Model.Kingdom
 
         public BuildingQueue()
         {
-
+            m_Queue = new List<BuildingQueueItem>();
         }
 
         public BuildingQueue(City city)
         {
             City = city;
+            m_Queue = new List<BuildingQueueItem>();
         }
 
         public void Enqueue(Building building)
@@ -42,6 +43,21 @@ namespace MS.Model.Kingdom
             m_Queue[index].OnFinished -= OnItemCompleted;
 
             m_Queue.RemoveAt(index);
+        }
+
+        public void AddProduction(int amount)
+        {
+            if (m_Queue.Count > 0)
+            {
+                m_Queue[0].Produce(amount);
+            }
+            else
+            {
+                int goldGenerated;
+
+                goldGenerated = Mathf.RoundToInt(amount * PRODUCTION_TO_GOLD_RATIO);
+                City.Owner.Gold += goldGenerated;
+            }
         }
 
         public void OnItemCompleted(BuildingQueueItem item)

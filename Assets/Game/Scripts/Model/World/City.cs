@@ -61,12 +61,21 @@ namespace MS.Model
             }
         }
 
+        public Kingdom.BuildingQueue BuildingQueue
+        {
+            get
+            {
+                return m_BuildingQueue;
+            }
+        }
+
         public City()
         {
             m_FoodStored            =   0;
             m_Population            =   1;
             m_TilesUnderControl     =   new List<Vector2>();
             m_Buildings             =   new List<Kingdom.Building>();
+            m_BuildingQueue         =   new Kingdom.BuildingQueue(this);
 
             m_TilesUnderControl.Add(new Vector2(X, Y));
             Build("Town Hall");
@@ -74,7 +83,7 @@ namespace MS.Model
 
         public int CalculateFoodForNextPopulationUnit(int currentPopulation)
         {
-            return Mathf.RoundToInt(8f + (2f * currentPopulation) * Mathf.Pow(1.25f, currentPopulation));
+            return Mathf.RoundToInt(20f + (4f * currentPopulation) * Mathf.Pow(1.25f, currentPopulation));
         }
 
         public int CalculateBuyableTileCount()
@@ -84,9 +93,6 @@ namespace MS.Model
 
         public void PayUpkeepCosts()
         {
-            // TODO: Pay buildings maintenance
-            UnityEngine.Debug.Log("Paying upkeep costs for " + RealName);
-
             int foodForPeople;
 
             foodForPeople = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);
@@ -123,10 +129,10 @@ namespace MS.Model
             // Tiles
             foreach (Vector2 tilePosition in m_TilesUnderControl)
             {
-                food        +=  GameController.Instance.Game.Resources.CalculateFoodGeneration(tilePosition);
-                production  +=  GameController.Instance.Game.Resources.CalculateProductionGeneration(tilePosition);
-                research    +=  GameController.Instance.Game.Resources.CalculateResearchGeneration(tilePosition);
-                gold        +=  GameController.Instance.Game.Resources.CalculateGoldGeneration(tilePosition);
+                food        +=  Game.Instance.Resources.CalculateFoodGeneration(tilePosition);
+                production  +=  Game.Instance.Resources.CalculateProductionGeneration(tilePosition);
+                research    +=  Game.Instance.Resources.CalculateResearchGeneration(tilePosition);
+                gold        +=  Game.Instance.Resources.CalculateGoldGeneration(tilePosition);
             }
 
             // Buildings
@@ -144,15 +150,14 @@ namespace MS.Model
                 GrowPopulation(1);
             }
 
-            // TODO: Add production to the building queue
+            // Production
+            m_BuildingQueue.AddProduction(production);
 
             // Gold
             Owner.Gold += gold;
 
             // Research
             Owner.Research += research;
-
-            UnityEngine.Debug.Log("Food collected in " + RealName + " : " + food);
         }
 
         public Kingdom.Building Build(string type)
@@ -225,6 +230,12 @@ namespace MS.Model
 
                 m_TilesUnderControl.Add(tile);
             }
+            
+            if (json["building_queue"] != null)
+            {
+                m_BuildingQueue.City = this;
+                m_BuildingQueue.FromJSON(json["building_queue"]);
+            }
         }
 
         public override JSONNode ToJSON()
@@ -247,6 +258,7 @@ namespace MS.Model
             }
 
             root.Add("tiles", tilesArray);
+            root.Add("building_queue", m_BuildingQueue.ToJSON());
 
             return root;
         }

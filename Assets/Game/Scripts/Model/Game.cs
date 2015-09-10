@@ -18,6 +18,11 @@ namespace MS
             {
                 return m_Map;
             }
+
+            set
+            {
+                m_Map = value;
+            }
         }
 
         public Players Players
