@@ -6,9 +6,9 @@ namespace MS.Model.Kingdom
     public class TownHall : Building
     {
         public static int TOWNHALL_FOOD_COLLECTION          =   4;
-        public static int TOWNHALL_PRODUCTION_COLLECTION    =   4;
-        public static int TOWNHALL_GOLD_COLLECTION          =   4;
-        public static int TOWNHALL_RESEARCH_COLLECTION      =   4;
+        public static int TOWNHALL_PRODUCTION_COLLECTION    =   2;
+        public static int TOWNHALL_GOLD_COLLECTION          =   6;
+        public static int TOWNHALL_RESEARCH_COLLECTION      =   2;
 
         public TownHall()
         {
@@ -19,6 +19,9 @@ namespace MS.Model.Kingdom
         {
             // TOD: Add resources to the player owning this building
             City.Food += TOWNHALL_FOOD_COLLECTION;
+            // City.Production += TOWNHALL_PRODUCTION_COLLECTION;
+            Owner.Gold += TOWNHALL_GOLD_COLLECTION;
+            Owner.Research += TOWNHALL_RESEARCH_COLLECTION;
         }
 
         public override void OnUpkeep()

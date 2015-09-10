@@ -23,8 +23,6 @@ namespace MS
 
         public override void UpdateView(City element)
         {
-
-            UnityEngine.Debug.Log("Updating view for city " + Model.RealName);
             GameObject prefab;
 
             // TODO: Select prefab depending on population

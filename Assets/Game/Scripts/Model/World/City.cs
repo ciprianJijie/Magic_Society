@@ -9,6 +9,7 @@ namespace MS.Model
         public static readonly int FOOD_PER_POPULATION                  =   2;
         public static readonly int PRODUCTION_PER_POPULATION            =   2;
         public static readonly int RESEARCH_PER_POPULATION              =   2;
+        public static readonly int GOLD_PER_POPULATION                  =   4;
         public static readonly float FOOD_CONSUMPTION_PER_POPULATION    =   1.0f;
 
         public string RealName;
@@ -25,6 +26,9 @@ namespace MS.Model
         protected int m_PopulationInFood;
         protected int m_PopulationInProduction;
         protected int m_PopulationInResearch;
+        protected int m_PopulationInGold;
+
+        protected Kingdom.BuildingQueue m_BuildingQueue;
 
         protected List<MS.Model.Kingdom.Building> m_Buildings;
 
@@ -46,6 +50,14 @@ namespace MS.Model
             set
             {
                 m_FoodStored = value;
+            }
+        }
+
+        public int Production
+        {
+            get
+            {
+                return 0;
             }
         }
 
@@ -83,10 +95,9 @@ namespace MS.Model
             {
                 UnityEngine.Debug.Log("Not enough food (" + m_FoodStored + ") to feed population (" + m_Population + ") requiring " + foodForPeople + " food units.");
 
-                m_Population = m_Population - 1;
-                m_FoodStored = CalculateFoodForNextPopulationUnit(m_Population) - (foodForPeople - m_FoodStored);
+                m_FoodStored = CalculateFoodForNextPopulationUnit(m_Population - 1) - (foodForPeople - m_FoodStored);
 
-                OnPopulationDecrese(this);
+                DecreasePopulation(1);
             }
             else
             {
@@ -96,20 +107,20 @@ namespace MS.Model
 
         public void CollectResources()
         {
-            UnityEngine.Debug.Log("Recollecting resources for city " + RealName);
-
             int food;
             int production;
             int research;
             int gold;
             int foodToGrow;
 
+            // Population
             food        =   m_PopulationInFood * FOOD_PER_POPULATION;
             production  =   m_PopulationInProduction * PRODUCTION_PER_POPULATION;
             research    =   m_PopulationInResearch * RESEARCH_PER_POPULATION;
-            gold        =   0;
+            gold        =   m_PopulationInGold * GOLD_PER_POPULATION;
             foodToGrow  =   CalculateFoodForNextPopulationUnit(m_Population);
 
+            // Tiles
             foreach (Vector2 tilePosition in m_TilesUnderControl)
             {
                 food        +=  GameController.Instance.Game.Resources.CalculateFoodGeneration(tilePosition);
@@ -118,19 +129,30 @@ namespace MS.Model
                 gold        +=  GameController.Instance.Game.Resources.CalculateGoldGeneration(tilePosition);
             }
 
+            // Buildings
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                building.OnRecollection();
+            }
+
+            // Food
             m_FoodStored += food;
 
             if (m_FoodStored >= foodToGrow)
             {
-                m_Population = m_Population + 1;
-                m_FoodStored = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);  // Enough to pay in the Upkeep and stay at 0
-
-                OnPopulationGrow(this);
+                m_FoodStored = Mathf.RoundToInt((m_Population + 1) * FOOD_CONSUMPTION_PER_POPULATION);  // Enough to pay in the Upkeep and stay at 0
+                GrowPopulation(1);
             }
 
             // TODO: Add production to the building queue
 
-            UnityEngine.Debug.Log("Food collected: " + food);
+            // Gold
+            Owner.Gold += gold;
+
+            // Research
+            Owner.Research += research;
+
+            UnityEngine.Debug.Log("Food collected in " + RealName + " : " + food);
         }
 
         public Kingdom.Building Build(string type)
@@ -144,6 +166,49 @@ namespace MS.Model
             m_Buildings.Add(building);
 
             return building;
+        }
+
+        public void GrowPopulation(int amount)
+        {
+            m_Population += amount;
+
+            m_PopulationInFood += amount;
+
+            OnPopulationGrow(this);
+        }
+
+        public void DecreasePopulation(int amount)
+        {
+            int newPopulation;
+            int diff;
+
+            newPopulation   =   Mathf.Max(1, m_Population - amount);
+            diff            =   m_Population - newPopulation;
+            m_Population    =   newPopulation;
+
+            while (diff > 0)
+            {
+                if (m_PopulationInFood > 0)
+                {
+                    m_PopulationInFood--;
+                }
+                else if (m_PopulationInProduction > 0)
+                {
+                    m_PopulationInProduction--;
+                }
+                else if (m_PopulationInResearch > 0)
+                {
+                    m_PopulationInResearch--;
+                }
+                else if (m_PopulationInGold > 0)
+                {
+                    m_PopulationInGold--;
+                }
+
+                diff--;
+            }
+
+            OnPopulationDecrese(this);
         }
 
         public override void FromJSON(JSONNode json)
