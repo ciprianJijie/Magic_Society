@@ -130,6 +130,26 @@ namespace MS.Model
             return m_Elements[x, y];
         }
 
+        public MapElement GetElement(Player owner, string name)
+        {
+            foreach (MapElement element in m_Elements)
+            {
+                if (element.Name == name)
+                {
+                    OwnableMapElement ownable;
+
+                    ownable = element as OwnableMapElement;
+
+                    if (ownable != null && ownable.Owner == owner)
+                    {
+                        return element;
+                    }
+                }                
+            }
+
+            return null;
+        }
+
         /// <summary>
         /// Sets the element in the given tile.
         /// </summary>
