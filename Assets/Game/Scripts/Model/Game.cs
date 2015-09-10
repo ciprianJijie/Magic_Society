@@ -44,12 +44,31 @@ namespace MS
             }
         }
 
+        // Singleton
+        private static Game m_Instance;
+
+        public static Game Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new Game();
+                }
+
+                return m_Instance;
+            }
+        }
+        // ---
+
         public Game()
         {
             m_Map       =   new Map();
             m_Players   =   new Players();
             m_Turns     =   new Turns(m_Players);
             m_Resources =   new Model.Resources();
+
+            m_Instance  =   this;
         }
 
         public void New(string mapName, int numPlayers, int humanPlayers)
