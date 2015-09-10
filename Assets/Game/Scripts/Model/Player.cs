@@ -7,7 +7,9 @@ namespace MS.Model
 {
     public class Player : ModelElement
     {
-        public string Name;
+        public string   Name;
+        public int      Gold;
+        public int      Research;
 
         public Player()
         {
@@ -26,7 +28,9 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
-            Name = json["name"];
+            Name        =   json["name"];
+            Gold        =   json["gold"].AsInt;
+            Research    =   json["research"].AsInt;
         }
 
         public override JSONNode ToJSON()
@@ -34,6 +38,8 @@ namespace MS.Model
             JSONClass root = new JSONClass();
 
             root.Add("name", Name);
+            root.Add("gold", new JSONData(Gold));
+            root.Add("research", new JSONData(Research));
 
             return root;
         }
