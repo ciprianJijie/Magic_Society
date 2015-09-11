@@ -7,7 +7,6 @@ namespace MS.Model
     public class MapElement : ModelElement
     {
         // Attributes
-        public string Name;
         public int X;
         public int Y;
         // ---
@@ -43,20 +42,22 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
+            base.FromJSON(json);
             X = json["x"].AsInt;
             Y = json["y"].AsInt;
-            Name = json["name"];
 
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = JSON.Parse(UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/MapElement").text);
-            json["x"].AsInt = X;
-            json["y"].AsInt = Y;
-            json["name"] = Name;
+            JSONNode root;
 
-            return json;
+            root = base.ToJSON();
+
+            root.Add("x", new JSONData(X));
+            root.Add("y", new JSONData(Y));
+
+            return root;
         }
 
         // Factory Methods

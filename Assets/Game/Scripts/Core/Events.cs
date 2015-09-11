@@ -12,6 +12,7 @@ namespace MS
         public static void DefaultAction(Model.City city) {}
         public static void DefaultAction(Model.Kingdom.Building building) {}
         public static void DefaultAction(Model.Kingdom.BuildingQueueItem item) {}
+        public static void DefaultAction(int value) {}
 
         // Events Types
         public delegate void Event();
@@ -21,5 +22,6 @@ namespace MS
         public delegate void CityEvent(Model.City city);
         public delegate void BuildingEvent(Model.Kingdom.Building building);
         public delegate void BuildingQueueItemEvent(Model.Kingdom.BuildingQueueItem item);
+        public delegate void ValueEvent(int value);
     }
 }

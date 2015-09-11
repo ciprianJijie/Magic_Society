@@ -1,10 +1,11 @@
 using UnityEngine;
 using SimpleJSON;
 using System.Collections.Generic;
+using System;
 
 namespace MS.Model
 {
-	public class City : OwnableMapElement, IResourceCollector, IUpkeepMaintained
+	public class City : CollectableMapElement, IResourceWarehouse, IUpkeepMaintained
 	{
         public static readonly int FOOD_PER_POPULATION                  =   2;
         public static readonly int PRODUCTION_PER_POPULATION            =   2;
@@ -32,6 +33,10 @@ namespace MS.Model
 
         protected List<MS.Model.Kingdom.Building> m_Buildings;
 
+        // Resources
+        protected ResourceAdvancedAmount m_FoodCollected;
+        protected ResourceAdvancedAmount m_ProductionCollected;
+
         public int Population
         {
             get
@@ -53,14 +58,6 @@ namespace MS.Model
             }
         }
 
-        public int Production
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
         public Kingdom.BuildingQueue BuildingQueue
         {
             get
@@ -76,6 +73,8 @@ namespace MS.Model
             m_TilesUnderControl     =   new List<Vector2>();
             m_Buildings             =   new List<Kingdom.Building>();
             m_BuildingQueue         =   new Kingdom.BuildingQueue(this);
+            m_FoodCollected        =   new ResourceAdvancedAmount();
+            m_ProductionCollected  =   new ResourceAdvancedAmount();
 
             m_TilesUnderControl.Add(new Vector2(X, Y));
             Build("Town Hall");
@@ -93,6 +92,7 @@ namespace MS.Model
 
         public void PayUpkeepCosts()
         {
+            UnityEngine.Debug.Log("Paying upkeep for " + RealName);
             int foodForPeople;
 
             foodForPeople = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);
@@ -111,38 +111,60 @@ namespace MS.Model
             }
         }
 
-        public void CollectResources()
+        public override IEnumerable<ResourceAmount> Collect()
         {
-            int food;
-            int production;
-            int research;
-            int gold;
-            int foodToGrow;
+            UnityEngine.Debug.Log("Collecting resources of " + RealName);
 
-            // Population
-            food        =   m_PopulationInFood * FOOD_PER_POPULATION;
-            production  =   m_PopulationInProduction * PRODUCTION_PER_POPULATION;
-            research    =   m_PopulationInResearch * RESEARCH_PER_POPULATION;
-            gold        =   m_PopulationInGold * GOLD_PER_POPULATION;
-            foodToGrow  =   CalculateFoodForNextPopulationUnit(m_Population);
+            List<ResourceAmount> collected = new List<ResourceAmount>();
+            ResourceAmount food;
+            ResourceAmount production;
+            ResourceAmount gold;
+            ResourceAmount research;
 
-            // Tiles
-            foreach (Vector2 tilePosition in m_TilesUnderControl)
+            ClearCollectedCache();
+
+            foreach (var res in base.Collect())
             {
-                food        +=  Game.Instance.Resources.CalculateFoodGeneration(tilePosition);
-                production  +=  Game.Instance.Resources.CalculateProductionGeneration(tilePosition);
-                research    +=  Game.Instance.Resources.CalculateResearchGeneration(tilePosition);
-                gold        +=  Game.Instance.Resources.CalculateGoldGeneration(tilePosition);
+                collected.Add(res);
+                Store(res);
             }
+
+            food        =   new ResourceAmount(Game.Instance.Resources.Food, m_PopulationInFood * FOOD_PER_POPULATION, this);
+            production  =   new ResourceAmount(Game.Instance.Resources.Production, m_PopulationInProduction * PRODUCTION_PER_POPULATION, this);
+            gold        =   new ResourceAmount(Game.Instance.Resources.Gold, m_PopulationInGold * GOLD_PER_POPULATION, this);
+            research    =   new ResourceAmount(Game.Instance.Resources.Research, m_PopulationInResearch * RESEARCH_PER_POPULATION, this);
+
+            collected.Add(food);
+            collected.Add(production);
+            collected.Add(gold);
+            collected.Add(research);
+
+            Store(food);
+            Store(production);
+            Store(gold);
+            Store(research);
 
             // Buildings
-            foreach (Kingdom.Building building in m_Buildings)
+            foreach (Model.Kingdom.Building building in m_Buildings)
             {
-                building.OnRecollection();
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    foreach (var res in collector.Collect())
+                    {
+                        collected.Add(res);
+                        Store(res);
+                    }
+                }
             }
 
-            // Food
-            m_FoodStored += food;
+            // Check for population growth
+            int foodToGrow;
+
+            foodToGrow = CalculateFoodForNextPopulationUnit(m_Population);
 
             if (m_FoodStored >= foodToGrow)
             {
@@ -150,14 +172,37 @@ namespace MS.Model
                 GrowPopulation(1);
             }
 
-            // Production
-            m_BuildingQueue.AddProduction(production);
+            return collected;
+        }
 
-            // Gold
-            Owner.Gold += gold;
+        public void Store(ResourceAmount amount)
+        {
+            //UnityEngine.Debug.Log(RealName + " storing " + amount.ToString());
 
-            // Research
-            Owner.Research += research;
+            if (amount.Resource is Food)
+            {
+                m_FoodCollected.AddAmount(amount);
+                m_FoodStored += amount.Amount;
+            }
+            else if (amount.Resource is Production)
+            {
+                m_ProductionCollected.AddAmount(amount);
+                m_BuildingQueue.AddProduction(amount.Amount);
+            }
+            else if (amount.Resource is Gold)
+            {
+                Owner.Store(amount);
+            }
+            else if (amount.Resource is Research)
+            {
+                Owner.Store(amount);
+            }
+        }
+
+        public void ClearCollectedCache()
+        {
+            m_FoodCollected.Clear();
+            m_ProductionCollected.Clear();
         }
 
         public Kingdom.Building Build(string type)
@@ -262,5 +307,5 @@ namespace MS.Model
 
             return root;
         }
-	}
+    }
 }

@@ -4,7 +4,6 @@ namespace MS.Model.Kingdom
 {
     public abstract class Building : OwnableElement
     {
-        public string   Name;
         public City     City;
         public int      GoldCost;
         public int      ProductionCost;
@@ -22,7 +21,6 @@ namespace MS.Model.Kingdom
         {
             base.FromJSON(json);
 
-            Name            =   json["name"];
             GoldCost        =   json["gold_cost"].AsInt;
             ProductionCost  =   json["production_cost"].AsInt;
 
@@ -48,6 +46,11 @@ namespace MS.Model.Kingdom
             }
 
             return json;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", Name, City.RealName);
         }
 
         public static class Factory

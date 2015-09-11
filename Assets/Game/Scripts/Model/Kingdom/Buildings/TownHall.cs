@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS.Model.Kingdom
 {
-    public class TownHall : Building
+    public class TownHall : Building, IResourceCollector
     {
         public static int TOWNHALL_FOOD_COLLECTION          =   4;
         public static int TOWNHALL_PRODUCTION_COLLECTION    =   2;
@@ -14,14 +15,14 @@ namespace MS.Model.Kingdom
         {
             Name = "BUILDING_TOWNHALL";
         }
-
+        
         public override void OnRecollection()
         {
-            // TOD: Add resources to the player owning this building
-            City.Food += TOWNHALL_FOOD_COLLECTION;
-            // City.Production += TOWNHALL_PRODUCTION_COLLECTION;
-            Owner.Gold += TOWNHALL_GOLD_COLLECTION;
-            Owner.Research += TOWNHALL_RESEARCH_COLLECTION;
+            //City.Food       +=  TOWNHALL_FOOD_COLLECTION;
+            //Owner.Gold      +=  TOWNHALL_GOLD_COLLECTION;
+            //Owner.Research  +=  TOWNHALL_RESEARCH_COLLECTION;
+
+            //City.BuildingQueue.AddProduction(TOWNHALL_PRODUCTION_COLLECTION);
         }
 
         public override void OnUpkeep()
@@ -32,6 +33,14 @@ namespace MS.Model.Kingdom
         public override void Use()
         {
             // Townhall has no activated ability
+        }
+
+        public IEnumerable<ResourceAmount> Collect()
+        {
+            yield return new ResourceAmount(Game.Instance.Resources.Food, TOWNHALL_FOOD_COLLECTION, this);
+            yield return new ResourceAmount(Game.Instance.Resources.Production, TOWNHALL_PRODUCTION_COLLECTION, this);
+            yield return new ResourceAmount(Game.Instance.Resources.Gold, TOWNHALL_GOLD_COLLECTION, this);
+            yield return new ResourceAmount(Game.Instance.Resources.Research, TOWNHALL_RESEARCH_COLLECTION, this);
         }
     }
 }

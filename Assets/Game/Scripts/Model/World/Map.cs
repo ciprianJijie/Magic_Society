@@ -5,6 +5,8 @@ namespace MS.Model
 {
     public class Map : ModelElement
     {
+        public Grid Grid;
+
         public Map()
         {
 
@@ -42,7 +44,7 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
-            Name = json["name"];
+            base.FromJSON(json);
 
             Grid = new Grid(0, 0);
 
@@ -53,16 +55,13 @@ namespace MS.Model
         {
             JSONNode json;
 
-            json = JSON.Parse((UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/Map").text));
+            json = base.ToJSON();
 
-            json["name"] = Name;
             json.Add("players", GameController.Instance.Game.Players.ToJSON());
-            json["grid"] = Grid.ToJSON();
+            json.Add("grid", Grid.ToJSON());
 
             return json;
         }
-
-        public string   Name;
-        public Grid     Grid;
+        
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MS.Controllers.World
 {
-    class MapElementController : MonoBehaviour
+    public class MapElementController : MonoBehaviour
     {
         public GenericElementController ForestControllerPrefab;
         public GenericElementController GoldDepositsControllerPrefab;

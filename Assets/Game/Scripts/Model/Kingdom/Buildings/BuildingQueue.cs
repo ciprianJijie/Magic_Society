@@ -56,7 +56,7 @@ namespace MS.Model.Kingdom
                 int goldGenerated;
 
                 goldGenerated = Mathf.RoundToInt(amount * PRODUCTION_TO_GOLD_RATIO);
-                City.Owner.Gold += goldGenerated;
+                City.Owner.Store(new ResourceAmount(Game.Instance.Resources.Gold, goldGenerated, City));
             }
         }
 
@@ -67,7 +67,10 @@ namespace MS.Model.Kingdom
             m_Queue.Remove(item);
             goldGenerated = Mathf.RoundToInt(item.RemainingProduction * PRODUCTION_TO_GOLD_RATIO);
 
-            City.Owner.Gold += goldGenerated;
+            if (goldGenerated > 0)
+            {
+                City.Owner.Store(new ResourceAmount(Game.Instance.Resources.Gold, goldGenerated, City));
+            }
 
             OnBuildingCompleted(item.Building);
         }

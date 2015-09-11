@@ -182,7 +182,7 @@ namespace MS.Model
             {
                 ownableElement = element as OwnableMapElement;
 
-                if (ownableElement != null)
+                if (ownableElement != null && ownableElement.Owner == owner)
                 {
                     elements.Add(ownableElement);
                 }
@@ -262,15 +262,19 @@ namespace MS.Model
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = JSON.Parse(UnityEngine.Resources.Load<TextAsset>("Data/JSON/Templates/Grid").text);
+            JSONClass json = new JSONClass();
             JSONArray tilesArray;
             JSONArray elementsArray;
             JSONArray row;
             JSONNode tileNode;
             JSONNode elementNode;
 
-            json["size"]["horizontal"].AsInt = hSize;
-            json["size"]["vertical"].AsInt = vSize;
+            JSONClass size = new JSONClass();
+
+            size.Add("horizontal", new JSONData(hSize));
+            size.Add("vertical", new JSONData(vSize));
+
+            json.Add("size", size);
 
             tilesArray = new JSONArray();
 
@@ -289,7 +293,7 @@ namespace MS.Model
                 tilesArray.Add(row);
             }
 
-            json["tiles"] = tilesArray;
+            json.Add("tiles", tilesArray);
 
             elementsArray = new JSONArray();
 

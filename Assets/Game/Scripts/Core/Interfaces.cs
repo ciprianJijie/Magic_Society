@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS
@@ -16,6 +17,17 @@ namespace MS
         SimpleJSON.JSONNode ToJSON();
     }
 
+    public interface IOwnable
+    {
+        Model.Player Owner { get; set; }
+    }
+
+    public interface IGridPositioned
+    {
+        int GridX { get; set; }
+        int GridY { get; set; }
+    }
+
     public interface IEventListener
     {
         void SubscribeToEvents();
@@ -24,7 +36,13 @@ namespace MS
 
     public interface IResourceCollector
     {
-        void CollectResources();
+        IEnumerable<MS.Model.ResourceAmount> Collect();
+    }
+
+    public interface IResourceWarehouse
+    {
+        void Store(Model.ResourceAmount amount);
+        void ClearCollectedCache();
     }
 
     public interface IUpkeepMaintained

@@ -12,7 +12,9 @@ namespace MS.Model
 
         public override void Execute()
         {
+            UnityEngine.Debug.Log(Name + " for " + Player.Name + " started");
             // Search all cities
+            Player.ClearCollectedCache();
 
             foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
             {
@@ -20,8 +22,13 @@ namespace MS.Model
 
                 if (collector != null)
                 {
-                    collector.CollectResources();
+                    collector.Collect();
                 }
+            }
+
+            if (Player is HumanPlayer)
+            {
+                MS.UI.PlayerGlobalResources.Instance.UpdateValues(Player.Gold, Player.GoldCollected, Player.Research, Player.ResearchCollected);
             }
 
             Finish();

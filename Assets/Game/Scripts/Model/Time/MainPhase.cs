@@ -12,6 +12,7 @@ namespace MS.Model
 
         public override void Execute()
         {
+            UnityEngine.Debug.Log(Name + " for " + Player.Name + " started");
             Player.Play<MainPhase>(this);
         }
     }
