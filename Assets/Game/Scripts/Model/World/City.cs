@@ -58,6 +58,14 @@ namespace MS.Model
             }
         }
 
+        public IEnumerable<Kingdom.Building> Buildings
+        {
+            get
+            {
+                return m_Buildings;
+            }
+        }
+
         public Kingdom.BuildingQueue BuildingQueue
         {
             get

@@ -19,10 +19,13 @@ namespace MS
         // Events
         public MS.Events.GridPositionEvent  OnTileHover         =   MS.Events.DefaultAction;
         public MS.Events.Event              OnTileHoverEnds     =   MS.Events.DefaultAction;
+        public MS.Events.CityEvent          OnCitySelected      =   MS.Events.DefaultAction;
+        public MS.Events.Event              OnCityDeselected    =   MS.Events.DefaultAction;
 
         private readonly static float   m_TimeToShowTileInformation = 1.25f;
         private float                   m_TimeHoveringTile;
         private Vector2                 m_LastHoveredTile;
+        private bool                    m_CitySelected;
 
         protected void LateUpdate()
         {
@@ -78,9 +81,26 @@ namespace MS
                 }
                 m_LastHoveredTile = MouseToGrid.LastGridPosition;
             }
-            else
+
+            if (InputManager.GetButton("Select"))
             {
-                //OnTileHoverEnds();
+                Model.City city;
+
+                city = GameController.Instance.Game.Map.Grid.GetElement(MouseToGrid.LastGridPosition) as Model.City;
+
+                if (city != null)
+                {
+                    if (city.Owner == GameController.Instance.Game.Turns.CurrentTurn.Player)
+                    {
+                        OnCitySelected(city);
+                        m_CitySelected = true;
+                    }                    
+                }
+                else if (m_CitySelected)
+                {
+                    OnCityDeselected();
+                    m_CitySelected = false;
+                }
             }
         }
     }
