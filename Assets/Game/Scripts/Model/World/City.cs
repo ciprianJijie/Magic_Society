@@ -92,15 +92,12 @@ namespace MS.Model
 
         public void PayUpkeepCosts()
         {
-            UnityEngine.Debug.Log("Paying upkeep for " + RealName);
             int foodForPeople;
 
             foodForPeople = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);
 
             if (m_FoodStored < foodForPeople)
             {
-                UnityEngine.Debug.Log("Not enough food (" + m_FoodStored + ") to feed population (" + m_Population + ") requiring " + foodForPeople + " food units.");
-
                 m_FoodStored = CalculateFoodForNextPopulationUnit(m_Population - 1) - (foodForPeople - m_FoodStored);
 
                 DecreasePopulation(1);
@@ -113,8 +110,6 @@ namespace MS.Model
 
         public override IEnumerable<ResourceAmount> Collect()
         {
-            UnityEngine.Debug.Log("Collecting resources of " + RealName);
-
             List<ResourceAmount> collected = new List<ResourceAmount>();
             ResourceAmount food;
             ResourceAmount production;
@@ -177,8 +172,6 @@ namespace MS.Model
 
         public void Store(ResourceAmount amount)
         {
-            //UnityEngine.Debug.Log(RealName + " storing " + amount.ToString());
-
             if (amount.Resource is Food)
             {
                 m_FoodCollected.AddAmount(amount);

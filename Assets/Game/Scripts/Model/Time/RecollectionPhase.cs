@@ -12,7 +12,6 @@ namespace MS.Model
 
         public override void Execute()
         {
-            UnityEngine.Debug.Log(Name + " for " + Player.Name + " started");
             // Search all cities
             Player.ClearCollectedCache();
 

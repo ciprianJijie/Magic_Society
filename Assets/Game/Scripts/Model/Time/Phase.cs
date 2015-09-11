@@ -14,7 +14,6 @@ namespace MS.Model
 
         public void Finish()
         {
-            UnityEngine.Debug.Log(Name + " for " + Player.Name + " finished");
             OnFinished();
         }
 

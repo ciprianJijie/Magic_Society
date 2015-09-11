@@ -39,7 +39,6 @@ namespace MS.Model
 
         public void Start()
         {
-            UnityEngine.Debug.Log("Turn for " + Player.Name + " started");
             m_CurrentPhase = 0;
 
             OnTurnStarted(Player);
@@ -63,7 +62,6 @@ namespace MS.Model
 
         public void Finish()
         {
-            UnityEngine.Debug.Log("Turn for " + Player.Name + " finished");
             OnTurnFinished(Player);
         }
 

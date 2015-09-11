@@ -29,7 +29,6 @@ namespace MS.Core.Actions
         {
             m_IsPerforming = true;
             OnStarted();
-            UnityEngine.Debug.Log("Action " + this + " started");
         }
 
         /// <summary>
@@ -41,7 +40,6 @@ namespace MS.Core.Actions
         {
             m_IsPerforming = false;
             OnFinished();
-            UnityEngine.Debug.Log("Action " + this + " finished");
             Destroy(this.gameObject);
         }
 
