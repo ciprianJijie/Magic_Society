@@ -81,11 +81,11 @@ namespace MS.Model
             m_TilesUnderControl     =   new List<Vector2>();
             m_Buildings             =   new List<Kingdom.Building>();
             m_BuildingQueue         =   new Kingdom.BuildingQueue(this);
-            m_FoodCollected        =   new ResourceAdvancedAmount();
-            m_ProductionCollected  =   new ResourceAdvancedAmount();
+            m_FoodCollected         =   new ResourceAdvancedAmount();
+            m_ProductionCollected   =   new ResourceAdvancedAmount();
 
             m_TilesUnderControl.Add(new Vector2(X, Y));
-            Build("Town Hall");
+            Build("BUILDING_TOWNHALL");
         }
 
         public int CalculateFoodForNextPopulationUnit(int currentPopulation)

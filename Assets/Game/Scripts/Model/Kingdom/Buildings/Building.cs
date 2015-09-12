@@ -5,6 +5,7 @@ namespace MS.Model.Kingdom
     public abstract class Building : OwnableElement
     {
         public City     City;
+        public string   Description;
         public int      GoldCost;
         public int      ProductionCost;
 
@@ -21,6 +22,7 @@ namespace MS.Model.Kingdom
         {
             base.FromJSON(json);
 
+            Description     =   json["description"];
             GoldCost        =   json["gold_cost"].AsInt;
             ProductionCost  =   json["production_cost"].AsInt;
 
@@ -36,7 +38,7 @@ namespace MS.Model.Kingdom
 
             json = base.ToJSON();
 
-            json.Add("name", Name);
+            json.Add("description", Description);
             json.Add("gold_cost", new JSONData(GoldCost));
             json.Add("production_cost", new JSONData(ProductionCost));
             
@@ -57,7 +59,7 @@ namespace MS.Model.Kingdom
         {
             public static Building Create(string name)
             {
-                if (name == "Town Hall")
+                if (name == "BUILDING_TOWNHALL")
                 {
                     return new TownHall();
                 }

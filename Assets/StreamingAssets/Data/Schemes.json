@@ -1,0 +1,15 @@
+{
+  "buildings":
+  [
+    {
+      "name": "BUILDING_TOWNHALL",
+      "description": "BUILDING_TOWNHALL_DESCRIPTION",
+      "gold_cost": 0,
+      "production_cost": 0,
+      "requires":
+      [
+
+      ]
+    }
+  ]
+}

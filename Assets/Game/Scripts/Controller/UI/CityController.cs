@@ -6,14 +6,14 @@ namespace MS.Controllers.UI
     public class CityController : MonoBehaviour
     {
         public GameObject           CityMenu;
-        public BuildingController   BuildingController;
+        public BuildingSchemeController   BuildingController;
         public GameInputManager     InputManager;
 
         public void Show(Model.City city)
         {
             CityMenu.SetActive(true);
 
-            foreach (Model.Kingdom.Building building in city.Buildings)
+            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
             {
                 var view = BuildingController.CreateView(building);
                 view.UpdateView(building);

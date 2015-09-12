@@ -7,10 +7,11 @@ namespace MS
 {
 	public class Game : ModelElement
 	{
-        protected Map               m_Map;
-        protected Players           m_Players;
-        protected Turns             m_Turns;
-        protected Model.Resources   m_Resources;
+        protected Map                   m_Map;
+        protected Players               m_Players;
+        protected Turns                 m_Turns;
+        protected Model.Resources       m_Resources;
+        protected Model.Kingdom.Schemes m_Schemes;
 
         public Map Map
         {
@@ -49,6 +50,14 @@ namespace MS
             }
         }
 
+        public Model.Kingdom.Schemes Schemes
+        {
+            get
+            {
+                return m_Schemes;
+            }
+        }
+
         // Singleton
         private static Game m_Instance;
 
@@ -72,6 +81,7 @@ namespace MS
             m_Players   =   new Players();
             m_Turns     =   new Turns(m_Players);
             m_Resources =   new Model.Resources();
+            m_Schemes   =   new Model.Kingdom.Schemes();
 
             m_Instance  =   this;
         }
@@ -80,12 +90,15 @@ namespace MS
         {
             string      filePath;
             JSONNode    json;
+            JSONNode    schemesJSON;
 
             filePath    =   Path.ToScenario(mapName);
             json        =   Path.FileToJSON(filePath);
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
 
             m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json);
+            m_Schemes.FromJSON(schemesJSON);
 
             m_Turns = new Turns(m_Players);
         }
@@ -103,10 +116,13 @@ namespace MS
         {
             string      filePath;
             JSONNode    json;
+            JSONNode    schemesJSON;
 
             filePath    =   Path.ToSaveGame(fileName);
             json        =   Path.FileToJSON(filePath);
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
 
+            m_Schemes.FromJSON(schemesJSON);
             FromJSON(json);
         }
 

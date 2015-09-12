@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameLabel: {fileID: 11485470}
+  DescriptionLabel: {fileID: 11400164}
   GoldCostLabel: {fileID: 11470960}
   ProductionCostLabel: {fileID: 11480018}
   BackgroundImage: {fileID: 11480750}

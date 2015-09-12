@@ -61,6 +61,14 @@
         {
             "ID": "WOOD_DESCRIPTION",
             "Text": "Trees provide the wood necessary to build some buildings and simpler weapons."
+        },
+        {
+          "ID": "BUILDING_TOWNHALL",
+          "Text": "Town Hall"
+        },
+        {
+          "ID": "BUILDING_TOWNHALL_DESCRIPTION",
+          "Text": "+4 Food, +2 Production, +6 Gold and +2 Research"
         }
     ]
 
