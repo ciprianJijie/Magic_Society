@@ -63,6 +63,10 @@ namespace MS.Model.Kingdom
                 {
                     return new TownHall();
                 }
+                else if (name == "BUILDING_FARM")
+                {
+                    return new Farm();
+                }
                 else
                 {
                     throw new FactoryMethodWrongType("MS.Model.Kingdom.Building");

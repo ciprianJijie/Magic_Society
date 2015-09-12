@@ -10,6 +10,16 @@
       [
 
       ]
+    },
+    {
+      "name": "BUILDING_FARM",
+      "description": "BUILDING_FARM_DESCRIPTION",
+      "gold_cost": 10,
+      "production_cost": 25,
+      "requires":
+      [
+        
+      ]
     }
   ]
 }
