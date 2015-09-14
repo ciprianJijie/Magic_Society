@@ -62,5 +62,25 @@ namespace MS.Model
 
             return root;
         }
+
+        public int CalculateEstimatedFood()
+        {
+            return FoodGeneration;
+        }
+
+        public int CalculateEstimatedProduction()
+        {
+            return ProductionGeneration;
+        }
+
+        public int CalculateEstimatedGold()
+        {
+            return GoldGeneration;
+        }
+
+        public int CalculateEstimatedResearch()
+        {
+            return ResearchGeneration;
+        }
     }
 }

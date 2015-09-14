@@ -93,6 +93,29 @@ namespace MS.Model
             return Mathf.RoundToInt(20f + (4f * currentPopulation) * Mathf.Pow(1.25f, currentPopulation));
         }
 
+        public int CalculateTurnsToProduce(int productionCost)
+        {
+            int productionAvailable;
+
+            productionAvailable = 0;
+
+            productionAvailable += m_PopulationInProduction * PRODUCTION_PER_POPULATION;
+
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    productionAvailable += collector.CalculateEstimatedProduction();
+                }
+            }
+
+            return Mathf.RoundToInt(Mathf.Max(1.0f, productionCost / productionAvailable));
+        }
+
         public int CalculateBuyableTileCount()
         {
             return m_TilesUnderControl.Count - m_Population;

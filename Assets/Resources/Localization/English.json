@@ -69,6 +69,14 @@
         {
           "ID": "BUILDING_TOWNHALL_DESCRIPTION",
           "Text": "+4 Food, +2 Production, +6 Gold and +2 Research"
+        },
+        {
+          "ID": "BUILDING_FARM",
+          "Text": "Farm"
+        },
+        {
+          "ID": "BUILDING_FARM_DESCRIPTION",
+          "Text": "+1 Food per tile with Food. \n +50% of personality's STR."
         }
     ]
 

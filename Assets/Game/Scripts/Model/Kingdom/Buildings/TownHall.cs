@@ -42,6 +42,26 @@ namespace MS.Model.Kingdom
             yield return new ResourceAmount(Game.Instance.Resources.Gold, TOWNHALL_GOLD_COLLECTION, this);
             yield return new ResourceAmount(Game.Instance.Resources.Research, TOWNHALL_RESEARCH_COLLECTION, this);
         }
+
+        public int CalculateEstimatedFood()
+        {
+            return TOWNHALL_FOOD_COLLECTION;
+        }
+
+        public int CalculateEstimatedProduction()
+        {
+            return TOWNHALL_PRODUCTION_COLLECTION;
+        }
+
+        public int CalculateEstimatedGold()
+        {
+            return TOWNHALL_GOLD_COLLECTION;
+        }
+
+        public int CalculateEstimatedResearch()
+        {
+            return TOWNHALL_RESEARCH_COLLECTION;
+        }
     }
 }
 

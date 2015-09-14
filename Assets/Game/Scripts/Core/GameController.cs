@@ -3,6 +3,9 @@ namespace MS
 {
 	public class GameController : Singleton<GameController>
 	{
+        // Game info
+        public Model.City SelectedCity;
+
         protected Game m_Game;
 
         public Game Game

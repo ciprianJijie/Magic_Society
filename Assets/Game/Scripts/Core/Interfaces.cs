@@ -37,6 +37,10 @@ namespace MS
     public interface IResourceCollector
     {
         IEnumerable<MS.Model.ResourceAmount> Collect();
+        int CalculateEstimatedFood();
+        int CalculateEstimatedProduction();
+        int CalculateEstimatedGold();
+        int CalculateEstimatedResearch();
     }
 
     public interface IResourceWarehouse

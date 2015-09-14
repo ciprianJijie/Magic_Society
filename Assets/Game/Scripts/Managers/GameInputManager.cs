@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MS
 {
@@ -8,6 +9,7 @@ namespace MS
     public class GameInputManager : MonoBehaviour
     {
         public Core.InputManager    InputManager;
+        public UnityEngine.EventSystems.EventSystem EventSystem;
         public MouseToGrid          MouseToGrid;
         public float                CameraSpeed;
         public float                FlyOverDuration;
@@ -50,21 +52,22 @@ namespace MS
             MainCamera.transform.position += MainCamera.transform.forward * zoom * 2.0f * CameraSpeed * Time.deltaTime;
             MainCamera.transform.RotateAround(MainCamera.transform.position, Vector3.up, rotation * 10.0f * CameraSpeed * Time.deltaTime);
 
-            if (InputManager.GetButton("FlyOver"))
+            if (MouseToGrid.IsValidPosition(MouseToGrid.LastGridPosition) &&
+                EventSystem.IsPointerOverGameObject() == false)
             {
-                Vector3 worldPosition;
-                MS.Core.Actions.Movement movement;
+                if (InputManager.GetButton("FlyOver"))
+                {
+                    Vector3 worldPosition;
+                    MS.Core.Actions.Movement movement;
 
-                worldPosition = MouseToGrid.GridController.LocalToWorld(MouseToGrid.LastGridPosition);
-                worldPosition.y = MainCamera.transform.position.y;
+                    worldPosition = MouseToGrid.GridController.LocalToWorld(MouseToGrid.LastGridPosition);
+                    worldPosition.y = MainCamera.transform.position.y;
 
-                movement = MS.Core.Actions.ActionsManager.Instance.Create<MS.Core.Actions.Movement>();
+                    movement = MS.Core.Actions.ActionsManager.Instance.Create<MS.Core.Actions.Movement>();
 
-                movement.Perform(MainCamera.transform, MainCamera.transform.position, worldPosition, FlyOverDuration, FlyOverCurve);
-            }
+                    movement.Perform(MainCamera.transform, MainCamera.transform.position, worldPosition, FlyOverDuration, FlyOverCurve);
+                }
 
-            if (MouseToGrid.IsValidPosition(MouseToGrid.LastGridPosition))
-            {
                 if (m_LastHoveredTile == MouseToGrid.LastGridPosition)
                 {
                     m_TimeHoveringTile += Time.deltaTime;
@@ -80,26 +83,28 @@ namespace MS
                     OnTileHoverEnds();
                 }
                 m_LastHoveredTile = MouseToGrid.LastGridPosition;
-            }
 
-            if (InputManager.GetButton("Select"))
-            {
-                Model.City city;
-
-                city = GameController.Instance.Game.Map.Grid.GetElement(MouseToGrid.LastGridPosition) as Model.City;
-
-                if (city != null)
+                if (InputManager.GetButton("Select"))
                 {
-                    if (city.Owner == GameController.Instance.Game.Turns.CurrentTurn.Player)
+                    Model.City city;
+
+                    city = GameController.Instance.Game.Map.Grid.GetElement(MouseToGrid.LastGridPosition) as Model.City;
+
+                    if (city != null)
                     {
-                        OnCitySelected(city);
-                        m_CitySelected = true;
-                    }                    
-                }
-                else if (m_CitySelected)
-                {
-                    OnCityDeselected();
-                    m_CitySelected = false;
+                        if (city.Owner == GameController.Instance.Game.Turns.CurrentTurn.Player)
+                        {
+                            GameController.Instance.SelectedCity = city;
+                            OnCitySelected(city);
+                            m_CitySelected = true;
+                        }
+                    }
+                    else if (m_CitySelected)
+                    {
+                        GameController.Instance.SelectedCity = null;
+                        OnCityDeselected();
+                        m_CitySelected = false;
+                    }
                 }
             }
         }

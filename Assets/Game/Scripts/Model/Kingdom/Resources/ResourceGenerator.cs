@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SimpleJSON;
 
 namespace MS.Model
@@ -69,6 +70,24 @@ namespace MS.Model
             return root;
         }
 
-        
+        public int CalculateEstimatedFood()
+        {
+            return FoodGeneration;
+        }
+
+        public int CalculateEstimatedProduction()
+        {
+            return ProductionGeneration;
+        }
+
+        public int CalculateEstimatedGold()
+        {
+            return GoldGeneration;
+        }
+
+        public int CalculateEstimatedResearch()
+        {
+            return ResearchGeneration;
+        }
     }
 }
