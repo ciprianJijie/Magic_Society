@@ -53,6 +53,22 @@
         {
           "ID": "PERSONALITIES_LABEL",
           "Text": "Personalidades"
+        },
+        {
+          "ID": "BUILDING_BARRACKS",
+          "Text": "Barracas"
+        },
+        {
+          "ID": "BUILDING_BARRACKS_DESCRIPTION",
+          "Text": "Permite la construcción de unidades militares.\nPersonalidades en este edificio ganan 20 XP por turno."
+        },
+        {
+          "ID": "BUILDING_AQUADUCT",
+          "Text": "Aqueducto"
+        },
+        {
+          "ID": "BUILDING_AQUADUCT_DESCRIPTION",
+          "Text": "+8 Comida si controlas una casilla con agua."
         }
     ]
 

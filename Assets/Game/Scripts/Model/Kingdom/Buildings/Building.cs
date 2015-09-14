@@ -67,6 +67,14 @@ namespace MS.Model.Kingdom
                 {
                     return new Farm();
                 }
+                else if (name == "BUILDING_BARRACKS")
+                {
+                    return new Barracks();
+                }
+                else if (name == "BUILDING_AQUADUCT")
+                {
+                    return new Aquaduct();
+                }
                 else
                 {
                     throw new FactoryMethodWrongType("MS.Model.Kingdom.Building");

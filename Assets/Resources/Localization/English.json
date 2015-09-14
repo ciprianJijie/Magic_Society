@@ -85,6 +85,22 @@
         {
           "ID": "PERSONALITIES_LABEL",
           "Text": "Personalities"
+        },
+        {
+          "ID": "BUILDING_BARRACKS",
+          "Text": "Barracks"
+        },
+        {
+          "ID": "BUILDING_BARRACKS_DESCRIPTION",
+          "Text": "Allow for military units recruiment.\nPersonalities in the barracks will gain 20 XP per turn."
+        },
+        {
+          "ID": "BUILDING_AQUADUCT",
+          "Text": "Aquaduct"
+        },
+        {
+          "ID": "BUILDING_AQUADUCT_DESCRIPTION",
+          "Text": "+8 Food if you control a tile with water."
         }
     ]
 

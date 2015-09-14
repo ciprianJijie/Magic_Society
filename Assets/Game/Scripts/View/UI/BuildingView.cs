@@ -14,6 +14,8 @@ namespace MS.Views.UI
 
         public Sprite FarmSprite;
         public Sprite TownHallSprite;
+        public Sprite BarracksSprite;
+        public Sprite AquaductSprite;
 
         public override void UpdateView(Building element)
         {
@@ -31,6 +33,14 @@ namespace MS.Views.UI
             else if (element is TownHall)
             {
                 return TownHallSprite;
+            }
+            else if (element is Barracks)
+            {
+                return BarracksSprite;
+            }
+            else if (element is Aquaduct)
+            {
+                return AquaductSprite;
             }
 
             return null;

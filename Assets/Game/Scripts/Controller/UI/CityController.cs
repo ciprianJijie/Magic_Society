@@ -48,13 +48,11 @@ namespace MS.Controllers.UI
 
         protected void OnBuildingButtonHoverEvent(Model.Kingdom.Building building)
         {
-            UnityEngine.Debug.Log("MOUSE IN!");
             OnBuildingButtonHover(building);
         }
 
         protected void OnBuildingButtonHoverEndsEvent()
         {
-            UnityEngine.Debug.Log("MOUSE OUT!");
             OnBuildingButtonHoverEnds();
         }
 
