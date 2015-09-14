@@ -76,7 +76,7 @@
         },
         {
           "ID": "BUILDING_FARM_DESCRIPTION",
-          "Text": "+1 Food per tile with Food. \n +50% of personality's STR."
+          "Text": "+1 Food per tile with Food. \n +50% of personality's STR in Food."
         }
     ]
 
