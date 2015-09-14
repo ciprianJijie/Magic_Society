@@ -1,124 +1,347 @@
 using UnityEngine;
 using SimpleJSON;
 using System.Collections.Generic;
+using System;
 
 namespace MS.Model
 {
-	public class City : OwnableMapElement
+	public class City : CollectableMapElement, IResourceWarehouse, IUpkeepMaintained
 	{
-        protected List<MS.Model.Kingdom.CityDistrict> m_Districts;
+        public static readonly int FOOD_PER_POPULATION                  =   2;
+        public static readonly int PRODUCTION_PER_POPULATION            =   2;
+        public static readonly int RESEARCH_PER_POPULATION              =   2;
+        public static readonly int GOLD_PER_POPULATION                  =   4;
+        public static readonly float FOOD_CONSUMPTION_PER_POPULATION    =   1.0f;
+
+        public string RealName;
+
+        // Events
+        public Events.CityEvent OnPopulationGrow    =   Events.DefaultAction;
+        public Events.CityEvent OnPopulationDecrese =   Events.DefaultAction;
+
+        protected int m_Population;
+        protected int m_FoodStored;
+        protected List<Vector2> m_TilesUnderControl;
+
+        // Recollection
+        protected int m_PopulationInFood;
+        protected int m_PopulationInProduction;
+        protected int m_PopulationInResearch;
+        protected int m_PopulationInGold;
+
+        protected Kingdom.BuildingQueue m_BuildingQueue;
+
+        protected List<MS.Model.Kingdom.Building> m_Buildings;
+
+        // Resources
+        protected ResourceAdvancedAmount m_FoodCollected;
+        protected ResourceAdvancedAmount m_ProductionCollected;
+
+        public int Population
+        {
+            get
+            {
+                return m_Population;
+            }
+        }
+
+        public int Food
+        {
+            get
+            {
+                return m_FoodStored;
+            }
+
+            set
+            {
+                m_FoodStored = value;
+            }
+        }
+
+        public IEnumerable<Kingdom.Building> Buildings
+        {
+            get
+            {
+                return m_Buildings;
+            }
+        }
+
+        public Kingdom.BuildingQueue BuildingQueue
+        {
+            get
+            {
+                return m_BuildingQueue;
+            }
+        }
 
         public City()
         {
-            m_Districts = new List<MS.Model.Kingdom.CityDistrict>();
+            m_FoodStored            =   0;
+            m_Population            =   1;
+            m_TilesUnderControl     =   new List<Vector2>();
+            m_Buildings             =   new List<Kingdom.Building>();
+            m_BuildingQueue         =   new Kingdom.BuildingQueue(this);
+            m_FoodCollected         =   new ResourceAdvancedAmount();
+            m_ProductionCollected   =   new ResourceAdvancedAmount();
+
+            m_TilesUnderControl.Add(new Vector2(X, Y));
+            Build("BUILDING_TOWNHALL");
         }
 
-        public void Initialize()
+        public int CalculateFoodForNextPopulationUnit(int currentPopulation)
         {
-            ExpandCity(X, Y);
-
-            UnityEngine.Debug.Log("City initialized with district " + m_Districts[0].Name);
+            return Mathf.RoundToInt(20f + (4f * currentPopulation) * Mathf.Pow(1.25f, currentPopulation));
         }
 
-        public bool ExpandCity(Vector2 position)
+        public int CalculateTurnsToProduce(int productionCost)
         {
-            return ExpandCity((int)position.x, (int)position.y);
-        }
+            int productionAvailable;
 
-        public bool ExpandCity(int x, int y)
-        {
-            if (CanExpand(x, y))
+            productionAvailable = 0;
+
+            productionAvailable += m_PopulationInProduction * PRODUCTION_PER_POPULATION;
+
+            foreach (Kingdom.Building building in m_Buildings)
             {
-                MS.Model.Kingdom.CityDistrict district;
-                string name;
-                
-                name        =   MS.Generators.NameGenerator.RandomDistrictName();
-                district    =   new MS.Model.Kingdom.CityDistrict(Owner, x, y, name);
-                
-                m_Districts.Add(district);
+                IResourceCollector collector;
 
-                return true;
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    productionAvailable += collector.CalculateEstimatedProduction();
+                }
             }
-            
-            return false;
+
+            return Mathf.RoundToInt(Mathf.Max(1.0f, productionCost / productionAvailable));
         }
 
-        public bool CanExpand(Vector2 position)
+        public int CalculateBuyableTileCount()
         {
-            return CanExpand((int)position.x, (int)position.y);
+            return m_TilesUnderControl.Count - m_Population;
         }
 
-        public bool CanExpand(int x, int y)
+        public void PayUpkeepCosts()
         {
-            return IsAdjacent(x, y) && TileSuitableForBuilding(x, y);
-        }
+            int foodForPeople;
 
-        protected bool IsAdjacent(Vector2 position)
-        {
-            return IsAdjacent((int)position.x, (int)position.y);
-        }
+            foodForPeople = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);
 
-        protected bool IsAdjacent(int x, int y)
-        {
-            if (m_Districts.Count == 0)
+            if (m_FoodStored < foodForPeople)
             {
-                return true;
+                m_FoodStored = CalculateFoodForNextPopulationUnit(m_Population - 1) - (foodForPeople - m_FoodStored);
+
+                DecreasePopulation(1);
             }
-            
-            foreach (MS.Model.Kingdom.CityDistrict district in m_Districts)
+            else
             {
-                if (Mathf.Abs(district.X - x) < 2 && Mathf.Abs(district.Y - y) < 2)
+                m_FoodStored = m_FoodStored - foodForPeople;
+            }
+        }
+
+        public override IEnumerable<ResourceAmount> Collect()
+        {
+            List<ResourceAmount> collected = new List<ResourceAmount>();
+            ResourceAmount food;
+            ResourceAmount production;
+            ResourceAmount gold;
+            ResourceAmount research;
+
+            ClearCollectedCache();
+
+            foreach (var res in base.Collect())
+            {
+                collected.Add(res);
+                Store(res);
+            }
+
+            food        =   new ResourceAmount(Game.Instance.Resources.Food, m_PopulationInFood * FOOD_PER_POPULATION, this);
+            production  =   new ResourceAmount(Game.Instance.Resources.Production, m_PopulationInProduction * PRODUCTION_PER_POPULATION, this);
+            gold        =   new ResourceAmount(Game.Instance.Resources.Gold, m_PopulationInGold * GOLD_PER_POPULATION, this);
+            research    =   new ResourceAmount(Game.Instance.Resources.Research, m_PopulationInResearch * RESEARCH_PER_POPULATION, this);
+
+            collected.Add(food);
+            collected.Add(production);
+            collected.Add(gold);
+            collected.Add(research);
+
+            Store(food);
+            Store(production);
+            Store(gold);
+            Store(research);
+
+            // Buildings
+            foreach (Model.Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    foreach (var res in collector.Collect())
+                    {
+                        collected.Add(res);
+                        Store(res);
+                    }
+                }
+            }
+
+            // Check for population growth
+            int foodToGrow;
+
+            foodToGrow = CalculateFoodForNextPopulationUnit(m_Population);
+
+            if (m_FoodStored >= foodToGrow)
+            {
+                m_FoodStored = Mathf.RoundToInt((m_Population + 1) * FOOD_CONSUMPTION_PER_POPULATION);  // Enough to pay in the Upkeep and stay at 0
+                GrowPopulation(1);
+            }
+
+            return collected;
+        }
+
+        public void Store(ResourceAmount amount)
+        {
+            if (amount.Resource is Food)
+            {
+                m_FoodCollected.AddAmount(amount);
+                m_FoodStored += amount.Amount;
+            }
+            else if (amount.Resource is Production)
+            {
+                m_ProductionCollected.AddAmount(amount);
+                m_BuildingQueue.AddProduction(amount.Amount);
+            }
+            else if (amount.Resource is Gold)
+            {
+                Owner.Store(amount);
+            }
+            else if (amount.Resource is Research)
+            {
+                Owner.Store(amount);
+            }
+        }
+
+        public void ClearCollectedCache()
+        {
+            m_FoodCollected.Clear();
+            m_ProductionCollected.Clear();
+        }
+
+        public Kingdom.Building Build(string type)
+        {
+            Kingdom.Building building;
+
+            building        =   Kingdom.Building.Factory.Create(type);
+            building.Owner  =   Owner;
+            building.City   =   this;
+
+            m_Buildings.Add(building);
+
+            return building;
+        }
+
+        public bool Has(Kingdom.Building building)
+        {
+            foreach (Kingdom.Building constructedBuilding in m_Buildings)
+            {
+                if (building.Name == constructedBuilding.Name)
                 {
                     return true;
                 }
             }
-            
             return false;
         }
 
-        protected bool TileSuitableForBuilding(Vector2 position)
+        public void GrowPopulation(int amount)
         {
-            return TileSuitableForBuilding((int)position.x, (int)position.y);
+            m_Population += amount;
+
+            m_PopulationInFood += amount;
+
+            OnPopulationGrow(this);
         }
 
-        protected bool TileSuitableForBuilding(int x, int y)
+        public void DecreasePopulation(int amount)
         {
-            return GameController.Instance.Game.Map.Grid.GetElement(x, y) == null;
+            int newPopulation;
+            int diff;
+
+            newPopulation   =   Mathf.Max(1, m_Population - amount);
+            diff            =   m_Population - newPopulation;
+            m_Population    =   newPopulation;
+
+            while (diff > 0)
+            {
+                if (m_PopulationInFood > 0)
+                {
+                    m_PopulationInFood--;
+                }
+                else if (m_PopulationInProduction > 0)
+                {
+                    m_PopulationInProduction--;
+                }
+                else if (m_PopulationInResearch > 0)
+                {
+                    m_PopulationInResearch--;
+                }
+                else if (m_PopulationInGold > 0)
+                {
+                    m_PopulationInGold--;
+                }
+
+                diff--;
+            }
+
+            OnPopulationDecrese(this);
         }
 
         public override void FromJSON(JSONNode json)
         {
-            MS.Model.Kingdom.CityDistrict district;
-
             base.FromJSON(json);
+            RealName = json["real_name"];
 
-            foreach (JSONNode node in json["districts"].AsArray)
+            foreach (JSONNode node in json["tiles"].AsArray)
             {
-                district = new MS.Model.Kingdom.CityDistrict();
+                Vector2 tile;
 
-                district.FromJSON(node);
+                tile.x = node["x"].AsInt;
+                tile.y = node["y"].AsInt;
 
-                m_Districts.Add(district);
+                m_TilesUnderControl.Add(tile);
+            }
+            
+            if (json["building_queue"] != null)
+            {
+                m_BuildingQueue.City = this;
+                m_BuildingQueue.FromJSON(json["building_queue"]);
             }
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json;
-            JSONArray array;
+            JSONNode root;
+            JSONArray tilesArray;
+            JSONClass tileNode;
 
-            json = base.ToJSON();
+            root = base.ToJSON();
+            root.Add("real_name", new JSONData(RealName));
 
-            array = new JSONArray();
+            tilesArray = new JSONArray();
 
-            foreach (MS.Model.Kingdom.CityDistrict district in m_Districts)
+            foreach (Vector2 tile in m_TilesUnderControl)
             {
-                array.Add(district.ToJSON());
+                tileNode = new JSONClass();
+
+                tileNode.Add("x", new JSONData(tile.x));
+                tileNode.Add("y", new JSONData(tile.y));
             }
 
-            json.Add("districts", array);
+            root.Add("tiles", tilesArray);
+            root.Add("building_queue", m_BuildingQueue.ToJSON());
 
-            return json;
+            return root;
         }
-	}
+    }
 }

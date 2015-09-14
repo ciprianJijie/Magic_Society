@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &194416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410154}
+  - 114: {fileID: 11408128}
+  m_Layer: 0
+  m_Name: Forest View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410154
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11408128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55642490d844a444996a3123059c9bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FertilePrefab: {fileID: 142264, guid: 631e63dac8ad84bc2a816cc41ffc386a, type: 2}
+  BarrenPrefab: {fileID: 194898, guid: 4393a7d581674447db3ee8037c1cc1f3, type: 2}
+  DesertPrefab: {fileID: 192976, guid: 816190b75fbeb46ac99dd43ae55fad31, type: 2}
+  FrozenPrefab: {fileID: 163800, guid: 5c6929a9cfbab4cda9916b8f41512547, type: 2}
+  VolcanicPrefab: {fileID: 109298, guid: 9a2bb22987ac849c585e4baca01fd8aa, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: FertilePrefab
+      value: 
+      objectReference: {fileID: 142264, guid: 631e63dac8ad84bc2a816cc41ffc386a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenPrefab
+      value: 
+      objectReference: {fileID: 194898, guid: 4393a7d581674447db3ee8037c1cc1f3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertPrefab
+      value: 
+      objectReference: {fileID: 192976, guid: 816190b75fbeb46ac99dd43ae55fad31, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenPrefab
+      value: 
+      objectReference: {fileID: 163800, guid: 5c6929a9cfbab4cda9916b8f41512547, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicPrefab
+      value: 
+      objectReference: {fileID: 109298, guid: 9a2bb22987ac849c585e4baca01fd8aa, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 194416}
+  m_IsPrefabParent: 1

@@ -1,5 +1,3 @@
-using UnityEngine;
-using SimpleJSON;
 
 namespace MS.Model
 {

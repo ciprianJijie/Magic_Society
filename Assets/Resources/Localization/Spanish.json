@@ -13,6 +13,38 @@
         {
             "ID": "EXIT",
             "Text": "Salir"
+        },
+        {
+            "ID": "LEVEL_EDITOR",
+            "Text": "Editor de mapas"
+        },
+        {
+            "ID": "PLAY",
+            "Text": "Jugar"
+        },
+        {
+            "ID": "CANCEL",
+            "Text": "Cancelar"
+        },
+        {
+            "ID": "SELECT_MAP",
+            "Text": "Selecciona un mapa"
+        },
+        {
+          "ID": "BUILDING_TOWNHALL",
+          "Text": "Ayuntamiento"
+        },
+        {
+          "ID": "BUILDING_TOWNHALL_DESCRIPTION",
+          "Text": "+4 Comida, +2 Producción, +6 Oro and +2 Investigación"
+        },
+        {
+          "ID": "BUILDING_FARM",
+          "Text": "Granja"
+        },
+        {
+          "ID": "BUILDING_FARM_DESCRIPTION",
+          "Text": "+1 Comida por casilla con Comida. \n +50% de la fuerza de la personalidad en Comida."
         }
     ]
 

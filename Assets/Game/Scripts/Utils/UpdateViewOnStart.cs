@@ -6,7 +6,7 @@ namespace MS
     public class UpdateViewOnStart : MonoBehaviour
     {
         public GridController           GridController;
-        public MapElementsController    ElementsController;
+        public MapElementsManager    ElementsController;
 
         protected void Start()
         {

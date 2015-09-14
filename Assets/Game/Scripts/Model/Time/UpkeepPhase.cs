@@ -12,6 +12,16 @@ namespace MS.Model
 
         public override void Execute()
         {
+            foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
+            {
+                IUpkeepMaintained toPay = element as IUpkeepMaintained;
+
+                if (toPay != null)
+                {
+                    toPay.PayUpkeepCosts();
+                }
+            }
+
             Finish();
         }
     }

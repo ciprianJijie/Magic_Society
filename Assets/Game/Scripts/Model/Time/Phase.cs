@@ -5,9 +5,9 @@ namespace MS.Model
 {
     public abstract class Phase : ModelElement
     {
-        public string Name;
         public Player Player;
 
+        public MS.Events.Event OnStarted = MS.Events.DefaultAction;
         public MS.Events.Event OnFinished = MS.Events.DefaultAction;
 
         public abstract void Execute();
@@ -19,15 +19,16 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
-            Name    =   json["name"];
+            base.FromJSON(json);
+
             Player  =   GameController.Instance.Game.Players.Find(json["player"]);
         }
 
         public override JSONNode ToJSON()
         {
-            JSONClass root;
+            JSONNode root;
 
-            root = new JSONClass();
+            root = base.ToJSON();
 
             root.Add("name", Name);
             root.Add("player", Player.Name);

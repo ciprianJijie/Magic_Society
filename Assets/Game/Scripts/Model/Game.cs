@@ -7,16 +7,22 @@ namespace MS
 {
 	public class Game : ModelElement
 	{
-        protected Map               m_Map;
-        protected Players           m_Players;
-        protected Turns             m_Turns;
-        protected Model.Resources   m_Resources;
+        protected Map                   m_Map;
+        protected Players               m_Players;
+        protected Turns                 m_Turns;
+        protected Model.Resources       m_Resources;
+        protected Model.Kingdom.Schemes m_Schemes;
 
         public Map Map
         {
             get
             {
                 return m_Map;
+            }
+
+            set
+            {
+                m_Map = value;
             }
         }
 
@@ -44,38 +50,57 @@ namespace MS
             }
         }
 
+        public Model.Kingdom.Schemes Schemes
+        {
+            get
+            {
+                return m_Schemes;
+            }
+        }
+
+        // Singleton
+        private static Game m_Instance;
+
+        public static Game Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new Game();
+                }
+
+                return m_Instance;
+            }
+        }
+        // ---
+
         public Game()
         {
             m_Map       =   new Map();
             m_Players   =   new Players();
             m_Turns     =   new Turns(m_Players);
             m_Resources =   new Model.Resources();
+            m_Schemes   =   new Model.Kingdom.Schemes();
+
+            m_Instance  =   this;
         }
 
         public void New(string mapName, int numPlayers, int humanPlayers)
         {
             string      filePath;
             JSONNode    json;
+            JSONNode    schemesJSON;
 
             filePath    =   Path.ToScenario(mapName);
             json        =   Path.FileToJSON(filePath);
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
 
             m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json);
+            m_Schemes.FromJSON(schemesJSON);
 
             m_Turns = new Turns(m_Players);
-
-//            for (int i = 0; i < numPlayers; i++)
-//            {
-//                if (i < humanPlayers)
-//                {
-//                    m_Players.AddPlayer(new HumanPlayer("Human Player " + i));
-//                }
-//                else
-//                {
-//                    m_Players.AddPlayer(new AIPlayer("AI Player " + i));
-//                }
-//            }
         }
 
         public void Save(string fileName)
@@ -91,10 +116,13 @@ namespace MS
         {
             string      filePath;
             JSONNode    json;
+            JSONNode    schemesJSON;
 
             filePath    =   Path.ToSaveGame(fileName);
             json        =   Path.FileToJSON(filePath);
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
 
+            m_Schemes.FromJSON(schemesJSON);
             FromJSON(json);
         }
 

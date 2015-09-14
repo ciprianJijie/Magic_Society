@@ -1,61 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using MS.Model;
 using MS.Model.Kingdom;
 using UnityEngine;
 
 namespace MS.Controllers.Kingdom
 {
-    public class CityController : MonoBehaviour
+    public class CityController : Controller<CityView, Model.City>
     {
-        public DistrictController   DistrictPrefab;
-        public Transform            Holder;
+        public TerrainDependant TerrainDependantPrefabs;
 
-        protected IList<DistrictController> m_Controllers;
-
-        void Awake()
+        public override IUpdatableView<City> CreateView(City modelElement)
         {
-            m_Controllers = new List<DistrictController>();
+            GameObject  prefab;
+            Tile        tile;
+            CityView    view;
+
+            tile    =   GameController.Instance.Game.Map.Grid.GetTile(modelElement.X, modelElement.Y);
+            prefab  =   TerrainDependantPrefabs.SelectPrefab(tile.TerrainType);
+            view    =   prefab.GetComponent<CityView>();
+
+            return base.CreateView(modelElement, view);
         }
 
-        public DistrictController SpawnDistrict(CityDistrict district)
+        public override void UpdateAllViews()
         {
-            DistrictController controller;
-
-            controller  =   Utils.Instantiate<DistrictController>(DistrictPrefab, Holder, Holder.position, Holder.rotation);          
-
-            m_Controllers.Add(controller);
-
-            return controller;
-        }
-
-        public void DemolishDistrict(CityDistrict district)
-        {
-            DistrictController toRemove;
-
-            toRemove = null;
-
-            foreach (DistrictController controller in m_Controllers)
+            foreach (CityView view in m_Views)
             {
-                if (controller.HasViewFor(district))
-                {
-                    toRemove = controller;
-                    break;
-                }
-            }
-
-            if (toRemove != null)
-            {
-                toRemove.DestroyView(district);
-                m_Controllers.Remove(toRemove);
-                Destroy(toRemove.gameObject);
-            }            
-        }
-
-        public void UpdateAllControllers()
-        {
-            foreach (IViewCreator<CityDistrict> controller in m_Controllers)
-            {
-                controller.UpdateAllViews();
+                view.UpdateView(view.Model);
+                view.UpdateBanner(view.Model);
             }
         }
     }

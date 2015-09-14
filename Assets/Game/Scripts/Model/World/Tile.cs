@@ -25,7 +25,7 @@ namespace MS.Model
 
 		public override JSONNode ToJSON()
 		{
-            JSONNode root = JSON.Parse("{}");
+            JSONClass root = new JSONClass();
             
             root.Add("x", new JSONData(X));
             root.Add("y", new JSONData(Y));

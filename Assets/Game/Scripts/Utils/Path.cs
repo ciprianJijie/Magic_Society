@@ -36,6 +36,11 @@ namespace MS
             return Application.streamingAssetsPath + "/Save Games/" + fileName + ".json";
         }
 
+        public static string ToData(string fileName)
+        {
+            return Application.streamingAssetsPath + "/Data/" + fileName + ".json";
+        }
+
         public static SimpleJSON.JSONNode FileToJSON(string filePath)
         {
             System.IO.StreamReader reader;

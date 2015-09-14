@@ -10,8 +10,8 @@ namespace MS.Model
         protected   Phase[]     m_Phases;
         protected   int         m_CurrentPhase;
 
-        public MS.Events.Event  OnTurnStarted    =   MS.Events.DefaultAction;
-        public MS.Events.Event  OnTurnFinished   =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent  OnTurnStarted    =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent  OnTurnFinished   =   MS.Events.DefaultAction;
 
         public Phase CurrentPhase
         {
@@ -41,9 +41,8 @@ namespace MS.Model
         {
             m_CurrentPhase = 0;
 
-            m_Phases[m_CurrentPhase].Execute();
-
-            OnTurnStarted();
+            OnTurnStarted(Player);
+            m_Phases[0].Execute();
         }
 
         public void NextPhase()
@@ -63,7 +62,7 @@ namespace MS.Model
 
         public void Finish()
         {
-            OnTurnFinished();
+            OnTurnFinished(Player);
         }
 
         public override void FromJSON(JSONNode json)

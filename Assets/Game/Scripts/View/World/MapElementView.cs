@@ -9,11 +9,11 @@ namespace MS.Views
         public TerrainDependant     ForestPrefab;
         public TerrainDependant     StonePrefab;
         public TerrainDependant     GoldPrefab;
-        public TerrainDependant     CityPrefab;
+        public Controllers.Kingdom.CityController   CityPrefab;
 
         public float                VerticalOffset;
 
-        private TerrainDependant    m_InstantiatedElement;
+        private GameObject          m_InstantiatedElement;
 
         public override void UpdateView()
         {
@@ -27,34 +27,36 @@ namespace MS.Views
                 Destroy(m_InstantiatedElement.gameObject);
             }
 
-            Vector3 verticalOffset;
-
-            verticalOffset = this.transform.up * tile.Height * VerticalOffset;
-
-            TerrainDependant prefab = null;
+            GameObject prefab = null;
 
             if (Model is Forest)
             {
-                prefab = ForestPrefab;
+                prefab = ForestPrefab.gameObject;
             }
             else if (Model is StoneDeposits)
             {
-                prefab = StonePrefab;
+                prefab = StonePrefab.gameObject;
             }
             else if (Model is GoldDeposits)
             {
-                prefab = GoldPrefab;
+                prefab = GoldPrefab.gameObject;
             }
             else if (Model is City)
             {
-                prefab = CityPrefab;
+                prefab = CityPrefab.gameObject;
             }
 
             if (prefab != null)
             {
-                m_InstantiatedElement = Utils.Instantiate<TerrainDependant>(prefab, this.transform, this.transform.position + verticalOffset, this.transform.rotation);
+                TerrainDependant                    terrainDependant;
 
-                m_InstantiatedElement.UpdateObject(tile.TerrainType);
+                m_InstantiatedElement   =   Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
+                terrainDependant        =   m_InstantiatedElement.GetComponent<TerrainDependant>();
+
+                if (terrainDependant != null)
+                {
+                    terrainDependant.UpdateObject(Model, tile.TerrainType);
+                }
             }
         }
 

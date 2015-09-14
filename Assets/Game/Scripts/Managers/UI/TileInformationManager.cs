@@ -8,31 +8,43 @@ namespace MS.Managers.UI
     {
         public GameInputManager InputManager;
 
+        public Text                             NameLabel;
+
         public MS.Controllers.UI.RepeatableIcon FoodIcons;
-        public MS.Controllers.UI.RepeatableIcon WoodIcons;
-        public MS.Controllers.UI.RepeatableIcon IronIcons;
+        public MS.Controllers.UI.RepeatableIcon ProductionIcons;
         public MS.Controllers.UI.RepeatableIcon GoldIcons;
-        public MS.Controllers.UI.RepeatableIcon ManaIcons;
+        public MS.Controllers.UI.RepeatableIcon ResearchIcons;
+
+        private float width;
+        private float height;
 
         public void UpdateInfo(int x, int y)
         {
-            int     food;
-            int     wood;
-            int     iron;
-            int     gold;
-            int     mana;
+            int                     food;
+            int                     production;
+            int                     gold;
+            int                     research;
+            string                  name;
+            MS.Model.MapElement     element;
 
-            food = GameController.Instance.Game.Resources.CalculateFoodProduction(x, y);
-            wood = GameController.Instance.Game.Resources.CalculateWoodProduction(x, y);
-            iron = GameController.Instance.Game.Resources.CalculateIronProduction(x, y);
-            gold = GameController.Instance.Game.Resources.CalculateGoldProduction(x, y);
-            mana = GameController.Instance.Game.Resources.CalculateManaProduction(x, y);
+            food        =   GameController.Instance.Game.Resources.CalculateFoodGeneration(x, y);
+            production  =   GameController.Instance.Game.Resources.CalculateProductionGeneration(x, y);
+            gold        =   GameController.Instance.Game.Resources.CalculateGoldGeneration(x, y);
+            research    =   GameController.Instance.Game.Resources.CalculateResearchGeneration(x, y);
+            element     =   GameController.Instance.Game.Map.Grid.GetElement(x, y);
+            name        =   GameController.Instance.Game.Map.Grid.GetTile(x, y).TerrainType.ToString();
+
+            if (element != null)
+            {
+                name += " + " + element.Name;
+            }
 
             FoodIcons.UpdateIcons(food);
-            WoodIcons.UpdateIcons(wood);
-            IronIcons.UpdateIcons(iron);
+            ProductionIcons.UpdateIcons(production);
             GoldIcons.UpdateIcons(gold);
-            ManaIcons.UpdateIcons(mana);
+            ResearchIcons.UpdateIcons(research);
+
+            NameLabel.text = name;
 
             Show();
         }
@@ -40,6 +52,35 @@ namespace MS.Managers.UI
         public void Show()
         {
             this.gameObject.SetActive(true);
+
+            Vector2 mousePosition;
+            Vector2 offset;
+            RectTransform rect;
+
+            mousePosition   =   Input.mousePosition;
+            rect            =   this.gameObject.GetComponent<RectTransform>();
+            width           =   Mathf.Abs(rect.rect.width);
+            height          =   Mathf.Abs(rect.rect.height);
+
+            if (mousePosition.x < Screen.width / 2f)
+            {
+                offset.x = - width - 6f;
+            }
+            else
+            {
+                offset.x = 6f;
+            }
+
+            if (mousePosition.y < Screen.height / 2f)
+            {
+                offset.y = 6f;
+            }
+            else
+            {
+                offset.y = - height - 6f;
+            }
+
+            rect.anchoredPosition = new Vector2(mousePosition.x + offset.x, mousePosition.y + offset.y);
         }
 
         public void Hide()
@@ -49,6 +90,9 @@ namespace MS.Managers.UI
 
         protected void Start()
         {
+            width   =   Mathf.Abs(this.gameObject.GetComponent<RectTransform>().rect.width);
+            height  =   Mathf.Abs(this.gameObject.GetComponent<RectTransform>().rect.height);
+
             InputManager.OnTileHover        +=  UpdateInfo;
             InputManager.OnTileHoverEnds    +=  Hide;
 

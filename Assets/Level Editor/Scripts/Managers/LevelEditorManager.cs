@@ -13,7 +13,7 @@ namespace MS
 		public Transform 		        WindowsContainer;
         public Transform                WorldContainer;
         public GridController           GridController;
-        public MapElementsController    MapElementsController;
+        public MapElementsManager    MapElementsController;
         public GameObject 		        FileBrowserPrefab;
         public GameObject 		        NameLevelPrefab;
         public GameObject               ResizeWindowPrefab;
@@ -79,22 +79,24 @@ namespace MS
 
 		public void Load(string file)
 		{
-			StreamReader 	reader;
-            string 			text;
-            JSONNode 		json;
+            StreamReader reader;
+            string text;
+            JSONNode json;
 
-            reader 				= 	new StreamReader(file);
-            text 				= 	reader.ReadToEnd();
-            json 				= 	JSONNode.Parse(text);
-            m_CurrentMap 		= 	new Map();
-			m_CurrentFilePath 	= 	file;
+            reader = new StreamReader(file);
+            text = reader.ReadToEnd();
+            json = JSONNode.Parse(text);
+            m_CurrentMap = new Map();
+            m_CurrentFilePath = file;
+
+            Game.Instance.Map = m_CurrentMap;
 
             // Load players
             GameController.Instance.Game.Players.FromJSON(json["players"]);
 
             m_CurrentMap.FromJSON(json);
-            
-            ShowGrid(m_CurrentMap.Grid);
+
+            ShowGrid(GameController.Instance.Game.Map.Grid);
         }
 
 		public void Save()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS
@@ -14,6 +15,43 @@ namespace MS
     {
         void FromJSON(SimpleJSON.JSONNode json);
         SimpleJSON.JSONNode ToJSON();
+    }
+
+    public interface IOwnable
+    {
+        Model.Player Owner { get; set; }
+    }
+
+    public interface IGridPositioned
+    {
+        int GridX { get; set; }
+        int GridY { get; set; }
+    }
+
+    public interface IEventListener
+    {
+        void SubscribeToEvents();
+        void UnsubscribeToEvents();
+    }
+
+    public interface IResourceCollector
+    {
+        IEnumerable<MS.Model.ResourceAmount> Collect();
+        int CalculateEstimatedFood();
+        int CalculateEstimatedProduction();
+        int CalculateEstimatedGold();
+        int CalculateEstimatedResearch();
+    }
+
+    public interface IResourceWarehouse
+    {
+        void Store(Model.ResourceAmount amount);
+        void ClearCollectedCache();
+    }
+
+    public interface IUpkeepMaintained
+    {
+        void PayUpkeepCosts();
     }
 
     public interface IModelRelated<T> where T : MS.ModelElement
@@ -47,13 +85,31 @@ namespace MS
         bool IsViewOf(MS.ModelElement element);
     }
 
+    public interface IViewCreator
+    {
+        IUpdatableView  CreateView(ModelElement modelElement);
+        bool            HasViewFor(ModelElement modelElement);
+        IUpdatableView  FindView(ModelElement modelElement);
+        void            DestroyView(ModelElement modelElement);
+    }
+
     public interface IViewCreator<T> where T : MS.ModelElement
     {
-        IUpdatableView<T> CreateView(T modelElement);
+        IUpdatableView<T>   CreateView(T modelElement);
+        bool                HasViewFor(T modelElement);
+        IUpdatableView<T>   FindView(T modelElement);
+        void                DestroyView(T modelElement);
+    }
+
+    public interface IViewUpdater
+    {
         void UpdateAllViews();
-        bool HasViewFor(T modelElement);
-        IUpdatableView<T> FindView(T modelElement);
-        void DestroyView(T modelElement);
+        void UpdateView(ModelElement element);
+    }
+
+    public interface IController : IViewCreator, IViewUpdater
+    {
+
     }
 
     public interface IControllerCreator<T, R>

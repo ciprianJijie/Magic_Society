@@ -8,12 +8,13 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
+            base.FromJSON(json);
             Owner = GameController.Instance.Game.Players.Find(json["owner"]);
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode json = new JSONNode();
+            JSONNode json = base.ToJSON();
 
             json.Add("owner", Owner.Name);
 

@@ -1,26 +1,30 @@
 ﻿using System;
 using SimpleJSON;
+using UnityEngine;
 
 namespace MS.Model
 {
     public class Resources : ModelElement
     {
-        public Food Food;
-        public Wood Wood;
-        public Iron Iron;
-        public Gold Gold;
-        public Mana Mana;
+        public Food         Food;
+        public Production   Production;
+        public Gold         Gold;
+        public Research     Research;
 
         public Resources()
         {
-            Food = new Food();
-            Wood = new Wood();
-            Iron = new Iron();
-            Gold = new Gold();
-            Mana = new Mana();
+            Food        =   new Food();
+            Production  =   new Production();
+            Gold        =   new Gold();
+            Research    =   new Research();
         }
 
-        public int CalculateFoodProduction(int x, int y)
+        public int CalculateFoodGeneration(Vector2 position)
+        {
+            return CalculateFoodGeneration((int)position.x, (int)position.y);
+        }
+
+        public int CalculateFoodGeneration(int x, int y)
         {
             Tile        tile;
             MapElement  element;
@@ -36,9 +40,15 @@ namespace MS.Model
                     amount += 3;
                     break;
                 case Tile.Terrain.Barren:
+                    amount += 1;
+                    break;
                 case Tile.Terrain.Frozen:
+                    amount += 1;
+                    break;
                 case Tile.Terrain.Volcanic:
                     amount += 1;
+                    break;
+                case Tile.Terrain.Desert:
                     break;
                 default:
                     break;
@@ -46,13 +56,18 @@ namespace MS.Model
 
             if (element != null)
             {
-                // TODO: Check for elemnts that produce additional food
+
             }
 
             return amount;
         }
 
-        public int CalculateWoodProduction(int x, int y)
+        public int CalculateProductionGeneration(Vector2 tilePosition)
+        {
+            return CalculateProductionGeneration((int)tilePosition.x, (int)tilePosition.y);
+        }
+
+        public int CalculateProductionGeneration(int x, int y)
         {
             Tile        tile;
             MapElement  element;
@@ -61,53 +76,45 @@ namespace MS.Model
             tile        =   GameController.Instance.Game.Map.Grid.GetTile(x, y);
             element     =   GameController.Instance.Game.Map.Grid.GetElement(x, y);
             amount      =   0;
+
+            switch (tile.TerrainType)
+            {
+                case Tile.Terrain.Fertile:
+                    break;
+                case Tile.Terrain.Barren:
+                    break;
+                case Tile.Terrain.Desert:
+                    break;
+                case Tile.Terrain.Frozen:
+                    break;
+                case Tile.Terrain.Volcanic:
+                    amount += 2;
+                    break;
+                default:
+                    break;
+            }
 
             if (element != null)
             {
                 if (element is Forest)
                 {
-                    switch (tile.TerrainType)
-                    {
-                        case Tile.Terrain.Barren:
-                        case Tile.Terrain.Desert:
-                        case Tile.Terrain.Volcanic:
-                            amount += 1;
-                            break;
-                        case Tile.Terrain.Fertile:
-                            amount += 2;
-                            break;
-                        case Tile.Terrain.Frozen:
-                            amount += 3;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-
-            return amount;
-        }
-
-        public int CalculateIronProduction(int x, int y)
-        {
-            MapElement  element;
-            int         amount;
-
-            element     =   GameController.Instance.Game.Map.Grid.GetElement(x, y);
-            amount      =   0;
-
-            if (element != null)
-            {
-                if (element is StoneDeposits)
-                {
                     amount += 3;
                 }
+                else if (element is StoneDeposits)
+                {
+                    amount += 5;
+                }
             }
 
             return amount;
         }
 
-        public int CalculateGoldProduction(int x, int y)
+        public int CalculateGoldGeneration(Vector2 tilePosition)
+        {
+            return CalculateGoldGeneration((int)tilePosition.x, (int)tilePosition.y);
+        }
+
+        public int CalculateGoldGeneration(int x, int y)
         {
             Tile        tile;
             MapElement  element;
@@ -119,92 +126,93 @@ namespace MS.Model
 
             switch (tile.TerrainType)
             {
-                case Tile.Terrain.Barren:
-                    amount += 1;
-                    break;
-                case Tile.Terrain.Desert:
                 case Tile.Terrain.Fertile:
-                case Tile.Terrain.Volcanic:
-                default:
                     break;
-            }
-
-            if (element != null && element is GoldDeposits)
-            {
-                amount += 3;
-            }
-
-            return amount;
-        }
-
-        public int CalculateManaProduction(int x, int y)
-        {
-            Tile        tile;
-            MapElement  element;
-            int         amount;
-
-            tile        =   GameController.Instance.Game.Map.Grid.GetTile(x, y);
-            element     =   GameController.Instance.Game.Map.Grid.GetElement(x, y);
-            amount      =   0;
-
-            switch (tile.TerrainType)
-            {
-                case Tile.Terrain.Frozen:
+                case Tile.Terrain.Barren:
                     amount += 2;
                     break;
                 case Tile.Terrain.Desert:
-                    amount += 1;
+                    amount += 4;
                     break;
-                case Tile.Terrain.Barren:
-                case Tile.Terrain.Fertile:
+                case Tile.Terrain.Frozen:
+                    break;
                 case Tile.Terrain.Volcanic:
+                    break;
                 default:
                     break;
             }
 
             if (element != null)
             {
-                
+                if (element is GoldDeposits)
+                {
+                    amount += 5;
+                }
             }
 
             return amount;
         }
 
+        public int CalculateResearchGeneration(Vector2 tilePosition)
+        {
+            return CalculateResearchGeneration((int)tilePosition.x, (int)tilePosition.y);
+        }
+
+        public int CalculateResearchGeneration(int x, int y)
+        {
+            Tile tile;
+            MapElement element;
+            int amount;
+
+            tile = GameController.Instance.Game.Map.Grid.GetTile(x, y);
+            element = GameController.Instance.Game.Map.Grid.GetElement(x, y);
+            amount = 0;
+
+            switch (tile.TerrainType)
+            {
+                case Tile.Terrain.Fertile:
+                    break;
+                case Tile.Terrain.Barren:
+                    break;
+                case Tile.Terrain.Desert:
+                    break;
+                case Tile.Terrain.Frozen:
+                    amount += 2;
+                    break;
+                case Tile.Terrain.Volcanic:
+                    amount += 1;
+                    break;
+                default:
+                    break;
+            }
+
+            if (element != null)
+            {
+
+            }
+
+            return amount;
+        }
+
+
         public override void FromJSON(JSONNode json)
         {
-            Food.Name = json["food"]["name"];
-            Wood.Name = json["wood"]["name"];
-            Iron.Name = json["iron"]["name"];
-            Gold.Name = json["gold"]["name"];
-            Mana.Name = json["mana"]["name"];
+            Food.FromJSON(json["food"]);
+            Production.FromJSON(json["production"]);
+            Gold.FromJSON(json["gold"]);
+            Research.FromJSON(json["research"]);
         }
 
         public override JSONNode ToJSON()
         {
             JSONClass root;
-            JSONClass node;
 
             root = new JSONClass();
 
-            node = new JSONClass();
-            node.Add("name", Food.Name);
-            root.Add("food", node);
-
-            node = new JSONClass();
-            node.Add("name", Wood.Name);
-            root.Add("wood", node);
-
-            node = new JSONClass();
-            node.Add("name", Iron.Name);
-            root.Add("iron", node);
-
-            node = new JSONClass();
-            node.Add("name", Gold.Name);
-            root.Add("gold", node);
-
-            node = new JSONClass();
-            node.Add("name", Mana.Name);
-            root.Add("mana", node);
+            root.Add("food", Food.ToJSON());
+            root.Add("production", Production.ToJSON());
+            root.Add("gold", Production.ToJSON());
+            root.Add("research", Research.ToJSON());
 
             return root;
         }

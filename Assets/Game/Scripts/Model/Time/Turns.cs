@@ -13,7 +13,12 @@ namespace MS.Model
 
         private     int         m_TurnCounter;
 
-        public MS.Events.Event OnAllTurnsFinished = MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnRecollectionPhase     =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnUpkeepPhase           =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnMainPhase             =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnTurnStarted           =   MS.Events.DefaultAction;
+        public MS.Events.PlayerEvent    OnTurnFinished          =   MS.Events.DefaultAction;
+        public MS.Events.Event          OnAllTurnsFinished      =   MS.Events.DefaultAction;
 
         public Turn CurrentTurn
         {
@@ -41,7 +46,8 @@ namespace MS.Model
             {
                 turn = new Turn(player);
 
-                turn.OnTurnFinished += OnTurnFinished;
+                turn.OnTurnFinished +=  OnTurnFinishedEvent;
+                turn.OnTurnStarted  +=  OnTurnStartedEvent;
 
                 m_Turns.Add(turn);
             }
@@ -66,6 +72,23 @@ namespace MS.Model
             {
                 m_Turns[m_CurrentTurn].Start();
             }
+
+            Turn currentTurn;
+
+            currentTurn = m_Turns[m_CurrentTurn];
+
+            if (currentTurn.CurrentPhase is UpkeepPhase)
+            {
+                OnUpkeepPhase(currentTurn.Player);
+            }
+            else if (currentTurn.CurrentPhase is RecollectionPhase)
+            {
+                OnRecollectionPhase(CurrentTurn.Player);
+            }
+            else if (currentTurn.CurrentPhase is MainPhase)
+            {
+                OnMainPhase(currentTurn.Player);
+            }
         }
 
         public override void FromJSON(SimpleJSON.JSONNode json)
@@ -78,9 +101,15 @@ namespace MS.Model
             throw new System.NotImplementedException();
         }
 
-        protected void OnTurnFinished()
+        protected void OnTurnFinishedEvent(Player player)
         {
+            OnTurnFinished(player);
             NextTurn();
+        }
+
+        protected void OnTurnStartedEvent(Player player)
+        {
+            OnTurnStarted(player);
         }
     }
 }

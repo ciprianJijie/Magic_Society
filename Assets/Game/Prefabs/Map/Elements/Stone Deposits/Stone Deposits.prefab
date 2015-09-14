@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443772}
-  - 114: {fileID: 11450644}
+  - 114: {fileID: 11417168}
   m_Layer: 0
   m_Name: Stone Deposits
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11450644
+--- !u!114 &11417168
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -36,14 +36,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 147064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6b21d59f6384649ab739d3754ec0cb, type: 3}
+  m_Script: {fileID: 11500000, guid: af52a78cc8b98d449a48b8b37d626c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FertilePrefab: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
-  BarrenPrefab: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
-  DesertPrefab: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
-  FrozenPrefab: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
-  VolcanicPrefab: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
+  ViewPrefab: {fileID: 11408422, guid: 34a56e3c5d8cf2e4cb903ad610c4225e, type: 2}
+  Holder: {fileID: 443772}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -71,6 +68,15 @@ Prefab:
       propertyPath: VolcanicPrefab
       value: 
       objectReference: {fileID: 162958, guid: 24a46b791b04c4b669c8340102e306e2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ViewPrefab
+      value: 
+      objectReference: {fileID: 11408422, guid: 34a56e3c5d8cf2e4cb903ad610c4225e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: Holder
+      value: 
+      objectReference: {fileID: 443772}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147064}
