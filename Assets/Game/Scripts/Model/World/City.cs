@@ -242,6 +242,18 @@ namespace MS.Model
             return building;
         }
 
+        public bool Has(Kingdom.Building building)
+        {
+            foreach (Kingdom.Building constructedBuilding in m_Buildings)
+            {
+                if (building.Name == constructedBuilding.Name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void GrowPopulation(int amount)
         {
             m_Population += amount;

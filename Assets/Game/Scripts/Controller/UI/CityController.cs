@@ -5,9 +5,10 @@ namespace MS.Controllers.UI
 {
     public class CityController : MonoBehaviour
     {
-        public GameObject           CityMenu;
-        public BuildingSchemeController   BuildingController;
-        public GameInputManager     InputManager;
+        public GameObject               CityMenu;
+        public BuildingSchemeController BuildingSchemeController;
+        public BuildingController       BuildingController;
+        public GameInputManager         InputManager;
 
         public void Show(Model.City city)
         {
@@ -15,8 +16,17 @@ namespace MS.Controllers.UI
 
             foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
             {
-                var view = BuildingController.CreateView(building);
-                view.UpdateView(building);
+                if (city.Has(building) == false)
+                {
+                    var view = BuildingSchemeController.CreateView(building);
+                    view.UpdateView(building);
+                }
+                else
+                {
+                    var view = BuildingController.CreateView(building);
+                    view.UpdateView(building);
+                }
+                
             }
         }
 
@@ -24,6 +34,7 @@ namespace MS.Controllers.UI
         {
             CityMenu.SetActive(false);
 
+            BuildingSchemeController.ClearViews();
             BuildingController.ClearViews();
         }
 
