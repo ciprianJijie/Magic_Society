@@ -4,7 +4,8 @@ using MS.Core;
 [ExecuteInEditMode]
 public class LocalizedText : MonoBehaviour
 {
-    public string ID;
+    public string   ID;
+    public bool     UpdateOnAwake = true;
 
     private UnityEngine.UI.Text m_text;
 
@@ -12,10 +13,13 @@ public class LocalizedText : MonoBehaviour
     {
         m_text = this.gameObject.GetComponent<UnityEngine.UI.Text>();
 
-        UpdateText();
+        if (UpdateOnAwake)
+        {
+            UpdateText();
+        }        
     }
 
-    void Update()
+    protected void Update()
     {
 #if UNITY_EDITOR
         if (Application.isPlaying == false)
@@ -25,7 +29,7 @@ public class LocalizedText : MonoBehaviour
 #endif
     }
 
-    void UpdateText()
+    public void UpdateText()
     {
         if (m_text == null)
         {

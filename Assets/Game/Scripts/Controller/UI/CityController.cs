@@ -10,6 +10,10 @@ namespace MS.Controllers.UI
         public BuildingController       BuildingController;
         public GameInputManager         InputManager;
 
+        // Events
+        public MS.Events.BuildingEvent OnBuildingButtonHover    =   MS.Events.DefaultAction;
+        public MS.Events.Event OnBuildingButtonHoverEnds        =   MS.Events.DefaultAction;
+
         public void Show(Model.City city)
         {
             CityMenu.SetActive(true);
@@ -20,13 +24,17 @@ namespace MS.Controllers.UI
                 {
                     var view = BuildingSchemeController.CreateView(building);
                     view.UpdateView(building);
+
+                    var schemeView = view as Views.UI.BuildingSchemeView;
+                    schemeView.OnBuildingHover      +=  OnBuildingButtonHoverEvent;
+                    schemeView.OnBuildingHoverEnds  +=  OnBuildingButtonHoverEndsEvent;
+                    schemeView.OnDestroyed          +=  OnSchemeViewDestroyed;
                 }
                 else
                 {
                     var view = BuildingController.CreateView(building);
                     view.UpdateView(building);
-                }
-                
+                }                
             }
         }
 
@@ -36,6 +44,26 @@ namespace MS.Controllers.UI
 
             BuildingSchemeController.ClearViews();
             BuildingController.ClearViews();
+        }
+
+        protected void OnBuildingButtonHoverEvent(Model.Kingdom.Building building)
+        {
+            UnityEngine.Debug.Log("MOUSE IN!");
+            OnBuildingButtonHover(building);
+        }
+
+        protected void OnBuildingButtonHoverEndsEvent()
+        {
+            UnityEngine.Debug.Log("MOUSE OUT!");
+            OnBuildingButtonHoverEnds();
+        }
+
+        protected void OnSchemeViewDestroyed(IUpdatableView schemeView)
+        {
+            var view = schemeView as Views.UI.BuildingSchemeView;
+
+            view.OnBuildingHover -= OnBuildingButtonHoverEvent;
+            view.OnBuildingHoverEnds -= OnBuildingButtonHoverEndsEvent;
         }
 
         protected void Start()

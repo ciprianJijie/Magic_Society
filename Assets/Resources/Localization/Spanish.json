@@ -45,6 +45,14 @@
         {
           "ID": "BUILDING_FARM_DESCRIPTION",
           "Text": "+1 Comida por casilla con Comida. \n +50% de la fuerza de la personalidad en Comida."
+        },
+        {
+          "ID": "COST_LABEL",
+          "Text": "Coste"
+        },
+        {
+          "ID": "PERSONALITIES_LABEL",
+          "Text": "Personalidades"
         }
     ]
 

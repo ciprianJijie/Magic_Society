@@ -1,10 +1,13 @@
 ﻿using MS.Model.Kingdom;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using System;
 
 namespace MS.Views.UI
 {
-    public class BuildingSchemeView : View<Model.Kingdom.Building>
+    public class BuildingSchemeView : View<Model.Kingdom.Building>, IPointerEnterHandler, IPointerExitHandler
     {
         public LocalizedText        NameLabel;
         public Text                 GoldCostLabel;
@@ -17,7 +20,9 @@ namespace MS.Views.UI
         public Sprite                TownHallImage;
 
         // Events
-        public Events.BuildingEvent OnBuild = Events.DefaultAction;
+        public Events.BuildingEvent OnBuild         =   Events.DefaultAction;
+        public Events.BuildingEvent OnBuildingHover =   Events.DefaultAction;
+        public Events.Event OnBuildingHoverEnds     =   Events.DefaultAction;
 
         public override void UpdateView(Building element)
         {
@@ -26,9 +31,7 @@ namespace MS.Views.UI
             NameLabel.ID                =   element.Name;
             GoldCostLabel.text          =   element.GoldCost.ToString();
             TurnsToBuildLabel.text      =   GameController.Instance.SelectedCity.CalculateTurnsToProduce(element.ProductionCost).ToString();
-            BackgroundImage.sprite      =   SelectImage(element);
-            // TODO: Assign background image
-            
+            BackgroundImage.sprite      =   SelectImage(element);            
         }
 
         protected Sprite SelectImage(Building element)
@@ -62,6 +65,16 @@ namespace MS.Views.UI
         protected void OnDestroy()
         {
             BuildButton.OnDoubleClick -= OnBuildEvent;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            OnBuildingHover(Model);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            OnBuildingHoverEnds();
         }
     }
 }
