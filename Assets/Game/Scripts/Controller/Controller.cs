@@ -80,6 +80,7 @@ namespace MS
             {
                 Destroy(view.Object);
             }
+            m_Views.Clear();
         }
 
         public virtual void UpdateAllViews()
