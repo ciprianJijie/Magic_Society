@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace MS.Model
 {
-    public class ResourceAdvancedAmount : ModelElement
+    public class ResourceAdvancedAmount : ModelElement, IEnumerable<ResourceAmount>
     {
         protected List<ResourceAmount> m_Amounts;
 
@@ -42,6 +43,16 @@ namespace MS.Model
             }
 
             return amount;
+        }
+
+        public IEnumerator<ResourceAmount> GetEnumerator()
+        {
+            return m_Amounts.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Amounts.GetEnumerator();
         }
     }
 }

@@ -47,6 +47,14 @@
             "Text": "Investigación"
         },
         {
+          "ID": "FROM",
+          "Text": "por"
+        },
+        {
+          "ID": "WORKERS",
+          "Text": "Trabajadores"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Ayuntamiento"
         },

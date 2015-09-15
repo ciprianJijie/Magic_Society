@@ -8,6 +8,7 @@ namespace MS.Controllers.UI
         public GameObject               CityMenu;
         public BuildingSchemeController BuildingSchemeController;
         public BuildingController       BuildingController;
+        public ResourceAmountController ResourceAmountController;
         public GameInputManager         InputManager;
         public RepeatableIcon           FoodWorkersArea;
         public RepeatableIcon           ProductionWorkersArea;
@@ -74,10 +75,36 @@ namespace MS.Controllers.UI
             m_GoldEstimatedCollection           =   city.CollectGold();
             m_ResearchEstimatedCollection       =   city.CollectResearch();
 
-            FoodAmountLabel.text = m_FoodEstimatedRecollection.GetTotalAmount().ToString();
-            ProductionAmountLabel.text = m_ProductionEstimatedRecollection.GetTotalAmount().ToString();
-            GoldAmountLabel.text = m_GoldEstimatedCollection.GetTotalAmount().ToString();
-            ResearchAmountLabel.text = m_ResearchEstimatedCollection.GetTotalAmount().ToString();
+            FoodAmountLabel.text        =   m_FoodEstimatedRecollection.GetTotalAmount().ToString();
+            ProductionAmountLabel.text  =   m_ProductionEstimatedRecollection.GetTotalAmount().ToString();
+            GoldAmountLabel.text        =   m_GoldEstimatedCollection.GetTotalAmount().ToString();
+            ResearchAmountLabel.text    =   m_ResearchEstimatedCollection.GetTotalAmount().ToString();
+        }
+
+        // UI Events
+        public void OnFoodAmountHover()
+        {
+            ResourceAmountController.Show(m_FoodEstimatedRecollection);
+        }
+
+        public void OnProductionAmountHover()
+        {
+            ResourceAmountController.Show(m_ProductionEstimatedRecollection);
+        }
+
+        public void OnGoldAmountHover()
+        {
+            ResourceAmountController.Show(m_GoldEstimatedCollection);
+        }
+
+        public void OnResearchAmountHover()
+        {
+            ResourceAmountController.Show(m_ResearchEstimatedCollection);
+        }
+
+        public void OnResourceAmountHoverEnds()
+        {
+            ResourceAmountController.Hide();
         }
 
         protected void OnBuildingButtonHoverEvent(Model.Kingdom.Building building)
@@ -97,6 +124,8 @@ namespace MS.Controllers.UI
             view.OnBuildingHover -= OnBuildingButtonHoverEvent;
             view.OnBuildingHoverEnds -= OnBuildingButtonHoverEndsEvent;
         }
+
+        
 
         protected void Start()
         {

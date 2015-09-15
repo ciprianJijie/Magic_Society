@@ -309,7 +309,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
+            if (FoodWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
+            }            
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -332,7 +335,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
+            if (ProductionWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
+            }            
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -355,7 +361,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
+            if (GoldWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
+            }            
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -378,7 +387,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
+            if (ResearchWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
+            }            
 
             foreach (Kingdom.Building building in m_Buildings)
             {

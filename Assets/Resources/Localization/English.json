@@ -47,6 +47,14 @@
             "Text": "Research"
         },
         {
+          "ID": "From",
+          "Text": "from"
+        },
+        {
+          "ID": "WORKERS",
+          "Text": "Workers"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Town Hall"
         },
