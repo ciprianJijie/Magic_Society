@@ -31,6 +31,22 @@
             "Text": "Selecciona un mapa"
         },
         {
+            "ID": "FOOD",
+            "Text": "Comida"
+        },
+        {
+            "ID": "GOLD",
+            "Text": "Oro"
+        },
+        {
+            "ID": "PRODUCTION",
+            "Text": "Producción"
+        },
+        {
+            "ID": "RESEARCH",
+            "Text": "Investigación"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Ayuntamiento"
         },

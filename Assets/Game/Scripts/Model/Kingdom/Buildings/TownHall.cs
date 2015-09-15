@@ -15,25 +15,6 @@ namespace MS.Model.Kingdom
         {
             Name = "BUILDING_TOWNHALL";
         }
-        
-        public override void OnRecollection()
-        {
-            //City.Food       +=  TOWNHALL_FOOD_COLLECTION;
-            //Owner.Gold      +=  TOWNHALL_GOLD_COLLECTION;
-            //Owner.Research  +=  TOWNHALL_RESEARCH_COLLECTION;
-
-            //City.BuildingQueue.AddProduction(TOWNHALL_PRODUCTION_COLLECTION);
-        }
-
-        public override void OnUpkeep()
-        {
-            // Townhall has no Upkeep value
-        }
-
-        public override void Use()
-        {
-            // Townhall has no activated ability
-        }
 
         public IEnumerable<ResourceAmount> Collect()
         {

@@ -12,11 +12,7 @@ namespace MS.Model.Kingdom
         public Building()
         {
 
-        }
-
-        public abstract void Use();
-        public abstract void OnRecollection();
-        public abstract void OnUpkeep(); 
+        } 
 
         public override void FromJSON(JSONNode json)
         {
