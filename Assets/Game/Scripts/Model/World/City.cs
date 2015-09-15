@@ -7,13 +7,19 @@ namespace MS.Model
 {
 	public class City : CollectableMapElement, IResourceWarehouse, IUpkeepMaintained
 	{
-        public static readonly int FOOD_PER_POPULATION                  =   2;
-        public static readonly int PRODUCTION_PER_POPULATION            =   2;
-        public static readonly int RESEARCH_PER_POPULATION              =   2;
-        public static readonly int GOLD_PER_POPULATION                  =   4;
-        public static readonly float FOOD_CONSUMPTION_PER_POPULATION    =   1.0f;
+        public static readonly int      FOOD_PER_WORKER                     =   2;
+        public static readonly int      PRODUCTION_PER_WORKER               =   2;
+        public static readonly int      RESEARCH_PER_WORKER                 =   2;
+        public static readonly int      GOLD_PER_WORKER                     =   4;
+        public static readonly float    FOOD_CONSUMPTION_PER_POPULATION     =   1.0f;
 
         public string RealName;
+
+        // Recollection
+        public int FoodWorkers;
+        public int ProductionWorkers;
+        public int ResearchWorkers;
+        public int GoldWorkers;
 
         // Events
         public Events.CityEvent OnPopulationGrow    =   Events.DefaultAction;
@@ -22,12 +28,6 @@ namespace MS.Model
         protected int m_Population;
         protected int m_FoodStored;
         protected List<Vector2> m_TilesUnderControl;
-
-        // Recollection
-        protected int m_PopulationInFood;
-        protected int m_PopulationInProduction;
-        protected int m_PopulationInResearch;
-        protected int m_PopulationInGold;
 
         protected Kingdom.BuildingQueue m_BuildingQueue;
 
@@ -77,7 +77,6 @@ namespace MS.Model
         public City()
         {
             m_FoodStored            =   0;
-            m_Population            =   1;
             m_TilesUnderControl     =   new List<Vector2>();
             m_Buildings             =   new List<Kingdom.Building>();
             m_BuildingQueue         =   new Kingdom.BuildingQueue(this);
@@ -85,6 +84,9 @@ namespace MS.Model
             m_ProductionCollected   =   new ResourceAdvancedAmount();
 
             m_TilesUnderControl.Add(new Vector2(X, Y));
+
+            GrowPopulation(1);
+
             Build("BUILDING_TOWNHALL");
         }
 
@@ -99,7 +101,7 @@ namespace MS.Model
 
             productionAvailable = 0;
 
-            productionAvailable += m_PopulationInProduction * PRODUCTION_PER_POPULATION;
+            productionAvailable += ProductionWorkers * PRODUCTION_PER_WORKER;
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -155,10 +157,10 @@ namespace MS.Model
                 Store(res);
             }
 
-            food        =   new ResourceAmount(Game.Instance.Resources.Food, m_PopulationInFood * FOOD_PER_POPULATION, this);
-            production  =   new ResourceAmount(Game.Instance.Resources.Production, m_PopulationInProduction * PRODUCTION_PER_POPULATION, this);
-            gold        =   new ResourceAmount(Game.Instance.Resources.Gold, m_PopulationInGold * GOLD_PER_POPULATION, this);
-            research    =   new ResourceAmount(Game.Instance.Resources.Research, m_PopulationInResearch * RESEARCH_PER_POPULATION, this);
+            food        =   new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this);
+            production  =   new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this);
+            gold        =   new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this);
+            research    =   new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this);
 
             collected.Add(food);
             collected.Add(production);
@@ -258,7 +260,7 @@ namespace MS.Model
         {
             m_Population += amount;
 
-            m_PopulationInFood += amount;
+            FoodWorkers += amount;
 
             OnPopulationGrow(this);
         }
@@ -274,27 +276,123 @@ namespace MS.Model
 
             while (diff > 0)
             {
-                if (m_PopulationInFood > 0)
+                if (FoodWorkers > 0)
                 {
-                    m_PopulationInFood--;
+                    FoodWorkers--;
                 }
-                else if (m_PopulationInProduction > 0)
+                else if (ProductionWorkers > 0)
                 {
-                    m_PopulationInProduction--;
+                    ProductionWorkers--;
                 }
-                else if (m_PopulationInResearch > 0)
+                else if (ResearchWorkers > 0)
                 {
-                    m_PopulationInResearch--;
+                    ResearchWorkers--;
                 }
-                else if (m_PopulationInGold > 0)
+                else if (GoldWorkers > 0)
                 {
-                    m_PopulationInGold--;
+                    GoldWorkers--;
                 }
 
                 diff--;
             }
 
             OnPopulationDecrese(this);
+        }
+
+        /// <summary>
+        /// Simulates the recollection of food, but does not store it in the Warehouse.
+        /// </summary>
+        /// <returns></returns>
+        public ResourceAdvancedAmount CollectFood()
+        {
+            ResourceAdvancedAmount amount;
+
+            amount = new ResourceAdvancedAmount();
+
+            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
+
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), building));
+                }
+            }
+
+            return amount;
+        }
+
+        public ResourceAdvancedAmount CollectProduction()
+        {
+            ResourceAdvancedAmount amount;
+
+            amount = new ResourceAdvancedAmount();
+
+            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
+
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, collector.CalculateEstimatedProduction(), building));
+                }
+            }
+
+            return amount;
+        }
+
+        public ResourceAdvancedAmount CollectGold()
+        {
+            ResourceAdvancedAmount amount;
+
+            amount = new ResourceAdvancedAmount();
+
+            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
+
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, collector.CalculateEstimatedGold(), building));
+                }
+            }
+
+            return amount;
+        }
+
+        public ResourceAdvancedAmount CollectResearch()
+        {
+            ResourceAdvancedAmount amount;
+
+            amount = new ResourceAdvancedAmount();
+
+            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
+
+            foreach (Kingdom.Building building in m_Buildings)
+            {
+                IResourceCollector collector;
+
+                collector = building as IResourceCollector;
+
+                if (collector != null)
+                {
+                    amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, collector.CalculateEstimatedResearch(), building));
+                }
+            }
+
+            return amount;
         }
 
         public override void FromJSON(JSONNode json)

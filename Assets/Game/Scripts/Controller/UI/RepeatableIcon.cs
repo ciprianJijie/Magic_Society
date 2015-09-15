@@ -6,6 +6,7 @@ namespace MS.Controllers.UI
     public class RepeatableIcon : MonoBehaviour
     {
         public GameObject IconPrefab;
+        public bool DeactivateOnEmpty = true;
 
         protected List<GameObject> m_Icons;
 
@@ -15,7 +16,7 @@ namespace MS.Controllers.UI
             {
                 this.gameObject.SetActive(true);
             }
-            else
+            else if (DeactivateOnEmpty)
             {
                 this.gameObject.SetActive(false);
             }
@@ -52,7 +53,7 @@ namespace MS.Controllers.UI
             }
         }
 
-        protected void Start()
+        protected void Awake()
         {
             m_Icons = new List<GameObject>();
         }

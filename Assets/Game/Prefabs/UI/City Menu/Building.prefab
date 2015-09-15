@@ -210,6 +210,8 @@ MonoBehaviour:
   Image: {fileID: 11406360}
   FarmSprite: {fileID: 21300000, guid: 47a35e92d34fd4645aa77fd9d30e5c83, type: 3}
   TownHallSprite: {fileID: 21300000, guid: 39ee0943a0d57664d9548253aa5bcdd2, type: 3}
+  BarracksSprite: {fileID: 21300000, guid: 3be10c1132caba4419ce6ec71a65c894, type: 3}
+  AquaductSprite: {fileID: 21300000, guid: 21f76faca2fe2084483ba407f54a823b, type: 3}
 --- !u!222 &22230150
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -329,7 +331,17 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: AquaductSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 21f76faca2fe2084483ba407f54a823b,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: BarracksSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3be10c1132caba4419ce6ec71a65c894,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101764}

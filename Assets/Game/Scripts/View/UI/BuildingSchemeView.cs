@@ -16,8 +16,10 @@ namespace MS.Views.UI
         public DoubleClickButton    BuildButton;
 
         // Images for each building
-        public Sprite                FarmImage;
-        public Sprite                TownHallImage;
+        public Sprite               FarmImage;
+        public Sprite               TownHallImage;
+        public Sprite               BarracksSprite;
+        public Sprite               AquaductSprite;
 
         // Events
         public Events.BuildingEvent OnBuild         =   Events.DefaultAction;
@@ -47,6 +49,14 @@ namespace MS.Views.UI
             else if (element is Farm)
             {
                 image = FarmImage;
+            }
+            else if (element is Barracks)
+            {
+                image = BarracksSprite;
+            }
+            else if (element is Aquaduct)
+            {
+                image = AquaductSprite;
             }
 
             return image;

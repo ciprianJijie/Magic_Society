@@ -9,10 +9,23 @@ namespace MS.Controllers.UI
         public BuildingSchemeController BuildingSchemeController;
         public BuildingController       BuildingController;
         public GameInputManager         InputManager;
+        public RepeatableIcon           FoodWorkersArea;
+        public RepeatableIcon           ProductionWorkersArea;
+        public RepeatableIcon           GoldWorkersArea;
+        public RepeatableIcon           ResearchWorkersArea;
+        public Text                     FoodAmountLabel;
+        public Text                     ProductionAmountLabel;
+        public Text                     GoldAmountLabel;
+        public Text                     ResearchAmountLabel;
 
         // Events
         public MS.Events.BuildingEvent OnBuildingButtonHover    =   MS.Events.DefaultAction;
         public MS.Events.Event OnBuildingButtonHoverEnds        =   MS.Events.DefaultAction;
+
+        protected Model.ResourceAdvancedAmount m_FoodEstimatedRecollection;
+        protected Model.ResourceAdvancedAmount m_ProductionEstimatedRecollection;
+        protected Model.ResourceAdvancedAmount m_GoldEstimatedCollection;
+        protected Model.ResourceAdvancedAmount m_ResearchEstimatedCollection;
 
         public void Show(Model.City city)
         {
@@ -36,6 +49,8 @@ namespace MS.Controllers.UI
                     view.UpdateView(building);
                 }                
             }
+
+            UpdateRecollectionArea(city);
         }
 
         public void Hide()
@@ -46,15 +61,32 @@ namespace MS.Controllers.UI
             BuildingController.ClearViews();
         }
 
+        public void UpdateRecollectionArea(Model.City city)
+        {
+            FoodWorkersArea.UpdateIcons(city.FoodWorkers);
+            ProductionWorkersArea.UpdateIcons(city.ProductionWorkers);
+            GoldWorkersArea.UpdateIcons(city.GoldWorkers);
+            ResearchWorkersArea.UpdateIcons(city.ResearchWorkers);
+
+            // Calculate amount recollected
+            m_FoodEstimatedRecollection         =   city.CollectFood();
+            m_ProductionEstimatedRecollection   =   city.CollectProduction();
+            m_GoldEstimatedCollection           =   city.CollectGold();
+            m_ResearchEstimatedCollection       =   city.CollectResearch();
+
+            FoodAmountLabel.text = m_FoodEstimatedRecollection.GetTotalAmount().ToString();
+            ProductionAmountLabel.text = m_ProductionEstimatedRecollection.GetTotalAmount().ToString();
+            GoldAmountLabel.text = m_GoldEstimatedCollection.GetTotalAmount().ToString();
+            ResearchAmountLabel.text = m_ResearchEstimatedCollection.GetTotalAmount().ToString();
+        }
+
         protected void OnBuildingButtonHoverEvent(Model.Kingdom.Building building)
         {
-            UnityEngine.Debug.Log("MOUSE IN!");
             OnBuildingButtonHover(building);
         }
 
         protected void OnBuildingButtonHoverEndsEvent()
         {
-            UnityEngine.Debug.Log("MOUSE OUT!");
             OnBuildingButtonHoverEnds();
         }
 

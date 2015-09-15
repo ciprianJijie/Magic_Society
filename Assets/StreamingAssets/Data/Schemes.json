@@ -18,7 +18,27 @@
       "production_cost": 25,
       "requires":
       [
-        
+
+      ]
+    },
+    {
+      "name": "BUILDING_BARRACKS",
+      "description": "BUILDING_BARRACKS_DESCRIPTION",
+      "gold_cost": 50,
+      "production_cost": 40,
+      "requires":
+      [
+
+      ]
+    },
+    {
+      "name": "BUILDING_AQUADUCT",
+      "description": "BUILDING_AQUADUCT_DESCRIPTION",
+      "gold_cost": 100,
+      "production_cost": 60,
+      "requires":
+      [
+
       ]
     }
   ]

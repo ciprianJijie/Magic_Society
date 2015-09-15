@@ -12,11 +12,7 @@ namespace MS.Model.Kingdom
         public Building()
         {
 
-        }
-
-        public abstract void Use();
-        public abstract void OnRecollection();
-        public abstract void OnUpkeep(); 
+        } 
 
         public override void FromJSON(JSONNode json)
         {
@@ -66,6 +62,14 @@ namespace MS.Model.Kingdom
                 else if (name == "BUILDING_FARM")
                 {
                     return new Farm();
+                }
+                else if (name == "BUILDING_BARRACKS")
+                {
+                    return new Barracks();
+                }
+                else if (name == "BUILDING_AQUADUCT")
+                {
+                    return new Aquaduct();
                 }
                 else
                 {
