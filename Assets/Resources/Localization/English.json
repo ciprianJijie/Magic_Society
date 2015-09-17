@@ -67,7 +67,11 @@
             "Text": "Volcanic Tile"
         },
         {
-          "ID": "From",
+            "ID": "MAP_ELEMENT_FOREST",
+            "Text": "Forest"
+        },
+        {
+          "ID": "FROM",
           "Text": "from"
         },
         {

@@ -66,7 +66,7 @@ namespace MS.Model
         {
             MapElement element;
 
-            if (name == "Forest")
+            if (name == "MAP_ELEMENT_FOREST")
             {
                 element = new Forest();
             }

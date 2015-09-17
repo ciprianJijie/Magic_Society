@@ -67,6 +67,10 @@
             "Text": "casilla Volcánica"
         },
         {
+            "ID": "MAP_ELEMENT_FOREST",
+            "Text": "Bosque"
+        },
+        {
           "ID": "FROM",
           "Text": "por"
         },
