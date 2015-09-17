@@ -312,7 +312,7 @@ namespace MS.Model
             if (FoodWorkers > 0)
             {
                 amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
-            }            
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -324,6 +324,20 @@ namespace MS.Model
                 {
                     amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), building));
                 }
+            }
+
+            foreach (Vector2 tilePosition in m_TilesUnderControl)
+            {
+                Tile tile;
+				IResourceCollector collector;
+
+				tile = Game.Instance.Map.Grid.GetTile(tilePosition);
+				collector = tile as IResourceCollector;
+
+				if (collector != null)
+				{
+					amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), tile));
+				}
             }
 
             return amount;
@@ -338,7 +352,7 @@ namespace MS.Model
             if (ProductionWorkers > 0)
             {
                 amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
-            }            
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -364,7 +378,7 @@ namespace MS.Model
             if (GoldWorkers > 0)
             {
                 amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
-            }            
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -390,7 +404,7 @@ namespace MS.Model
             if (ResearchWorkers > 0)
             {
                 amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
-            }            
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -421,7 +435,7 @@ namespace MS.Model
 
                 m_TilesUnderControl.Add(tile);
             }
-            
+
             if (json["building_queue"] != null)
             {
                 m_BuildingQueue.City = this;

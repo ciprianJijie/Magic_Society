@@ -47,6 +47,26 @@
             "Text": "Investigación"
         },
         {
+            "ID": "TILE_FERTILE",
+            "Text": "casilla Fertil"
+        },
+        {
+            "ID": "TILE_BARREN",
+            "Text": "casilla con Páramo"
+        },
+        {
+            "ID": "TILE_DESERT",
+            "Text": "casilla con Desierto"
+        },
+        {
+            "ID": "TILE_FROZEN",
+            "Text": "casilla con Nieve"
+        },
+        {
+            "ID": "TILE_VOLCANIC",
+            "Text": "casilla Volcánica"
+        },
+        {
           "ID": "FROM",
           "Text": "por"
         },

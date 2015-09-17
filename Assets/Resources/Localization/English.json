@@ -47,6 +47,26 @@
             "Text": "Research"
         },
         {
+            "ID": "TILE_FERTILE",
+            "Text": "Fertile Tile"
+        },
+        {
+            "ID": "TILE_BARREN",
+            "Text": "Barren Tile"
+        },
+        {
+            "ID": "TILE_DESERT",
+            "Text": "Desert Tile"
+        },
+        {
+            "ID": "TILE_FROZEN",
+            "Text": "Frozen Tile"
+        },
+        {
+            "ID": "TILE_VOLCANIC",
+            "Text": "Volcanic Tile"
+        },
+        {
           "ID": "From",
           "Text": "from"
         },
