@@ -7,58 +7,41 @@ namespace MS.Managers.UI
     public class TileInformationManager : MonoBehaviour
     {
         public GameInputManager InputManager;
-
-        public Text                             NameLabel;
-
-        public MS.Controllers.UI.RepeatableIcon FoodIcons;
-        public MS.Controllers.UI.RepeatableIcon ProductionIcons;
-        public MS.Controllers.UI.RepeatableIcon GoldIcons;
-        public MS.Controllers.UI.RepeatableIcon ResearchIcons;
+        public Controllers.UI.ResourceAmountController ResourceAmountController;
 
         private float width;
         private float height;
 
         public void UpdateInfo(int x, int y)
         {
-            int                     food;
-            int                     production;
-            int                     gold;
-            int                     research;
-            string                  name;
-            MS.Model.MapElement     element;
+            Model.Tile tile;
+            Model.ResourceAdvancedAmount amount;
 
-            food        =   GameController.Instance.Game.Resources.CalculateFoodGeneration(x, y);
-            production  =   GameController.Instance.Game.Resources.CalculateProductionGeneration(x, y);
-            gold        =   GameController.Instance.Game.Resources.CalculateGoldGeneration(x, y);
-            research    =   GameController.Instance.Game.Resources.CalculateResearchGeneration(x, y);
-            element     =   GameController.Instance.Game.Map.Grid.GetElement(x, y);
-            name        =   GameController.Instance.Game.Map.Grid.GetTile(x, y).TerrainType.ToString();
+            tile = Game.Instance.Map.Grid.GetTile(x, y);
+            amount = new MS.Model.ResourceAdvancedAmount();
 
-            if (element != null)
+            foreach (var collected in tile.Collect())
             {
-                name += " + " + element.Name;
+                amount.AddAmount(collected);
             }
-
-            FoodIcons.UpdateIcons(food);
-            ProductionIcons.UpdateIcons(production);
-            GoldIcons.UpdateIcons(gold);
-            ResearchIcons.UpdateIcons(research);
-
-            NameLabel.text = name;
-
-            Show();
+            ResourceAmountController.ClearViews();
+            ResourceAmountController.Show(amount);
         }
 
-        public void Show()
+        public void Hide()
         {
-            this.gameObject.SetActive(true);
+            ResourceAmountController.ClearViews();
+            ResourceAmountController.Hide();
+        }
 
+        protected Vector2 CalculatePosition()
+        {
             Vector2 mousePosition;
             Vector2 offset;
             RectTransform rect;
 
             mousePosition   =   Input.mousePosition;
-            rect            =   this.gameObject.GetComponent<RectTransform>();
+            rect            =   ResourceAmountController.Holder.gameObject.GetComponent<RectTransform>();
             width           =   Mathf.Abs(rect.rect.width);
             height          =   Mathf.Abs(rect.rect.height);
 
@@ -80,12 +63,7 @@ namespace MS.Managers.UI
                 offset.y = - height - 6f;
             }
 
-            rect.anchoredPosition = new Vector2(mousePosition.x + offset.x, mousePosition.y + offset.y);
-        }
-
-        public void Hide()
-        {
-            this.gameObject.SetActive(false);
+            return new Vector2(mousePosition.x + offset.x, mousePosition.y + offset.y);
         }
 
         protected void Start()

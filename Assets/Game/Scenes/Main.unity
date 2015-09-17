@@ -1482,9 +1482,9 @@ RectTransform:
   - {fileID: 96032128}
   m_Father: {fileID: 1833675786}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -19.1499996}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: .5}
 --- !u!114 &601517920
@@ -6500,11 +6500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputManager: {fileID: 951349979}
-  NameLabel: {fileID: 1517386919}
-  FoodIcons: {fileID: 1515120643}
-  ProductionIcons: {fileID: 1599655340}
-  GoldIcons: {fileID: 1203262834}
-  ResearchIcons: {fileID: 2004897088}
+  ResourceAmountController: {fileID: 1982859248}
 --- !u!1 &2076422848
 GameObject:
   m_ObjectHideFlags: 0
