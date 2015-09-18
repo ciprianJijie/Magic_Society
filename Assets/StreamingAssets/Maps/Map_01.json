@@ -6243,7 +6243,7 @@
          {
             "x" : "0",
             "y" : "29",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "1",
@@ -6258,7 +6258,7 @@
          {
             "x" : "1",
             "y" : "4",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "1",
@@ -6439,7 +6439,7 @@
          {
             "x" : "3",
             "y" : "12",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "3",
@@ -6464,7 +6464,7 @@
          {
             "x" : "3",
             "y" : "26",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "3",
@@ -6574,7 +6574,7 @@
          {
             "x" : "6",
             "y" : "30",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "7",
@@ -6795,7 +6795,7 @@
          {
             "x" : "11",
             "y" : "25",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "11",
@@ -6835,7 +6835,7 @@
          {
             "x" : "12",
             "y" : "20",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "13",
@@ -6850,7 +6850,7 @@
          {
             "x" : "13",
             "y" : "3",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "13",
@@ -6875,7 +6875,7 @@
          {
             "x" : "13",
             "y" : "27",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "13",
@@ -6915,7 +6915,7 @@
          {
             "x" : "15",
             "y" : "15",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "15",
@@ -6945,7 +6945,7 @@
          {
             "x" : "16",
             "y" : "24",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "16",
@@ -6970,12 +6970,12 @@
          {
             "x" : "17",
             "y" : "6",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "17",
             "y" : "16",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "17",
@@ -6985,7 +6985,7 @@
          {
             "x" : "17",
             "y" : "25",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "17",
@@ -7005,7 +7005,7 @@
          {
             "x" : "18",
             "y" : "30",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "19",
@@ -7020,7 +7020,7 @@
          {
             "x" : "19",
             "y" : "5",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "20",
@@ -7035,7 +7035,7 @@
          {
             "x" : "21",
             "y" : "2",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "21",
@@ -7076,7 +7076,7 @@
          {
             "x" : "22",
             "y" : "10",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "22",
@@ -7086,7 +7086,7 @@
          {
             "x" : "22",
             "y" : "19",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "22",
@@ -7211,7 +7211,7 @@
          {
             "x" : "27",
             "y" : "0",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "27",
@@ -7221,7 +7221,7 @@
          {
             "x" : "27",
             "y" : "11",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "27",
@@ -7231,7 +7231,7 @@
          {
             "x" : "28",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "28",
@@ -7251,7 +7251,7 @@
          {
             "x" : "29",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "29",
@@ -7271,7 +7271,7 @@
          {
             "x" : "29",
             "y" : "26",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "29",
@@ -7291,7 +7291,7 @@
          {
             "x" : "30",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "30",
@@ -7381,7 +7381,7 @@
          {
             "x" : "31",
             "y" : "27",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          }
       ]
    }

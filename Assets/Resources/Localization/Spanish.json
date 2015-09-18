@@ -71,6 +71,14 @@
             "Text": "Bosque"
         },
         {
+            "ID": "MAP_ELEMENT_STONE_DEPOSITS",
+            "Text": "Cantera de Piedra"
+        },
+        {
+            "ID": "MAP_ELEMENT_GOLD_DEPOSITS",
+            "Text": "Yacimiento de Oro"
+        },
+        {
           "ID": "FROM",
           "Text": "por"
         },
