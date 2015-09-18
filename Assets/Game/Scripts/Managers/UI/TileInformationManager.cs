@@ -24,7 +24,7 @@ namespace MS.Managers.UI
                 amount.AddAmount(collected);
             }
 
-            if (mapElement != null)
+            if (mapElement != null && (mapElement is Model.City == false))
             {
                 IResourceCollector collector;
 
