@@ -9,6 +9,7 @@ namespace MS.Controllers.UI
         public BuildingSchemeController BuildingSchemeController;
         public BuildingController       BuildingController;
         public ResourceAmountController ResourceAmountController;
+        public BuildingQueueController  BuildingQueueController;
         public GameInputManager         InputManager;
         public RepeatableIcon           FoodWorkersArea;
         public RepeatableIcon           ProductionWorkersArea;
@@ -34,7 +35,8 @@ namespace MS.Controllers.UI
 
             foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
             {
-                if (city.Has(building) == false)
+                if (city.Has(building) == false &&
+                    city.BuildingQueue.IsProducing(building) == false)
                 {
                     var view = BuildingSchemeController.CreateView(building);
                     view.UpdateView(building);
@@ -44,7 +46,7 @@ namespace MS.Controllers.UI
                     schemeView.OnBuildingHoverEnds  +=  OnBuildingButtonHoverEndsEvent;
                     schemeView.OnDestroyed          +=  OnSchemeViewDestroyed;
                 }
-                else
+                else if (city.Has(building))
                 {
                     var view = BuildingController.CreateView(building);
                     view.UpdateView(building);
@@ -52,6 +54,8 @@ namespace MS.Controllers.UI
             }
 
             UpdateRecollectionArea(city);
+
+            BuildingQueueController.Show(city.BuildingQueue);
         }
 
         public void Hide()
@@ -60,6 +64,7 @@ namespace MS.Controllers.UI
 
             BuildingSchemeController.ClearViews();
             BuildingController.ClearViews();
+            BuildingQueueController.Hide();
         }
 
         public void UpdateRecollectionArea(Model.City city)

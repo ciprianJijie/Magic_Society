@@ -88,6 +88,9 @@ namespace MS.Model
             GrowPopulation(1);
 
             Build("BUILDING_TOWNHALL");
+
+            // Subscribe to events
+            m_BuildingQueue.OnBuildingCompleted += Build;
         }
 
         public int CalculateFoodForNextPopulationUnit(int currentPopulation)
@@ -231,7 +234,12 @@ namespace MS.Model
             m_ProductionCollected.Clear();
         }
 
-        public Kingdom.Building Build(string type)
+        public void Build(Kingdom.Building scheme)
+        {
+            Build(scheme.Name);
+        }
+
+        public void Build(string type)
         {
             Kingdom.Building building;
 
@@ -240,8 +248,6 @@ namespace MS.Model
             building.City   =   this;
 
             m_Buildings.Add(building);
-
-            return building;
         }
 
         public bool Has(Kingdom.Building building)

@@ -23,6 +23,7 @@ public class DoubleClickButton : MonoBehaviour
         if (m_Clicks > 1)
         {
             // TODO: Trigger event
+            OnDoubleClick();
             m_Clicks = 0;
         }
         else if (m_TimeSinceLastClick - Time.time > 0.3f)
