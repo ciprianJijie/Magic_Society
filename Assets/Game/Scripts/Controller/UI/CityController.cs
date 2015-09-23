@@ -5,20 +5,21 @@ namespace MS.Controllers.UI
 {
     public class CityController : MonoBehaviour
     {
-        public GameObject               CityMenu;
-        public BuildingSchemeController BuildingSchemeController;
-        public BuildingController       BuildingController;
-        public ResourceAmountController ResourceAmountController;
-        public BuildingQueueController  BuildingQueueController;
-        public GameInputManager         InputManager;
-        public RepeatableIcon           FoodWorkersArea;
-        public RepeatableIcon           ProductionWorkersArea;
-        public RepeatableIcon           GoldWorkersArea;
-        public RepeatableIcon           ResearchWorkersArea;
-        public Text                     FoodAmountLabel;
-        public Text                     ProductionAmountLabel;
-        public Text                     GoldAmountLabel;
-        public Text                     ResearchAmountLabel;
+        public GameObject                           CityMenu;
+        public BuildingSchemeController             BuildingSchemeController;
+        public BuildingController                   BuildingController;
+        public ResourceAmountController             ResourceAmountController;
+        public BuildingQueueController              BuildingQueueController;
+        public Managers.UI.BuildingPanelManager     BuildingPanelManager;
+        public GameInputManager                     InputManager;
+        public RepeatableIcon                       FoodWorkersArea;
+        public RepeatableIcon                       ProductionWorkersArea;
+        public RepeatableIcon                       GoldWorkersArea;
+        public RepeatableIcon                       ResearchWorkersArea;
+        public Text                                 FoodAmountLabel;
+        public Text                                 ProductionAmountLabel;
+        public Text                                 GoldAmountLabel;
+        public Text                                 ResearchAmountLabel;
 
         // Events
         public MS.Events.BuildingEvent OnBuildingButtonHover    =   MS.Events.DefaultAction;
@@ -47,6 +48,8 @@ namespace MS.Controllers.UI
             BuildingSchemeController.ClearViews();
             BuildingController.ClearViews();
             BuildingQueueController.Hide();
+
+            ResourceAmountController.Hide();
         }
 
         public void UpdateRecollectionArea(Model.City city)
@@ -86,6 +89,7 @@ namespace MS.Controllers.UI
                     schemeView.OnDestroyed += OnSchemeViewDestroyed;
                 }
             }
+            ResourceAmountController.Hide();
         }
 
         public void UpdateBuildingsList(Model.City city)
@@ -99,6 +103,7 @@ namespace MS.Controllers.UI
                     view.UpdateView(building);
                 }
             }
+            ResourceAmountController.Hide();
         }
 
         // UI Events
@@ -155,7 +160,8 @@ namespace MS.Controllers.UI
             InputManager.OnCitySelected += Show;
             InputManager.OnCityDeselected += Hide;
 
-            Hide();
+            //Hide();
+            CityMenu.SetActive(false);
         }
 
         protected void OnDestroy()

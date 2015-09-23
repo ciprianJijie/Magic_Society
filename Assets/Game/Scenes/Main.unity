@@ -1592,9 +1592,9 @@ RectTransform:
   - {fileID: 96032128}
   m_Father: {fileID: 1833675786}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -19.1499996}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: .5}
 --- !u!114 &601517920
@@ -2137,6 +2137,7 @@ MonoBehaviour:
   BuildingController: {fileID: 2118732000}
   ResourceAmountController: {fileID: 1982859248}
   BuildingQueueController: {fileID: 505703299}
+  BuildingPanelManager: {fileID: 1475827746}
   InputManager: {fileID: 951349979}
   FoodWorkersArea: {fileID: 1263393910}
   ProductionWorkersArea: {fileID: 1509503727}

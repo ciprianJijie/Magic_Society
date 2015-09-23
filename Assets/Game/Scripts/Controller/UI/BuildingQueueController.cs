@@ -15,8 +15,9 @@ namespace MS.Controllers.UI
         {
             foreach (var item in queue)
             {
-                var view = SingleItemController.CreateView(item);
+                var view = SingleItemController.CreateView(item) as Views.UI.BuildingQueueItemView;
                 view.UpdateView(item);
+                view.OnCancel += OnCancelBuilding;
             }
 
             m_Queue = queue;
@@ -36,15 +37,33 @@ namespace MS.Controllers.UI
 
             item = new MS.Model.Kingdom.BuildingQueueItem(0, scheme);
 
-            var view = SingleItemController.CreateView(item);
+            var view = SingleItemController.CreateView(item) as Views.UI.BuildingQueueItemView;
             view.UpdateView(item);
+            view.OnCancel += OnCancelBuilding;
 
             CityController.UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+            CityController.BuildingPanelManager.Hide();
+        }
+
+        protected void OnCancelBuilding(Model.Kingdom.BuildingQueueItem queueItem)
+        {
+            var view = SingleItemController.FindView(queueItem) as Views.UI.BuildingQueueItemView;
+
+            view.OnCancel -= OnCancelBuilding;
+
+            SingleItemController.DestroyView(queueItem);
+            GameController.Instance.SelectedCity.BuildingQueue.Remove(queueItem.Building.Name);
+            CityController.UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);           
         }
 
         protected void Start()
         {
             BuildingSchemeController.OnBuild += Add;
+        }
+
+        protected void OnDestroy()
+        {
+            BuildingSchemeController.OnBuild -= Add;
         }
     }
 }
