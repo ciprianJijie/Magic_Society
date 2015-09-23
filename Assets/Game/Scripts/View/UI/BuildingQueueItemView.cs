@@ -8,8 +8,6 @@ namespace MS.Views.UI
     public class BuildingQueueItemView : View<Model.Kingdom.BuildingQueueItem>
     {
         public Image            Image;
-        public LocalizedText    NameLabel;
-        public ProgressBar      ProgressBar;
         public Text             TurnsLeftLabel;
 
         public Sprite           AquaductImage;
@@ -19,19 +17,11 @@ namespace MS.Views.UI
 
         public override void UpdateView(MS.Model.Kingdom.BuildingQueueItem element)
         {
-            float   percentage;
             int     turnsLeft;
 
             Image.sprite            =   SelectSprite(element.Building);
-            NameLabel.ID            =   element.Building.Name; 
-            percentage              =   element.Production / element.Building.ProductionCost;
-            turnsLeft               =   Mathf.RoundToInt(element.ProductionUntilCompletion / GameController.Instance.SelectedCity.CollectProduction().GetTotalAmount());
-            ProgressBar.MinValue    =   0;
-            ProgressBar.MaxValue    =   element.Building.ProductionCost;
+            turnsLeft               =   Mathf.CeilToInt(element.ProductionUntilCompletion / GameController.Instance.SelectedCity.CollectProduction().GetTotalAmount());
             TurnsLeftLabel.text     =   turnsLeft.ToString();
-
-            ProgressBar.SetPercentage(percentage);
-            NameLabel.UpdateText();
         }
 
         protected Sprite SelectSprite(Model.Kingdom.Building building)
