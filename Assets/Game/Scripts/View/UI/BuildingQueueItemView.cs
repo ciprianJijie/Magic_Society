@@ -17,10 +17,14 @@ namespace MS.Views.UI
 
         public override void UpdateView(MS.Model.Kingdom.BuildingQueueItem element)
         {
+            float   d;
             int     turnsLeft;
+            int productionPerTurn;
 
             Image.sprite            =   SelectSprite(element.Building);
-            turnsLeft               =   Mathf.CeilToInt(element.ProductionUntilCompletion / GameController.Instance.SelectedCity.CollectProduction().GetTotalAmount());
+            productionPerTurn       =   GameController.Instance.SelectedCity.CollectProduction().GetTotalAmount();
+            d                       =   (float)element.ProductionUntilCompletion / (float)productionPerTurn;
+            turnsLeft               =   Mathf.CeilToInt(d);
             TurnsLeftLabel.text     =   turnsLeft.ToString();
         }
 

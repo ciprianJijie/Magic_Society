@@ -70,7 +70,6 @@ namespace MS.Controllers.UI
 
         public void UpdateBuildingSchemesArea(Model.City city)
         {
-            UnityEngine.Debug.Log("Updating Building Schemes");
             foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
             {
                 BuildingSchemeController.DestroyView(building);

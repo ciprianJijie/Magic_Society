@@ -250,8 +250,6 @@ namespace MS.Model
             building.City   =   this;
 
             m_Buildings.Add(building);
-
-            UnityEngine.Debug.Log("Built " + building.Name);
         }
 
         public void BuildDelayed(Kingdom.Building scheme)
@@ -261,7 +259,6 @@ namespace MS.Model
 
         public void BuildDelayed(string type)
         {
-            UnityEngine.Debug.Log("Putting " + type + " into delayed");
             Kingdom.Building building;
 
             building = Kingdom.Building.Factory.Create(type);
