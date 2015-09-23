@@ -33,26 +33,8 @@ namespace MS.Controllers.UI
         {
             CityMenu.SetActive(true);
 
-            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
-            {
-                if (city.Has(building) == false &&
-                    city.BuildingQueue.IsProducing(building) == false)
-                {
-                    var view = BuildingSchemeController.CreateView(building);
-                    view.UpdateView(building);
-
-                    var schemeView = view as Views.UI.BuildingSchemeView;
-                    schemeView.OnBuildingHover      +=  OnBuildingButtonHoverEvent;
-                    schemeView.OnBuildingHoverEnds  +=  OnBuildingButtonHoverEndsEvent;
-                    schemeView.OnDestroyed          +=  OnSchemeViewDestroyed;
-                }
-                else if (city.Has(building))
-                {
-                    var view = BuildingController.CreateView(building);
-                    view.UpdateView(building);
-                }                
-            }
-
+            UpdateBuildingSchemesArea(city);
+            UpdateBuildingsList(city);
             UpdateRecollectionArea(city);
 
             BuildingQueueController.Show(city.BuildingQueue);
@@ -84,6 +66,40 @@ namespace MS.Controllers.UI
             ProductionAmountLabel.text  =   m_ProductionEstimatedRecollection.GetTotalAmount().ToString();
             GoldAmountLabel.text        =   m_GoldEstimatedCollection.GetTotalAmount().ToString();
             ResearchAmountLabel.text    =   m_ResearchEstimatedCollection.GetTotalAmount().ToString();
+        }
+
+        public void UpdateBuildingSchemesArea(Model.City city)
+        {
+            UnityEngine.Debug.Log("Updating Building Schemes");
+            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
+            {
+                BuildingSchemeController.DestroyView(building);
+
+                if (city.Has(building) == false &&
+                    city.BuildingQueue.IsProducing(building) == false)
+                {
+                    var view = BuildingSchemeController.CreateView(building);
+                    view.UpdateView(building);
+
+                    var schemeView = view as Views.UI.BuildingSchemeView;
+                    schemeView.OnBuildingHover += OnBuildingButtonHoverEvent;
+                    schemeView.OnBuildingHoverEnds += OnBuildingButtonHoverEndsEvent;
+                    schemeView.OnDestroyed += OnSchemeViewDestroyed;
+                }
+            }
+        }
+
+        public void UpdateBuildingsList(Model.City city)
+        {
+            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
+            {
+                if (city.Has(building))
+                {
+                    BuildingController.DestroyView(building);
+                    var view = BuildingController.CreateView(building);
+                    view.UpdateView(building);
+                }
+            }
         }
 
         // UI Events
@@ -128,9 +144,7 @@ namespace MS.Controllers.UI
 
             view.OnBuildingHover -= OnBuildingButtonHoverEvent;
             view.OnBuildingHoverEnds -= OnBuildingButtonHoverEndsEvent;
-        }
-
-        
+        }        
 
         protected void Start()
         {
@@ -138,6 +152,7 @@ namespace MS.Controllers.UI
             {
                 UnityEngine.Debug.LogWarning("Input is nos assigned for " + this);
             }
+
             InputManager.OnCitySelected += Show;
             InputManager.OnCityDeselected += Hide;
 

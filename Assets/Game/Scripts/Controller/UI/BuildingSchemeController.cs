@@ -23,7 +23,6 @@ namespace MS.Controllers.UI
 
         protected void OnBuildEvent(Model.Kingdom.Building scheme)
         {
-            UnityEngine.Debug.Log("Detected Build event on Scheme Controller");
             OnBuild(scheme);
         }
     }

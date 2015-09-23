@@ -25,6 +25,7 @@ namespace MS.Model
         public Events.CityEvent OnPopulationGrow    =   Events.DefaultAction;
         public Events.CityEvent OnPopulationDecrese =   Events.DefaultAction;
 
+        // Elements of City
         protected int m_Population;
         protected int m_FoodStored;
         protected List<Vector2> m_TilesUnderControl;
@@ -32,6 +33,7 @@ namespace MS.Model
         protected Kingdom.BuildingQueue m_BuildingQueue;
 
         protected List<MS.Model.Kingdom.Building> m_Buildings;
+        protected Kingdom.Building m_DelayedBuilding;
 
         // Resources
         protected ResourceAdvancedAmount m_FoodCollected;
@@ -90,7 +92,7 @@ namespace MS.Model
             Build("BUILDING_TOWNHALL");
 
             // Subscribe to events
-            m_BuildingQueue.OnBuildingCompleted += Build;
+            m_BuildingQueue.OnBuildingCompleted     +=  BuildDelayed;
         }
 
         public int CalculateFoodForNextPopulationUnit(int currentPopulation)
@@ -248,6 +250,34 @@ namespace MS.Model
             building.City   =   this;
 
             m_Buildings.Add(building);
+
+            UnityEngine.Debug.Log("Built " + building.Name);
+        }
+
+        public void BuildDelayed(Kingdom.Building scheme)
+        {
+            BuildDelayed(scheme.Name);
+        }
+
+        public void BuildDelayed(string type)
+        {
+            UnityEngine.Debug.Log("Putting " + type + " into delayed");
+            Kingdom.Building building;
+
+            building = Kingdom.Building.Factory.Create(type);
+            building.Owner = Owner;
+            building.City = this;
+
+            m_DelayedBuilding = building;
+        }
+
+        public void BuildCompletedBuilding()
+        {
+            if (m_DelayedBuilding != null)
+            {
+                Build(m_DelayedBuilding);
+                m_DelayedBuilding = null;
+            }
         }
 
         public bool Has(Kingdom.Building building)

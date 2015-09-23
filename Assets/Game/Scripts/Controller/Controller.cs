@@ -71,6 +71,7 @@ namespace MS
             if (viewObj != null)
             {
                 Destroy(viewObj.Object);
+                m_Views.Remove(viewObj as T);
             }
         }
 

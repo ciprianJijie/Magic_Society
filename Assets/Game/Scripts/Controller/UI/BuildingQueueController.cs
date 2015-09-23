@@ -7,6 +7,7 @@ namespace MS.Controllers.UI
     {
         public BuildingQueueItemController  SingleItemController;
         public BuildingSchemeController     BuildingSchemeController;
+        public CityController               CityController;
 
         protected Model.Kingdom.BuildingQueue m_Queue;
 
@@ -37,6 +38,8 @@ namespace MS.Controllers.UI
 
             var view = SingleItemController.CreateView(item);
             view.UpdateView(item);
+
+            CityController.UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
         }
 
         protected void Start()
