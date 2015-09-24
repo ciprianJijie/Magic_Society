@@ -14,6 +14,7 @@ namespace MS.Model.Kingdom
         public TownHall()
         {
             Name = "BUILDING_TOWNHALL";
+            Description = "BUILDING_TOWNHALL_DESCRIPTION";
         }
 
         public IEnumerable<ResourceAmount> Collect()

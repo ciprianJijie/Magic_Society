@@ -25,6 +25,7 @@ namespace MS.Model
         public Events.CityEvent OnPopulationGrow    =   Events.DefaultAction;
         public Events.CityEvent OnPopulationDecrese =   Events.DefaultAction;
 
+        // Elements of City
         protected int m_Population;
         protected int m_FoodStored;
         protected List<Vector2> m_TilesUnderControl;
@@ -32,6 +33,7 @@ namespace MS.Model
         protected Kingdom.BuildingQueue m_BuildingQueue;
 
         protected List<MS.Model.Kingdom.Building> m_Buildings;
+        protected Kingdom.Building m_DelayedBuilding;
 
         // Resources
         protected ResourceAdvancedAmount m_FoodCollected;
@@ -74,6 +76,14 @@ namespace MS.Model
             }
         }
 
+        public int AvailableWorkers
+        {
+            get
+            {
+                return Population - FoodWorkers - ProductionWorkers - GoldWorkers - ResearchWorkers;
+            }
+        }
+
         public City()
         {
             m_FoodStored            =   0;
@@ -88,6 +98,9 @@ namespace MS.Model
             GrowPopulation(1);
 
             Build("BUILDING_TOWNHALL");
+
+            // Subscribe to events
+            m_BuildingQueue.OnBuildingCompleted     +=  BuildDelayed;
         }
 
         public int CalculateFoodForNextPopulationUnit(int currentPopulation)
@@ -231,7 +244,12 @@ namespace MS.Model
             m_ProductionCollected.Clear();
         }
 
-        public Kingdom.Building Build(string type)
+        public void Build(Kingdom.Building scheme)
+        {
+            Build(scheme.Name);
+        }
+
+        public void Build(string type)
         {
             Kingdom.Building building;
 
@@ -240,8 +258,31 @@ namespace MS.Model
             building.City   =   this;
 
             m_Buildings.Add(building);
+        }
 
-            return building;
+        public void BuildDelayed(Kingdom.Building scheme)
+        {
+            BuildDelayed(scheme.Name);
+        }
+
+        public void BuildDelayed(string type)
+        {
+            Kingdom.Building building;
+
+            building = Kingdom.Building.Factory.Create(type);
+            building.Owner = Owner;
+            building.City = this;
+
+            m_DelayedBuilding = building;
+        }
+
+        public void BuildCompletedBuilding()
+        {
+            if (m_DelayedBuilding != null)
+            {
+                Build(m_DelayedBuilding);
+                m_DelayedBuilding = null;
+            }
         }
 
         public bool Has(Kingdom.Building building)
@@ -309,7 +350,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
+            if (FoodWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this));
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -323,6 +367,20 @@ namespace MS.Model
                 }
             }
 
+            foreach (Vector2 tilePosition in m_TilesUnderControl)
+            {
+                Tile tile;
+				IResourceCollector collector;
+
+				tile = Game.Instance.Map.Grid.GetTile(tilePosition);
+				collector = tile as IResourceCollector;
+
+				if (collector != null)
+				{
+					amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), tile));
+				}
+            }
+
             return amount;
         }
 
@@ -332,7 +390,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
+            if (ProductionWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this));
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -355,7 +416,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
+            if (GoldWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this));
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -378,7 +442,10 @@ namespace MS.Model
 
             amount = new ResourceAdvancedAmount();
 
-            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
+            if (ResearchWorkers > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this));
+            }
 
             foreach (Kingdom.Building building in m_Buildings)
             {
@@ -409,7 +476,7 @@ namespace MS.Model
 
                 m_TilesUnderControl.Add(tile);
             }
-            
+
             if (json["building_queue"] != null)
             {
                 m_BuildingQueue.City = this;

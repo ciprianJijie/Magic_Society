@@ -73,5 +73,10 @@ namespace MS.Model.Kingdom
 
             return root;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} with {1} Production units", Building.Name, Production);
+        }
     }
 }

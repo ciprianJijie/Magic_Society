@@ -26,6 +26,7 @@ namespace MS
 
         private readonly static float   m_TimeToShowTileInformation = 1.25f;
         private float                   m_TimeHoveringTile;
+        private bool                    m_TileHoverEventSent = false;
         private Vector2                 m_LastHoveredTile;
         private bool                    m_CitySelected;
 
@@ -72,15 +73,18 @@ namespace MS
                 {
                     m_TimeHoveringTile += Time.deltaTime;
 
-                    if (m_TimeHoveringTile >= m_TimeToShowTileInformation)
+                    if (m_TimeHoveringTile >= m_TimeToShowTileInformation && m_TileHoverEventSent == false)
                     {
+                        m_TileHoverEventSent = true;
                         OnTileHover((int)m_LastHoveredTile.x, (int)m_LastHoveredTile.y);
                     }
                 }
                 else
                 {
                     m_TimeHoveringTile = 0f;
+                    m_TileHoverEventSent = false;
                     OnTileHoverEnds();
+
                 }
                 m_LastHoveredTile = MouseToGrid.LastGridPosition;
 

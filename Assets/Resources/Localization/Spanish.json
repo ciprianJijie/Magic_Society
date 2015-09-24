@@ -47,6 +47,50 @@
             "Text": "Investigación"
         },
         {
+            "ID": "TILE_FERTILE",
+            "Text": "casilla Fertil"
+        },
+        {
+            "ID": "TILE_BARREN",
+            "Text": "casilla con Páramo"
+        },
+        {
+            "ID": "TILE_DESERT",
+            "Text": "casilla con Desierto"
+        },
+        {
+            "ID": "TILE_FROZEN",
+            "Text": "casilla con Nieve"
+        },
+        {
+            "ID": "TILE_VOLCANIC",
+            "Text": "casilla Volcánica"
+        },
+        {
+            "ID": "MAP_ELEMENT_FOREST",
+            "Text": "Bosque"
+        },
+        {
+            "ID": "MAP_ELEMENT_STONE_DEPOSITS",
+            "Text": "Cantera de Piedra"
+        },
+        {
+            "ID": "MAP_ELEMENT_GOLD_DEPOSITS",
+            "Text": "Yacimiento de Oro"
+        },
+        {
+          "ID": "FROM",
+          "Text": "por"
+        },
+        {
+          "ID": "WORKERS",
+          "Text": "Trabajadores"
+        },
+        {
+          "ID": "IDLE_WORKERS",
+          "Text": "Trabajadores Libres"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Ayuntamiento"
         },

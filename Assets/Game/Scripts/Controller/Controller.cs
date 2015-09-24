@@ -71,6 +71,7 @@ namespace MS
             if (viewObj != null)
             {
                 Destroy(viewObj.Object);
+                m_Views.Remove(viewObj as T);
             }
         }
 
@@ -80,6 +81,7 @@ namespace MS
             {
                 Destroy(view.Object);
             }
+            m_Views.Clear();
         }
 
         public virtual void UpdateAllViews()

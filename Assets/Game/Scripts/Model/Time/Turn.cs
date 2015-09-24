@@ -24,17 +24,20 @@ namespace MS.Model
         public Turn(Player player)
         {
             Player              =   player;
-            m_Phases            =   new Phase[3];
+            m_Phases            =   new Phase[4];
             m_Phases[0]         =   new RecollectionPhase();
             m_Phases[1]         =   new UpkeepPhase();
-            m_Phases[2]         =   new MainPhase();
+            m_Phases[2]         =   new BuildingPhase();
+            m_Phases[3]         =   new MainPhase();
             m_Phases[0].Player  =   Player;
             m_Phases[1].Player  =   Player;
             m_Phases[2].Player  =   Player;
+            m_Phases[3].Player  =   Player;
 
             m_Phases[0].OnFinished += OnPhaseFinished;
             m_Phases[1].OnFinished += OnPhaseFinished;
             m_Phases[2].OnFinished += OnPhaseFinished;
+            m_Phases[3].OnFinished += OnPhaseFinished;
         }
 
         public void Start()

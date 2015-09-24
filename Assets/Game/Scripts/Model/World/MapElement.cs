@@ -66,15 +66,15 @@ namespace MS.Model
         {
             MapElement element;
 
-            if (name == "Forest")
+            if (name == "MAP_ELEMENT_FOREST")
             {
                 element = new Forest();
             }
-            else if (name == "Stone Deposits")
+            else if (name == "MAP_ELEMENT_STONE_DEPOSITS")
             {
                 element = new StoneDeposits();
             }
-            else if (name == "Gold Deposits")
+            else if (name == "MAP_ELEMENT_GOLD_DEPOSITS")
             {
                 element = new GoldDeposits();
             }

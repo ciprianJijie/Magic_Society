@@ -7,6 +7,10 @@ namespace MS.Model.Kingdom
 {
     public class Barracks : Building
     {
-
+        public Barracks()
+        {
+            Name = "BUILDING_BARRACKS";
+            Description = "BUILDING_BARRACKS_DESCRIPTION";
+        }
     }
 }

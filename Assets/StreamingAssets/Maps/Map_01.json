@@ -6233,139 +6233,139 @@
          {
             "x" : "0",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "0",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "0",
             "y" : "29",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "1",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "4",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "1",
             "y" : "7",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "8",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "17",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "24",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "25",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "1",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "7",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "8",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "16",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "17",
             "name" : "City",
             "owner" : "Human 01",
-            "real_name" : "Human City", 
+            "real_name" : "Human City",
             "tiles" : [
             ],
             "building_queue" : [
@@ -6374,412 +6374,412 @@
          {
             "x" : "2",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "23",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "24",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "25",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "2",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "7",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "12",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "3",
             "y" : "16",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "17",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "23",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "24",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "26",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "3",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "3",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "4",
             "y" : "9",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "4",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "4",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "9",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "19",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "20",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "5",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "19",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "20",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "6",
             "y" : "30",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "7",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "19",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "7",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "25",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "8",
             "y" : "26",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "24",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "25",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "26",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "9",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "24",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "25",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "10",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "11",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "11",
             "y" : "14",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "11",
@@ -6795,247 +6795,247 @@
          {
             "x" : "11",
             "y" : "25",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "11",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "11",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "0",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "14",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "12",
             "y" : "20",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "13",
             "y" : "0",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "3",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "13",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "6",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "27",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "13",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "13",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "14",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "14",
             "y" : "5",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "14",
             "y" : "27",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "14",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "14",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "15",
             "y" : "15",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "15",
             "y" : "27",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "15",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "15",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "15",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "16",
             "y" : "22",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "16",
             "y" : "24",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "16",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "16",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "16",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "17",
             "y" : "4",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "17",
             "y" : "6",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "17",
             "y" : "16",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "17",
             "y" : "22",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "17",
             "y" : "25",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "17",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "17",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "18",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "18",
             "y" : "30",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "19",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "19",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "19",
             "y" : "5",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "20",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "20",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "21",
             "y" : "2",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "21",
@@ -7051,337 +7051,337 @@
          {
             "x" : "21",
             "y" : "21",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "21",
             "y" : "23",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "21",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "21",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "21",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "22",
             "y" : "10",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "22",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "22",
             "y" : "19",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "22",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "22",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "22",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "22",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "23",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "10",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "11",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "21",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "22",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "27",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "24",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "25",
             "y" : "2",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "25",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "25",
             "y" : "21",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "25",
             "y" : "27",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "25",
             "y" : "28",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "26",
             "y" : "3",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "27",
             "y" : "0",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "27",
             "y" : "1",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "27",
             "y" : "11",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          },
          {
             "x" : "27",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "28",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "28",
             "y" : "17",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "28",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "28",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "29",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "17",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "23",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "26",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "29",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "29",
             "y" : "31",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "2",
-            "name" : "Gold Deposits"
+            "name" : "MAP_ELEMENT_GOLD_DEPOSITS"
          },
          {
             "x" : "30",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "16",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "21",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "22",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "23",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "29",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "30",
             "y" : "30",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "12",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "13",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "15",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "16",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "18",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "19",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "20",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "21",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "22",
-            "name" : "Forest"
+            "name" : "MAP_ELEMENT_FOREST"
          },
          {
             "x" : "31",
             "y" : "27",
-            "name" : "Stone Deposits"
+            "name" : "MAP_ELEMENT_STONE_DEPOSITS"
          }
       ]
    }

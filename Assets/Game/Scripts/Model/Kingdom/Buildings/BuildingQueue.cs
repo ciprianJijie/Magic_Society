@@ -45,6 +45,24 @@ namespace MS.Model.Kingdom
             m_Queue.RemoveAt(index);
         }
 
+        public void Remove(string buildingName)
+        {
+            int index;
+
+            index = m_Queue.IndexOf(m_Queue.Find(i => i.Building.Name == buildingName));
+
+            Remove(index);
+        }
+
+        public bool IsProducing(Kingdom.Building scheme)
+        {
+            if (m_Queue.Find( item => item.Building.Name == scheme.Name) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void AddProduction(int amount)
         {
             if (m_Queue.Count > 0)
