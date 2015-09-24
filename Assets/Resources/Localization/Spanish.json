@@ -87,6 +87,10 @@
           "Text": "Trabajadores"
         },
         {
+          "ID": "IDLE_WORKERS",
+          "Text": "Trabajadores Libres"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Ayuntamiento"
         },

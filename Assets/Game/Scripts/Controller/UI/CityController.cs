@@ -12,6 +12,7 @@ namespace MS.Controllers.UI
         public BuildingQueueController              BuildingQueueController;
         public Managers.UI.BuildingPanelManager     BuildingPanelManager;
         public GameInputManager                     InputManager;
+        public RepeatableIcon                       IdleWorkersArea;
         public RepeatableIcon                       FoodWorkersArea;
         public RepeatableIcon                       ProductionWorkersArea;
         public RepeatableIcon                       GoldWorkersArea;
@@ -20,6 +21,7 @@ namespace MS.Controllers.UI
         public Text                                 ProductionAmountLabel;
         public Text                                 GoldAmountLabel;
         public Text                                 ResearchAmountLabel;
+
 
         // Events
         public MS.Events.BuildingEvent OnBuildingButtonHover    =   MS.Events.DefaultAction;
@@ -54,11 +56,12 @@ namespace MS.Controllers.UI
 
         public void UpdateRecollectionArea(Model.City city)
         {
+            IdleWorkersArea.UpdateIcons(city.AvailableWorkers);
             FoodWorkersArea.UpdateIcons(city.FoodWorkers);
             ProductionWorkersArea.UpdateIcons(city.ProductionWorkers);
             GoldWorkersArea.UpdateIcons(city.GoldWorkers);
             ResearchWorkersArea.UpdateIcons(city.ResearchWorkers);
-
+            
             // Calculate amount recollected
             m_FoodEstimatedRecollection         =   city.CollectFood();
             m_ProductionEstimatedRecollection   =   city.CollectProduction();
@@ -104,6 +107,75 @@ namespace MS.Controllers.UI
                 }
             }
             ResourceAmountController.Hide();
+        }
+
+        public void AddWorkersToFood(int amount)
+        {
+            GameController.Instance.SelectedCity.FoodWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+        }
+
+        public void RemoveWorkersFromFood(int amount)
+        {
+            if (GameController.Instance.SelectedCity.FoodWorkers > 0)
+            {
+                GameController.Instance.SelectedCity.FoodWorkers -= amount;
+                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            }            
+        }
+
+        public void AddWorkersToProduction(int amount)
+        {
+            GameController.Instance.SelectedCity.ProductionWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+            BuildingQueueController.SingleItemController.UpdateAllViews();
+        }
+
+        public void RemoveWorkersFromProduction(int amount)
+        {
+            if (GameController.Instance.SelectedCity.ProductionWorkers > 0)
+            {
+                GameController.Instance.SelectedCity.ProductionWorkers -= amount;
+                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+                UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+                BuildingQueueController.SingleItemController.UpdateAllViews();
+            }
+        }
+
+        public void AddWorkersToGold(int amount)
+        {
+            GameController.Instance.SelectedCity.GoldWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+        }
+
+        public void RemoveWorkersFromGold(int amount)
+        {
+            if (GameController.Instance.SelectedCity.GoldWorkers > 0)
+            {
+                GameController.Instance.SelectedCity.GoldWorkers -= amount;
+                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            }
+        }
+
+        public void AddWorkersToResearch(int amount)
+        {
+            GameController.Instance.SelectedCity.ResearchWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+        }
+
+        public void RemoveWorkersFromResearch(int amount)
+        {
+            if (GameController.Instance.SelectedCity.ResearchWorkers > 0)
+            {
+                GameController.Instance.SelectedCity.ResearchWorkers -= amount;
+                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            }
+        }
+
+        protected int CalculateWorkersToAssign(int amount, int availableWorkers)
+        {
+            return amount <= availableWorkers ? amount : availableWorkers;
         }
 
         // UI Events

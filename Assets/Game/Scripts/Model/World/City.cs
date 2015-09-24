@@ -76,6 +76,14 @@ namespace MS.Model
             }
         }
 
+        public int AvailableWorkers
+        {
+            get
+            {
+                return Population - FoodWorkers - ProductionWorkers - GoldWorkers - ResearchWorkers;
+            }
+        }
+
         public City()
         {
             m_FoodStored            =   0;

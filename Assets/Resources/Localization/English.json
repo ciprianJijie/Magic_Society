@@ -87,6 +87,10 @@
           "Text": "Workers"
         },
         {
+          "ID": "IDLE_WORKERS",
+          "Text": "Idle Workers"
+        },
+        {
           "ID": "BUILDING_TOWNHALL",
           "Text": "Town Hall"
         },
