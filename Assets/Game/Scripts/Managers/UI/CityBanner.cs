@@ -1,38 +1,37 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace MS.Managers.UI
 {
     public class CityBanner : UIOverObject
     {
-        public Text         Label;
+        public Text         NameLabel;
         public ProgressBar  PopulationBar;
-        public ProgressBar  BuildingBar;
 
         public Text         PopulationLabel;
-        public Text         BuildingLabel;
+        public Text         TurnsToGrowLabel;
 
-        public void ShowPopulationBar(string text)
+        public void UpdateBanner(Model.City city)
         {
-            PopulationBar.gameObject.SetActive(true);
+            int turnsToGrow;
+            int foodToGrow;
+            int min;
+            int max;
 
-            PopulationLabel.text = text;
-        }
+            NameLabel.text          =   city.RealName;
+            PopulationLabel.text    =   city.Population.ToString();
+            foodToGrow              =   city.CalculateFoodForNextPopulationUnit(city.Population);
+            turnsToGrow             =   Mathf.CeilToInt((float)foodToGrow / (float)city.CollectFood().GetTotalAmount());
+            TurnsToGrowLabel.text   =   turnsToGrow.ToString();
+            min = 0;
+            max = foodToGrow;
 
-        public void HidePopulationBar()
-        {
-            PopulationBar.gameObject.SetActive(false);
-        }
+            UnityEngine.Debug.Log("Updating progress bar [" + min + "->" + max + "] value: " + city.Food);
 
-        public void ShowBuildingBar(string text)
-        {
-            BuildingBar.gameObject.SetActive(true);
-
-            BuildingLabel.text = text;
-        }
-
-        public void HideBuildingBar()
-        {
-            BuildingBar.gameObject.SetActive(false);
+            PopulationBar.MinValue = min;
+            PopulationBar.MaxValue = max;
+            PopulationBar.SetValue(city.Food);
+            //PopulationBar.SetPercentage((float)city.Food / (float)foodToGrow);
         }
     }
 }
