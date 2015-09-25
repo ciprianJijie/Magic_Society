@@ -1,4 +1,12 @@
-﻿using UnityEngine;using UnityEngine.UI;namespace MS.Managers.UI{    public class ProgressBar : MonoBehaviour    {        public Image    BackgroundImage;        public Image    BarImage;        public int      PaddingLeft;        public int      PaddingRight;        public int      PaddingTop;        public int      PaddingBottom;        public float    MinValue;        public float    MaxValue;        protected float m_CurrentValue;        public void SetValue(float value)
+﻿using UnityEngine;using UnityEngine.UI;namespace MS.Managers.UI{    public class ProgressBar : MonoBehaviour    {        public Image    BackgroundImage;        public Image    BarImage;        public Text     CurrentValueLabel;        public Text     MaxValueLabel;        public int      PaddingLeft;        public int      PaddingRight;        public int      PaddingTop;        public int      PaddingBottom;        [HideInInspector]        public float    MinValue;        [HideInInspector]        public float    MaxValue;        protected float m_CurrentValue;        public void UpdateProgressBar(float minValue, float maxValue, float currentValue)
+        {
+            MinValue                =   minValue;
+            MaxValue                =   maxValue;
+            MaxValueLabel.text      =   maxValue.ToString();
+            CurrentValueLabel.text  =   currentValue.ToString();
+
+            SetValue(currentValue);
+        }        public void SetValue(float value)
         {
             float alpha;
 
@@ -11,11 +19,15 @@
             Vector2 position;
             float width;
             float height;
-            
-            width       =   Mathf.Abs((BackgroundImage.rectTransform.sizeDelta.x - PaddingLeft - PaddingRight)) * percentage;
-            height      =   BackgroundImage.rectTransform.sizeDelta.y - PaddingTop - PaddingBottom;
-            position.x  =   PaddingLeft;
-            position.y  =   PaddingBottom;
+
+            //width       =   Mathf.Abs((BackgroundImage.rectTransform.sizeDelta.x - PaddingLeft - PaddingRight)) * percentage;
+            //height      =   BackgroundImage.rectTransform.sizeDelta.y - PaddingTop - PaddingBottom;
+            width       =   Mathf.Abs(BackgroundImage.rectTransform.rect.width - PaddingLeft - PaddingRight) * percentage;
+            height      =   BarImage.rectTransform.sizeDelta.y;
+            position.x  =   width / 2f + PaddingLeft;
+            position.y  =   BarImage.rectTransform.anchoredPosition.y;
+
+            UnityEngine.Debug.Log("Background Width: " + BackgroundImage.rectTransform.rect.width);
 
             BarImage.rectTransform.anchoredPosition = position;
             BarImage.rectTransform.sizeDelta = new Vector2(width, height);

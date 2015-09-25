@@ -145,6 +145,15 @@ namespace MS.Model
             //}
         }
 
+        public bool CanGrowPopulation()
+        {
+            if (m_FoodStored >= CalculateFoodForNextPopulationUnit(m_Population))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public override ResourceAdvancedAmount Collect()
         {
             ResourceAdvancedAmount amount;
@@ -180,16 +189,6 @@ namespace MS.Model
             {
                 m_FoodCollected.AddAmount(amount);
                 m_FoodStored += amount.Amount;
-
-                int foodToGrow;
-
-                foodToGrow = CalculateFoodForNextPopulationUnit(m_Population);
-
-                if (m_FoodStored >= foodToGrow)
-                {
-                    m_FoodStored = CalculateFoodConsumption(m_Population + 1);  // Enough to pay in the Upkeep and stay at 0
-                    GrowPopulation(1);
-                }
             }
             else if (amount.Resource is Production)
             {

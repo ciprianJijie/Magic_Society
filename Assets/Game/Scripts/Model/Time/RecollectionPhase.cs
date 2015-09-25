@@ -36,6 +36,12 @@ namespace MS.Model
                     city.Store(negative);
                     city.Store(positive);
                 }
+
+                if (city.CanGrowPopulation())
+                {
+                    city.GrowPopulation(1);
+                    city.Food = 0;
+                }
             }            
 
             if (Player is HumanPlayer)
