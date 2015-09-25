@@ -110,25 +110,16 @@ namespace MS.Model
 
         public int CalculateTurnsToProduce(int productionCost)
         {
-            int productionAvailable;
+            int production;
 
-            productionAvailable = 0;
+            production = CollectProduction().GetTotalAmount();
 
-            productionAvailable += ProductionWorkers * PRODUCTION_PER_WORKER;
+            return Mathf.CeilToInt((float)productionCost / (float)production);
+        }
 
-            foreach (Kingdom.Building building in m_Buildings)
-            {
-                IResourceCollector collector;
-
-                collector = building as IResourceCollector;
-
-                if (collector != null)
-                {
-                    productionAvailable += collector.CalculateEstimatedProduction();
-                }
-            }
-
-            return Mathf.RoundToInt(Mathf.Max(1.0f, productionCost / productionAvailable));
+        public int CalculateFoodConsumption(int population)
+        {
+            return Mathf.FloorToInt(population * FOOD_CONSUMPTION_PER_POPULATION);
         }
 
         public int CalculateBuyableTileCount()
@@ -138,82 +129,49 @@ namespace MS.Model
 
         public void PayUpkeepCosts()
         {
-            int foodForPeople;
+            //int foodForPeople;
 
-            foodForPeople = Mathf.RoundToInt(m_Population * FOOD_CONSUMPTION_PER_POPULATION);
+            //foodForPeople = CalculateFoodConsumption(m_Population);
 
-            if (m_FoodStored < foodForPeople)
-            {
-                m_FoodStored = CalculateFoodForNextPopulationUnit(m_Population - 1) - (foodForPeople - m_FoodStored);
+            //if (m_FoodStored < foodForPeople)
+            //{
+            //    m_FoodStored = CalculateFoodConsumption(m_Population - 1);
 
-                DecreasePopulation(1);
-            }
-            else
-            {
-                m_FoodStored = m_FoodStored - foodForPeople;
-            }
+            //    DecreasePopulation(1);
+            //}
+            //else
+            //{
+            //    m_FoodStored = m_FoodStored - foodForPeople;
+            //}
         }
 
-        public override IEnumerable<ResourceAmount> Collect()
+        public override ResourceAdvancedAmount Collect()
         {
-            List<ResourceAmount> collected = new List<ResourceAmount>();
-            ResourceAmount food;
-            ResourceAmount production;
-            ResourceAmount gold;
-            ResourceAmount research;
+            ResourceAdvancedAmount amount;
 
-            ClearCollectedCache();
+            amount = base.Collect();
 
-            foreach (var res in base.Collect())
+            foreach (ResourceAmount singleAmount in CollectFood())
             {
-                collected.Add(res);
-                Store(res);
+                amount.AddAmount(singleAmount);
             }
 
-            food        =   new ResourceAmount(Game.Instance.Resources.Food, FoodWorkers * FOOD_PER_WORKER, this);
-            production  =   new ResourceAmount(Game.Instance.Resources.Production, ProductionWorkers * PRODUCTION_PER_WORKER, this);
-            gold        =   new ResourceAmount(Game.Instance.Resources.Gold, GoldWorkers * GOLD_PER_WORKER, this);
-            research    =   new ResourceAmount(Game.Instance.Resources.Research, ResearchWorkers * RESEARCH_PER_WORKER, this);
-
-            collected.Add(food);
-            collected.Add(production);
-            collected.Add(gold);
-            collected.Add(research);
-
-            Store(food);
-            Store(production);
-            Store(gold);
-            Store(research);
-
-            // Buildings
-            foreach (Model.Kingdom.Building building in m_Buildings)
+            foreach (ResourceAmount singleAmount in CollectProduction())
             {
-                IResourceCollector collector;
-
-                collector = building as IResourceCollector;
-
-                if (collector != null)
-                {
-                    foreach (var res in collector.Collect())
-                    {
-                        collected.Add(res);
-                        Store(res);
-                    }
-                }
+                amount.AddAmount(singleAmount);
             }
 
-            // Check for population growth
-            int foodToGrow;
-
-            foodToGrow = CalculateFoodForNextPopulationUnit(m_Population);
-
-            if (m_FoodStored >= foodToGrow)
+            foreach (ResourceAmount singleAmount in CollectGold())
             {
-                m_FoodStored = Mathf.RoundToInt((m_Population + 1) * FOOD_CONSUMPTION_PER_POPULATION);  // Enough to pay in the Upkeep and stay at 0
-                GrowPopulation(1);
+                amount.AddAmount(singleAmount);
             }
 
-            return collected;
+            foreach (ResourceAmount singleAmount in CollectResearch())
+            {
+                amount.AddAmount(singleAmount);
+            }
+
+            return amount;
         }
 
         public void Store(ResourceAmount amount)
@@ -222,6 +180,16 @@ namespace MS.Model
             {
                 m_FoodCollected.AddAmount(amount);
                 m_FoodStored += amount.Amount;
+
+                int foodToGrow;
+
+                foodToGrow = CalculateFoodForNextPopulationUnit(m_Population);
+
+                if (m_FoodStored >= foodToGrow)
+                {
+                    m_FoodStored = CalculateFoodConsumption(m_Population + 1);  // Enough to pay in the Upkeep and stay at 0
+                    GrowPopulation(1);
+                }
             }
             else if (amount.Resource is Production)
             {
@@ -235,6 +203,14 @@ namespace MS.Model
             else if (amount.Resource is Research)
             {
                 Owner.Store(amount);
+            }
+        }
+
+        public void Store(ResourceAdvancedAmount amount)
+        {
+            foreach (ResourceAmount singleAmount in amount)
+            {
+                Store(singleAmount);
             }
         }
 
@@ -380,6 +356,14 @@ namespace MS.Model
 					amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), tile));
 				}
             }
+
+            // Feed the citizens
+
+            int foodForPopulation;
+
+            foodForPopulation = CalculateFoodConsumption(m_Population);
+
+            amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, -foodForPopulation, this));
 
             return amount;
         }

@@ -17,13 +17,26 @@ namespace MS.Model
 
             foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
             {
-                IResourceCollector collector = element as IResourceCollector;
+                City city;
 
-                if (collector != null)
+                city = element as City;
+
+                if (city != null)
                 {
-                    collector.Collect();
+                    ResourceAdvancedAmount collected;
+                    ResourceAdvancedAmount positive;
+                    ResourceAdvancedAmount negative;
+
+                    collected = city.Collect();
+                    positive = new ResourceAdvancedAmount();
+                    negative = new ResourceAdvancedAmount();
+
+                    collected.Split(ref positive, ref negative);
+
+                    city.Store(negative);
+                    city.Store(positive);
                 }
-            }
+            }            
 
             if (Player is HumanPlayer)
             {

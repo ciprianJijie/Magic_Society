@@ -6,8 +6,6 @@ namespace MS.Managers.UI
     public class CityBanner : UIOverObject
     {
         public Text         NameLabel;
-        public ProgressBar  PopulationBar;
-
         public Text         PopulationLabel;
         public Text         TurnsToGrowLabel;
 
@@ -15,23 +13,20 @@ namespace MS.Managers.UI
         {
             int turnsToGrow;
             int foodToGrow;
-            int min;
-            int max;
+            int foodPerTurn;
 
             NameLabel.text          =   city.RealName;
             PopulationLabel.text    =   city.Population.ToString();
             foodToGrow              =   city.CalculateFoodForNextPopulationUnit(city.Population);
-            turnsToGrow             =   Mathf.CeilToInt((float)foodToGrow / (float)city.CollectFood().GetTotalAmount());
+            foodPerTurn             =   city.CollectFood().GetTotalAmount();
+            turnsToGrow             =   Mathf.CeilToInt((float)(foodToGrow - city.Food) / (float)(foodPerTurn));
             TurnsToGrowLabel.text   =   turnsToGrow.ToString();
-            min = 0;
-            max = foodToGrow;
 
-            UnityEngine.Debug.Log("Updating progress bar [" + min + "->" + max + "] value: " + city.Food);
-
-            PopulationBar.MinValue = min;
-            PopulationBar.MaxValue = max;
-            PopulationBar.SetValue(city.Food);
-            //PopulationBar.SetPercentage((float)city.Food / (float)foodToGrow);
+            if (city.Owner is Model.HumanPlayer && Game.Instance.Turns.CurrentTurn.Player is Model.HumanPlayer)
+            {
+                //UnityEngine.Debug.Log(string.Format("Food: {0} Grow at: {1} Generates: {2}", city.Food, foodToGrow, foodPerTurn - foodConsumption));
+                UnityEngine.Debug.Log(string.Format("Stored: {0} Remaining: {1} Per Turn: {2} Turns: {3}", city.Food, foodToGrow - city.Food, foodPerTurn, turnsToGrow));
+            }            
         }
     }
 }

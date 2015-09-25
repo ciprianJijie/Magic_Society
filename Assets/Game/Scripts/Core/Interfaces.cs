@@ -36,7 +36,7 @@ namespace MS
 
     public interface IResourceCollector
     {
-        IEnumerable<MS.Model.ResourceAmount> Collect();
+        Model.ResourceAdvancedAmount Collect();
         int CalculateEstimatedFood();
         int CalculateEstimatedProduction();
         int CalculateEstimatedGold();
@@ -46,6 +46,7 @@ namespace MS
     public interface IResourceWarehouse
     {
         void Store(Model.ResourceAmount amount);
+        void Store(Model.ResourceAdvancedAmount amount);
         void ClearCollectedCache();
     }
 

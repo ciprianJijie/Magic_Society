@@ -45,6 +45,61 @@ namespace MS.Model
             return amount;
         }
 
+        public void SortByAmount()
+        {
+            m_Amounts.Sort(
+                delegate(ResourceAmount a, ResourceAmount b)
+                {
+                    return a.Amount.CompareTo(b.Amount);
+                }
+                );
+        }
+
+        public ResourceAdvancedAmount GetNegative()
+        {
+            ResourceAdvancedAmount amount = new ResourceAdvancedAmount();
+
+            foreach (ResourceAmount single in m_Amounts)
+            {
+                if (single.Amount < 0)
+                {
+                    amount.AddAmount(single);
+                }
+            }
+
+            return amount;
+        }
+
+        public ResourceAdvancedAmount GetPositive()
+        {
+            ResourceAdvancedAmount amount = new ResourceAdvancedAmount();
+
+            foreach (ResourceAmount single in m_Amounts)
+            {
+                if (single.Amount > 0)
+                {
+                    amount.AddAmount(single);
+                }
+            }
+            return amount;
+        }
+
+        public void Split(ref ResourceAdvancedAmount positive, ref ResourceAdvancedAmount negative)
+        {
+            foreach (ResourceAmount amount in m_Amounts)
+            {
+                if (amount.Amount > 0)
+                {
+                    positive.AddAmount(amount);
+                }
+                else
+                {
+                    negative.AddAmount(amount);
+                }
+                
+            }
+        }
+
         public IEnumerator<ResourceAmount> GetEnumerator()
         {
             return m_Amounts.GetEnumerator();

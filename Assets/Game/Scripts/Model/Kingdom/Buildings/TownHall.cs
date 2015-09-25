@@ -17,12 +17,41 @@ namespace MS.Model.Kingdom
             Description = "BUILDING_TOWNHALL_DESCRIPTION";
         }
 
-        public IEnumerable<ResourceAmount> Collect()
+        public ResourceAdvancedAmount Collect()
         {
-            yield return new ResourceAmount(Game.Instance.Resources.Food, TOWNHALL_FOOD_COLLECTION, this);
-            yield return new ResourceAmount(Game.Instance.Resources.Production, TOWNHALL_PRODUCTION_COLLECTION, this);
-            yield return new ResourceAmount(Game.Instance.Resources.Gold, TOWNHALL_GOLD_COLLECTION, this);
-            yield return new ResourceAmount(Game.Instance.Resources.Research, TOWNHALL_RESEARCH_COLLECTION, this);
+            ResourceAdvancedAmount amount;
+            int food;
+            int production;
+            int gold;
+            int research;
+
+            amount = new ResourceAdvancedAmount();
+            food = CalculateEstimatedFood();
+            production = CalculateEstimatedProduction();
+            gold = CalculateEstimatedGold();
+            research = CalculateEstimatedResearch();
+
+            if (food > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, food, this));
+            }
+
+            if (production > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, production, this));
+            }
+
+            if (gold > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, gold, this));
+            }
+
+            if (research > 0)
+            {
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, research, this));
+            }
+
+            return amount;
         }
 
         public int CalculateEstimatedFood()

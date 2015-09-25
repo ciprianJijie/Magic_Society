@@ -19,11 +19,11 @@ namespace MS.Views.UI
         public Color ProductionColor;
         public Color GoldColor;
         public Color ResearchColor;
+        public Color NegativeColor;
 
         public override void UpdateView(ResourceAmount element)
         {
-            AmountLabel.text        =   element.Amount.ToString();
-            AmountLabel.color       =   SelectColor(element.Resource);
+            AmountLabel.text        =   element.Amount.ToString();            
             Icon.sprite             =   SelectSprite(element.Resource);
             
             if (element.Source is City)
@@ -33,6 +33,16 @@ namespace MS.Views.UI
             else
             {
                 SourceNameLabel.ID  =   element.Source.Name;
+            }
+
+            // Set Color
+            if (element.Amount > 0)
+            {
+                AmountLabel.color = SelectColor(element.Resource);
+            }
+            else
+            {
+                AmountLabel.color = NegativeColor;
             }
 
             SourceNameLabel.UpdateText();

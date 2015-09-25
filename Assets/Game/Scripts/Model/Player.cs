@@ -63,6 +63,14 @@ namespace MS.Model
             }
         }
 
+        public void Store(ResourceAdvancedAmount amount)
+        {
+            foreach (ResourceAmount singleAmount in amount)
+            {
+                Store(singleAmount);
+            }
+        }
+
         public void ClearCollectedCache()
         {
             m_GoldCollected.Clear();

@@ -12,10 +12,10 @@
             float width;
             float height;
             
-            width       =   (BackgroundImage.rectTransform.sizeDelta.x - PaddingLeft - PaddingRight) * percentage;
+            width       =   Mathf.Abs((BackgroundImage.rectTransform.sizeDelta.x - PaddingLeft - PaddingRight)) * percentage;
             height      =   BackgroundImage.rectTransform.sizeDelta.y - PaddingTop - PaddingBottom;
-            position.x  =   width / 2f + PaddingLeft;
-            position.y  =   BackgroundImage.rectTransform.sizeDelta.y / 2f;
+            position.x  =   PaddingLeft;
+            position.y  =   PaddingBottom;
 
             BarImage.rectTransform.anchoredPosition = position;
             BarImage.rectTransform.sizeDelta = new Vector2(width, height);
