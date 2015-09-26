@@ -1,38 +1,26 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace MS.Managers.UI
 {
     public class CityBanner : UIOverObject
     {
-        public Text         Label;
-        public ProgressBar  PopulationBar;
-        public ProgressBar  BuildingBar;
-
+        public Text         NameLabel;
         public Text         PopulationLabel;
-        public Text         BuildingLabel;
+        public Text         TurnsToGrowLabel;
 
-        public void ShowPopulationBar(string text)
+        public void UpdateBanner(Model.City city)
         {
-            PopulationBar.gameObject.SetActive(true);
+            int turnsToGrow;
+            int foodToGrow;
+            int foodPerTurn;
 
-            PopulationLabel.text = text;
-        }
-
-        public void HidePopulationBar()
-        {
-            PopulationBar.gameObject.SetActive(false);
-        }
-
-        public void ShowBuildingBar(string text)
-        {
-            BuildingBar.gameObject.SetActive(true);
-
-            BuildingLabel.text = text;
-        }
-
-        public void HideBuildingBar()
-        {
-            BuildingBar.gameObject.SetActive(false);
+            NameLabel.text          =   city.RealName;
+            PopulationLabel.text    =   city.Population.ToString();
+            foodToGrow              =   city.CalculateFoodForNextPopulationUnit(city.Population);
+            foodPerTurn             =   city.CollectFood().GetTotalAmount();
+            turnsToGrow             =   Mathf.CeilToInt((float)(foodToGrow - city.Food) / (float)(foodPerTurn));
+            TurnsToGrowLabel.text   =   turnsToGrow.ToString();           
         }
     }
 }

@@ -19,29 +19,41 @@ namespace MS.Model
             ResearchGeneration    =   research;
         }
 
-        public virtual IEnumerable<ResourceAmount> Collect()
+        public virtual ResourceAdvancedAmount Collect()
         {
-            if (FoodGeneration > 0)
+            ResourceAdvancedAmount amount;
+            int food;
+            int production;
+            int gold;
+            int research;
+
+            amount = new ResourceAdvancedAmount();
+            food = CalculateEstimatedFood();
+            production = CalculateEstimatedProduction();
+            gold = CalculateEstimatedGold();
+            research = CalculateEstimatedResearch();
+
+            if (food > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Food, FoodGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, food, this));
             }
 
-            if (ProductionGeneration > 0)
+            if (production > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Production, ProductionGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, production, this));
             }
 
-            if (GoldGeneration > 0)
+            if (gold > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Gold, ProductionGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, gold, this));
             }
 
-            if (ResearchGeneration > 0)
+            if (research > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Research, ResearchGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, research, this));
             }
 
-            yield return null;
+            return amount;
         }
 
         public override void FromJSON(JSONNode json)

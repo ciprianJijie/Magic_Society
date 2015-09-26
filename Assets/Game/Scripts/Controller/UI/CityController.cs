@@ -10,6 +10,7 @@ namespace MS.Controllers.UI
         public BuildingController                   BuildingController;
         public ResourceAmountController             ResourceAmountController;
         public BuildingQueueController              BuildingQueueController;
+        public Managers.UI.ProgressBar              PopulationProgressBar;
         public Managers.UI.BuildingPanelManager     BuildingPanelManager;
         public GameInputManager                     InputManager;
         public RepeatableIcon                       IdleWorkersArea;
@@ -72,6 +73,8 @@ namespace MS.Controllers.UI
             ProductionAmountLabel.text  =   m_ProductionEstimatedRecollection.GetTotalAmount().ToString();
             GoldAmountLabel.text        =   m_GoldEstimatedCollection.GetTotalAmount().ToString();
             ResearchAmountLabel.text    =   m_ResearchEstimatedCollection.GetTotalAmount().ToString();
+
+            PopulationProgressBar.UpdateProgressBar(0f, city.CalculateFoodForNextPopulationUnit(city.Population), city.Food);
         }
 
         public void UpdateBuildingSchemesArea(Model.City city)
@@ -107,6 +110,10 @@ namespace MS.Controllers.UI
                 }
             }
             ResourceAmountController.Hide();
+        }
+
+        public void UpdateBanner(Model.City city)
+        {
         }
 
         public void AddWorkersToFood(int amount)

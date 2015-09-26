@@ -14,27 +14,33 @@ namespace MS.Model
 
         protected Player  m_Owner;
 
-        public virtual IEnumerable<ResourceAmount> Collect()
+        public virtual ResourceAdvancedAmount Collect()
         {
+            ResourceAdvancedAmount amount;
+
+            amount = new ResourceAdvancedAmount();
+
             if (FoodGeneration > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Food, FoodGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, FoodGeneration, this));
             }
 
             if (ProductionGeneration > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Production, ProductionGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Production, ProductionGeneration, this));
             }
 
             if (GoldGeneration > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Gold, ProductionGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Gold, ProductionGeneration, this));
             }
 
             if (ResearchGeneration > 0)
             {
-                yield return new ResourceAmount(Game.Instance.Resources.Research, ResearchGeneration, this);
+                amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Research, ResearchGeneration, this));
             }
+
+            return amount;
         }
 
         public override void FromJSON(JSONNode json)

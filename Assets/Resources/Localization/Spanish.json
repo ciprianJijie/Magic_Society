@@ -48,23 +48,23 @@
         },
         {
             "ID": "TILE_FERTILE",
-            "Text": "casilla Fertil"
+            "Text": "terreno Fertil"
         },
         {
             "ID": "TILE_BARREN",
-            "Text": "casilla con Páramo"
+            "Text": "terreno Árido"
         },
         {
             "ID": "TILE_DESERT",
-            "Text": "casilla con Desierto"
+            "Text": "terreno Desértico"
         },
         {
             "ID": "TILE_FROZEN",
-            "Text": "casilla con Nieve"
+            "Text": "terreno Nevado"
         },
         {
             "ID": "TILE_VOLCANIC",
-            "Text": "casilla Volcánica"
+            "Text": "terreno Volcánico"
         },
         {
             "ID": "MAP_ELEMENT_FOREST",
