@@ -23,6 +23,7 @@ namespace MS
         public MS.Events.Event              OnTileHoverEnds     =   MS.Events.DefaultAction;
         public MS.Events.CityEvent          OnCitySelected      =   MS.Events.DefaultAction;
         public MS.Events.Event              OnCityDeselected    =   MS.Events.DefaultAction;
+        public MS.Events.Event              OnPersonalitiesMenu =   MS.Events.DefaultAction;
 
         private readonly static float   m_TimeToShowTileInformation = 1.25f;
         private float                   m_TimeHoveringTile;
@@ -50,12 +51,14 @@ namespace MS
             
             MainCamera.transform.position += forward * vertical * CameraSpeed * Time.deltaTime;
             MainCamera.transform.position += right * horizontal * CameraSpeed * Time.deltaTime;
-            MainCamera.transform.position += MainCamera.transform.forward * zoom * 2.0f * CameraSpeed * Time.deltaTime;
+            
             MainCamera.transform.RotateAround(MainCamera.transform.position, Vector3.up, rotation * 10.0f * CameraSpeed * Time.deltaTime);
 
             if (MouseToGrid.IsValidPosition(MouseToGrid.LastGridPosition) &&
                 EventSystem.IsPointerOverGameObject() == false)
             {
+                MainCamera.transform.position += MainCamera.transform.forward * zoom * 2.0f * CameraSpeed * Time.deltaTime;
+
                 if (InputManager.GetButton("FlyOver"))
                 {
                     Vector3 worldPosition;
@@ -109,6 +112,11 @@ namespace MS
                         OnCityDeselected();
                         m_CitySelected = false;
                     }
+                }
+
+                if (InputManager.GetButton("Personalities Menu"))
+                {
+                    OnPersonalitiesMenu();
                 }
             }
         }

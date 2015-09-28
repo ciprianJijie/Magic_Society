@@ -12,6 +12,7 @@ namespace MS
         protected Turns                 m_Turns;
         protected Model.Resources       m_Resources;
         protected Model.Kingdom.Schemes m_Schemes;
+        protected Model.Personalities   m_Personalities;
 
         public Map Map
         {
@@ -58,6 +59,14 @@ namespace MS
             }
         }
 
+        public Model.Personalities Personalities
+        {
+            get
+            {
+                return m_Personalities;
+            }
+        }
+
         // Singleton
         private static Game m_Instance;
 
@@ -77,11 +86,12 @@ namespace MS
 
         public Game()
         {
-            m_Map       =   new Map();
-            m_Players   =   new Players();
-            m_Turns     =   new Turns(m_Players);
-            m_Resources =   new Model.Resources();
-            m_Schemes   =   new Model.Kingdom.Schemes();
+            m_Map           =   new Map();
+            m_Players       =   new Players();
+            m_Turns         =   new Turns(m_Players);
+            m_Resources     =   new Model.Resources();
+            m_Schemes       =   new Model.Kingdom.Schemes();
+            m_Personalities =   new Model.Personalities();
 
             m_Instance  =   this;
         }
@@ -101,6 +111,8 @@ namespace MS
             m_Schemes.FromJSON(schemesJSON);
 
             m_Turns = new Turns(m_Players);
+
+            GenerateStartingPersonalities(m_Players);
         }
 
         public void Save(string fileName)
@@ -124,6 +136,17 @@ namespace MS
 
             m_Schemes.FromJSON(schemesJSON);
             FromJSON(json);
+        }
+
+        protected void GenerateStartingPersonalities(IEnumerable<Player> players)
+        {
+            foreach (Player player in players)
+            {
+                for (int i = 0; i < Model.Personalities.STARTING_PERSONALITIES; i++)
+                {
+                    m_Personalities.CreateRandom(player);
+                }
+            }
         }
 
         public override void FromJSON(JSONNode json)
