@@ -38,7 +38,12 @@ namespace MS
 
         public static string ToData(string fileName)
         {
-            return Application.streamingAssetsPath + "/Data/" + fileName + ".json";
+            return Application.streamingAssetsPath + "/Data/" + fileName;
+        }
+
+        public static string ToPortrait(string fileName)
+        {
+            return Application.streamingAssetsPath + "/Data/Portraits" + fileName; 
         }
 
         public static SimpleJSON.JSONNode FileToJSON(string filePath)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 namespace MS.Model
 {
@@ -8,11 +9,26 @@ namespace MS.Model
     {
         public static readonly int STARTING_PERSONALITIES = 4;
 
-        protected List<Personality> m_Personalities;
+        protected List<Personality>     m_Personalities;
+        protected List<Portrait>        m_Portraits;
 
         public Personalities()
         {
-            m_Personalities = new List<Personality>();
+            m_Personalities =   new List<Personality>();
+            m_Portraits     =   new List<Portrait>();
+
+            JSONNode    root;
+            Portrait portrait;
+
+            root = Path.FileToJSON(Path.ToData("Portraits.json"));
+
+            foreach (JSONNode node in root.AsArray)
+            {
+                portrait = new Portrait();
+
+                portrait.FromJSON(node);
+                m_Portraits.Add(portrait);
+            }
         }
 
         public Personality CreateRandom(Player Owner)
@@ -28,12 +44,12 @@ namespace MS.Model
             personality.Name                =   name;
             personality.Gender              =   gender;
             personality.Owner               =   Owner;
-            personality.Strength.Score      =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
-            personality.Dexterity.Score     =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
-            personality.Constitution.Score  =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
-            personality.Intelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
-            personality.Wisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
-            personality.Charisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(4, 6, 1);
+            personality.Strength.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Dexterity.Score     =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Constitution.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Intelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Wisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Charisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
 
             m_Personalities.Add(personality);
 

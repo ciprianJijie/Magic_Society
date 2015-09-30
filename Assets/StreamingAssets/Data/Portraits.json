@@ -1,0 +1,21 @@
+{
+  "portraits":
+  [
+    {
+      "source": "Portraits/HM_0001.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "Portraits/HM_0002.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "Portraits/HM_0003.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "Portraits/HF_0001.jpg",
+      "gender": "Female"
+    }
+  ]
+}

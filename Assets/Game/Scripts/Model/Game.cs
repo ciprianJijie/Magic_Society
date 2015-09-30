@@ -104,7 +104,7 @@ namespace MS
 
             filePath    =   Path.ToScenario(mapName);
             json        =   Path.FileToJSON(filePath);
-            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes.json"));
 
             m_Players.FromJSON(json["players"]);
             m_Map.FromJSON(json);
@@ -132,7 +132,7 @@ namespace MS
 
             filePath    =   Path.ToSaveGame(fileName);
             json        =   Path.FileToJSON(filePath);
-            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes"));
+            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes.json"));
 
             m_Schemes.FromJSON(schemesJSON);
             FromJSON(json);

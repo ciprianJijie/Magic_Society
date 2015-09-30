@@ -14,7 +14,7 @@ namespace MS.Tools
 
             for (int i = 0; i < amount; i++)
             {
-                result += Random.Range(1, faceNumber);
+                result += Random.Range(1, faceNumber + 1);
             }
 
             result += bonus;
