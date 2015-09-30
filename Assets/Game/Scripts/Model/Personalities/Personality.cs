@@ -23,6 +23,7 @@ namespace MS.Model
         public EGender Gender;
         public float Age;
         public bool Alive;
+        public Portrait Portrait;
 
         public EAgeStage AgeStage
         {
@@ -77,7 +78,7 @@ namespace MS.Model
         protected void OnTurnEnd()
         {
             Age += YEARS_PER_TURN;
-            
+
             if (Alive && CheckNaturalDeath())
             {
                 // TODO: Trigger death event
@@ -90,7 +91,7 @@ namespace MS.Model
         {
             int checkDC;
             int dieResult;
-            
+
             checkDC     =   CalculateDeathCheckDC(Mathf.FloorToInt(Age));
             dieResult   =   Tools.DiceBag.Roll(3, 6, Constitution.Modifier);
 

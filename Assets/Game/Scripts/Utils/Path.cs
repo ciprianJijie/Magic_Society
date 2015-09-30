@@ -43,7 +43,7 @@ namespace MS
 
         public static string ToPortrait(string fileName)
         {
-            return Application.streamingAssetsPath + "/Data/Portraits" + fileName; 
+            return Application.streamingAssetsPath + "/Portraits/" + fileName; 
         }
 
         public static SimpleJSON.JSONNode FileToJSON(string filePath)

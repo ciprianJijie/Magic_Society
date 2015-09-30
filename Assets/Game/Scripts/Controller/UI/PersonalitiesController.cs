@@ -42,9 +42,13 @@ namespace MS.Controllers.UI
                 }
             }
 
-            PersonalityController.UpdateAllViews();
             MenuHolder.SetActive(true);
+            PersonalityController.UpdateAllViews();
             m_Visible = true;
+
+            // Free unused portrait images
+            Resources.UnloadUnusedAssets();
+            System.GC.Collect();
         }
 
         public void Hide()
