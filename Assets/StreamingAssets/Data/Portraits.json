@@ -1,0 +1,69 @@
+{
+  "portraits":
+  [
+    {
+      "source": "HM_0001.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0002.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0003.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0004.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0005.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0006.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0007.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HM_0008.jpg",
+      "gender": "Male"
+    },
+    {
+      "source": "HF_0001.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0002.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0003.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0004.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0005.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0006.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0007.jpg",
+      "gender": "Female"
+    },
+    {
+      "source": "HF_0008.jpg",
+      "gender": "Female"
+    }
+  ]
+}

@@ -47,6 +47,30 @@
             "Text": "Research"
         },
         {
+          "ID": "ABILITY_STRENGTH",
+          "Text": "Strength"
+        },
+        {
+          "ID": "ABILITY_DEXTERITY",
+          "Text": "Dexterity"
+        },
+        {
+          "ID": "ABILITY_CONSTITUTION",
+          "Text": "Constitution"
+        },
+        {
+          "ID": "ABILITY_INTELLIGENCE",
+          "Text": "Intelligence"
+        },
+        {
+          "ID": "ABILITY_WISDOM",
+          "Text": "Wisdom"
+        },
+        {
+          "ID": "ABILITY_CHARISMA",
+          "Text": "Charisma"
+        },
+        {
             "ID": "TILE_FERTILE",
             "Text": "Fertile Tile"
         },

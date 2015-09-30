@@ -47,6 +47,30 @@
             "Text": "Investigación"
         },
         {
+          "ID": "ABILITY_STRENGTH",
+          "Text": "Fuerza"
+        },
+        {
+          "ID": "ABILITY_DEXTERITY",
+          "Text": "Destreza"
+        },
+        {
+          "ID": "ABILITY_CONSTITUTION",
+          "Text": "Constitución"
+        },
+        {
+          "ID": "ABILITY_INTELLIGENCE",
+          "Text": "Inteligencia"
+        },
+        {
+          "ID": "ABILITY_WISDOM",
+          "Text": "Sabiduría"
+        },
+        {
+          "ID": "ABILITY_CHARISMA",
+          "Text": "Carisma"
+        },
+        {
             "ID": "TILE_FERTILE",
             "Text": "terreno Fertil"
         },
