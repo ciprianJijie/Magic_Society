@@ -20,6 +20,8 @@ namespace MS.Views.UI
         public Text     WisdomLabel;
         public Text     CharismaLabel;
         public Image    PortraitImage;
+        public Sprite BabySprite;
+        public Sprite DeathSprite;
 
         public override void UpdateView(Personality element)
         {
@@ -47,8 +49,19 @@ namespace MS.Views.UI
                     FemaleIcon.gameObject.SetActive(false);
                     break;
             }
-            UnityEngine.Debug.Log("Loading sprite from " + Model.Portrait.ImagePath);
-            StartCoroutine(LoadPortrait(Model.Portrait.ImagePath));
+            
+            if (element.Alive == false)
+            {
+                PortraitImage.sprite = DeathSprite;                
+            }
+            else if (element.Age < 16)
+            {
+                PortraitImage.sprite = BabySprite;
+            }
+            else
+            {
+                StartCoroutine(LoadPortrait(Model.Portrait.ImagePath));
+            }
         }
 
         protected IEnumerator LoadPortrait(string filePath)
@@ -61,11 +74,7 @@ namespace MS.Views.UI
             finalPath = "file://" + Path.ToPortrait(filePath);
             localFile = new WWW(finalPath);
 
-            UnityEngine.Debug.Log("Loading image file " + finalPath);
-
             yield return localFile;
-
-            UnityEngine.Debug.Log("Done");
 
             texture = localFile.texture;
             sprite = Sprite.Create(texture as Texture2D, new Rect(0, 0, texture.width, texture.height), Vector2.zero);

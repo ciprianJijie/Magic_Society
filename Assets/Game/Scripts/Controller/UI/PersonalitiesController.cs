@@ -28,18 +28,21 @@ namespace MS.Controllers.UI
         {
             foreach (Model.Personality personality in personalities)
             {
-                Views.UI.PersonalityView view;
-
-                view = PersonalityController.FindView(personality);
-
-                if (view != null)
+                if (personality.Owner == Game.Instance.Turns.CurrentTurn.Player)
                 {
-                    view.UpdateView(personality);
-                }
-                else
-                {
-                    PersonalityController.CreateView(personality);
-                }
+                    Views.UI.PersonalityView view;
+
+                    view = PersonalityController.FindView(personality);
+    
+                    if (view != null)
+                    {
+                        view.UpdateView(personality);
+                    }
+                    else
+                    {
+                        PersonalityController.CreateView(personality);
+                    }
+                }                
             }
 
             MenuHolder.SetActive(true);
@@ -68,15 +71,29 @@ namespace MS.Controllers.UI
         {
             UnsubscribeToEvents();
         }
+        
+        protected void OnTurnStarted(Model.Player player)
+        {
+            if (m_Visible)
+            {
+                PersonalityController.UpdateAllViews();
+                
+                // Free unused portrait images
+                Resources.UnloadUnusedAssets();
+                System.GC.Collect();
+            }
+        }
 
         public void SubscribeToEvents()
         {
             GameInputManager.OnPersonalitiesMenu += Toggle;
+            GameController.Instance.Game.Turns.OnTurnStarted += OnTurnStarted;
         }
 
         public void UnsubscribeToEvents()
         {
             GameInputManager.OnPersonalitiesMenu -= Toggle;
+            GameController.Instance.Game.Turns.OnTurnStarted -= OnTurnStarted;
         }
     }
 }

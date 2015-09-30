@@ -77,13 +77,16 @@ namespace MS.Model
 
         protected void OnTurnEnd()
         {
-            Age += YEARS_PER_TURN;
-
-            if (Alive && CheckNaturalDeath())
+            if (Alive)
             {
-                // TODO: Trigger death event
-                UnityEngine.Debug.Log("<color=red>" + this.ToString() + " died!</color>");
-                Alive = false;
+                Age += YEARS_PER_TURN;
+    
+                if (CheckNaturalDeath())
+                {
+                    // TODO: Trigger death event
+                    UnityEngine.Debug.Log("<color=red>" + this.ToString() + " died!</color>");
+                    Alive = false;
+                }
             }
         }
 

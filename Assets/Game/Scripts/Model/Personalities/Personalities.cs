@@ -53,6 +53,7 @@ namespace MS.Model
 
             personality.Name                =   name;
             personality.Gender              =   gender;
+            personality.Age                 =   UnityEngine.Random.Range(10, 25);
             personality.Portrait            =   RandomPortrait(personality.Gender);
             personality.Owner               =   Owner;
             personality.Strength.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
@@ -61,7 +62,7 @@ namespace MS.Model
             personality.Intelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             personality.Wisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             personality.Charisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            
+
             m_Personalities.Add(personality);
 
             return personality;
