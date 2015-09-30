@@ -1,0 +1,39 @@
+{
+  "traits":
+  [
+    {
+      "name": "TRAIT_SHY",
+      "description": "TRAIT_SHY_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait_name": "TRAIT_TALKER",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_TALKER",
+      "description": "TRAIT_TALKER_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait_name": "TRAIT_SHY",
+          "value": 10
+        }
+      ]
+    }
+  ]
+}

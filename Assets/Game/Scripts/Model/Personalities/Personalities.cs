@@ -12,15 +12,18 @@ namespace MS.Model
         protected List<Personality>     m_Personalities;
         protected List<Portrait>        m_MalePortraits;
         protected List<Portrait>        m_FemalePortraits;
+        protected List<Trait>           m_Traits;
 
         public Personalities()
         {
             m_Personalities     =   new List<Personality>();
             m_MalePortraits     =   new List<Portrait>();
             m_FemalePortraits   =   new List<Portrait>();
+            m_Traits            =   new List<Trait>();
 
             JSONNode    root;
-            Portrait portrait;
+            Portrait    portrait;
+            Trait       trait;
 
             root = Path.FileToJSON(Path.ToData("Portraits.json"));
 
@@ -38,6 +41,16 @@ namespace MS.Model
                 {
                     m_FemalePortraits.Add(portrait);
                 }
+            }
+
+            root = Path.FileToJSON(Path.ToData("Traits.json"));
+
+            foreach (JSONNode node in root["traits"].AsArray)
+            {
+                trait = new Trait();
+
+                trait.FromJSON(node);
+                m_Traits.Add(trait);
             }
         }
 
@@ -62,6 +75,16 @@ namespace MS.Model
             personality.Intelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             personality.Wisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             personality.Charisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            
+            // TODO: Temporal for testing
+            if (Tools.DiceBag.Roll(1, 100, 0) < 50)
+            {
+                personality.AddPersonalityTrait(m_Traits[0]);
+            }
+            else
+            {
+                personality.AddPersonalityTrait(m_Traits[1]);
+            }
 
             m_Personalities.Add(personality);
 

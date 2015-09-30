@@ -5,7 +5,18 @@ namespace MS.Model
 {
     public class Ability : ModelElement
     {
-        public int Score;
+        public enum EType
+        {
+            ABILITY_STRENGTH,
+            ABILITY_DEXTERITY,
+            ABILITY_CONSTITUTION,
+            ABILITY_INTELLIGENCE,
+            ABILITY_WISDOM,
+            ABILITY_CHARISMA
+        }
+
+        public EType    Type;
+        public int      Score;
 
         public int Modifier
         {
@@ -15,23 +26,26 @@ namespace MS.Model
             }
         }
 
-        public Ability(string name, int score)
+        public Ability(EType type, int score)
         {
-            Name = name;
-            Score = score;
+            Name    =   type.ToString();
+            Score   =   score;
+            Type    =   type;
         }
 
         public override void FromJSON(JSONNode json)
         {
-            base.FromJSON(json);
-            Score = json["score"].AsInt;
+            Type    =   EnumUtils.ParseEnum<EType>(json["name"]);
+            Score   =   json["score"].AsInt;
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode root;
+            JSONClass root;
 
-            root = base.ToJSON();
+            root = new JSONClass();
+
+            root.Add("name", Type.ToString());
             root.Add("score", new JSONData(Score));
 
             return root;
