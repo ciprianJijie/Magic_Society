@@ -64,5 +64,25 @@ namespace MS.Model
             }
             return string.Format("{0}(<color=red>{1}</color>)", Score, Modifier);
         }
+
+        public static string ToString(int score)
+        {
+            int modifier;
+
+            modifier = CalculateModifier(score);
+
+            if (score > 0)
+            {
+                return string.Format("{0} (<color=green>+{1}</color>", score, modifier);
+            }
+            else if (score < 0)
+            {
+                return string.Format("{0} (<color=red>{1}</color>", score, modifier);
+            }
+            else
+            {
+                return string.Format("{0} ({1})", score, modifier);
+            }
+        }
     }
 }
