@@ -2,27 +2,452 @@
   "traits":
   [
     {
-      "name": "TRAIT_SHY",
-      "description": "TRAIT_SHY_DESCRIPTION",
+      "name": "TRAIT_QUIET",
+      "description": "TRAIT_QUIET_DESCRIPTION",
       "modifiers":
       [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_QUIET",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESERVED",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_TALKATIVE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CALM",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_UNSOCIABLE",
+      "description": "TRAIT_UNSOCIABLE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -3
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_UNSOCIABLE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_SOCIABLE",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_RESERVED",
+      "description": "TRAIT_RESERVED_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESERVED",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_QUIET",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_TALKATIVE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OUTGOING",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_PESSIMISTIC",
+      "description": "TRAIT_PESSIMISTIC_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OPTIMISTIC",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_LIVELY",
+          "value": -5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PESSIMISTIC",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_SOBER",
+      "description": "TRAIT_SOBER_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_SOBER",
+          "value": 5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_RIGID",
+      "description": "TRAIT_RIGID_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RIGID",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_IMPULSIVE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RELIABLE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CONTROLLED",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_ANXIOUS",
+      "description": "TRAIT_ANXIOUS_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RIGID",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OPTIMISTIC",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESPONSIVE",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_MOODY",
+      "description": "TRAIT_MOODY_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -4
+        },
         {
           "name": "ABILITY_MODIFIER",
           "ability": "ABILITY_CHARISMA",
           "value": -2
         },
         {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -2
+        },
+        {
           "name": "RELATIONSHIP_MODIFIER",
-          "trait_name": "TRAIT_TALKER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_TOUCHY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PASSIVE",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_TOUCHY",
+      "description": "TRAIT_TOUCHY_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_LEADERSHIP",
           "value": -10
         }
       ]
     },
     {
-      "name": "TRAIT_TALKER",
-      "description": "TRAIT_TALKER_DESCRIPTION",
+      "name": "TRAIT_RESTLESS",
+      "description": "TRAIT_RESTLESS_DESCRIPTION",
       "modifiers":
       [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CHANGEABLE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_AGGRESSIVE",
+      "description": "TRAIT_AGGRESSIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -4
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PEACEFUL",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_THOUGHTFUL",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_EXCITABLE",
+      "description": "TRAIT_EXCITABLE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -2
+        },
         {
           "name": "ABILITY_MODIFIER",
           "ability": "ABILITY_CHARISMA",
@@ -30,7 +455,770 @@
         },
         {
           "name": "RELATIONSHIP_MODIFIER",
-          "trait_name": "TRAIT_SHY",
+          "trait": "TRAIT_EXCITABLE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_IMPULSIVE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CALM",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_CHANGEABLE",
+      "description": "TRAIT_CHANGEABLE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RIGID",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CONTROLLED",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_LEADERSHIP",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_IMPULSIVE",
+      "description": "TRAIT_IMPULSIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_IMPULSIVE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RIGID",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": 5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OPTIMISTIC",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ACTIVE",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_OPTIMISTIC",
+      "description": "TRAIT_OPTIMISTIC_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OPTIMISTIC",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PESSIMISTIC",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_ACTIVE",
+      "description": "TRAIT_ACTIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ACTIVE",
+          "value": 20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PASSIVE",
+          "value": -20
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_SOCIABLE",
+      "description": "TRAIT_SOCIABLE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_SOCIABLE",
+          "value": 20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_UNSOCIABLE",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_TALKATIVE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_QUIET",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_OUTGOING",
+      "description": "TRAIT_OUTGOING_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OUTGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESPONSIVE",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EASYGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ACTIVE",
+          "value": 5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_TOUCHY",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_TALKATIVE",
+      "description": "TRAIT_TALKATIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_QUIET",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_SOCIABLE",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_RESPONSIVE",
+      "description": "TRAIT_RESPONSIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_OUTGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EASYGOING",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_EASYGOING",
+      "description": "TRAIT_EASYGOING_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EASYGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_LIVELY",
+      "description": "TRAIT_LIVELY_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_LIVELY",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EASYGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PEACEFUL",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_SOCIABLE",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_CAREFREE",
+      "description": "TRAIT_CAREFREE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": -1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RIGID",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ANXIOUS",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_THOUGHTFUL",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CAREFUL",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_LEADERSHIP",
+      "description": "TRAIT_LEADERSHIP_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_LEADERSHIP",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PESSIMISTIC",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CHANGEABLE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESPONSIVE",
+          "value": 5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EASYGOING",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RELIABLE",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_CALM",
+      "description": "TRAIT_CALM_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 4
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CALM",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ANXIOUS",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -5
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_IMPULSIVE",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CONTROLLED",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_RELIABLE",
+      "description": "TRAIT_RELIABLE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_CONTROLLED",
+      "description": "TRAIT_CONTROLLED_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CALM",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CONTROLLED",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_MOODY",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_EXCITABLE",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_PEACEFUL",
+      "description": "TRAIT_PEACEFUL_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_CHARISMA",
+          "value": 4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 4
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PEACEFUL",
+          "value": 20
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -20
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_THOUGHTFUL",
+      "description": "TRAIT_THOUGHTFUL_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 1
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_THOUGHTFUL",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_RESTLESS",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_AGGRESSIVE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_IMPULSIVE",
+          "value": -10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_PESSIMISTIC",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_CAREFUL",
+      "description": "TRAIT_CAREFL_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": 1
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": 4
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CAREFUL",
+          "value": 10
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_CAREFREE",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "name": "TRAIT_PASSIVE",
+      "description": "TRAIT_PASSIVE_DESCRIPTION",
+      "modifiers":
+      [
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_VIGOR",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MANAGEMENT",
+          "value": -2
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_INTRIGUE",
+          "value": -4
+        },
+        {
+          "name": "ABILITY_MODIFIER",
+          "ability": "ABILITY_MORALITY",
+          "value": 2
+        },
+        {
+          "name": "RELATIONSHIP_MODIFIER",
+          "trait": "TRAIT_ACTIVE",
           "value": 10
         }
       ]

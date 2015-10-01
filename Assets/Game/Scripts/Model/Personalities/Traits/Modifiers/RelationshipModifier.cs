@@ -33,14 +33,14 @@ namespace MS.Model
         public override void FromJSON(JSONNode json)
         {
             base.FromJSON(json);
-            TraitName = json["trait_name"];
+            TraitName = json["trait"];
         }
 
         public override JSONNode ToJSON()
         {
             JSONNode root = base.ToJSON();
 
-            root.Add("trait_name", TraitName);
+            root.Add("trait", TraitName);
 
             return root;
         }
