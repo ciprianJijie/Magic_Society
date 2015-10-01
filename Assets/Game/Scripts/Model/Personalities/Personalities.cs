@@ -80,8 +80,6 @@ namespace MS.Model
 
             m_Personalities.Add(personality);
 
-            UnityEngine.Debug.Log("Created " + personality);
-
             return personality;
         }
 

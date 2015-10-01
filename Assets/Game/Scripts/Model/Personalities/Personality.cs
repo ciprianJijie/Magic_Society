@@ -101,7 +101,6 @@ namespace MS.Model
 
         public void AddPersonalityTrait(Trait trait)
         {
-            UnityEngine.Debug.Log(Name + " is now " + trait.Name);
             m_Traits.Add(trait);
         }
 
