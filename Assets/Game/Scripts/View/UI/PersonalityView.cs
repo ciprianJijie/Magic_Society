@@ -27,12 +27,12 @@ namespace MS.Views.UI
         {
             NameLabel.text          =   element.Name;
             AgeLabel.text           =   element.Age.ToString();
-            StrengthLabel.text      =   element.Strength.ToString();
-            DexterityLabel.text     =   element.Dexterity.ToString();
-            ConstitutionLabel.text  =   element.Constitution.ToString();
-            IntelligenceLabel.text  =   element.Intelligence.ToString();
-            WisdomLabel.text        =   element.Wisdom.ToString();
-            CharismaLabel.text      =   element.Charisma.ToString();
+            StrengthLabel.text      =   element.BaseStrength.ToString();
+            DexterityLabel.text     =   element.BaseDexterity.ToString();
+            ConstitutionLabel.text  =   element.BaseConstitution.ToString();
+            IntelligenceLabel.text  =   element.BaseIntelligence.ToString();
+            WisdomLabel.text        =   element.BaseWisdom.ToString();
+            CharismaLabel.text      =   element.BaseCharisma.ToString();
 
             switch (element.Gender)
             {

@@ -64,17 +64,17 @@ namespace MS.Model
             name        =   gender == Personality.EGender.Male ? Generators.NameGenerator.RandomMaleName() : Generators.NameGenerator.RandomFemaleName();
             personality =   new Personality();
 
-            personality.Name                =   name;
-            personality.Gender              =   gender;
-            personality.Age                 =   UnityEngine.Random.Range(10, 25);
-            personality.Portrait            =   RandomPortrait(personality.Gender);
-            personality.Owner               =   Owner;
-            personality.Strength.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.Dexterity.Score     =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.Constitution.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.Intelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.Wisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.Charisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Name                    =   name;
+            personality.Gender                  =   gender;
+            personality.Age                     =   UnityEngine.Random.Range(10, 25);
+            personality.Portrait                =   RandomPortrait(personality.Gender);
+            personality.Owner                   =   Owner;
+            personality.BaseStrength.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseDexterity.Score     =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseConstitution.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseIntelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseWisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseCharisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             
             // TODO: Temporal for testing
             if (Tools.DiceBag.Roll(1, 100, 0) < 50)
