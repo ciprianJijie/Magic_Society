@@ -7,12 +7,11 @@ namespace MS.Model
     {
         public enum EType
         {
-            ABILITY_STRENGTH,
-            ABILITY_DEXTERITY,
-            ABILITY_CONSTITUTION,
-            ABILITY_INTELLIGENCE,
-            ABILITY_WISDOM,
-            ABILITY_CHARISMA
+            ABILITY_VIGOR,
+            ABILITY_MANAGEMENT,
+            ABILITY_INTRIGUE,
+            ABILITY_CHARISMA,
+            ABILITY_MORALITY
         }
 
         public EType    Type;
