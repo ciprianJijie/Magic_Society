@@ -27,12 +27,12 @@ namespace MS.Views.UI
         {
             NameLabel.text          =   element.Name;
             AgeLabel.text           =   element.Age.ToString();
-            StrengthLabel.text      =   element.BaseStrength.ToString();
-            DexterityLabel.text     =   element.BaseDexterity.ToString();
-            ConstitutionLabel.text  =   element.BaseConstitution.ToString();
-            IntelligenceLabel.text  =   element.BaseIntelligence.ToString();
-            WisdomLabel.text        =   element.BaseWisdom.ToString();
-            CharismaLabel.text      =   element.BaseCharisma.ToString();
+            StrengthLabel.text      =   Ability.ToString(element.StrengthValue);
+            DexterityLabel.text     =   Ability.ToString(element.DexterityValue);
+            ConstitutionLabel.text  =   Ability.ToString(element.ConstitutionValue);
+            IntelligenceLabel.text  =   Ability.ToString(element.IntelligenceValue);
+            WisdomLabel.text        =   Ability.ToString(element.WisdomValue);
+            CharismaLabel.text      =   Ability.ToString(element.CharismaValue);
 
             switch (element.Gender)
             {
@@ -49,10 +49,10 @@ namespace MS.Views.UI
                     FemaleIcon.gameObject.SetActive(false);
                     break;
             }
-            
+
             if (element.Alive == false)
             {
-                PortraitImage.sprite = DeathSprite;                
+                PortraitImage.sprite = DeathSprite;
             }
             else if (element.Age < 16)
             {
