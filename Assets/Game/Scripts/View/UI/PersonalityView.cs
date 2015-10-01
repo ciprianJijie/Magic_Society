@@ -13,12 +13,7 @@ namespace MS.Views.UI
         public Text     AgeLabel;
         public Image    MaleIcon;
         public Image    FemaleIcon;
-        public Text     StrengthLabel;
-        public Text     DexterityLabel;
-        public Text     ConstitutionLabel;
-        public Text     IntelligenceLabel;
-        public Text     WisdomLabel;
-        public Text     CharismaLabel;
+        
         public Image    PortraitImage;
         public Sprite BabySprite;
         public Sprite DeathSprite;
@@ -27,12 +22,6 @@ namespace MS.Views.UI
         {
             NameLabel.text          =   element.Name;
             AgeLabel.text           =   element.Age.ToString();
-            StrengthLabel.text      =   Ability.ToString(element.StrengthValue);
-            DexterityLabel.text     =   Ability.ToString(element.DexterityValue);
-            ConstitutionLabel.text  =   Ability.ToString(element.ConstitutionValue);
-            IntelligenceLabel.text  =   Ability.ToString(element.IntelligenceValue);
-            WisdomLabel.text        =   Ability.ToString(element.WisdomValue);
-            CharismaLabel.text      =   Ability.ToString(element.CharismaValue);
 
             switch (element.Gender)
             {

@@ -16,12 +16,11 @@ namespace MS.Model
         public enum EGender { Male, Female, Unknown }
         public enum EAgeStage { Child, Adult, Old, Venerable, Unknown }
 
-        public Ability BaseStrength;
-        public Ability BaseDexterity;
-        public Ability BaseConstitution;
-        public Ability BaseIntelligence;
-        public Ability BaseWisdom;
+        public Ability BaseVigor;
+        public Ability BaseManagement;
+        public Ability BaseIntrigue;
         public Ability BaseCharisma;
+        public Ability BaseMorality;
 
         public EGender Gender;
         public float Age;
@@ -58,74 +57,41 @@ namespace MS.Model
             }
         }
 
-        public int StrengthValue
+        public int Vigor
         {
-            get { return CalculateFinalValue(BaseStrength); }
+            get { return CalculateFinalValue(BaseVigor); }
         }
 
-        public int StrengthModifier
+        public int Management
         {
-            get { return Ability.CalculateModifier(StrengthValue);  }
+            get { return CalculateFinalValue(BaseManagement); }
         }
 
-        public int DexterityValue
+        public int Intrigue
         {
-            get { return CalculateFinalValue(BaseDexterity); }
+            get { return CalculateFinalValue(BaseIntrigue); }
         }
 
-        public int DexterityModifier
-        {
-            get { return Ability.CalculateModifier(DexterityValue); }
-        }
-
-        public int ConstitutionValue
-        {
-            get { return CalculateFinalValue(BaseConstitution); }
-        }
-
-        public int ConstitutionModifier
-        {
-            get { return Ability.CalculateModifier(ConstitutionValue); }
-        }
-
-        public int IntelligenceValue
-        {
-            get { return CalculateFinalValue(BaseIntelligence); }
-        }
-
-        public int IntelligenceModifier
-        {
-            get { return Ability.CalculateModifier(IntelligenceValue); }
-        }
-
-        public int WisdomValue
-        {
-            get { return CalculateFinalValue(BaseWisdom); }
-        }
-
-        public int WisdomModifier
-        {
-            get { return Ability.CalculateModifier(WisdomValue); }
-        }
-
-        public int CharismaValue
+        public int Charisma
         {
             get { return CalculateFinalValue(BaseCharisma); }
         }
 
-        public int CharismaModifier
+        public int Morality
         {
-            get { return Ability.CalculateModifier(CharismaValue); }
+            get { return CalculateFinalValue(BaseMorality); }
         }
+       
 
         public Personality()
         {
-            BaseStrength        =   new Ability(Ability.EType.ABILITY_STRENGTH, 10);
-            BaseDexterity       =   new Ability(Ability.EType.ABILITY_DEXTERITY, 10);
-            BaseConstitution    =   new Ability(Ability.EType.ABILITY_CONSTITUTION, 10);
-            BaseIntelligence    =   new Ability(Ability.EType.ABILITY_INTELLIGENCE, 10);
-            BaseWisdom          =   new Ability(Ability.EType.ABILITY_WISDOM, 10);
-            BaseCharisma        =   new Ability(Ability.EType.ABILITY_CHARISMA, 10);
+            BaseVigor       =   new Ability(Ability.EType.ABILITY_VIGOR, 10);
+            BaseManagement  =   new Ability(Ability.EType.ABILITY_MANAGEMENT, 10);
+            BaseIntrigue    =   new Ability(Ability.EType.ABILITY_INTRIGUE, 10);
+            BaseCharisma    =   new Ability(Ability.EType.ABILITY_CHARISMA, 10);
+            BaseMorality    =   new Ability(Ability.EType.ABILITY_MORALITY, 10);
+
+
             Alive           =   true;
             m_Traits        =   new List<Trait>();
             m_Relationships =   new List<Relationship>();
@@ -239,7 +205,7 @@ namespace MS.Model
             int dieResult;
 
             checkDC     =   CalculateDeathCheckDC(Mathf.FloorToInt(Age));
-            dieResult   =   Tools.DiceBag.Roll(3, 6, BaseConstitution.Modifier);
+            dieResult   =   Tools.DiceBag.Roll(3, 6, Ability.CalculateModifier(Vigor));
 
             return dieResult < checkDC;
         }
@@ -257,10 +223,10 @@ namespace MS.Model
 
             foreach (Trait trait in m_Traits)
             {
-                traits += trait.Name;
+                traits += trait.Name + ",";
             }
 
-            return string.Format("{0} ({1}) [STR:{2} DEX:{3} CON:{4} INT:{5} WIS:{6} CHA:{7}] Owned by {8} [{9}]", Name, Mathf.FloorToInt(Age), BaseStrength, BaseDexterity, BaseConstitution, BaseIntelligence, BaseWisdom, BaseCharisma, Owner.Name, traits);
+            return string.Format("{0} [{1}]", Name, traits);
         }
 
         public IEnumerator<Trait> GetEnumerator()

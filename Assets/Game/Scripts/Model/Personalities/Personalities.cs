@@ -69,24 +69,18 @@ namespace MS.Model
             personality.Age                     =   UnityEngine.Random.Range(10, 25);
             personality.Portrait                =   RandomPortrait(personality.Gender);
             personality.Owner                   =   Owner;
-            personality.BaseStrength.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseDexterity.Score     =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseConstitution.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseIntelligence.Score  =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseWisdom.Score        =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseVigor.Score         =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseManagement.Score    =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.BaseIntrigue.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
             personality.BaseCharisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            
+            personality.BaseMorality.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+
             // TODO: Temporal for testing
-            if (Tools.DiceBag.Roll(1, 100, 0) < 50)
-            {
-                personality.AddPersonalityTrait(m_Traits[0]);
-            }
-            else
-            {
-                personality.AddPersonalityTrait(m_Traits[1]);
-            }
+            personality.AddPersonalityTrait(RandomTrait());
 
             m_Personalities.Add(personality);
+
+            UnityEngine.Debug.Log("Created " + personality);
 
             return personality;
         }
@@ -115,6 +109,11 @@ namespace MS.Model
                 randomIndex = UnityEngine.Random.Range(0, m_FemalePortraits.Count);
                 return m_FemalePortraits[randomIndex];
             }
+        }
+
+        public Trait RandomTrait()
+        {
+            return m_Traits[UnityEngine.Random.Range(0, m_Traits.Count)];
         }
 
         public IEnumerator<Personality> GetEnumerator()
