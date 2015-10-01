@@ -71,13 +71,13 @@ namespace MS.Model
 
             modifier = CalculateModifier(score);
 
-            if (score > 0)
+            if (modifier > 0)
             {
-                return string.Format("{0} (<color=green>+{1}</color>", score, modifier);
+                return string.Format("{0} (<color=green>+{1}</color>)", score, modifier);
             }
-            else if (score < 0)
+            else if (modifier < 0)
             {
-                return string.Format("{0} (<color=red>{1}</color>", score, modifier);
+                return string.Format("{0} (<color=red>{1}</color>)", score, modifier);
             }
             else
             {
