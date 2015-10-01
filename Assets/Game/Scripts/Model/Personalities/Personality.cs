@@ -141,6 +141,23 @@ namespace MS.Model
             Game.Instance.Turns.OnAllTurnsFinished -= OnTurnEnd;
         }
 
+        protected int CalculateFinalValue(Ability ability)
+        {
+            int value;
+
+            value = ability.Score;
+
+            foreach (Trait trait in m_Traits)
+            {
+                foreach (Modifier modifier in trait)
+                {
+                    value += modifier.Apply(ability);
+                }
+            }
+
+            return value;
+        }
+
         protected void OnTurnEnd()
         {
             if (Alive)
