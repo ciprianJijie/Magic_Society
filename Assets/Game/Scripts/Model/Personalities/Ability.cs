@@ -22,7 +22,7 @@ namespace MS.Model
         {
             get
             {
-                return Mathf.FloorToInt(((float)(Score - 10)) / 2f);
+                return CalculateModifier(Score);
             }
         }
 
@@ -31,6 +31,11 @@ namespace MS.Model
             Name    =   type.ToString();
             Score   =   score;
             Type    =   type;
+        }
+
+        public static int CalculateModifier(int score)
+        {
+            return Mathf.FloorToInt(((float)(score - 10)) / 2f);
         }
 
         public override void FromJSON(JSONNode json)
