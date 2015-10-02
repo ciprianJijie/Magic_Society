@@ -84,6 +84,26 @@ namespace MS
             m_Views.Clear();
         }
 
+        public void ClearMissingViews(IEnumerable<R> list)
+        {
+            List<T> candidates = new List<T>(m_Views);
+
+            foreach (R element in list)
+            {
+                T view = FindView(element);
+
+                if (view != null)
+                {
+                    candidates.Remove(view);
+                }
+            }
+
+            foreach (T view in candidates)
+            {
+                DestroyView(view.Model);
+            }
+        }
+
         public virtual void UpdateAllViews()
         {
             foreach (IUpdatableView view in m_Views)

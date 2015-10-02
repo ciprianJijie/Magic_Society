@@ -9,30 +9,30 @@ namespace MS.Views.UI
 {
     public class PersonalityView : View<Model.Personality>
     {
-        public Text     NameLabel;
-        public Text     AgeLabel;
-        public Image    MaleIcon;
-        public Image    FemaleIcon;
-        public Text     StrengthLabel;
-        public Text     DexterityLabel;
-        public Text     ConstitutionLabel;
-        public Text     IntelligenceLabel;
-        public Text     WisdomLabel;
-        public Text     CharismaLabel;
-        public Image    PortraitImage;
-        public Sprite BabySprite;
-        public Sprite DeathSprite;
+        public Text                             NameLabel;
+        public Text                             AgeLabel;
+        public Image                            MaleIcon;
+        public Image                            FemaleIcon;
+        public Text                             VigorLabel;
+        public Text                             ManagementLabel;
+        public Text                             IntrigueLabel;
+        public Text                             CharismaLabel;
+        public Text                             MoralityLabel;
+        public Image                            PortraitImage;
+        public Sprite                           BabySprite;
+        public Sprite                           DeathSprite;
+        public Controllers.UI.TraitController   TraitController;
+        public Transform                        TraitsHolder;
 
         public override void UpdateView(Personality element)
         {
             NameLabel.text          =   element.Name;
             AgeLabel.text           =   element.Age.ToString();
-            StrengthLabel.text      =   element.Strength.ToString();
-            DexterityLabel.text     =   element.Dexterity.ToString();
-            ConstitutionLabel.text  =   element.Constitution.ToString();
-            IntelligenceLabel.text  =   element.Intelligence.ToString();
-            WisdomLabel.text        =   element.Wisdom.ToString();
+            VigorLabel.text         =   element.Vigor.ToString();
+            ManagementLabel.text    =   element.Management.ToString();
+            IntrigueLabel.text      =   element.Intrigue.ToString();
             CharismaLabel.text      =   element.Charisma.ToString();
+            MoralityLabel.text      =   element.Morality.ToString();
 
             switch (element.Gender)
             {
@@ -49,10 +49,10 @@ namespace MS.Views.UI
                     FemaleIcon.gameObject.SetActive(false);
                     break;
             }
-            
+
             if (element.Alive == false)
             {
-                PortraitImage.sprite = DeathSprite;                
+                PortraitImage.sprite = DeathSprite;
             }
             else if (element.Age < 16)
             {
@@ -62,6 +62,22 @@ namespace MS.Views.UI
             {
                 StartCoroutine(LoadPortrait(Model.Portrait.ImagePath));
             }
+
+            //TraitController.ClearViews();
+            TraitController.Holder = TraitsHolder;
+
+            foreach (Trait trait in element)
+            {
+                var newView = TraitController.CreateView(trait);
+
+                UnityEngine.Debug.Log("Created trait view for " + trait.Name + " => " + newView);
+
+                newView.UpdateView(trait);
+            }
+
+            m_Model = element;
+
+            UnityEngine.Debug.Log("Updating view for " + element);
         }
 
         protected IEnumerator LoadPortrait(string filePath)

@@ -42,13 +42,18 @@ namespace MS.Generators
             JSONNode    json;
             JSONArray   array;
             int         randomIndex;
+            string      name;
 
             text            =   Resources.Load<TextAsset>(filePathWithNames).text;
             json            =   JSON.Parse(text);
             array           =   json["names"].AsArray;
             randomIndex     =   Random.Range(0, array.Count);
+            name            =   prefix + array[randomIndex]["name"] + suffix;
+            //name            =   string.Format("{0} {1} {2}", prefix, array[randomIndex]["name"], suffix);
 
-            return string.Format("{0} {1} {2}", prefix, array[randomIndex]["name"].ToString(), suffix);
+            UnityEngine.Debug.Log("Random name: " + name);
+
+            return name;
         }
 
         private static string RandomPrefix()

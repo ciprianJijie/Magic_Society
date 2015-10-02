@@ -47,6 +47,10 @@
             "Text": "Investigación"
         },
         {
+          "ID": "TRAITS",
+          "Text": "Aspectos"
+        },
+        {
           "ID": "ABILITY_STRENGTH",
           "Text": "Fuerza"
         },
@@ -153,7 +157,132 @@
         {
           "ID": "BUILDING_AQUADUCT_DESCRIPTION",
           "Text": "+8 Comida si controlas una casilla con agua."
+        },
+        {
+          "ID": "TRAIT_QUIET",
+          "Text": "Callado"
+        },
+        {
+          "ID": "TRAIT_UNSOCIABLE",
+          "Text": "Asocial"
+        },
+        {
+          "ID": "TRAIT_RESERVED",
+          "Text": "Reservado"
+        },
+        {
+          "ID": "TRAIT_PESSIMISTIC",
+          "Text": "Pesimista"
+        },
+        {
+          "ID": "TRAIT_SOBER",
+          "Text": "Sobrio"
+        },
+        {
+          "ID": "TRAIT_RIGID",
+          "Text": "Sebero"
+        },
+        {
+          "ID": "TRAIT_ANXIOUS",
+          "Text": "Ansioso"
+        },
+        {
+          "ID": "TRAIT_MOODY",
+          "Text": "Temperamental"
+        },
+        {
+          "ID": "TRAIT_TOUCHY",
+          "Text": "Quisquilloso"
+        },
+        {
+          "ID": "TRAIT_RESTLESS",
+          "Text": "Inquieto"
+        },
+        {
+          "ID": "TRAIT_AGGRESSIVE",
+          "Text": "Agresivo"
+        },
+        {
+          "ID": "TRAIT_EXCITABLE",
+          "Text": "Exaltado"
+        },
+        {
+          "ID": "TRAIT_CHANGEABLE",
+          "Text": "Inconstante"
+        },
+        {
+          "ID": "TRAIT_IMPULSIVE",
+          "Text": "Impulsivo"
+        },
+        {
+          "ID": "TRAIT_OPTIMISTIC",
+          "Text": "Optimista"
+        },
+        {
+          "ID": "TRAIT_ACTIVE",
+          "Text": "Activo"
+        },
+        {
+          "ID": "TRAIT_SOCIABLE",
+          "Text": "Sociable"
+        },
+        {
+          "ID": "TRAIT_OUTGOING",
+          "Text": "Extrovertido"
+        },
+        {
+          "ID": "TRAIT_TALKATIVE",
+          "Text": "Parlanchín"
+        },
+        {
+          "ID": "TRAIT_RESPONSIVE",
+          "Text": "Empático"
+        },
+        {
+          "ID": "TRAIT_EASYGOING",
+          "Text": "Acomodadizo"
+        },
+        {
+          "ID": "TRAIT_LIVELY",
+          "Text": "Vivaz"
+        },
+        {
+          "ID": "TRAIT_CAREFREE",
+          "Text": "Despreocupado"
+        },
+        {
+          "ID": "TRAIT_LEADERSHIP",
+          "Text": "Lider Nato"
+        },
+        {
+          "ID": "TRAIT_CALM",
+          "Text": "Calmado"
+        },
+        {
+          "ID": "TRAIT_RELIABLE",
+          "Text": "Fehaciente"
+        },
+        {
+          "ID": "TRAIT_CONTROLLED",
+          "Text": "Sosegado"
+        },
+        {
+          "ID": "TRAIT_PEACEFUL",
+          "Text": "Pacífico"
+        },
+        {
+          "ID": "TRAIT_THOUGHTFUL",
+          "Text": "Pensativo"
+        },
+        {
+          "ID": "TRAIT_CAREFUL",
+          "Text": "Cuidadoso"
+        },
+        {
+          "ID": "TRAIT_PASSIVE",
+          "Text": "Pasivo"
         }
+
     ]
 
 }

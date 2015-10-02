@@ -47,6 +47,10 @@
             "Text": "Research"
         },
         {
+          "ID": "TRAITS",
+          "Text": "Traits"
+        },
+        {
           "ID": "ABILITY_STRENGTH",
           "Text": "Strength"
         },
@@ -153,6 +157,130 @@
         {
           "ID": "BUILDING_AQUADUCT_DESCRIPTION",
           "Text": "+8 Food if you control a tile with water."
+        },
+        {
+          "ID": "TRAIT_QUIET",
+          "Text": "Quiet"
+        },
+        {
+          "ID": "TRAIT_UNSOCIABLE",
+          "Text": "Unsociable"
+        },
+        {
+          "ID": "TRAIT_RESERVED",
+          "Text": "Reserved"
+        },
+        {
+          "ID": "TRAIT_PESSIMISTIC",
+          "Text": "Pesimistic"
+        },
+        {
+          "ID": "TRAIT_SOBER",
+          "Text": "Sober"
+        },
+        {
+          "ID": "TRAIT_RIGID",
+          "Text": "Rigid"
+        },
+        {
+          "ID": "TRAIT_ANXIOUS",
+          "Text": "Anxious"
+        },
+        {
+          "ID": "TRAIT_MOODY",
+          "Text": "Moody"
+        },
+        {
+          "ID": "TRAIT_TOUCHY",
+          "Text": "Touchy"
+        },
+        {
+          "ID": "TRAIT_RESTLESS",
+          "Text": "Restless"
+        },
+        {
+          "ID": "TRAIT_AGGRESSIVE",
+          "Text": "Aggressive"
+        },
+        {
+          "ID": "TRAIT_EXCITABLE",
+          "Text": "Excitable"
+        },
+        {
+          "ID": "TRAIT_CHANGEABLE",
+          "Text": "Changeable"
+        },
+        {
+          "ID": "TRAIT_IMPULSIVE",
+          "Text": "Impulsive"
+        },
+        {
+          "ID": "TRAIT_OPTIMISTIC",
+          "Text": "Optimistic"
+        },
+        {
+          "ID": "TRAIT_ACTIVE",
+          "Text": "Active"
+        },
+        {
+          "ID": "TRAIT_SOCIABLE",
+          "Text": "Sociable"
+        },
+        {
+          "ID": "TRAIT_OUTGOING",
+          "Text": "Outgoing"
+        },
+        {
+          "ID": "TRAIT_TALKATIVE",
+          "Text": "Talkative"
+        },
+        {
+          "ID": "TRAIT_RESPONSIVE",
+          "Text": "Responsive"
+        },
+        {
+          "ID": "TRAIT_EASYGOING",
+          "Text": "Easygoing"
+        },
+        {
+          "ID": "TRAIT_LIVELY",
+          "Text": "Lively"
+        },
+        {
+          "ID": "TRAIT_CAREFREE",
+          "Text": "Carefree"
+        },
+        {
+          "ID": "TRAIT_LEADERSHIP",
+          "Text": "Leadership"
+        },
+        {
+          "ID": "TRAIT_CALM",
+          "Text": "Calm"
+        },
+        {
+          "ID": "TRAIT_RELIABLE",
+          "Text": "Reliable"
+        },
+        {
+          "ID": "TRAIT_CONTROLLED",
+          "Text": "Controlled"
+        },
+        {
+          "ID": "TRAIT_PEACEFUL",
+          "Text": "Peaceful"
+        },
+        {
+          "ID": "TRAIT_THOUGHTFUL",
+          "Text": "Thoughtful"
+        },
+        {
+          "ID": "TRAIT_CAREFUL",
+          "Text": "Careful"
+        },
+        {
+          "ID": "TRAIT_PASSIVE",
+          "Text": "Passive"
         }
     ]
 

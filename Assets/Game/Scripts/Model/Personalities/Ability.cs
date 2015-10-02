@@ -5,33 +5,51 @@ namespace MS.Model
 {
     public class Ability : ModelElement
     {
-        public int Score;
+        public enum EType
+        {
+            ABILITY_VIGOR,
+            ABILITY_MANAGEMENT,
+            ABILITY_INTRIGUE,
+            ABILITY_CHARISMA,
+            ABILITY_MORALITY
+        }
+
+        public EType    Type;
+        public int      Score;
 
         public int Modifier
         {
             get
             {
-                return Mathf.FloorToInt(((float)(Score - 10)) / 2f);
+                return CalculateModifier(Score);
             }
         }
 
-        public Ability(string name, int score)
+        public Ability(EType type, int score)
         {
-            Name = name;
-            Score = score;
+            Name    =   type.ToString();
+            Score   =   score;
+            Type    =   type;
+        }
+
+        public static int CalculateModifier(int score)
+        {
+            return Mathf.FloorToInt(((float)(score - 10)) / 2f);
         }
 
         public override void FromJSON(JSONNode json)
         {
-            base.FromJSON(json);
-            Score = json["score"].AsInt;
+            Type    =   EnumUtils.ParseEnum<EType>(json["name"]);
+            Score   =   json["score"].AsInt;
         }
 
         public override JSONNode ToJSON()
         {
-            JSONNode root;
+            JSONClass root;
 
-            root = base.ToJSON();
+            root = new JSONClass();
+
+            root.Add("name", Type.ToString());
             root.Add("score", new JSONData(Score));
 
             return root;
@@ -44,6 +62,26 @@ namespace MS.Model
                 return string.Format("{0}(<color=green>+{1}</color>)", Score, Modifier);
             }
             return string.Format("{0}(<color=red>{1}</color>)", Score, Modifier);
+        }
+
+        public static string ToString(int score)
+        {
+            int modifier;
+
+            modifier = CalculateModifier(score);
+
+            if (modifier > 0)
+            {
+                return string.Format("{0} (<color=green>+{1}</color>)", score, modifier);
+            }
+            else if (modifier < 0)
+            {
+                return string.Format("{0} (<color=red>{1}</color>)", score, modifier);
+            }
+            else
+            {
+                return string.Format("{0} ({1})", score, modifier);
+            }
         }
     }
 }

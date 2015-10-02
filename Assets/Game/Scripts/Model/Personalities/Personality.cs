@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System;
+using System.Collections;
 
 namespace MS.Model
 {
-    public class Personality : OwnableElement, IEventListener
+    public class Personality : OwnableElement, IEventListener, IEnumerable<Trait>
     {
         public static readonly int CHILD_AGE        =   0;
         public static readonly int ADULT_AGE        =   16;
@@ -13,17 +16,19 @@ namespace MS.Model
         public enum EGender { Male, Female, Unknown }
         public enum EAgeStage { Child, Adult, Old, Venerable, Unknown }
 
-        public Ability Strength;
-        public Ability Dexterity;
-        public Ability Constitution;
-        public Ability Intelligence;
-        public Ability Wisdom;
-        public Ability Charisma;
+        public Ability BaseVigor;
+        public Ability BaseManagement;
+        public Ability BaseIntrigue;
+        public Ability BaseCharisma;
+        public Ability BaseMorality;
 
         public EGender Gender;
         public float Age;
         public bool Alive;
         public Portrait Portrait;
+
+        protected List<Trait> m_Traits;
+        protected List<Relationship> m_Relationships;
 
         public EAgeStage AgeStage
         {
@@ -52,17 +57,103 @@ namespace MS.Model
             }
         }
 
+        public int Vigor
+        {
+            get { return CalculateFinalValue(BaseVigor); }
+        }
+
+        public int Management
+        {
+            get { return CalculateFinalValue(BaseManagement); }
+        }
+
+        public int Intrigue
+        {
+            get { return CalculateFinalValue(BaseIntrigue); }
+        }
+
+        public int Charisma
+        {
+            get { return CalculateFinalValue(BaseCharisma); }
+        }
+
+        public int Morality
+        {
+            get { return CalculateFinalValue(BaseMorality); }
+        }
+       
+
         public Personality()
         {
-            Strength        =   new Ability("ABILITY_STRENGTH", 10);
-            Dexterity       =   new Ability("ABILITY_DEXTERITY", 10);
-            Constitution    =   new Ability("ABILITY_CONSTITUTION", 10);
-            Intelligence    =   new Ability("ABILITY_INTELLIGENCE", 10);
-            Wisdom          =   new Ability("ABILITY_WISDOM", 10);
-            Charisma        =   new Ability("ABILITY_CHARISMA", 10);
+            BaseVigor       =   new Ability(Ability.EType.ABILITY_VIGOR, 10);
+            BaseManagement  =   new Ability(Ability.EType.ABILITY_MANAGEMENT, 10);
+            BaseIntrigue    =   new Ability(Ability.EType.ABILITY_INTRIGUE, 10);
+            BaseCharisma    =   new Ability(Ability.EType.ABILITY_CHARISMA, 10);
+            BaseMorality    =   new Ability(Ability.EType.ABILITY_MORALITY, 10);
+
+
             Alive           =   true;
+            m_Traits        =   new List<Trait>();
+            m_Relationships =   new List<Relationship>();
 
             SubscribeToEvents();
+        }
+
+        public void AddPersonalityTrait(Trait trait)
+        {
+            m_Traits.Add(trait);
+        }
+
+        public bool Is<T>() where T: Trait
+        {
+            var trait = m_Traits.Find( i => i is T);
+
+            return trait != null;
+        }
+
+        public bool Is(string traitName)
+        {
+            var trait = m_Traits.Find(i => i.Name == traitName);
+
+            return trait != null;
+        }
+
+        public int RelationWith(Personality other)
+        {
+            Relationship    relationship;
+            int             relationshipRate;
+
+            relationshipRate    =   0;
+            relationship        =   m_Relationships.Find(i => i.Target == other);
+
+            if (relationship == null)
+            {
+                relationship            =   new Relationship();
+                relationship.Source     =   this;
+                relationship.Target     =   other;
+                relationship.Rate       =   0;
+
+                m_Relationships.Add(relationship);
+            }
+
+            relationshipRate = relationship.Rate;
+
+            foreach (Trait trait in m_Traits)
+            {
+                foreach (Modifier modifier in trait)
+                {
+                    RelationshipModifier relationshipModifier;
+
+                    relationshipModifier = modifier as RelationshipModifier;
+
+                    if (relationshipModifier != null)
+                    {
+                        relationshipRate += relationshipModifier.Apply(relationship);
+                    }
+                }
+            }
+
+            return relationshipRate;
         }
 
         public void SubscribeToEvents()
@@ -73,6 +164,23 @@ namespace MS.Model
         public void UnsubscribeToEvents()
         {
             Game.Instance.Turns.OnAllTurnsFinished -= OnTurnEnd;
+        }
+
+        protected int CalculateFinalValue(Ability ability)
+        {
+            int value;
+
+            value = ability.Score;
+
+            foreach (Trait trait in m_Traits)
+            {
+                foreach (Modifier modifier in trait)
+                {
+                    value += modifier.Apply(ability);
+                }
+            }
+
+            return value;
         }
 
         protected void OnTurnEnd()
@@ -96,7 +204,7 @@ namespace MS.Model
             int dieResult;
 
             checkDC     =   CalculateDeathCheckDC(Mathf.FloorToInt(Age));
-            dieResult   =   Tools.DiceBag.Roll(3, 6, Constitution.Modifier);
+            dieResult   =   Tools.DiceBag.Roll(3, 6, Ability.CalculateModifier(Vigor));
 
             return dieResult < checkDC;
         }
@@ -108,7 +216,26 @@ namespace MS.Model
 
         public override string ToString()
         {
-            return string.Format("{0} ({1}) [STR:{2} DEX:{3} CON:{4} INT:{5} WIS:{6} CHA:{7}] Owned by {8}", Name, Mathf.FloorToInt(Age), Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, Owner.Name);
+            string traits;
+
+            traits = "";
+
+            foreach (Trait trait in m_Traits)
+            {
+                traits += trait.Name + ",";
+            }
+
+            return string.Format("{0} [{1}]", Name, traits);
+        }
+
+        public IEnumerator<Trait> GetEnumerator()
+        {
+            return m_Traits.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Traits.GetEnumerator();
         }
     }
 }
