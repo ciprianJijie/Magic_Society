@@ -1,7 +1,7 @@
 ﻿
 using SimpleJSON;
 
-namespace MS.Model.Map
+namespace MS.Model.World
 {
     public class Area : ModelElement, IResourceCollector
     {

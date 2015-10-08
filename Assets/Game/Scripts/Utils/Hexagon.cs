@@ -104,6 +104,11 @@ namespace MS
             return new Vector2(x, y);
         }
 
+        public static Vector2 CubeToWorld(Vector3 cube, float hexagonSize)
+        {
+            return CubeToWorld((int)cube.x, (int)cube.y, (int)cube.z, hexagonSize);
+        }
+
         public static Vector2 CubeToWorld(int x, int y, int z, float hexagonSize)
         {
             Vector2 axial;

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 488456}
+  - 114: {fileID: 11458028}
+  m_Layer: 0
+  m_Name: Central Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488456
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11458028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dab5ad436f2b348a0e4d0ebfc9eaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainHolder: {fileID: 488456}
+  FertilePlainsPrefab: {fileID: 149916, guid: 28b5ce61f98c27345b92a7e6e2628cdd, type: 2}
+  FertileHillsPrefab: {fileID: 149916, guid: 28b5ce61f98c27345b92a7e6e2628cdd, type: 2}
+  FertileMountainPrefab: {fileID: 149916, guid: 28b5ce61f98c27345b92a7e6e2628cdd,
+    type: 2}
+  FertileForestPrefab: {fileID: 149916, guid: 28b5ce61f98c27345b92a7e6e2628cdd, type: 2}
+  FertileWaterPrefab: {fileID: 149916, guid: 28b5ce61f98c27345b92a7e6e2628cdd, type: 2}
+  BarrenPlainsPrefab: {fileID: 149916, guid: 8dcdb2a214a350e4f8a09950a981d769, type: 2}
+  BarrenHillsPrefab: {fileID: 149916, guid: 8dcdb2a214a350e4f8a09950a981d769, type: 2}
+  BarrenMountainPrefab: {fileID: 149916, guid: 8dcdb2a214a350e4f8a09950a981d769, type: 2}
+  BarrenForestPrefab: {fileID: 149916, guid: 8dcdb2a214a350e4f8a09950a981d769, type: 2}
+  BarrenWaterPrefab: {fileID: 149916, guid: 8dcdb2a214a350e4f8a09950a981d769, type: 2}
+  DesertPlainsPrefab: {fileID: 149916, guid: d83580424748386468cc2cc4382dcae5, type: 2}
+  DesertHillsPrefab: {fileID: 149916, guid: d83580424748386468cc2cc4382dcae5, type: 2}
+  DesertMountainPrefab: {fileID: 149916, guid: d83580424748386468cc2cc4382dcae5, type: 2}
+  DesertForestPrefab: {fileID: 149916, guid: d83580424748386468cc2cc4382dcae5, type: 2}
+  DesertWaterPrefab: {fileID: 149916, guid: d83580424748386468cc2cc4382dcae5, type: 2}
+  FrozenPlainsPrefab: {fileID: 149916, guid: c371cf2af66b29e4db85a15f0bdce1cf, type: 2}
+  FrozenHillsPrefab: {fileID: 149916, guid: c371cf2af66b29e4db85a15f0bdce1cf, type: 2}
+  FrozenMountainPrefab: {fileID: 149916, guid: c371cf2af66b29e4db85a15f0bdce1cf, type: 2}
+  FrozenForestPrefab: {fileID: 149916, guid: c371cf2af66b29e4db85a15f0bdce1cf, type: 2}
+  FrozenWaterPrefab: {fileID: 149916, guid: c371cf2af66b29e4db85a15f0bdce1cf, type: 2}
+  VolcanicPlainsPrefab: {fileID: 149916, guid: 207e5b3b8ff819a44b6ab5a13814a555, type: 2}
+  VolcanicHillsPrefab: {fileID: 149916, guid: 207e5b3b8ff819a44b6ab5a13814a555, type: 2}
+  VolcanicMountainPrefab: {fileID: 149916, guid: 207e5b3b8ff819a44b6ab5a13814a555,
+    type: 2}
+  VolcanicForestPrefab: {fileID: 149916, guid: 207e5b3b8ff819a44b6ab5a13814a555, type: 2}
+  VolcanicWaterPrefab: {fileID: 149916, guid: 207e5b3b8ff819a44b6ab5a13814a555, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 110736}
+  m_IsPrefabParent: 1
