@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352e11f01f1561042ad53cb300fe4af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewPrefab: {fileID: 0}
+  ViewPrefab: {fileID: 11485376, guid: 12c02947c59d4334683cb3d1cc61ba97, type: 2}
   Holder: {fileID: 0}
 --- !u!4 &546581027
 Transform:

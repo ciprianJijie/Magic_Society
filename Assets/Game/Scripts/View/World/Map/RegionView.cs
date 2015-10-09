@@ -18,6 +18,7 @@ namespace MS.Views.World.Map
             AreaView            areaView;
             Vector2             worldPosition;
             Vector3             finalPosition;
+            int                 areaCount;
 
             AreaController.Holder           =   this.transform;
             CentralAreaController.Holder    =   this.transform;
@@ -30,6 +31,8 @@ namespace MS.Views.World.Map
 
             centralView.UpdateView(element.CapitalArea);
 
+            areaCount = 0;
+
             foreach (Area area in element)
             {
                 areaView = AreaController.FindView(area);
@@ -37,6 +40,9 @@ namespace MS.Views.World.Map
                 if (areaView == null)
                 {
                     areaView = AreaController.CreateView(area) as AreaView;
+
+                    areaView.transform.Rotate(new Vector3(0.0f, 60.0f * areaCount, 0.0f));
+                    areaCount++;
                 }
 
                 areaView.UpdateView(area);

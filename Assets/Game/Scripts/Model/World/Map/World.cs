@@ -26,21 +26,6 @@ namespace MS.Model.World
 
             Region region;
 
-            //for (int x = (-m_Range + 1); x < m_Range; x++)
-            //{
-            //    for (int y = (-m_Range + 1); y < m_Range; y++)
-            //    {
-            //        for (int z = (-m_Range + 1); z < m_Range; z++)
-            //        {
-            //            region = new Region();
-
-            //            region.CubePosition = new Vector3(x, y, z);
-            //            region.Randomize();
-            //            m_Regions.Add(region);
-            //        }
-            //    }                
-            //}
-
             List<Vector3> positions = new List<Vector3>();
             int z;
 

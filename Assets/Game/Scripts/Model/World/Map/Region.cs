@@ -60,9 +60,10 @@ namespace MS.Model.World
         {
             m_Areas = new List<Area>(6);
 
-            for (int i = 0; i < m_Areas.Count; i++)
+            for (int i = 0; i < m_Areas.Capacity; i++)
             {
-                m_Areas[i] = new Area();
+                //m_Areas[i] = new Area();
+                m_Areas.Add(new Area());
             }
 
             m_Capital = new Area();
