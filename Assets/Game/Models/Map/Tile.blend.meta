@@ -11,32 +11,80 @@ ModelImporter:
     100006: Tile
     100008: Area
     100010: Central_Tile
+    100012: Hills
+    100014: Mountain
+    100016: Trees
+    100018: Water
+    100020: Tile_Carved
+    100022: Barren_Forest
+    100024: Barren_Forest_MeshPart0
+    100026: Barren_Forest_MeshPart1
     400000: Marker
     400002: Region
     400004: //RootNode
     400006: Tile
     400008: Area
     400010: Central_Tile
+    400012: Hills
+    400014: Mountain
+    400016: Trees
+    400018: Water
+    400020: Tile_Carved
+    400022: Barren_Forest
+    400024: Barren_Forest_MeshPart0
+    400026: Barren_Forest_MeshPart1
     2300000: Marker
     2300002: Region
     2300004: Tile
     2300006: Area
     2300008: Central_Tile
+    2300010: Hills
+    2300012: Mountain
+    2300014: Trees
+    2300016: Water
+    2300018: Tile_Carved
+    2300020: Barren_Forest_MeshPart0
+    2300022: Barren_Forest_MeshPart1
+    2300024: Barren_Forest
     3300000: Marker
     3300002: Region
     3300004: Tile
     3300006: Area
     3300008: Central_Tile
+    3300010: Hills
+    3300012: Mountain
+    3300014: Trees
+    3300016: Water
+    3300018: Tile_Carved
+    3300020: Barren_Forest_MeshPart0
+    3300022: Barren_Forest_MeshPart1
+    3300024: Barren_Forest
     4300000: Region
     4300002: Marker
     4300004: Tile
     4300006: Area
     4300008: Central_Tile
+    4300010: Hills
+    4300012: Mountain
+    4300014: Trees
+    4300016: Water
+    4300018: Tile_Carved
+    4300020: Barren_Forest_MeshPart0
+    4300022: Barren_Forest_MeshPart1
+    4300024: Barren_Forest
     6400000: Marker
     6400002: Region
     6400004: Tile
     6400006: Area
     6400008: Central_Tile
+    6400010: Hills
+    6400012: Mountain
+    6400014: Trees
+    6400016: Water
+    6400018: Tile_Carved
+    6400020: Barren_Forest_MeshPart0
+    6400022: Barren_Forest_MeshPart1
+    6400024: Barren_Forest
     7400000: Default Take
     9500000: //RootNode
   materials:

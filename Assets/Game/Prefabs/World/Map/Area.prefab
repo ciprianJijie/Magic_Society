@@ -41,15 +41,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TerrainHolder: {fileID: 486400}
   FertilePlainsPrefab: {fileID: 114160, guid: b3274bdc35719da4ea140bb3fbc65811, type: 2}
-  FertileHillsPrefab: {fileID: 114160, guid: b3274bdc35719da4ea140bb3fbc65811, type: 2}
-  FertileMountainPrefab: {fileID: 114160, guid: b3274bdc35719da4ea140bb3fbc65811,
+  FertileHillsPrefab: {fileID: 114160, guid: cb98eda22ec24d24e87bf9cfec310ba2, type: 2}
+  FertileMountainPrefab: {fileID: 172270, guid: 07c20176ae7d09f479ac1f2d1383741e,
     type: 2}
-  FertileForestPrefab: {fileID: 114160, guid: b3274bdc35719da4ea140bb3fbc65811, type: 2}
-  FertileWaterPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
+  FertileForestPrefab: {fileID: 119782, guid: 8cb2029d914692a4a9b42b22a93cb653, type: 2}
+  FertileWaterPrefab: {fileID: 127730, guid: 865cbb273425fa040bcad0f345ccd5de, type: 2}
   BarrenPlainsPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
   BarrenHillsPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
   BarrenMountainPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
-  BarrenForestPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
+  BarrenForestPrefab: {fileID: 135286, guid: 6c7d00946486f5c488195e848320bfce, type: 2}
   BarrenWaterPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
   DesertPlainsPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
   DesertHillsPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
@@ -73,7 +73,27 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: FertileHillsPrefab
+      value: 
+      objectReference: {fileID: 114160, guid: cb98eda22ec24d24e87bf9cfec310ba2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileMountainPrefab
+      value: 
+      objectReference: {fileID: 172270, guid: 07c20176ae7d09f479ac1f2d1383741e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileForestPrefab
+      value: 
+      objectReference: {fileID: 119782, guid: 8cb2029d914692a4a9b42b22a93cb653, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FertileWaterPrefab
+      value: 
+      objectReference: {fileID: 127730, guid: 865cbb273425fa040bcad0f345ccd5de, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenForestPrefab
+      value: 
+      objectReference: {fileID: 135286, guid: 6c7d00946486f5c488195e848320bfce, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121892}
