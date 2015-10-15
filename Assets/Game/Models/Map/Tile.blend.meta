@@ -23,6 +23,7 @@ ModelImporter:
     100030: Tree_02
     100032: Tree_03
     100034: Tree_04
+    100036: Mountain_2
     400000: Marker
     400002: Region
     400004: //RootNode
@@ -41,6 +42,7 @@ ModelImporter:
     400030: Tree_02
     400032: Tree_03
     400034: Tree_04
+    400036: Mountain_2
     2300000: Marker
     2300002: Region
     2300004: Tile
@@ -58,6 +60,7 @@ ModelImporter:
     2300028: Tree_02
     2300030: Tree_03
     2300032: Tree_04
+    2300034: Mountain_2
     3300000: Marker
     3300002: Region
     3300004: Tile
@@ -75,6 +78,7 @@ ModelImporter:
     3300028: Tree_02
     3300030: Tree_03
     3300032: Tree_04
+    3300034: Mountain_2
     4300000: Region
     4300002: Marker
     4300004: Tile
@@ -92,6 +96,7 @@ ModelImporter:
     4300028: Tree_03
     4300030: Tree_02
     4300032: Tree_01
+    4300034: Mountain_2
     6400000: Marker
     6400002: Region
     6400004: Tile
@@ -109,14 +114,16 @@ ModelImporter:
     6400028: Tree_02
     6400030: Tree_03
     6400032: Tree_04
-    7400000: Default Take
+    6400034: Mountain_2
+    7400000: Idle
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 4
+    legacyGenerateAnimations: 0
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
@@ -124,13 +131,67 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Default Take
+      firstFrame: -1
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Area
+        weight: 1
+      - path: Barren_Forest
+        weight: 1
+      - path: Central_Tile
+        weight: 1
+      - path: Hills
+        weight: 1
+      - path: Marker
+        weight: 1
+      - path: Mountain
+        weight: 1
+      - path: Tile_Carved
+        weight: 1
+      - path: Tree_01
+        weight: 1
+      - path: Tree_02
+        weight: 1
+      - path: Tree_03
+        weight: 1
+      - path: Tree_04
+        weight: 1
+      - path: Trees
+        weight: 1
+      - path: Water
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -154,7 +215,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
@@ -169,7 +230,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

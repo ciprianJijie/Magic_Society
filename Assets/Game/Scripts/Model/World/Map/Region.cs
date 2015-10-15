@@ -76,7 +76,7 @@ namespace MS.Model.World
             m_Capital.TopographyType = RandomTopography(m_Capital.TerrainType);
 
             // Peripheral
-            for (int i = 1; i < m_Areas.Count; i++)
+            for (int i = 0; i < m_Areas.Count; i++)
             {
                 m_Areas[i].TerrainType = RandomTerrain(m_Capital.TerrainType);
                 m_Areas[i].TopographyType = RandomTopography(m_Areas[i].TerrainType);

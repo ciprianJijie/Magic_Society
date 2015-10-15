@@ -26,6 +26,7 @@ GameObject:
   - 4: {fileID: 402606}
   - 33: {fileID: 3361432}
   - 23: {fileID: 2355374}
+  - 114: {fileID: 11417438}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -100,6 +101,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44f9a3c8d21aca4d94f1858d2f9e69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseFace: 0
+  axis: 0
+--- !u!114 &11417438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6859fd768194288b3999d01525bc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Steps: 12
+  StepAngle: 3
+  Axis: {x: 0, y: 0, z: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -111,6 +128,22 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300026, guid: f715082416980474ab4b3ac6d3e29179, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Axis.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Steps
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: StepAngle
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107906}
