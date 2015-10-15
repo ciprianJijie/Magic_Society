@@ -359,8 +359,8 @@ MonoBehaviour:
   Speed: 8
   NearHeight: 10
   FarHeight: 25
-  NearRotation: {x: 85, y: 0, z: 0}
-  FarRotation: {x: 65, y: 0, z: 0}
+  NearRotation: {x: 75, y: 0, z: 0}
+  FarRotation: {x: 45, y: 0, z: 0}
   EventSystem: {fileID: 55179348}
 --- !u!1 &456799897
 GameObject:
@@ -862,6 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldController: {fileID: 711474681}
+  WorldRings: 3
 --- !u!1 &1820766927
 GameObject:
   m_ObjectHideFlags: 0
