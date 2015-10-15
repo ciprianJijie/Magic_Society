@@ -6,43 +6,7 @@ using UnityEngine;
 namespace MS.Model.World
 {
     public class Region : ModelElement, IEnumerable<Area>
-    {
-        protected static readonly int RANDOM_FERTILE            =   35;
-        protected static readonly int RANDOM_BARREN             =   60;
-        protected static readonly int RANDOM_DESERT             =   75;
-        protected static readonly int RANDOM_FROZEN             =   90;
-        protected static readonly int RANDOM_VOLCANIC           =   100;
-        protected static readonly int RANDOM_FERTILE_ADJACENCY  =   75;
-        protected static readonly int RANDOM_BARREN_ADJACENCY   =   58;
-        protected static readonly int RANDOM_DESERT_ADJACENCY   =   80;
-        protected static readonly int RANDOM_FROZEN_ADJACENCY   =   75;
-        protected static readonly int RANDOM_VOLCANIC_ADJACENCY =   58;
-        protected static readonly int RANDOM_FERTILE_PLAINS     =   35;
-        protected static readonly int RANDOM_FERTILE_HILLS      =   45;
-        protected static readonly int RANDOM_FERTILE_MOUNTAIN   =   60;
-        protected static readonly int RANDOM_FERTILE_FOREST     =   95;
-        protected static readonly int RANDOM_FERTILE_WATER      =   100;
-        protected static readonly int RANDOM_BARREN_PLAINS      =   55;
-        protected static readonly int RANDOM_BARREN_HILLS       =   85;
-        protected static readonly int RANDOM_BARREN_MOUNTAIN    =   999;
-        protected static readonly int RANDOM_BARREN_FOREST      =   95;
-        protected static readonly int RANDOM_BARREN_WATER       =   100;
-        protected static readonly int RANDOM_DESERT_PLAINS      =   70;
-        protected static readonly int RANDOM_DESERT_HILLS       =   999;
-        protected static readonly int RANDOM_DESERT_MOUNTAIN    =   90;
-        protected static readonly int RANDOM_DESERT_FOREST      =   95;
-        protected static readonly int RANDOM_DESERT_WATER       =   100;
-        protected static readonly int RANDOM_FROZEN_PLAINS      =   10;
-        protected static readonly int RANDOM_FROZEN_HILLS       =   20;
-        protected static readonly int RANDOM_FROZEN_MOUNTAIN    =   60;
-        protected static readonly int RANDOM_FROZEN_FOREST      =   90;
-        protected static readonly int RANDOM_FROZEN_WATER       =   100;
-        protected static readonly int RANDOM_VOLCANIC_PLAINS    =   20;
-        protected static readonly int RANDOM_VOLCANIC_HILLS     =   40;
-        protected static readonly int RANDOM_VOLCANIC_MOUNTAIN  =   100;
-        protected static readonly int RANDOM_VOLCANIC_FOREST    =   999;
-        protected static readonly int RANDOM_VOLCANIC_WATER     =   999;
-        
+    {        
         public Vector3          CubePosition;
 
         protected List<Area>    m_Areas;
@@ -133,25 +97,25 @@ namespace MS.Model.World
         {
             int roll;
 
-            roll = Tools.DiceBag.Roll(1, 100, 0);
+            roll = Tools.DiceBag.Roll(1, 8, 0);
 
-            if (roll < RANDOM_FERTILE)
+            if (roll < 4) // 1-3
             {
                 return Area.ETerrainType.Fertile;
             }
-            else if (roll < RANDOM_BARREN)
+            else if (roll < 6) // 4-5
             {
                 return Area.ETerrainType.Barren;
             }
-            else if (roll < RANDOM_DESERT)
+            else if (roll < 7) // 6
             {
                 return Area.ETerrainType.Desert;
             }
-            else if (roll < RANDOM_FROZEN)
+            else if (roll < 8) // 7
             {
                 return Area.ETerrainType.Frozen;
             }
-            else
+            else // 8
             {
                 return Area.ETerrainType.Volcanic;
             }
@@ -159,161 +123,180 @@ namespace MS.Model.World
 
         protected Area.ETerrainType RandomTerrain(Area.ETerrainType adjacentTerrain)
         {
-            int adjacencyProb;
             int roll;
-            
-            switch (adjacentTerrain)
+
+            roll = Tools.DiceBag.Roll(1, 8, 0);
+
+            switch(adjacentTerrain)
             {
                 case Area.ETerrainType.Fertile:
-                    adjacencyProb = RANDOM_FERTILE_ADJACENCY;
-                    break;
+                    if (roll <5)
+                    {
+                        return Area.ETerrainType.Fertile;
+                    }
+                    else if (roll < 7)
+                    {
+                        return Area.ETerrainType.Barren;
+                    }
+                    else
+                    {
+                        return Area.ETerrainType.Frozen;
+                    }
+
                 case Area.ETerrainType.Barren:
-                    adjacencyProb = RANDOM_BARREN_ADJACENCY;
-                    break;
+                    if (roll < 3)
+                    {
+                        return Area.ETerrainType.Fertile;
+                    }
+                    else if (roll < 6)
+                    {
+                        return Area.ETerrainType.Barren;
+                    }
+                    else
+                    {
+                        return Area.ETerrainType.Desert;
+                    }
+
                 case Area.ETerrainType.Desert:
-                    adjacencyProb = RANDOM_DESERT_ADJACENCY;
-                    break;
+                    if (roll < 5)
+                    {
+                        return Area.ETerrainType.Barren;
+                    }
+                    else
+                    {
+                        return Area.ETerrainType.Desert;
+                    }
+
                 case Area.ETerrainType.Frozen:
-                    adjacencyProb = RANDOM_FROZEN_ADJACENCY;
-                    break;
-                default:
-                    adjacencyProb = RANDOM_VOLCANIC_ADJACENCY;
-                    break;
+                    if (roll < 5)
+                    {
+                        return Area.ETerrainType.Fertile;
+                    }
+                    else
+                    {
+                        return Area.ETerrainType.Frozen;
+                    }
+
+                case Area.ETerrainType.Volcanic:
+                    if (roll < 5)
+                    {
+                        return Area.ETerrainType.Barren;
+                    }
+                    else
+                    {
+                        return Area.ETerrainType.Volcanic;
+                    }
             }
 
-            roll = Tools.DiceBag.Roll(1, 100, 0);
-
-            if (roll < adjacencyProb)
-            {
-                return adjacentTerrain;
-            }
-
-            return RandomTerrain();
-
+            // Default value
+            return Area.ETerrainType.Fertile;
         }
 
         protected Area.ETopographyType RandomTopography(Area.ETerrainType terrain)
         {
             int roll;
 
-            roll = Tools.DiceBag.Roll(1, 100, 0);
+            roll = Tools.DiceBag.Roll(1, 8, 0);
 
             switch (terrain)
             {
                 case Area.ETerrainType.Fertile:
-                    if (roll < RANDOM_FERTILE_PLAINS)
+                    if (roll < 5)
                     {
-                        return Area.ETopographyType.Forest;
+                        return Area.ETopographyType.Plains;
                     }
-                    else if (roll < RANDOM_FERTILE_HILLS)
+                    else if (roll < 6)
                     {
                         return Area.ETopographyType.Hills;
                     }
-                    else if (roll < RANDOM_FERTILE_MOUNTAIN)
-                    {
-                        return Area.ETopographyType.Mountain;
-                    }
-                    else if (roll < RANDOM_FERTILE_FOREST)
+                    else if (roll < 7)
                     {
                         return Area.ETopographyType.Forest;
                     }
-                    else if (roll < RANDOM_FERTILE_WATER)
+                    else if (roll < 8)
+                    {
+                        return Area.ETopographyType.Mountain;
+                    }
+                    else
                     {
                         return Area.ETopographyType.Water;
                     }
-                    break;
 
                 case Area.ETerrainType.Barren:
-                    if (roll < RANDOM_BARREN_PLAINS)
+                    if (roll < 3)
                     {
-                        return Area.ETopographyType.Forest;
+                        return Area.ETopographyType.Plains;
                     }
-                    else if (roll < RANDOM_BARREN_HILLS)
+                    else if (roll < 5)
                     {
                         return Area.ETopographyType.Hills;
                     }
-                    else if (roll < RANDOM_BARREN_MOUNTAIN)
-                    {
-                        return Area.ETopographyType.Mountain;
-                    }
-                    else if (roll < RANDOM_BARREN_FOREST)
+                    else if (roll < 6)
                     {
                         return Area.ETopographyType.Forest;
                     }
-                    else if (roll < RANDOM_BARREN_WATER)
+                    else if (roll < 8)
+                    {
+                        return Area.ETopographyType.Mountain;
+                    }
+                    else
                     {
                         return Area.ETopographyType.Water;
                     }
-                    break;
+
 
                 case Area.ETerrainType.Desert:
-                    if (roll < RANDOM_DESERT_PLAINS)
+                    if (roll < 6)
                     {
-                        return Area.ETopographyType.Forest;
+                        return Area.ETopographyType.Plains;
                     }
-                    else if (roll < RANDOM_DESERT_HILLS)
+                    else if (roll < 8)
                     {
                         return Area.ETopographyType.Hills;
                     }
-                    else if (roll < RANDOM_DESERT_MOUNTAIN)
-                    {
-                        return Area.ETopographyType.Mountain;
-                    }
-                    else if (roll < RANDOM_DESERT_FOREST)
-                    {
-                        return Area.ETopographyType.Forest;
-                    }
-                    else if (roll < RANDOM_DESERT_WATER)
+                    else
                     {
                         return Area.ETopographyType.Water;
                     }
-                    break;
+
 
                 case Area.ETerrainType.Frozen:
-                    if (roll < RANDOM_FROZEN_PLAINS)
+                    if (roll < 3)
+                    {
+                        return Area.ETopographyType.Plains;
+                    }
+                    else if (roll < 5)
                     {
                         return Area.ETopographyType.Forest;
                     }
-                    else if (roll < RANDOM_FROZEN_HILLS)
-                    {
-                        return Area.ETopographyType.Hills;
-                    }
-                    else if (roll < RANDOM_FROZEN_MOUNTAIN)
+                    else if (roll < 8)
                     {
                         return Area.ETopographyType.Mountain;
                     }
-                    else if (roll < RANDOM_FROZEN_FOREST)
-                    {
-                        return Area.ETopographyType.Forest;
-                    }
-                    else if (roll < RANDOM_FROZEN_WATER)
+                    else
                     {
                         return Area.ETopographyType.Water;
                     }
-                    break;
+
 
                 case Area.ETerrainType.Volcanic:
-                    if (roll < RANDOM_VOLCANIC_PLAINS)
+                    if (roll < 2)
                     {
-                        return Area.ETopographyType.Forest;
+                        return Area.ETopographyType.Plains;
                     }
-                    else if (roll < RANDOM_VOLCANIC_HILLS)
+                    else if (roll < 5)
                     {
                         return Area.ETopographyType.Hills;
                     }
-                    else if (roll < RANDOM_VOLCANIC_MOUNTAIN)
+                    else if (roll < 8)
                     {
                         return Area.ETopographyType.Mountain;
                     }
-                    else if (roll < RANDOM_VOLCANIC_FOREST)
-                    {
-                        return Area.ETopographyType.Forest;
-                    }
-                    else if (roll < RANDOM_VOLCANIC_WATER)
+                    else
                     {
                         return Area.ETopographyType.Water;
                     }
-                    break;                    
+                                       
             }
 
             return Area.ETopographyType.Plains;
