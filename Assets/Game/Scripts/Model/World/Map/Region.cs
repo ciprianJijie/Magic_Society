@@ -73,7 +73,7 @@ namespace MS.Model.World
         {
             // Capital
             m_Capital.TerrainType = RandomTerrain();
-            m_Capital.TopographyType = RandomTopography(m_Capital.TerrainType);
+            m_Capital.TopographyType = Area.ETopographyType.Plains; //RandomTopography(m_Capital.TerrainType);
 
             // Peripheral
             for (int i = 0; i < m_Areas.Count; i++)
