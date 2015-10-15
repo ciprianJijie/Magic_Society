@@ -84,7 +84,7 @@ namespace MS
             m_Views.Clear();
         }
 
-        public void ClearMissingViews(IEnumerable<R> list)
+        public void DestroyViewsNotIn(IEnumerable<R> list)
         {
             List<T> candidates = new List<T>(m_Views);
 
