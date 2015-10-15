@@ -47,26 +47,26 @@ MonoBehaviour:
   FertileForestPrefab: {fileID: 119782, guid: 8cb2029d914692a4a9b42b22a93cb653, type: 2}
   FertileWaterPrefab: {fileID: 127730, guid: 865cbb273425fa040bcad0f345ccd5de, type: 2}
   BarrenPlainsPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
-  BarrenHillsPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
-  BarrenMountainPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
-  BarrenForestPrefab: {fileID: 135286, guid: 6c7d00946486f5c488195e848320bfce, type: 2}
-  BarrenWaterPrefab: {fileID: 164088, guid: ba037adc91ba70144a219e4d642b20f1, type: 2}
+  BarrenHillsPrefab: {fileID: 114160, guid: 051f197c6b3f7fd4ebbee9a7d047a5dd, type: 2}
+  BarrenMountainPrefab: {fileID: 172270, guid: 5458722e23d63ff4b9eb7c75eefb2896, type: 2}
+  BarrenForestPrefab: {fileID: 164088, guid: 956cb38c0c375f14bb3a2e6f61da82ea, type: 2}
+  BarrenWaterPrefab: {fileID: 127730, guid: 1f64101cfdf4de24989cacbc47971299, type: 2}
   DesertPlainsPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
-  DesertHillsPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
-  DesertMountainPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
+  DesertHillsPrefab: {fileID: 114160, guid: c25c28008dd6bfe49a5c7d09f102e564, type: 2}
+  DesertMountainPrefab: {fileID: 172270, guid: 47c4b65bfbcb1ce4e91d8d01bd87f52f, type: 2}
   DesertForestPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
-  DesertWaterPrefab: {fileID: 140878, guid: 96a74ba0bdacae24f8847268b9a12db0, type: 2}
+  DesertWaterPrefab: {fileID: 127730, guid: 2cecb61f3e2abb043a1828b8b08bef6d, type: 2}
   FrozenPlainsPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
-  FrozenHillsPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
-  FrozenMountainPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
-  FrozenForestPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
-  FrozenWaterPrefab: {fileID: 140878, guid: 4f7ddbafad6a8c54694c0b7d1544e27e, type: 2}
+  FrozenHillsPrefab: {fileID: 114160, guid: 17c2ebd49e4c6fe40ac1cd95939d769b, type: 2}
+  FrozenMountainPrefab: {fileID: 172270, guid: a2e55657265fbb642807d9e742e7707c, type: 2}
+  FrozenForestPrefab: {fileID: 119782, guid: a9fbdeea2b8b52347861b919097dcc27, type: 2}
+  FrozenWaterPrefab: {fileID: 127730, guid: a5d46faad821d104380d2dcb65f92f8a, type: 2}
   VolcanicPlainsPrefab: {fileID: 140878, guid: 0b2a94ca80ccf1f498a409a6c1114ffe, type: 2}
-  VolcanicHillsPrefab: {fileID: 140878, guid: 0b2a94ca80ccf1f498a409a6c1114ffe, type: 2}
-  VolcanicMountainPrefab: {fileID: 140878, guid: 0b2a94ca80ccf1f498a409a6c1114ffe,
+  VolcanicHillsPrefab: {fileID: 114160, guid: 15c2346e99fd8f447a58e6e514a44998, type: 2}
+  VolcanicMountainPrefab: {fileID: 172270, guid: 6a41d544e954d004dabd1438cfcc895c,
     type: 2}
   VolcanicForestPrefab: {fileID: 140878, guid: 0b2a94ca80ccf1f498a409a6c1114ffe, type: 2}
-  VolcanicWaterPrefab: {fileID: 140878, guid: 0b2a94ca80ccf1f498a409a6c1114ffe, type: 2}
+  VolcanicWaterPrefab: {fileID: 127730, guid: 49a5a3df12be4c64e938b2ea293595a7, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -93,7 +93,59 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: BarrenForestPrefab
       value: 
-      objectReference: {fileID: 135286, guid: 6c7d00946486f5c488195e848320bfce, type: 2}
+      objectReference: {fileID: 164088, guid: 956cb38c0c375f14bb3a2e6f61da82ea, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenMountainPrefab
+      value: 
+      objectReference: {fileID: 172270, guid: 5458722e23d63ff4b9eb7c75eefb2896, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenMountainPrefab
+      value: 
+      objectReference: {fileID: 172270, guid: a2e55657265fbb642807d9e742e7707c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicMountainPrefab
+      value: 
+      objectReference: {fileID: 172270, guid: 6a41d544e954d004dabd1438cfcc895c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenHillsPrefab
+      value: 
+      objectReference: {fileID: 114160, guid: 051f197c6b3f7fd4ebbee9a7d047a5dd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BarrenWaterPrefab
+      value: 
+      objectReference: {fileID: 127730, guid: 1f64101cfdf4de24989cacbc47971299, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertMountainPrefab
+      value: 
+      objectReference: {fileID: 172270, guid: 47c4b65bfbcb1ce4e91d8d01bd87f52f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertHillsPrefab
+      value: 
+      objectReference: {fileID: 114160, guid: c25c28008dd6bfe49a5c7d09f102e564, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DesertWaterPrefab
+      value: 
+      objectReference: {fileID: 127730, guid: 2cecb61f3e2abb043a1828b8b08bef6d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenHillsPrefab
+      value: 
+      objectReference: {fileID: 114160, guid: 17c2ebd49e4c6fe40ac1cd95939d769b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenWaterPrefab
+      value: 
+      objectReference: {fileID: 127730, guid: a5d46faad821d104380d2dcb65f92f8a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicHillsPrefab
+      value: 
+      objectReference: {fileID: 114160, guid: 15c2346e99fd8f447a58e6e514a44998, type: 2}
+    - target: {fileID: 0}
+      propertyPath: VolcanicWaterPrefab
+      value: 
+      objectReference: {fileID: 127730, guid: 49a5a3df12be4c64e938b2ea293595a7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: FrozenForestPrefab
+      value: 
+      objectReference: {fileID: 119782, guid: a9fbdeea2b8b52347861b919097dcc27, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121892}
