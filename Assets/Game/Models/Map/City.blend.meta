@@ -11,27 +11,32 @@ ModelImporter:
     100006: House_02
     100008: House_03
     100010: House_04
+    100012: Town_Hall
     400000: Central_Tile
     400002: //RootNode
     400004: House_01
     400006: House_02
     400008: House_03
     400010: House_04
+    400012: Town_Hall
     2300000: Central_Tile
     2300002: House_01
     2300004: House_02
     2300006: House_03
     2300008: House_04
+    2300010: Town_Hall
     3300000: Central_Tile
     3300002: House_01
     3300004: House_02
     3300006: House_03
     3300008: House_04
+    3300010: Town_Hall
     4300000: House_04
     4300002: House_03
     4300004: House_02
     4300006: House_01
     4300008: Central_Tile
+    4300010: Town_Hall
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -54,15 +59,15 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -77,7 +82,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -92,7 +97,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

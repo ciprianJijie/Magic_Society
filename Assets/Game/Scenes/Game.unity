@@ -86,6 +86,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &18726802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 18726803}
+  - 114: {fileID: 18726804}
+  m_Layer: 0
+  m_Name: Cities Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &18726803
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 18726802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 880540967}
+  m_RootOrder: 4
+--- !u!114 &18726804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 18726802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873655c9b412459478d201160bb965af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewPrefab: {fileID: 11421470, guid: f263cab7a868b1340b9c772f1bc8dc38, type: 2}
+  Holder: {fileID: 695099718}
+  TerrainDependantPrefabs: {fileID: 0}
 --- !u!1 &55179344
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +355,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1429226669}
+  - {fileID: 695099718}
   m_Father: {fileID: 577347776}
   m_RootOrder: 1
 --- !u!1 &311954304
@@ -547,6 +591,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 474369544}
   m_RootOrder: 0
+--- !u!1 &695099717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 695099718}
+  m_Layer: 0
+  m_Name: Cities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &695099718
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695099717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 264732547}
+  m_RootOrder: 1
 --- !u!1 &711474680
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 11402536, guid: c82befb71de923b4b8169eac8ac27e15, type: 2}
-  Holder: {fileID: 264732547}
+  Holder: {fileID: 1429226669}
   RegionController: {fileID: 1403824806}
 --- !u!4 &711474682
 Transform:
@@ -618,6 +689,7 @@ Transform:
   - {fileID: 1335011375}
   - {fileID: 1403824807}
   - {fileID: 711474682}
+  - {fileID: 18726803}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1001 &1190070688
@@ -762,6 +834,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 880540967}
   m_RootOrder: 2
+--- !u!1 &1429226668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1429226669}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429226669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429226668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 264732547}
+  m_RootOrder: 0
 --- !u!1 &1465786114
 GameObject:
   m_ObjectHideFlags: 0
