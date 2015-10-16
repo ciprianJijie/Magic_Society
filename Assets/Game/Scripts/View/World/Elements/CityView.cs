@@ -71,14 +71,14 @@ namespace MS
 
         protected void Start()
         {
-            GameController.Instance.Game.Turns.OnMainPhase += OnMainPhaseStarted;
+            Managers.GameManager.Instance.Game.Turns.OnMainPhase += OnMainPhaseStarted;
         }
         
         protected void OnDestroy()
         {
-            if (GameController.Instance != null)
+            if (Managers.GameManager.Instance != null)
             {
-                GameController.Instance.Game.Turns.OnMainPhase -= OnMainPhaseStarted;
+                Managers.GameManager.Instance.Game.Turns.OnMainPhase -= OnMainPhaseStarted;
             }            
         }
     }

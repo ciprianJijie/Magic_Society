@@ -15,7 +15,7 @@ namespace MS.Model
             // Search all cities
             Player.ClearCollectedCache();
 
-            foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
+            foreach (MapElement element in Managers.GameManager.Instance.Game.World.FindElements(Player))
             {
                 City city;
 

@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 namespace MS.Managers
 {
     public class GameManager : Singleton<GameManager>
@@ -6,17 +7,20 @@ namespace MS.Managers
         public Controllers.World.WorldController WorldController;
         public int WorldRings = 2;
 
-        protected Model.World.World World;
+        [HideInInspector]
+        public Model.Game Game;
+        [HideInInspector]
+        public Model.City SelectedCity;
 
         protected void Start()
         {
-            World = new Model.World.World(WorldRings);
+            Game = new Model.Game();
 
-            World.GenerateRandom();
+            Game.New(3, 1);
 
-            var view = WorldController.CreateView(World);
+            var view = WorldController.CreateView(Game.World);
 
-            view.UpdateView(World);
+            view.UpdateView(Game.World);
         }
     }
 }

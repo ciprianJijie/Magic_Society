@@ -3,27 +3,27 @@ using SimpleJSON;
 using System.Collections.Generic;
 using MS.Model;
 
-namespace MS
+namespace MS.Model
 {
 	public class Game : ModelElement
 	{
-        protected Map                   m_Map;
+        protected World.World           m_World;
         protected Players               m_Players;
         protected Turns                 m_Turns;
-        protected Model.Resources       m_Resources;
-        protected Model.Kingdom.Schemes m_Schemes;
-        protected Model.Personalities   m_Personalities;
+        protected Resources             m_Resources;
+        protected Kingdom.Schemes       m_Schemes;
+        protected Personalities         m_Personalities;
 
-        public Map Map
+        public Model.World.World World
         {
             get
             {
-                return m_Map;
+                return m_World;
             }
 
             set
             {
-                m_Map = value;
+                m_World = value;
             }
         }
 
@@ -86,32 +86,38 @@ namespace MS
 
         public Game()
         {
-            m_Map           =   new Map();
             m_Players       =   new Players();
             m_Turns         =   new Turns(m_Players);
-            m_Resources     =   new Model.Resources();
-            m_Schemes       =   new Model.Kingdom.Schemes();
-            m_Personalities =   new Model.Personalities();
+            m_Resources     =   new Resources();
+            m_Schemes       =   new Kingdom.Schemes();
+            m_Personalities =   new Personalities();
 
             m_Instance  =   this;
         }
 
-        public void New(string mapName, int numPlayers, int humanPlayers)
+        public void New(int worldSize, int aiPlayers)
         {
-            string      filePath;
-            JSONNode    json;
-            JSONNode    schemesJSON;
+            JSONNode schemesJSON;
 
-            filePath    =   Path.ToScenario(mapName);
-            json        =   Path.FileToJSON(filePath);
-            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes.json"));
+            schemesJSON = Path.FileToJSON(Path.ToData("Schemes.json"));
 
-            m_Players.FromJSON(json["players"]);
-            m_Map.FromJSON(json);
-            m_Schemes.FromJSON(schemesJSON);
+            // Generate Players
+            m_Players.AddPlayer(new HumanPlayer("PLAYER_HUMAN"));
+            m_Players.AddPlayer(new NeutralPlayer());
+
+            for (int i = 0; i < aiPlayers; ++i)
+            {
+                m_Players.AddPlayer(new AIPlayer("PLAYER_AI_" + i));
+            }
 
             m_Turns = new Turns(m_Players);
 
+            // Generate World
+            m_World = new World.World(worldSize);
+
+            m_World.GenerateRandom();
+            
+            m_Schemes.FromJSON(schemesJSON);
             GenerateStartingPersonalities(m_Players);
         }
 
@@ -152,7 +158,7 @@ namespace MS
         public override void FromJSON(JSONNode json)
         {
             m_Players.FromJSON(json["players"]);
-            m_Map.FromJSON(json["map"]);
+            m_World.FromJSON(json["world"]);
 
             m_Turns = new Turns(m_Players);
         }
@@ -162,7 +168,7 @@ namespace MS
             JSONNode json = new JSONNode();
 
             json.Add("players", m_Players.ToJSON());
-            json.Add("map", m_Map.ToJSON());
+            json.Add("world", m_World.ToJSON());
 
             return json;
         }

@@ -41,7 +41,7 @@ namespace MS.Controllers.UI
             view.UpdateView(item);
             view.OnCancel += OnCancelBuilding;
 
-            CityController.UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+            CityController.UpdateBuildingSchemesArea(Managers.GameManager.Instance.SelectedCity);
             CityController.BuildingPanelManager.Hide();
         }
 
@@ -52,8 +52,8 @@ namespace MS.Controllers.UI
             view.OnCancel -= OnCancelBuilding;
 
             SingleItemController.DestroyView(queueItem);
-            GameController.Instance.SelectedCity.BuildingQueue.Remove(queueItem.Building.Name);
-            CityController.UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);           
+            Managers.GameManager.Instance.SelectedCity.BuildingQueue.Remove(queueItem.Building.Name);
+            CityController.UpdateBuildingSchemesArea(Managers.GameManager.Instance.SelectedCity);           
         }
 
         protected void Start()

@@ -14,7 +14,7 @@ namespace MS.Model
 
         public override void Execute()
         {
-            foreach (City city in Game.Instance.Map.Grid.GetElements(this.Player))
+            foreach (City city in Game.Instance.World.FindElements(this.Player))
             {
                 if (city != null)
                 {

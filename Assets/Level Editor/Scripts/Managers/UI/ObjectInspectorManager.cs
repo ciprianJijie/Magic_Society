@@ -35,7 +35,7 @@ namespace MS.Editor.UI
 
         protected void OnOwnerChanged(string ownerName)
         {
-            OwnableView.Model.Owner = GameController.Instance.Game.Players.Find(ownerName);
+            OwnableView.Model.Owner = Managers.GameManager.Instance.Game.Players.Find(ownerName);
         }
     }
 }

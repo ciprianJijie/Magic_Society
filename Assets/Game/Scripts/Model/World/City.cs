@@ -342,20 +342,6 @@ namespace MS.Model
                 }
             }
 
-            foreach (Vector2 tilePosition in m_TilesUnderControl)
-            {
-                Tile tile;
-				IResourceCollector collector;
-
-				tile = Game.Instance.Map.Grid.GetTile(tilePosition);
-				collector = tile as IResourceCollector;
-
-				if (collector != null)
-				{
-					amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), tile));
-				}
-            }
-
             // Feed the citizens
 
             int foodForPopulation;

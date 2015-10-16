@@ -10,9 +10,9 @@ namespace MS.Model
         {
             Name = "City";
 
-            if (GameController.Instance != null && GameController.Instance.Game != null)
+            if (Managers.GameManager.Instance != null && Managers.GameManager.Instance.Game != null)
             {
-                Owner = GameController.Instance.Game.Players.Find("Neutral");
+                Owner = Managers.GameManager.Instance.Game.Players.Find("Neutral");
             }
         }
 
@@ -24,12 +24,12 @@ namespace MS.Model
             {
                 Player player;
 
-                player = GameController.Instance.Game.Players.Find(json["owner"]);
+                player = Managers.GameManager.Instance.Game.Players.Find(json["owner"]);
 
                 if (player == null)
                 {
                     UnityEngine.Debug.LogWarning("No player named " + json["owner"] + " was found. Assigning Neutral Player by default.");
-                    player = GameController.Instance.Game.Players.Find("Neutral");
+                    player = Managers.GameManager.Instance.Game.Players.Find("Neutral");
                 }
 
                 Owner = player;

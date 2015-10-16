@@ -11,7 +11,7 @@ namespace MS.Model
         {
             m_Resources = new Dictionary<Resource, int>();
 
-            m_Resources.Add(GameController.Instance.Game.Resources.Food, 0);
+            m_Resources.Add(Managers.GameManager.Instance.Game.Resources.Food, 0);
         }
 
         public int Add(Resource resource, int amount)

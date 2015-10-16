@@ -25,7 +25,7 @@ namespace MS.Views.UI
             int productionPerTurn;
 
             Image.sprite            =   SelectSprite(element.Building);
-            productionPerTurn       =   GameController.Instance.SelectedCity.CollectProduction().GetTotalAmount();
+            productionPerTurn       =   Managers.GameManager.Instance.SelectedCity.CollectProduction().GetTotalAmount();
             d                       =   (float)element.ProductionUntilCompletion / (float)productionPerTurn;
             turnsLeft               =   Mathf.CeilToInt(d);
             TurnsLeftLabel.text     =   turnsLeft.ToString();

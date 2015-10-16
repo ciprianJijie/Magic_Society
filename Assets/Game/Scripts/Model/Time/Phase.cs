@@ -21,7 +21,7 @@ namespace MS.Model
         {
             base.FromJSON(json);
 
-            Player  =   GameController.Instance.Game.Players.Find(json["player"]);
+            Player  =   Managers.GameManager.Instance.Game.Players.Find(json["player"]);
         }
 
         public override JSONNode ToJSON()

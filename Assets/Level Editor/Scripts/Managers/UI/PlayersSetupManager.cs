@@ -51,7 +51,7 @@ namespace MS.Editor.UI
             player.Name     =   name;
             playerButton    =   Utils.Instantiate<PlayerButtonController>(PlayerButtonPrefab, PlayerButtonsContainer, PlayerButtonsContainer.position, PlayerButtonsContainer.rotation);
 
-            GameController.Instance.Game.Players.AddPlayer(player);
+            Managers.GameManager.Instance.Game.Players.AddPlayer(player);
 
             view = playerButton.CreateView(player);
 
@@ -101,10 +101,10 @@ namespace MS.Editor.UI
             Player neutralPlayer;
             Player player;
 
-            neutralPlayer   =   GameController.Instance.Game.Players.Find("Neutral");
-            player          =   GameController.Instance.Game.Players.Find(playerName);
+            neutralPlayer   =   Managers.GameManager.Instance.Game.Players.Find("Neutral");
+            player          =   Managers.GameManager.Instance.Game.Players.Find(playerName);
 
-            foreach (OwnableMapElement element in GameController.Instance.Game.Map.Grid.GetElements(player))
+            foreach (OwnableMapElement element in Managers.GameManager.Instance.Game.World.FindElements(player))
             {
                 if (element.Owner == player)
                 {
@@ -112,7 +112,7 @@ namespace MS.Editor.UI
                 }
             }
 
-            GameController.Instance.Game.Players.RemovePlayer(playerName);
+            Managers.GameManager.Instance.Game.Players.RemovePlayer(playerName);
         }
 
         public void Close()
@@ -131,9 +131,9 @@ namespace MS.Editor.UI
         {
             m_Buttons = new Dictionary<string, PlayerButtonController>();
 
-            if (GameController.Instance != null && GameController.Instance.Game != null)
+            if (Managers.GameManager.Instance != null && Managers.GameManager.Instance.Game != null)
             {
-                foreach (Player player in GameController.Instance.Game.Players)
+                foreach (Player player in Managers.GameManager.Instance.Game.Players)
                 {
                     PlayerButtonController button;
 

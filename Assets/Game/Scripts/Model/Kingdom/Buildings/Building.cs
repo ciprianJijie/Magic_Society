@@ -24,7 +24,7 @@ namespace MS.Model.Kingdom
 
             if (json["city"] != null)
             {
-                City = Game.Instance.Map.Grid.GetElement(Owner, json["city"]) as City;
+                City = Game.Instance.World.FindElement(Owner, json["city"]) as City;
             }
         }
 

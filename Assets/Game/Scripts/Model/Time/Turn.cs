@@ -70,7 +70,7 @@ namespace MS.Model
 
         public override void FromJSON(JSONNode json)
         {
-            Player          =   GameController.Instance.Game.Players.Find(json["player"]);
+            Player          =   Managers.GameManager.Instance.Game.Players.Find(json["player"]);
             m_CurrentPhase  =   json["current_phase"].AsInt;
         }
 

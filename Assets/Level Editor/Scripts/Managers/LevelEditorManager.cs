@@ -89,14 +89,14 @@ namespace MS
             m_CurrentMap = new Map();
             m_CurrentFilePath = file;
 
-            Game.Instance.Map = m_CurrentMap;
+            //Game.Instance.Map = m_CurrentMap;
 
             // Load players
-            GameController.Instance.Game.Players.FromJSON(json["players"]);
+            Managers.GameManager.Instance.Game.Players.FromJSON(json["players"]);
 
             m_CurrentMap.FromJSON(json);
 
-            ShowGrid(GameController.Instance.Game.Map.Grid);
+            //ShowGrid(Managers.GameManager.Instance.Game.Map.Grid);
         }
 
 		public void Save()

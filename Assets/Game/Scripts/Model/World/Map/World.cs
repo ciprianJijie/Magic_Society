@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,6 +45,40 @@ namespace MS.Model.World
                 region.Randomize();
                 m_Regions.Add(region);
             }
+        }
+
+        public MapElement FindElement(Player owner, string name)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<MapElement> FindElements(Player owner)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Region GetRegion(int x, int y)
+        {
+            Vector3 cube;
+
+            cube = Hexagon.OffsetToCube(x, y);
+
+            return m_Regions[CalculateListIndex(cube)];
+        }
+
+        public Region GetRegion(Vector2 position)
+        {
+            return GetRegion((int)position.x, (int)position.y);
+        }
+
+        public MapElement GetElement(int x, int y)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public MapElement GetElement(Vector2 position)
+        {
+            return GetElement((int)position.x, (int)position.y);
         }
 
         protected void AddRegion(Region region, Vector2 boardPosition)

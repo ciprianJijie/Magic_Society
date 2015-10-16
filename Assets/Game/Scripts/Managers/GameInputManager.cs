@@ -95,20 +95,20 @@ namespace MS
                 {
                     Model.City city;
 
-                    city = GameController.Instance.Game.Map.Grid.GetElement(MouseToGrid.LastGridPosition) as Model.City;
+                    city = Managers.GameManager.Instance.Game.World.GetElement(MouseToGrid.LastGridPosition) as Model.City;
 
                     if (city != null)
                     {
-                        if (city.Owner == GameController.Instance.Game.Turns.CurrentTurn.Player)
+                        if (city.Owner == Managers.GameManager.Instance.Game.Turns.CurrentTurn.Player)
                         {
-                            GameController.Instance.SelectedCity = city;
+                            Managers.GameManager.Instance.SelectedCity = city;
                             OnCitySelected(city);
                             m_CitySelected = true;
                         }
                     }
                     else if (m_CitySelected)
                     {
-                        GameController.Instance.SelectedCity = null;
+                        Managers.GameManager.Instance.SelectedCity = null;
                         OnCityDeselected();
                         m_CitySelected = false;
                     }

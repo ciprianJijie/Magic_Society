@@ -12,7 +12,7 @@ namespace MS.Model
 
         public override void Execute()
         {
-            foreach (MapElement element in GameController.Instance.Game.Map.Grid.GetElements(Player))
+            foreach (MapElement element in Managers.GameManager.Instance.Game.World.FindElements(Player))
             {
                 IUpkeepMaintained toPay = element as IUpkeepMaintained;
 

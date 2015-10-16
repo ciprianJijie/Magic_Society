@@ -26,7 +26,7 @@ namespace MS.Controllers
 
         protected void Start()
         {
-            CreateView(GameController.Instance.Game.Turns);
+            CreateView(Managers.GameManager.Instance.Game.Turns);
 
             m_MainView.Model.NextTurn();
 

@@ -32,7 +32,7 @@ namespace MS.Views.UI
 
             NameLabel.ID                =   element.Name;
             GoldCostLabel.text          =   element.GoldCost.ToString();
-            TurnsToBuildLabel.text      =   GameController.Instance.SelectedCity.CalculateTurnsToProduce(element.ProductionCost).ToString();
+            TurnsToBuildLabel.text      =   Managers.GameManager.Instance.SelectedCity.CalculateTurnsToProduce(element.ProductionCost).ToString();
             BackgroundImage.sprite      =   SelectImage(element);            
         }
 

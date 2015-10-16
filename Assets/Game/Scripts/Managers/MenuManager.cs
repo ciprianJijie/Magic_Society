@@ -14,22 +14,7 @@ namespace MS
 
         protected void OnNewGame(string mapFilePath)
         {
-            int lastSlashIndex;
-            int lastDotIndex;
-            string mapName;
-
-            mapFilePath = Path.PlatformPath(mapFilePath);
-
-#if UNITY_STANDALONE_WIN
-            lastSlashIndex = mapFilePath.LastIndexOf(@"\");
-#else
-            lastSlashIndex = mapFilePath.LastIndexOf("/");
-#endif
-
-            lastDotIndex = mapFilePath.LastIndexOf(".");
-            mapName = mapFilePath.Substring(lastSlashIndex + 1, lastDotIndex - lastSlashIndex - 1);
-
-            GameController.Instance.Game.New(mapName, 2, 1);
+            Managers.GameManager.Instance.Game.New(3, 1);
 
             LoadScene("Main");
         }

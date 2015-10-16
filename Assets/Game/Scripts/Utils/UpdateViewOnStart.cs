@@ -10,8 +10,7 @@ namespace MS
 
         protected void Start()
         {
-            GridController.Show(GameController.Instance.Game.Map.Grid);
-            ElementsController.Show(GameController.Instance.Game.Map.Grid);
+
         }
     }
 }
