@@ -93,7 +93,7 @@ namespace MS.Model
             m_FoodCollected         =   new ResourceAdvancedAmount();
             m_ProductionCollected   =   new ResourceAdvancedAmount();
 
-            m_TilesUnderControl.Add(new Vector2(X, Y));
+            //m_TilesUnderControl.Add(new Vector2(X, Y));
 
             GrowPopulation(1);
 

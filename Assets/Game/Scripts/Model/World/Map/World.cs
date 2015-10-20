@@ -6,7 +6,8 @@ namespace MS.Model.World
 {
     public class World : ModelElement, IEnumerable<Region>
     {
-        protected List<Region> m_Regions;
+        protected List<Region>      m_Regions;
+        protected List<OwnableMapElement>  m_Elements;
 
         protected int m_Range;
         
@@ -15,6 +16,7 @@ namespace MS.Model.World
         {
             m_Range     =   range;
             m_Regions   =   new List<Region>();
+            m_Elements  =   new List<OwnableMapElement>();
         }
 
         /// <summary>
@@ -43,18 +45,21 @@ namespace MS.Model.World
                 region.CubePosition =   position;
 
                 region.Randomize();
+
+                region.Owner = Game.Instance.Players.Find("NEUTRAL_PLAYER");
+
                 m_Regions.Add(region);
             }
         }
 
         public MapElement FindElement(Player owner, string name)
         {
-            throw new System.NotImplementedException();
+            return m_Elements.Find(i => i.Name == name && i.Owner == owner);
         }
 
-        public IEnumerable<MapElement> FindElements(Player owner)
+        public IEnumerable<OwnableMapElement> FindElements(Player owner)
         {
-            throw new System.NotImplementedException();
+            return m_Elements.FindAll(i => i.Name == Name && i.Owner == owner);
         }
 
         public Region GetRegion(int x, int y)

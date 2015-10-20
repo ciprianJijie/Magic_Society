@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
 using UnityEngine;
 
 namespace MS.Model.World
 {
-    public class Region : ModelElement, IEnumerable<Area>
+    public class Region : ModelElement, IEnumerable<Area>, IOwnable
     {        
         public Vector3          CubePosition;
 
         protected List<Area>    m_Areas;
         protected Area          m_Capital;
+        protected City          m_City;
+        protected Player        m_Owner;
 
         public Area CapitalArea
         {
@@ -20,13 +23,26 @@ namespace MS.Model.World
             }
         }
 
+        public Player Owner
+        {
+            get
+            {
+                return m_Owner;
+            }
+
+            set
+            {
+                m_City.Owner    =   value;
+                m_Owner         =   value;
+            }
+        }
+
         public Region()
         {
             m_Areas = new List<Area>(6);
 
             for (int i = 0; i < m_Areas.Capacity; i++)
             {
-                //m_Areas[i] = new Area();
                 m_Areas.Add(new Area());
             }
 
@@ -39,11 +55,13 @@ namespace MS.Model.World
             m_Capital.TerrainType = RandomTerrain();
             m_Capital.TopographyType = Area.ETopographyType.Plains; //RandomTopography(m_Capital.TerrainType);
 
+            m_City = new City();
+
             // Peripheral
             for (int i = 0; i < m_Areas.Count; i++)
             {
                 m_Areas[i].TerrainType = RandomTerrain(m_Capital.TerrainType);
-                m_Areas[i].TopographyType = RandomTopography(m_Areas[i].TerrainType);
+                m_Areas[i].TopographyType = RandomTopography(m_Capital.TerrainType);
             }
         }
 

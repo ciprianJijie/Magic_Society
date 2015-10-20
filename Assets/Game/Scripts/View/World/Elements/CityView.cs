@@ -18,7 +18,10 @@ namespace MS
 
         public override void UpdateView()
         {
-            UpdateBanner(Model);
+            if (UIBanner != null)
+            {
+                UpdateBanner(Model);
+            }
         }
 
         public override void UpdateView(City element)
