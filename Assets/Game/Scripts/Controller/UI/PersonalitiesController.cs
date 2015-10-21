@@ -72,7 +72,7 @@ namespace MS.Controllers.UI
             UnsubscribeToEvents();
         }
         
-        protected void OnTurnStarted(Model.Player player)
+        protected void OnTurnStarted()
         {
             if (m_Visible)
             {
@@ -87,13 +87,13 @@ namespace MS.Controllers.UI
         public void SubscribeToEvents()
         {
             GameInputManager.OnPersonalitiesMenu += Toggle;
-            Managers.GameManager.Instance.Game.Turns.OnTurnStarted += OnTurnStarted;
+            Model.Game.Instance.Turns.OnAllTurnsFinished += OnTurnStarted;
         }
 
         public void UnsubscribeToEvents()
         {
             GameInputManager.OnPersonalitiesMenu -= Toggle;
-            Managers.GameManager.Instance.Game.Turns.OnTurnStarted -= OnTurnStarted;
+            Model.Game.Instance.Turns.OnAllTurnsFinished -= OnTurnStarted;
         }
     }
 }

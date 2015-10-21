@@ -92,7 +92,7 @@ namespace MS
             //Game.Instance.Map = m_CurrentMap;
 
             // Load players
-            Managers.GameManager.Instance.Game.Players.FromJSON(json["players"]);
+            Game.Instance.Players.FromJSON(json["players"]);
 
             m_CurrentMap.FromJSON(json);
 

@@ -14,7 +14,7 @@ namespace MS
 
         protected void OnNewGame(string mapFilePath)
         {
-            Managers.GameManager.Instance.Game.New(3, 1);
+            Model.Game.Instance.New(3, 1);
 
             LoadScene("Main");
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MS.Model.World;
 using UnityEngine;
+using MS.ExtensionMethods;
 
 namespace MS.Views.World.Map
 {
@@ -8,6 +9,7 @@ namespace MS.Views.World.Map
     {
         public Controllers.World.Map.AreaController         AreaController;
         public Controllers.World.Map.CentralAreaController  CentralAreaController;
+        public Controllers.Kingdom.CityController           CityController;
         public float Size;
 
         protected List<Views.World.Map.AreaView> m_AreaViews;
@@ -30,6 +32,23 @@ namespace MS.Views.World.Map
             }
 
             centralView.UpdateView(element.CapitalArea);
+
+            // City
+            CityView cityView;
+            Vector3 position;
+
+            cityView = CityController.FindView(element.CapitalArea.Element as Model.City);
+
+            if (cityView == null)
+            {
+                cityView = CityController.CreateView(element.CapitalArea.Element as Model.City) as CityView;
+            }
+
+            position                    =   Hexagon.CubeToWorld(element.CubePosition, Size);
+            position                    =   position.SwappedYZ();
+            cityView.transform.position =   position;
+
+            cityView.UpdateView(element.CapitalArea.Element as Model.City);
 
             areaCount = 0;
 

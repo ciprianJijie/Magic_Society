@@ -33,7 +33,7 @@ namespace MS.Views
         {
             get
             {
-                return Managers.GameManager.Instance.Game.World.GetRegion(Model.X, Model.Y).CapitalArea.TerrainType;
+                return MS.Model.Game.Instance.World.GetRegion(Model.X, Model.Y).CapitalArea.TerrainType;
             }
         }
     }

@@ -14,6 +14,8 @@ namespace MS
         public static void DefaultAction(Model.Kingdom.BuildingQueueItem item) {}
         public static void DefaultAction(int value) {}
         public static void DefaultAction(Model.Personality personality) {}
+        public static void DefaultAction(Model.Phase phase) {}
+        public static void DefaultAction(Model.Turn turn) {}
 
         // Events Types
         public delegate void Event();
@@ -25,5 +27,7 @@ namespace MS
         public delegate void BuildingQueueItemEvent(Model.Kingdom.BuildingQueueItem item);
         public delegate void ValueEvent(int value);
         public delegate void PersonalityEvent(Model.Personality personality);
+        public delegate void PhaseEvent(Model.Phase phase);
+        public delegate void TurnEvent(Model.Turn turn);
     }
 }

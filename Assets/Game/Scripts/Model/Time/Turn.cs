@@ -10,9 +10,9 @@ namespace MS.Model
         protected   Phase[]     m_Phases;
         protected   int         m_CurrentPhase;
 
-        public MS.Events.PlayerEvent  OnTurnStarted    =   MS.Events.DefaultAction;
-        public MS.Events.PlayerEvent  OnTurnFinished   =   MS.Events.DefaultAction;
-
+        public Events.TurnEvent      OnStarted       =   Events.DefaultAction;
+        public Events.TurnEvent      OnFinished      =   Events.DefaultAction;
+        
         public Phase CurrentPhase
         {
             get
@@ -23,6 +23,7 @@ namespace MS.Model
 
         public Turn(Player player)
         {
+            Name                =   "TURN";
             Player              =   player;
             m_Phases            =   new Phase[4];
             m_Phases[0]         =   new RecollectionPhase();
@@ -33,45 +34,64 @@ namespace MS.Model
             m_Phases[1].Player  =   Player;
             m_Phases[2].Player  =   Player;
             m_Phases[3].Player  =   Player;
-
-            m_Phases[0].OnFinished += OnPhaseFinished;
-            m_Phases[1].OnFinished += OnPhaseFinished;
-            m_Phases[2].OnFinished += OnPhaseFinished;
-            m_Phases[3].OnFinished += OnPhaseFinished;
         }
 
         public void Start()
         {
             m_CurrentPhase = 0;
 
-            OnTurnStarted(Player);
-            m_Phases[0].Execute();
+            OnStarted(this);
         }
 
-        public void NextPhase()
+        public void Execute()
         {
-            m_CurrentPhase++;
-
             if (m_CurrentPhase >= m_Phases.Length)
             {
-                m_CurrentPhase = 0;
-                Finish();
+                End();
             }
             else
             {
+                m_Phases[m_CurrentPhase].OnFinished += OnPhaseFinished;
+                m_Phases[m_CurrentPhase].Start();
                 m_Phases[m_CurrentPhase].Execute();
             }
         }
 
-        public void Finish()
+        public void AdvancePhase()
         {
-            OnTurnFinished(Player);
+            m_CurrentPhase++;            
         }
 
-        public override void FromJSON(JSONNode json)
+        public void End()
         {
-            Player          =   Managers.GameManager.Instance.Game.Players.Find(json["player"]);
-            m_CurrentPhase  =   json["current_phase"].AsInt;
+            m_CurrentPhase = 0;
+            OnFinished(this);
+        }
+
+        public Phase FindPhase<T>() where T: Phase
+        {
+            for (int i = 0; i < m_Phases.Length; i++)
+            {
+                if (m_Phases[i] is T)
+                {
+                    return m_Phases[i];
+                }
+            }
+
+            return null;
+        }
+
+        protected void OnPhaseFinished(Phase phase)
+        {
+            m_Phases[m_CurrentPhase].OnFinished -= OnPhaseFinished;
+            AdvancePhase();
+
+            Execute();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", Name, Player.Name);
         }
 
         public override JSONNode ToJSON()
@@ -84,11 +104,6 @@ namespace MS.Model
             root.Add("current_phase", new JSONData(m_CurrentPhase));
 
             return root;
-        }
-
-        protected void OnPhaseFinished()
-        {
-            NextPhase();
         }
     }
 }

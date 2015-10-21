@@ -5,8 +5,7 @@ namespace MS
 {
     public class MouseToGrid : MonoBehaviour
     {
-        public GridController   GridController;
-
+        public float HexagonSize;
         [HideInInspector]
         public Vector2          LastGridPosition;
 
@@ -28,7 +27,7 @@ namespace MS
 
         public bool IsValidPosition(int x, int y)
         {
-            if (x < 0 || y < 0 || x >= GridController.Grid.HorizontalSize || y >= GridController.Grid.VerticalSize)
+            if (x < 0 || y < 0 || x >= Model.Game.Instance.World.HorizontalSize || y >= Model.Game.Instance.World.VerticalSize)
             {
                 return false;
             }
@@ -38,7 +37,7 @@ namespace MS
 
         protected void Start()
         {
-            m_ProjectionPlane = new Plane(GridController.transform.up, GridController.transform.position);
+            m_ProjectionPlane = new Plane(Vector3.up, this.transform.position);
         }
 
         protected void Update()
@@ -50,13 +49,12 @@ namespace MS
 
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (GridController.Grid != null &&
-                m_ProjectionPlane.Raycast(ray, out distance) &&
+            if (m_ProjectionPlane.Raycast(ray, out distance) &&
                 UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() == false)
             {
                 mousePosition = ray.GetPoint(distance);
 
-                tilePosition = GridController.WorldToLocal(mousePosition);
+                tilePosition = Hexagon.WorldToAxial(mousePosition.x, mousePosition.y, mousePosition.z, HexagonSize);
                 LastGridPosition = tilePosition;
 
                 if (Input.GetMouseButtonDown(0))

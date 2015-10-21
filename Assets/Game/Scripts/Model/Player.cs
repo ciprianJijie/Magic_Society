@@ -46,7 +46,7 @@ namespace MS.Model
 
         public virtual void Play<T>(T phase) where T: Phase
         {
-            phase.Finish();
+            phase.End();
         }
 
         public void Store(ResourceAmount amount)

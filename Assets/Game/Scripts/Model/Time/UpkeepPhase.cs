@@ -12,17 +12,8 @@ namespace MS.Model
 
         public override void Execute()
         {
-            foreach (MapElement element in Managers.GameManager.Instance.Game.World.FindElements(Player))
-            {
-                IUpkeepMaintained toPay = element as IUpkeepMaintained;
 
-                if (toPay != null)
-                {
-                    toPay.PayUpkeepCosts();
-                }
-            }
-
-            Finish();
+            End();
         }
     }
 }

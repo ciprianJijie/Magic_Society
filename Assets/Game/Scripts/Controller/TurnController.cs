@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MS.Controllers
 {
-    public class TurnController : Controller<MS.Views.TurnView, MS.Model.Turns>
+    public class TurnController : Controller<MS.Views.TurnView, MS.Model.Turns>, IEventListener
     {
         [HideInInspector]
         public Button NextButton;
@@ -20,17 +21,40 @@ namespace MS.Controllers
 
         public void NextTurn()
         {
-            m_MainView.Model.CurrentTurn.CurrentPhase.Finish();
+            Model.Game.Instance.Turns.CurrentTurn.CurrentPhase.End();
             m_MainView.UpdateView();
+        }
+
+        public void SubscribeToEvents()
+        {
+            Model.Phase.OnPhaseStarted += OnPhaseStarted;
+        }
+
+        public void UnsubscribeToEvents()
+        {
+            Model.Phase.OnPhaseStarted -= OnPhaseStarted;
         }
 
         protected void Start()
         {
-            CreateView(Managers.GameManager.Instance.Game.Turns);
+            SubscribeToEvents();
 
-            m_MainView.Model.NextTurn();
+            CreateView(Model.Game.Instance.Turns);
+
+            Model.Game.Instance.Turns.Start();
+            Model.Game.Instance.Turns.Execute();
 
             m_MainView.UpdateView();
+        }
+
+        protected void OnPhaseStarted(Model.Phase phase)
+        {
+            m_MainView.UpdateView();
+        }
+
+        protected void OnDestroy()
+        {
+            UnsubscribeToEvents();
         }
     }
 }

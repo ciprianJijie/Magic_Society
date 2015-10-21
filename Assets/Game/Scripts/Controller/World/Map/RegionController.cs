@@ -7,13 +7,15 @@ namespace MS.Controllers.World.Map
     {
         public AreaController           AreaController;
         public CentralAreaController    CentralAreaController;
+        public Kingdom.CityController   CityController;
 
         public override IUpdatableView<Region> CreateView(Region modelElement)
         {
             var view = base.CreateView(modelElement) as Views.World.Map.RegionView;
 
-            view.AreaController = AreaController;
-            view.CentralAreaController = CentralAreaController;
+            view.AreaController         =   AreaController;
+            view.CentralAreaController  =   CentralAreaController;
+            view.CityController         =   CityController;
 
             return view;
         }

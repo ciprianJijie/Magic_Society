@@ -44,9 +44,11 @@ namespace MS.Model.World
             Water
         }
 
-        public ETerrainType     TerrainType;
-        public ETopographyType  TopographyType;
-        public bool             CanBuildVillage;
+        public ETerrainType         TerrainType;
+        public ETopographyType      TopographyType;
+        public bool                 CanBuildVillage;
+        public bool                 IsConquered;
+        public OwnableMapElement    Element;
 
         public ResourceAdvancedAmount Collect()
         {

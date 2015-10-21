@@ -7,21 +7,30 @@ namespace MS.Model
     {
         public Player Player;
 
-        public MS.Events.Event OnStarted = MS.Events.DefaultAction;
-        public MS.Events.Event OnFinished = MS.Events.DefaultAction;
+        public Events.PhaseEvent OnStarted              =   Events.DefaultAction;
+        public Events.PhaseEvent OnFinished             =   Events.DefaultAction;
+        public static Events.PhaseEvent OnPhaseStarted  =   Events.DefaultAction;
+        public static Events.PhaseEvent OnPhaseFinished =   Events.DefaultAction;
+
+        public void Start()
+        {
+            OnStarted(this);
+            OnPhaseStarted(this);
+        }
 
         public abstract void Execute();
 
-        public void Finish()
+        public void End()
         {
-            OnFinished();
+            OnFinished(this);
+            OnPhaseFinished(this);
         }
 
         public override void FromJSON(JSONNode json)
         {
             base.FromJSON(json);
 
-            Player  =   Managers.GameManager.Instance.Game.Players.Find(json["player"]);
+            Player  =   Game.Instance.Players.Find(json["player"]);
         }
 
         public override JSONNode ToJSON()
@@ -34,6 +43,11 @@ namespace MS.Model
             root.Add("player", Player.Name);
 
             return root;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", Name, Player.Name);
         }
 
         // Static factory method

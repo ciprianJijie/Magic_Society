@@ -9,7 +9,7 @@ namespace MS.Model
         public override void FromJSON(JSONNode json)
         {
             base.FromJSON(json);
-            Owner = Managers.GameManager.Instance.Game.Players.Find(json["owner"]);
+            Owner = Game.Instance.Players.Find(json["owner"]);
         }
 
         public override JSONNode ToJSON()

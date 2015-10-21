@@ -15,6 +15,8 @@ namespace MS.Views
             PlayerLabel.text        =   element.CurrentTurn.Player.Name;
             PhaseLabel.text         =   element.CurrentTurn.CurrentPhase.Name;
             TurnCountLabel.text     =   "Turn " + element.TurnCounter;
+
+            m_Model = element;
         }        
     }
 }

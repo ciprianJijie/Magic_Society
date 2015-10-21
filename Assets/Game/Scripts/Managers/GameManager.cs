@@ -8,19 +8,15 @@ namespace MS.Managers
         public int WorldRings = 2;
 
         [HideInInspector]
-        public Model.Game Game;
-        [HideInInspector]
         public Model.City SelectedCity;
 
         protected void Start()
         {
-            Game = new Model.Game();
+            Model.Game.Instance.New(3, 1);
 
-            Game.New(3, 1);
+            var view = WorldController.CreateView(Model.Game.Instance.World);
 
-            var view = WorldController.CreateView(Game.World);
-
-            view.UpdateView(Game.World);
+            view.UpdateView(Model.Game.Instance.World);
         }
     }
 }

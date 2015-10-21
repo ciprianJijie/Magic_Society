@@ -49,9 +49,6 @@ namespace MS.Generators
             array           =   json["names"].AsArray;
             randomIndex     =   Random.Range(0, array.Count);
             name            =   prefix + array[randomIndex]["name"] + suffix;
-            //name            =   string.Format("{0} {1} {2}", prefix, array[randomIndex]["name"], suffix);
-
-            UnityEngine.Debug.Log("Random name: " + name);
 
             return name;
         }

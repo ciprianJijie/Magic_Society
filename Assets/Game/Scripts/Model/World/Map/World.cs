@@ -1,22 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MS.ExtensionMethods;
 
 namespace MS.Model.World
 {
     public class World : ModelElement, IEnumerable<Region>
     {
-        protected List<Region>      m_Regions;
-        protected List<OwnableMapElement>  m_Elements;
+        protected List<Region>              m_Regions;
 
         protected int m_Range;
         
+        public int HorizontalSize
+        {
+            get
+            {
+                return 0;
+            }
+        }
+        
+        public int VerticalSize
+        {
+            get
+            {
+                return 0;
+            }
+        } 
 
         public World(int range)
         {
             m_Range     =   range;
             m_Regions   =   new List<Region>();
-            m_Elements  =   new List<OwnableMapElement>();
         }
 
         /// <summary>
@@ -54,12 +68,41 @@ namespace MS.Model.World
 
         public MapElement FindElement(Player owner, string name)
         {
-            return m_Elements.Find(i => i.Name == name && i.Owner == owner);
+            var ownedRegions = m_Regions.FindAll(i => i.Owner == owner);
+
+            foreach (Region region in ownedRegions)
+            {
+                foreach (MapElement element in region.GetOwnedElements(owner))
+                {
+                    if (element.Name == name)
+                    {
+                        return element;
+                    }
+                }
+            }
+
+            return null;
         }
 
-        public IEnumerable<OwnableMapElement> FindElements(Player owner)
+        public IEnumerable<MapElement> FindElements(Player owner)
         {
-            return m_Elements.FindAll(i => i.Name == Name && i.Owner == owner);
+            foreach (Region region in m_Regions.FindAll(i => i.Owner == owner))
+            {
+                foreach (MapElement element in region.GetOwnedElements(owner))
+                {
+                    yield return element;
+                }
+            }
+        }
+
+        public Region GetRegion(int x, int y, int z)
+        {
+            return m_Regions[CalculateListIndex(x, y, z)];
+        }
+
+        public Region GetRegion(Vector3 cubePosition)
+        {
+            return GetRegion((int)cubePosition.x, (int)cubePosition.y, (int)cubePosition.z);
         }
 
         public Region GetRegion(int x, int y)
@@ -68,22 +111,12 @@ namespace MS.Model.World
 
             cube = Hexagon.OffsetToCube(x, y);
 
-            return m_Regions[CalculateListIndex(cube)];
+            return GetRegion(cube);
         }
 
         public Region GetRegion(Vector2 position)
         {
             return GetRegion((int)position.x, (int)position.y);
-        }
-
-        public MapElement GetElement(int x, int y)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public MapElement GetElement(Vector2 position)
-        {
-            return GetElement((int)position.x, (int)position.y);
         }
 
         protected void AddRegion(Region region, Vector2 boardPosition)

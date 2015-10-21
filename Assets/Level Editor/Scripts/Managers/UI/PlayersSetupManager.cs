@@ -51,7 +51,7 @@ namespace MS.Editor.UI
             player.Name     =   name;
             playerButton    =   Utils.Instantiate<PlayerButtonController>(PlayerButtonPrefab, PlayerButtonsContainer, PlayerButtonsContainer.position, PlayerButtonsContainer.rotation);
 
-            Managers.GameManager.Instance.Game.Players.AddPlayer(player);
+            Model.Game.Instance.Players.AddPlayer(player);
 
             view = playerButton.CreateView(player);
 
@@ -101,10 +101,10 @@ namespace MS.Editor.UI
             Player neutralPlayer;
             Player player;
 
-            neutralPlayer   =   Managers.GameManager.Instance.Game.Players.Find("Neutral");
-            player          =   Managers.GameManager.Instance.Game.Players.Find(playerName);
+            neutralPlayer   =   Game.Instance.Players.Find("Neutral");
+            player          =   Game.Instance.Players.Find(playerName);
 
-            foreach (OwnableMapElement element in Managers.GameManager.Instance.Game.World.FindElements(player))
+            foreach (OwnableMapElement element in Game.Instance.World.FindElements(player))
             {
                 if (element.Owner == player)
                 {
@@ -112,7 +112,7 @@ namespace MS.Editor.UI
                 }
             }
 
-            Managers.GameManager.Instance.Game.Players.RemovePlayer(playerName);
+            Game.Instance.Players.RemovePlayer(playerName);
         }
 
         public void Close()
@@ -131,9 +131,9 @@ namespace MS.Editor.UI
         {
             m_Buttons = new Dictionary<string, PlayerButtonController>();
 
-            if (Managers.GameManager.Instance != null && Managers.GameManager.Instance.Game != null)
+            if (Game.Instance != null)
             {
-                foreach (Player player in Managers.GameManager.Instance.Game.Players)
+                foreach (Player player in Game.Instance.Players)
                 {
                     PlayerButtonController button;
 

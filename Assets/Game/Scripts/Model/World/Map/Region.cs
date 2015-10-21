@@ -7,12 +7,13 @@ using UnityEngine;
 namespace MS.Model.World
 {
     public class Region : ModelElement, IEnumerable<Area>, IOwnable
-    {        
+    {
+        public static readonly int REGION_HAS_CITY = 9;
+
         public Vector3          CubePosition;
 
         protected List<Area>    m_Areas;
         protected Area          m_Capital;
-        protected City          m_City;
         protected Player        m_Owner;
 
         public Area CapitalArea
@@ -32,8 +33,12 @@ namespace MS.Model.World
 
             set
             {
-                m_City.Owner    =   value;
-                m_Owner         =   value;
+                m_Owner = value;
+
+                if (m_Capital != null && m_Capital.Element != null)
+                {
+                    m_Capital.Element.Owner = value;
+                }                
             }
         }
 
@@ -47,15 +52,61 @@ namespace MS.Model.World
             }
 
             m_Capital = new Area();
+            Owner = Game.Instance.Players.NeutralPlayer;
+        }
+
+        public Area GetArea(int index)
+        {
+            return m_Areas[index];
+        }
+
+        public IEnumerable<Area> GetOwnedAreas(Player player)
+        {
+            if (player == Owner)
+            {
+                foreach (Area area in m_Areas)
+                {
+                    if (area.IsConquered)
+                    {
+                        yield return area;
+                    }
+                }
+            }            
+        }
+
+        public IEnumerable<MapElement> GetElements()
+        {
+            foreach (Area area in m_Areas)
+            {
+                if (area.Element != null)
+                {
+                    yield return area.Element;
+                }
+            }
+        }
+
+        public IEnumerable<MapElement> GetOwnedElements(Player player)
+        {
+            foreach (Area area in GetOwnedAreas(player))
+            {
+                if (area.Element != null)
+                {
+                    yield return area.Element;
+                }
+            }
         }
 
         public void Randomize()
         {
             // Capital
             m_Capital.TerrainType = RandomTerrain();
-            m_Capital.TopographyType = Area.ETopographyType.Plains; //RandomTopography(m_Capital.TerrainType);
+            m_Capital.TopographyType = Area.ETopographyType.Plains;
 
-            m_City = new City();
+            if (Tools.DiceBag.Roll(1, 10, 0) <= REGION_HAS_CITY)
+            {
+                m_Capital.Element           =   new City();
+                m_Capital.Element.Owner     =   Owner;
+            }
 
             // Peripheral
             for (int i = 0; i < m_Areas.Count; i++)

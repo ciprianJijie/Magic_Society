@@ -87,7 +87,7 @@ namespace MS.Model
         public Game()
         {
             m_Players       =   new Players();
-            m_Turns         =   new Turns(m_Players);
+            //m_Turns         =   new Turns(m_Players);
             m_Resources     =   new Resources();
             m_Schemes       =   new Kingdom.Schemes();
             m_Personalities =   new Personalities();
@@ -103,7 +103,6 @@ namespace MS.Model
 
             // Generate Players
             m_Players.AddPlayer(new HumanPlayer("PLAYER_HUMAN"));
-            m_Players.AddPlayer(new NeutralPlayer());
 
             for (int i = 0; i < aiPlayers; ++i)
             {

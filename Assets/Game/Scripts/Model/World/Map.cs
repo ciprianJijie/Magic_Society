@@ -57,7 +57,7 @@ namespace MS.Model
 
             json = base.ToJSON();
 
-            json.Add("players", Managers.GameManager.Instance.Game.Players.ToJSON());
+            json.Add("players", Game.Instance.Players.ToJSON());
             json.Add("grid", Grid.ToJSON());
 
             return json;
