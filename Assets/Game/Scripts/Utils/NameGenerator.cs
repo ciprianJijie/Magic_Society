@@ -36,6 +36,11 @@ namespace MS.Generators
             return ComposeName(prefix, suffix, "Data/Names/districts");
         }
 
+        public static string RandomHouseName()
+        {
+            return ComposeName("", "", "Data/Names/houses");
+        }
+
         private static string ComposeName(string prefix, string suffix, string filePathWithNames)
         {
             string      text;

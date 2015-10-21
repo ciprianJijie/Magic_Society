@@ -8,8 +8,9 @@ namespace MS.Model
 {
     public class Player : ModelElement, IResourceWarehouse
     {
-        public int Gold;
-        public int Research;
+        public int          Gold;
+        public int          Research;
+        public NobleHouse   MainHouse;
 
         protected ResourceAdvancedAmount m_GoldCollected;
         protected ResourceAdvancedAmount m_ResearchCollected;

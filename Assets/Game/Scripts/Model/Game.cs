@@ -13,6 +13,7 @@ namespace MS.Model
         protected Resources             m_Resources;
         protected Kingdom.Schemes       m_Schemes;
         protected Personalities         m_Personalities;
+        protected NobleHouses           m_NobleHouses;
 
         public Model.World.World World
         {
@@ -87,10 +88,10 @@ namespace MS.Model
         public Game()
         {
             m_Players       =   new Players();
-            //m_Turns         =   new Turns(m_Players);
             m_Resources     =   new Resources();
             m_Schemes       =   new Kingdom.Schemes();
             m_Personalities =   new Personalities();
+            m_NobleHouses   =   new NobleHouses();
 
             m_Instance  =   this;
         }
@@ -145,11 +146,28 @@ namespace MS.Model
 
         protected void GenerateStartingPersonalities(IEnumerable<Player> players)
         {
+            //foreach (Player player in players)
+            //{
+            //    for (int i = 0; i < Model.Personalities.STARTING_PERSONALITIES; i++)
+            //    {
+            //        m_Personalities.CreateRandom(player);
+            //    }
+            //}
+
             foreach (Player player in players)
             {
-                for (int i = 0; i < Model.Personalities.STARTING_PERSONALITIES; i++)
+                // Main house
+
+                player.MainHouse = m_NobleHouses.GenerateRandom(player);
+
+                // Vassal houses
+
+                NobleHouse vassalHouse;
+                
+                for (int i = 0; i < 2; i++)
                 {
-                    m_Personalities.CreateRandom(player);
+                    vassalHouse             =   m_NobleHouses.GenerateRandom(player);
+                    vassalHouse.ChiefHouse  =   player.MainHouse;
                 }
             }
         }

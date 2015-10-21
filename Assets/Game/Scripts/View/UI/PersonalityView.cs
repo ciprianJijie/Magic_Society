@@ -26,7 +26,7 @@ namespace MS.Views.UI
 
         public override void UpdateView(Personality element)
         {
-            NameLabel.text          =   element.Name;
+            NameLabel.text          =   element.FullName;
             AgeLabel.text           =   element.Age.ToString();
             VigorLabel.text         =   element.Vigor.ToString();
             ManagementLabel.text    =   element.Management.ToString();
