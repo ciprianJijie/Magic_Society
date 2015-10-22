@@ -119,6 +119,7 @@ namespace MS.Model
             
             m_Schemes.FromJSON(schemesJSON);
             GenerateStartingPersonalities(m_Players);
+            GenerateCities(m_NobleHouses);
         }
 
         public void Save(string fileName)
@@ -146,28 +147,62 @@ namespace MS.Model
 
         protected void GenerateStartingPersonalities(IEnumerable<Player> players)
         {
-            //foreach (Player player in players)
-            //{
-            //    for (int i = 0; i < Model.Personalities.STARTING_PERSONALITIES; i++)
-            //    {
-            //        m_Personalities.CreateRandom(player);
-            //    }
-            //}
-
             foreach (Player player in players)
             {
-                // Main house
-
-                player.MainHouse = m_NobleHouses.GenerateRandom(player);
-
-                // Vassal houses
-
-                NobleHouse vassalHouse;
-                
-                for (int i = 0; i < 2; i++)
+                if (player is NeutralPlayer == false)
                 {
-                    vassalHouse             =   m_NobleHouses.GenerateRandom(player);
-                    vassalHouse.ChiefHouse  =   player.MainHouse;
+                    // Main house
+
+                    player.MainHouse = m_NobleHouses.GenerateRandom(player);
+
+                    // Vassal houses
+
+                    NobleHouse vassalHouse;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        vassalHouse = m_NobleHouses.GenerateRandom(player);
+                        vassalHouse.ChiefHouse = player.MainHouse;
+                    }
+                }                
+            }
+
+            int neutralHousesCount;
+            
+            neutralHousesCount = Mathf.FloorToInt(m_World.TileCount * 0.6f);
+
+            for (int i = 0; i < neutralHousesCount; i++)
+            {
+                m_NobleHouses.GenerateRandom(m_Players.NeutralPlayer);
+            }
+        }
+
+        protected void GenerateCities(IEnumerable<NobleHouse> houses)
+        {
+            List<Vector3>       positions;
+            Vector3             position;
+            int                 index;
+            World.Region        region;
+            City                city;
+
+            positions = new List<Vector3>(Hexagon.CalculateTilesForRange(m_World.Range));
+            positions.Remove(Vector3.zero);
+
+            foreach (NobleHouse house in houses)
+            {
+                if (/*house.ChiefHouse == null*/ true)
+                {
+                    index                       =   Random.Range(0, positions.Count);
+                    position                    =   positions[index];
+                    region                      =   m_World.GetRegion(position);
+                    region.ChiefHouse           =   house;
+                    city                        =   new City();
+                    city.Owner                  =   house.Owner;
+                    region.CapitalArea.Element  =   city;
+
+                    UnityEngine.Debug.Log("City created for " + house + " in " + position + "=" + region.CubePosition);
+
+                    positions.Remove(position);                    
                 }
             }
         }

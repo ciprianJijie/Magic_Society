@@ -124,4 +124,9 @@ namespace MS
     {
         Model.NobleHouse ChiefHouse { get; set; }
     }
+
+    public interface IRandomizable
+    {
+        void Randomize();
+    }
 }

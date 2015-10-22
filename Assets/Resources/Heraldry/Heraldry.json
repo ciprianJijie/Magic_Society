@@ -1,0 +1,100 @@
+{
+  "colors":
+  [
+    "FFFFFF",
+    "1693A5",
+    "ADD9C7",
+    "FBB829",
+    "FF0066",
+    "556270",
+    "CDD7B6",
+    "FCFBE3",
+    "C3FF68",
+    "333333",
+    "FF9900",
+    "D31996",
+    "FE4365",
+    "F02311",
+    "F0F0D8",
+    "EA3556",
+    "F23A65",
+    "666666",
+    "FF9999",
+    "ED146F",
+    "CCFF00",
+    "77CCA4",
+    "800F25",
+    "2A8FBD",
+    "025D8C",
+    "420943",
+    "6CDFEA",
+    "A0D4A4",
+    "FFCC00",
+    "00B4FF",
+    "7FAF1B"
+  ],
+  "fields":
+  [
+    {
+      "primary": "001_p",
+      "secondary": "001_s"
+    },
+    {
+      "primary": "002_p",
+      "secondary": "002_s"
+    },
+    {
+      "primary": "003_p",
+      "secondary": "003_s"
+    },
+    {
+      "primary": "004_p",
+      "secondary": "004_s"
+    }
+  ],
+  "emblems":
+  [
+    "angler-fish",
+    "bat",
+    "bull-horns",
+    "crow-dive",
+    "crystal-shine",
+    "drink-me",
+    "dwarf-face",
+    "eagle-emblem",
+    "evil-bat",
+    "gold-scarab",
+    "horse-head",
+    "lion",
+    "monkey",
+    "octogonal-eye",
+    "octopus",
+    "ouroboros",
+    "panda",
+    "poison",
+    "robe",
+    "scorpion",
+    "spider-alt",
+    "white-cat",
+    "wolf-head",
+    "anvil",
+    "battle-axe",
+    "beard",
+    "crossed-swords",
+    "death-skull",
+    "flamer",
+    "fox-head",
+    "iron-mask",
+    "overmind",
+    "palm",
+    "skull-crossed-bones",
+    "spikes",
+    "stone-crafting",
+    "sword-spade",
+    "tear-tracks",
+    "triforce",
+    "triquetra",
+    "white-tower",
+    "winged-sword"
+  ]
+}

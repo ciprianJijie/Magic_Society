@@ -28,8 +28,8 @@ namespace MS.Controllers.UI
         {
             foreach (Model.Personality personality in personalities)
             {
-                if (personality.Owner == Model.Game.Instance.Turns.CurrentTurn.Player)
-                {
+                //if (personality.Owner == Model.Game.Instance.Turns.CurrentTurn.Player)
+                //{
                     Views.UI.PersonalityView view;
 
                     view = PersonalityController.FindView(personality);
@@ -42,7 +42,7 @@ namespace MS.Controllers.UI
                     {
                         PersonalityController.CreateView(personality);
                     }
-                }                
+                //}                
             }
 
             MenuHolder.SetActive(true);
@@ -86,14 +86,14 @@ namespace MS.Controllers.UI
 
         public void SubscribeToEvents()
         {
-            GameInputManager.OnPersonalitiesMenu += Toggle;
-            Model.Game.Instance.Turns.OnAllTurnsFinished += OnTurnStarted;
+            GameInputManager.OnPersonalitiesMenu        +=  Toggle;
+            Model.Game.Instance.Turns.OnFirstPlayerTurn +=  OnTurnStarted;
         }
 
         public void UnsubscribeToEvents()
         {
-            GameInputManager.OnPersonalitiesMenu -= Toggle;
-            Model.Game.Instance.Turns.OnAllTurnsFinished -= OnTurnStarted;
+            GameInputManager.OnPersonalitiesMenu        -=  Toggle;
+            Model.Game.Instance.Turns.OnFirstPlayerTurn -=  OnTurnStarted;
         }
     }
 }

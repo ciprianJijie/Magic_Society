@@ -27,10 +27,10 @@ namespace MS
 
         public bool IsValidPosition(int x, int y)
         {
-            if (x < 0 || y < 0 || x >= Model.Game.Instance.World.HorizontalSize || y >= Model.Game.Instance.World.VerticalSize)
-            {
-                return false;
-            }
+            //if (x < 0 || y < 0 || x >= Model.Game.Instance.World.HorizontalSize || y >= Model.Game.Instance.World.VerticalSize)
+            //{
+            //    return false;
+            //}
 
             return true;
         }

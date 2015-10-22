@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using MS.Model;
+using MS.Controllers.UI;
+using MS.Controllers.UI.Heraldry;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,20 +9,22 @@ namespace MS.Views.UI
 {
     public class PersonalityView : View<Model.Personality>
     {
-        public Text                             NameLabel;
-        public Text                             AgeLabel;
-        public Image                            MaleIcon;
-        public Image                            FemaleIcon;
-        public Text                             VigorLabel;
-        public Text                             ManagementLabel;
-        public Text                             IntrigueLabel;
-        public Text                             CharismaLabel;
-        public Text                             MoralityLabel;
-        public Image                            PortraitImage;
-        public Sprite                           BabySprite;
-        public Sprite                           DeathSprite;
-        public Controllers.UI.TraitController   TraitController;
-        public Transform                        TraitsHolder;
+        public Text                 NameLabel;
+        public Text                 AgeLabel;
+        public Image                MaleIcon;
+        public Image                FemaleIcon;
+        public Text                 VigorLabel;
+        public Text                 ManagementLabel;
+        public Text                 IntrigueLabel;
+        public Text                 CharismaLabel;
+        public Text                 MoralityLabel;
+        public Image                PortraitImage;
+        public Sprite               BabySprite;
+        public Sprite               DeathSprite;
+        public TraitController      TraitController;
+        public Transform            TraitsHolder;
+        public ShieldController     ShieldController;
+        public Transform            ShieldHolder;
 
         public override void UpdateView(Personality element)
         {
@@ -70,14 +72,15 @@ namespace MS.Views.UI
             {
                 var newView = TraitController.CreateView(trait);
 
-                UnityEngine.Debug.Log("Created trait view for " + trait.Name + " => " + newView);
-
                 newView.UpdateView(trait);
             }
 
-            m_Model = element;
+            ShieldController.Holder = ShieldHolder;
 
-            UnityEngine.Debug.Log("Updating view for " + element);
+            var shieldView = ShieldController.CreateView(element.ChiefHouse.Shield);
+            shieldView.UpdateView(element.ChiefHouse.Shield);
+
+            m_Model = element;
         }
 
         protected IEnumerator LoadPortrait(string filePath)

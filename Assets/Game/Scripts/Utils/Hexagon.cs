@@ -332,5 +332,22 @@ namespace MS
                 }
             }
         }
+
+        public static IEnumerable<Vector3> CalculateTilesForRange(int range)
+        {
+            List<Vector3> positions = new List<Vector3>();
+            int z;
+
+            for (int x = -range; x <= range; x++)
+            {
+                for (int y = (int)(Mathf.Max(-range, -x - range)); y <= (int)(Mathf.Min(range, -x + range)); y++)
+                {
+                    z = -x - y;
+                    positions.Add(new Vector3(x, y, z));
+                }
+            }
+
+            return positions;
+        }
     }
 }
