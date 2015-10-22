@@ -22,7 +22,7 @@ namespace MS.Model.Heraldry
             do
             {
                 EmblemColor = Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomColor();
-            } while (Utils.Distance(EmblemColor, Field.PrimaryColor) < 150 || Utils.Distance(EmblemColor, Field.SecondaryColor) < 150);
+            } while (Utils.ColorDistance(EmblemColor, Field.PrimaryColor) < 2000f || Utils.ColorDistance(EmblemColor, Field.SecondaryColor) < 2000f);
             
         }
     }

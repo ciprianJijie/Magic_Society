@@ -78,5 +78,10 @@ namespace MS.Model
         {
             Shield.Randomize();
         }
+
+        public override string ToString()
+        {
+            return string.Format("<color=#{0}>{1}</color> ^^{2} ({3})", Utils.ColorToHex(Shield.Field.PrimaryColor), Name, ChiefHouse, Owner.Name);
+        }
     }
 }
