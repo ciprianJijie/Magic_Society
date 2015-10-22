@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MS.Model
 {
-    public class NobleHouses : ModelElement
+    public class NobleHouses : ModelElement, IEnumerable<NobleHouse>
     {
         protected List<NobleHouse> m_Houses;
 
@@ -54,6 +56,16 @@ namespace MS.Model
 
                 yield return child;
             }
+        }
+
+        public IEnumerator<NobleHouse> GetEnumerator()
+        {
+            return m_Houses.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Houses.GetEnumerator();
         }
     }
 }

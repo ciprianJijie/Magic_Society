@@ -37,7 +37,7 @@ namespace MS.Model.Heraldry
 
         public void Randomize()
         {
-            int colorDistance;
+            float colorDistance;
             int steps;
 
             Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomField(out PrimarySprite, out SecondarySprite);
@@ -48,10 +48,10 @@ namespace MS.Model.Heraldry
             {
                 PrimaryColor    =   Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomColor();
                 SecondaryColor  =   Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomColor();
-                colorDistance   =   Utils.Distance(PrimaryColor, SecondaryColor);
+                colorDistance   =   Utils.ColorDistance(PrimaryColor, SecondaryColor);
                 steps++;
 
-            } while (colorDistance < 150);
+            } while (colorDistance < 2000f);
             
         }
     }

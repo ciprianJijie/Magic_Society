@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MS.Model.World
 {
-    public class Region : ModelElement, IEnumerable<Area>, IOwnable
+    public class Region : ModelElement, IEnumerable<Area>, IOwnable, IHouseOwneable
     {
         public static readonly int REGION_HAS_CITY = 9;
 
@@ -15,6 +15,7 @@ namespace MS.Model.World
         protected List<Area>    m_Areas;
         protected Area          m_Capital;
         protected Player        m_Owner;
+        protected NobleHouse    m_ChiefHouse;
 
         public Area CapitalArea
         {
@@ -39,6 +40,19 @@ namespace MS.Model.World
                 {
                     m_Capital.Element.Owner = value;
                 }                
+            }
+        }
+
+        public NobleHouse ChiefHouse
+        {
+            get
+            {
+                return m_ChiefHouse;
+            }
+
+            set
+            {
+                m_ChiefHouse = value;
             }
         }
 
@@ -101,12 +115,6 @@ namespace MS.Model.World
             // Capital
             m_Capital.TerrainType = RandomTerrain();
             m_Capital.TopographyType = Area.ETopographyType.Plains;
-
-            if (Tools.DiceBag.Roll(1, 10, 0) <= REGION_HAS_CITY)
-            {
-                m_Capital.Element           =   new City();
-                m_Capital.Element.Owner     =   Owner;
-            }
 
             // Peripheral
             for (int i = 0; i < m_Areas.Count; i++)
