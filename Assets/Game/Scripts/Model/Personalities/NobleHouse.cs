@@ -4,15 +4,17 @@ using System.Collections.Generic;
 
 namespace MS.Model
 {
-    public class NobleHouse : ModelElement, IOwnable, IHouseOwneable, IEnumerable<Personality>
+    public class NobleHouse : ModelElement, IOwnable, IHouseOwneable, IEnumerable<Personality>, IRandomizable
     {
-        protected Player                m_Owner;
-        protected NobleHouse            m_ChiefHouse;
-        protected List<Personality>     m_FamilyMembers;
+        public      Heraldry.Shield     Shield;
+        protected   Player              m_Owner;
+        protected   NobleHouse          m_ChiefHouse;
+        protected   List<Personality>   m_FamilyMembers;
 
         public NobleHouse()
         {
-            m_FamilyMembers = new List<Personality>();
+            m_FamilyMembers =   new List<Personality>();
+            Shield          =   new Heraldry.Shield();
         }
 
         public NobleHouse ChiefHouse
@@ -70,6 +72,11 @@ namespace MS.Model
         IEnumerator IEnumerable.GetEnumerator()
         {
             return m_FamilyMembers.GetEnumerator();
+        }
+
+        public void Randomize()
+        {
+            Shield.Randomize();
         }
     }
 }

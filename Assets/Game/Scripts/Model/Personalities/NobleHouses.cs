@@ -15,9 +15,11 @@ namespace MS.Model
         {
             NobleHouse nobleHouse;
 
-            nobleHouse = new NobleHouse();
-            nobleHouse.Name = Generators.NameGenerator.RandomHouseName();
-            nobleHouse.Owner = owner;
+            nobleHouse          =   new NobleHouse();
+            nobleHouse.Name     =   Generators.NameGenerator.RandomHouseName();
+            nobleHouse.Owner    =   owner;
+
+            nobleHouse.Shield.Randomize();
 
             foreach (Personality personality in GenerateFamily(nobleHouse))
             {

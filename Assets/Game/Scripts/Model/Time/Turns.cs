@@ -8,12 +8,13 @@ namespace MS.Model
     /// </summary>
     public class Turns : ModelElement
     {
-        protected   List<Turn>  m_Turns;
-        protected   int         m_CurrentTurn;
+        protected   List<Turn>      m_Turns;
+        protected   int             m_CurrentTurn;
 
-        private     int         m_TurnCounter;
+        private     int             m_TurnCounter;
 
-        public Events.Event     OnAllTurnsFinished      =   Events.DefaultAction;
+        public      Events.Event    OnAllTurnsFinished  =   Events.DefaultAction;
+        public      Events.Event    OnFirstPlayerTurn   =   Events.DefaultAction;
 
         public Turn CurrentTurn
         {
@@ -48,6 +49,7 @@ namespace MS.Model
         public void Start()
         {
             m_CurrentTurn = 0;
+            OnFirstPlayerTurn();
         }
 
         public void Execute()
@@ -72,8 +74,8 @@ namespace MS.Model
         public void End()
         {
             m_TurnCounter++;
-            Start();
             OnAllTurnsFinished();
+            Start();            
             Execute();
         }
 

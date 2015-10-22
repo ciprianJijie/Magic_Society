@@ -1,17 +1,21 @@
-﻿
-using MS.Model;
+﻿using MS.Model;
 
 namespace MS.Controllers.UI
 {
     public class PersonalityController : Controller<Views.UI.PersonalityView, Model.Personality>
     {
-        public TraitController TraitController;
+        public TraitController              TraitController;
+        public Heraldry.ShieldController    ShieldController;
 
         public override IUpdatableView<Personality> CreateView(Personality modelElement)
         {
-            var view = base.CreateView(modelElement);
+            Views.UI.PersonalityView personalityView;
 
-            (view as Views.UI.PersonalityView).TraitController = TraitController;
+            var view = base.CreateView(modelElement);
+            
+            personalityView                     =   view as Views.UI.PersonalityView;
+            personalityView.TraitController     =   TraitController;
+            personalityView.ShieldController    =   ShieldController;
 
             return view;
         }

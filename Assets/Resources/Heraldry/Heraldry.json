@@ -1,0 +1,76 @@
+{
+  "colors":
+  [
+    { "color": "FFFFFF" },
+    { "color": "1693A5" },
+    { "color": "ADD9C7" },
+    { "color": "FBB829" },
+    { "color": "FF0066" },
+    { "color": "556270" },
+    { "color": "CDD7B6" },
+    { "color": "FCFBE3" },
+    { "color": "C3FF68" },
+    { "color": "333333" },
+    { "color": "FF9900" },
+    { "color": "D31996" },
+    { "color": "FE4365" },
+    { "color": "F02311" },
+    { "color": "F0F0D8" },
+    { "color": "EA3556" },
+    { "color": "F23A65" },
+    { "color": "666666" },
+    { "color": "FF9999" },
+    { "color": "ED146F" },
+    { "color": "CCFF00" },
+    { "color": "77CCA4" },
+    { "color": "800F25" },
+    { "color": "2A8FBD" },
+    { "color": "025D8C" },
+    { "color": "420943" }
+  ],
+  "fields":
+  [
+    {
+      "primary": "001_p",
+      "secondary": "001_s"
+    },
+    {
+      "primary": "002_p",
+      "secondary": "002_s"
+    },
+    {
+      "primary": "003_p",
+      "secondary": "003_s"
+    },
+    {
+      "primary": "004_p",
+      "secondary": "004_s"
+    }
+  ],
+  "emblems":
+  [
+    "angler-fish",
+    "bat",
+    "bull-horns",
+    "crow-dive",
+    "crystal-shine",
+    "drink-me",
+    "dwarf-face",
+    "eagle-emblem",
+    "evil-bat",
+    "gold-scarab",
+    "horse-head",
+    "lion",
+    "monkey",
+    "octogonal-eye",
+    "octopus",
+    "ouroboros",
+    "panda",
+    "poison",
+    "robe",
+    "scorpion",
+    "spider-alt",
+    "white-cat",
+    "wolf-head"
+  ]
+}

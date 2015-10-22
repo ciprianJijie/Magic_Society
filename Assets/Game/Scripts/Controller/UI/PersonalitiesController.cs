@@ -86,14 +86,14 @@ namespace MS.Controllers.UI
 
         public void SubscribeToEvents()
         {
-            GameInputManager.OnPersonalitiesMenu += Toggle;
-            Model.Game.Instance.Turns.OnAllTurnsFinished += OnTurnStarted;
+            GameInputManager.OnPersonalitiesMenu        +=  Toggle;
+            Model.Game.Instance.Turns.OnFirstPlayerTurn +=  OnTurnStarted;
         }
 
         public void UnsubscribeToEvents()
         {
-            GameInputManager.OnPersonalitiesMenu -= Toggle;
-            Model.Game.Instance.Turns.OnAllTurnsFinished -= OnTurnStarted;
+            GameInputManager.OnPersonalitiesMenu        -=  Toggle;
+            Model.Game.Instance.Turns.OnFirstPlayerTurn -=  OnTurnStarted;
         }
     }
 }
