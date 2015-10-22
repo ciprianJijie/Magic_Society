@@ -32,8 +32,9 @@ namespace MS.Managers
             return Vector3.up;
         }
 
-        void Awake()
+        protected virtual void Awake()
         {
+            base.Awake();
             if (!referenceCamera)
                 referenceCamera = Camera.main;
         }
