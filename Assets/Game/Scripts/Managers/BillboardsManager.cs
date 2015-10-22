@@ -32,7 +32,7 @@ namespace MS.Managers
             return Vector3.up;
         }
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
             base.Awake();
             if (!referenceCamera)
