@@ -17,8 +17,13 @@ namespace MS.Model.Heraldry
         {
             Field.Randomize();
 
-            Emblem      =   Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomEmblem();
-            EmblemColor =   Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomColor();
+            Emblem = Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomEmblem();
+
+            do
+            {
+                EmblemColor = Managers.Heraldry.HeraldryResourcesManager.Instance.GetRandomColor();
+            } while (Utils.Distance(EmblemColor, Field.PrimaryColor) < 150 || Utils.Distance(EmblemColor, Field.SecondaryColor) < 150);
+            
         }
     }
 }

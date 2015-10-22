@@ -65,7 +65,7 @@ namespace MS.Managers.Heraldry
         {
             foreach (JSONNode color in colors)
             {
-                m_Colors.Add(Utils.HexToRGB(color["color"]));
+                m_Colors.Add(Utils.HexToRGB(color));
             }
         }
 
