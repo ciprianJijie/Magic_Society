@@ -46,6 +46,11 @@ namespace MS
             return Application.streamingAssetsPath + "/Portraits/" + fileName; 
         }
 
+        public static string ToDynamicAssets(string fileName)
+        {
+            return Application.streamingAssetsPath + "/" + fileName;
+        }
+
         public static SimpleJSON.JSONNode FileToJSON(string filePath)
         {
             System.IO.StreamReader reader;

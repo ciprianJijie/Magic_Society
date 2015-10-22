@@ -93,7 +93,7 @@ namespace MS.Model
             m_FoodCollected         =   new ResourceAdvancedAmount();
             m_ProductionCollected   =   new ResourceAdvancedAmount();
 
-            m_TilesUnderControl.Add(new Vector2(X, Y));
+            //m_TilesUnderControl.Add(new Vector2(X, Y));
 
             GrowPopulation(1);
 
@@ -340,20 +340,6 @@ namespace MS.Model
                 {
                     amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), building));
                 }
-            }
-
-            foreach (Vector2 tilePosition in m_TilesUnderControl)
-            {
-                Tile tile;
-				IResourceCollector collector;
-
-				tile = Game.Instance.Map.Grid.GetTile(tilePosition);
-				collector = tile as IResourceCollector;
-
-				if (collector != null)
-				{
-					amount.AddAmount(new ResourceAmount(Game.Instance.Resources.Food, collector.CalculateEstimatedFood(), tile));
-				}
             }
 
             // Feed the citizens

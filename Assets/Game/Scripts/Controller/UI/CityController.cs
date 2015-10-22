@@ -79,7 +79,7 @@ namespace MS.Controllers.UI
 
         public void UpdateBuildingSchemesArea(Model.City city)
         {
-            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
+            foreach (Model.Kingdom.Building building in Model.Game.Instance.Schemes)
             {
                 BuildingSchemeController.DestroyView(building);
 
@@ -100,7 +100,7 @@ namespace MS.Controllers.UI
 
         public void UpdateBuildingsList(Model.City city)
         {
-            foreach (Model.Kingdom.Building building in Game.Instance.Schemes)
+            foreach (Model.Kingdom.Building building in Model.Game.Instance.Schemes)
             {
                 if (city.Has(building))
                 {
@@ -118,65 +118,65 @@ namespace MS.Controllers.UI
 
         public void AddWorkersToFood(int amount)
         {
-            GameController.Instance.SelectedCity.FoodWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
-            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            Managers.GameManager.Instance.SelectedCity.FoodWorkers += CalculateWorkersToAssign(amount, Managers.GameManager.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
         }
 
         public void RemoveWorkersFromFood(int amount)
         {
-            if (GameController.Instance.SelectedCity.FoodWorkers > 0)
+            if (Managers.GameManager.Instance.SelectedCity.FoodWorkers > 0)
             {
-                GameController.Instance.SelectedCity.FoodWorkers -= amount;
-                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+                Managers.GameManager.Instance.SelectedCity.FoodWorkers -= amount;
+                UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
             }            
         }
 
         public void AddWorkersToProduction(int amount)
         {
-            GameController.Instance.SelectedCity.ProductionWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
-            UpdateRecollectionArea(GameController.Instance.SelectedCity);
-            UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+            Managers.GameManager.Instance.SelectedCity.ProductionWorkers += CalculateWorkersToAssign(amount, Managers.GameManager.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
+            UpdateBuildingSchemesArea(Managers.GameManager.Instance.SelectedCity);
             BuildingQueueController.SingleItemController.UpdateAllViews();
         }
 
         public void RemoveWorkersFromProduction(int amount)
         {
-            if (GameController.Instance.SelectedCity.ProductionWorkers > 0)
+            if (Managers.GameManager.Instance.SelectedCity.ProductionWorkers > 0)
             {
-                GameController.Instance.SelectedCity.ProductionWorkers -= amount;
-                UpdateRecollectionArea(GameController.Instance.SelectedCity);
-                UpdateBuildingSchemesArea(GameController.Instance.SelectedCity);
+                Managers.GameManager.Instance.SelectedCity.ProductionWorkers -= amount;
+                UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
+                UpdateBuildingSchemesArea(Managers.GameManager.Instance.SelectedCity);
                 BuildingQueueController.SingleItemController.UpdateAllViews();
             }
         }
 
         public void AddWorkersToGold(int amount)
         {
-            GameController.Instance.SelectedCity.GoldWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
-            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            Managers.GameManager.Instance.SelectedCity.GoldWorkers += CalculateWorkersToAssign(amount, Managers.GameManager.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
         }
 
         public void RemoveWorkersFromGold(int amount)
         {
-            if (GameController.Instance.SelectedCity.GoldWorkers > 0)
+            if (Managers.GameManager.Instance.SelectedCity.GoldWorkers > 0)
             {
-                GameController.Instance.SelectedCity.GoldWorkers -= amount;
-                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+                Managers.GameManager.Instance.SelectedCity.GoldWorkers -= amount;
+                UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
             }
         }
 
         public void AddWorkersToResearch(int amount)
         {
-            GameController.Instance.SelectedCity.ResearchWorkers += CalculateWorkersToAssign(amount, GameController.Instance.SelectedCity.AvailableWorkers);
-            UpdateRecollectionArea(GameController.Instance.SelectedCity);
+            Managers.GameManager.Instance.SelectedCity.ResearchWorkers += CalculateWorkersToAssign(amount, Managers.GameManager.Instance.SelectedCity.AvailableWorkers);
+            UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
         }
 
         public void RemoveWorkersFromResearch(int amount)
         {
-            if (GameController.Instance.SelectedCity.ResearchWorkers > 0)
+            if (Managers.GameManager.Instance.SelectedCity.ResearchWorkers > 0)
             {
-                GameController.Instance.SelectedCity.ResearchWorkers -= amount;
-                UpdateRecollectionArea(GameController.Instance.SelectedCity);
+                Managers.GameManager.Instance.SelectedCity.ResearchWorkers -= amount;
+                UpdateRecollectionArea(Managers.GameManager.Instance.SelectedCity);
             }
         }
 

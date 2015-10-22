@@ -1,21 +1,37 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MS.ExtensionMethods;
+using System.Linq;
 
 namespace MS.Model.World
 {
     public class World : ModelElement, IEnumerable<Region>
     {
-        protected List<Region> m_Regions;
+        protected Dictionary<Vector3, Region>              m_Regions;
 
         protected int m_Range;
-        
+
+        public int TileCount
+        {
+            get
+            {
+                return m_Regions.Count;
+            }
+        }
+
+        public int Range
+        {
+            get
+            {
+                return m_Range;
+            }
+        }
 
         public World(int range)
         {
             m_Range     =   range;
-            m_Regions   =   new List<Region>();
+            //m_Regions   =   new List<Region>();
         }
 
         /// <summary>
@@ -23,57 +39,86 @@ namespace MS.Model.World
         /// </summary>
         public void GenerateRandom()
         {
+            Region          region;
+            List<Vector3>   positions;
 
-            Region region;
-
-            List<Vector3> positions = new List<Vector3>();
-            int z;
-
-            for (int x = -m_Range; x <= m_Range; x++)
-            {
-                for (int y = (int)(Mathf.Max(-m_Range, -x - m_Range)); y <= (int)(Mathf.Min(m_Range, -x + m_Range)); y++)
-                {
-                    z = -x - y;
-                    positions.Add(new Vector3(x, y, z));
-                }
-            }
+            positions   =   new List<Vector3>(Hexagon.CalculateTilesForRange(m_Range));
+            m_Regions   =   new Dictionary<Vector3, Region>();
 
             foreach (Vector3 position in positions)
             {
                 region              =   new Region();
                 region.CubePosition =   position;
+                region.Owner        =   Game.Instance.Players.Find("NEUTRAL_PLAYER");
 
                 region.Randomize();
-                m_Regions.Add(region);
+
+                m_Regions.Add(position, region);
+            }
+
+            UnityEngine.Debug.Log("Count " + m_Regions.Count);
+        }
+
+        public MapElement FindElement(Player owner, string name)
+        {
+            var ownedRegions = m_Regions.Values.ToList().FindAll(i => i.Owner == owner);
+
+            foreach (Region region in ownedRegions)
+            {
+                foreach (MapElement element in region.GetOwnedElements(owner))
+                {
+                    if (element.Name == name)
+                    {
+                        return element;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public IEnumerable<MapElement> FindElements(Player owner)
+        {
+            foreach (Region region in m_Regions.Values.ToList().FindAll(i => i.Owner == owner))
+            {
+                foreach (MapElement element in region.GetOwnedElements(owner))
+                {
+                    yield return element;
+                }
             }
         }
 
-        protected void AddRegion(Region region, Vector2 boardPosition)
+        public Region GetRegion(int x, int y, int z)
         {
-            m_Regions[CalculateListIndex(boardPosition)] = region;
+            return GetRegion(new Vector3(x, y, z));
         }
 
-        protected int CalculateListIndex(Vector3 cubePosition)
+        public Region GetRegion(Vector3 cubePosition)
         {
-            return CalculateListIndex((int)cubePosition.x, (int)cubePosition.y, (int)cubePosition.z);
+            Region region;
+
+            m_Regions.TryGetValue(cubePosition, out region);
+
+            return region;
         }
 
-        protected int CalculateListIndex(int x, int y, int z)
+        public Region GetRegion(int x, int y)
         {
-            Vector2 axial = Hexagon.CubeToAxial(x, y, z);
+            Vector3 cube;
 
-            int offsetX;
-            int offsetY;
+            cube = Hexagon.OffsetToCube(x, y);
 
-            offsetX = (int)axial.x + m_Range;
-            offsetY = (int)axial.y + m_Range + (int)Mathf.Min(0, axial.x);
+            return GetRegion(cube);
+        }
 
-            return offsetX + offsetY;
+        public Region GetRegion(Vector2 position)
+        {
+            return GetRegion((int)position.x, (int)position.y);
         }
 
         public IEnumerator<Region> GetEnumerator()
         {
-            return m_Regions.GetEnumerator();
+            return m_Regions.Values.ToList().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

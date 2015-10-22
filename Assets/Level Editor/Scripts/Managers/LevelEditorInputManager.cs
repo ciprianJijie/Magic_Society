@@ -26,7 +26,7 @@ namespace MS
         protected void OnMouseMove(int x, int y)
 		{
             // Move the selector
-            TileSelector.position = MouseToGrid.GridController.GetSelectorPosition(x, y);
+            TileSelector.position = Hexagon.AxialToWorld(x, y, MouseToGrid.HexagonSize);
         }
 
 		protected void OnMouseLeftClick(int x, int y)
@@ -38,7 +38,8 @@ namespace MS
 		{
             MS.Model.MapElement element;
 
-            element = MouseToGrid.GridController.Grid.GetElement(x, y);
+            element = null;
+            //element = MouseToGrid.GridController.Grid.GetElement(x, y);
 
             if (element != null)
             {

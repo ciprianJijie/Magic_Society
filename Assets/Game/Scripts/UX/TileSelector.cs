@@ -10,7 +10,7 @@ namespace MS
 		{
             Vector3 position;
 
-            position = InputToReact.GridController.GetSelectorPosition(x, y);
+            position = Hexagon.AxialToWorld(x, y, InputToReact.HexagonSize);
 
 			this.transform.position = position;
         }

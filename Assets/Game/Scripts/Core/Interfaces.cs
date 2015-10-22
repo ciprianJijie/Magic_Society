@@ -119,4 +119,14 @@ namespace MS
     {
         T CreateController<S>() where S: IUpdatableView<R>, IObjectRelated;
     }
+
+    public interface IHouseOwneable
+    {
+        Model.NobleHouse ChiefHouse { get; set; }
+    }
+
+    public interface IRandomizable
+    {
+        void Randomize();
+    }
 }

@@ -36,6 +36,11 @@ namespace MS.Generators
             return ComposeName(prefix, suffix, "Data/Names/districts");
         }
 
+        public static string RandomHouseName()
+        {
+            return ComposeName("", "", "Data/Names/houses");
+        }
+
         private static string ComposeName(string prefix, string suffix, string filePathWithNames)
         {
             string      text;
@@ -49,9 +54,6 @@ namespace MS.Generators
             array           =   json["names"].AsArray;
             randomIndex     =   Random.Range(0, array.Count);
             name            =   prefix + array[randomIndex]["name"] + suffix;
-            //name            =   string.Format("{0} {1} {2}", prefix, array[randomIndex]["name"], suffix);
-
-            UnityEngine.Debug.Log("Random name: " + name);
 
             return name;
         }

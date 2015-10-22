@@ -8,12 +8,18 @@ namespace MS.Model
     public class Players : ModelElement, IEnumerable<Player>
 	{
 		protected List<Player> m_Players;
+        protected NeutralPlayer m_NeutralPlayer;
+
+        public NeutralPlayer NeutralPlayer
+        {
+            get { return m_NeutralPlayer; }
+        }
 
         public Players()
         {
             m_Players = new List<Player>();
-
-            m_Players.Add(new MS.Model.NeutralPlayer());
+            m_NeutralPlayer = new NeutralPlayer();
+            m_Players.Add(m_NeutralPlayer);
         }
 
         public Player Find(string name)

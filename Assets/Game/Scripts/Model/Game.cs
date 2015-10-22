@@ -3,27 +3,28 @@ using SimpleJSON;
 using System.Collections.Generic;
 using MS.Model;
 
-namespace MS
+namespace MS.Model
 {
 	public class Game : ModelElement
 	{
-        protected Map                   m_Map;
+        protected World.World           m_World;
         protected Players               m_Players;
         protected Turns                 m_Turns;
-        protected Model.Resources       m_Resources;
-        protected Model.Kingdom.Schemes m_Schemes;
-        protected Model.Personalities   m_Personalities;
+        protected Resources             m_Resources;
+        protected Kingdom.Schemes       m_Schemes;
+        protected Personalities         m_Personalities;
+        protected NobleHouses           m_NobleHouses;
 
-        public Map Map
+        public Model.World.World World
         {
             get
             {
-                return m_Map;
+                return m_World;
             }
 
             set
             {
-                m_Map = value;
+                m_World = value;
             }
         }
 
@@ -86,33 +87,39 @@ namespace MS
 
         public Game()
         {
-            m_Map           =   new Map();
             m_Players       =   new Players();
-            m_Turns         =   new Turns(m_Players);
-            m_Resources     =   new Model.Resources();
-            m_Schemes       =   new Model.Kingdom.Schemes();
-            m_Personalities =   new Model.Personalities();
+            m_Resources     =   new Resources();
+            m_Schemes       =   new Kingdom.Schemes();
+            m_Personalities =   new Personalities();
+            m_NobleHouses   =   new NobleHouses();
 
             m_Instance  =   this;
         }
 
-        public void New(string mapName, int numPlayers, int humanPlayers)
+        public void New(int worldSize, int aiPlayers)
         {
-            string      filePath;
-            JSONNode    json;
-            JSONNode    schemesJSON;
+            JSONNode schemesJSON;
 
-            filePath    =   Path.ToScenario(mapName);
-            json        =   Path.FileToJSON(filePath);
-            schemesJSON =   Path.FileToJSON(Path.ToData("Schemes.json"));
+            schemesJSON = Path.FileToJSON(Path.ToData("Schemes.json"));
 
-            m_Players.FromJSON(json["players"]);
-            m_Map.FromJSON(json);
-            m_Schemes.FromJSON(schemesJSON);
+            // Generate Players
+            m_Players.AddPlayer(new HumanPlayer("PLAYER_HUMAN"));
+
+            for (int i = 0; i < aiPlayers; ++i)
+            {
+                m_Players.AddPlayer(new AIPlayer("PLAYER_AI_" + i));
+            }
 
             m_Turns = new Turns(m_Players);
 
+            // Generate World
+            m_World = new World.World(worldSize);
+
+            m_World.GenerateRandom();
+            
+            m_Schemes.FromJSON(schemesJSON);
             GenerateStartingPersonalities(m_Players);
+            GenerateCities(m_NobleHouses);
         }
 
         public void Save(string fileName)
@@ -142,9 +149,60 @@ namespace MS
         {
             foreach (Player player in players)
             {
-                for (int i = 0; i < Model.Personalities.STARTING_PERSONALITIES; i++)
+                if (player is NeutralPlayer == false)
                 {
-                    m_Personalities.CreateRandom(player);
+                    // Main house
+
+                    player.MainHouse = m_NobleHouses.GenerateRandom(player);
+
+                    // Vassal houses
+
+                    NobleHouse vassalHouse;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        vassalHouse = m_NobleHouses.GenerateRandom(player);
+                        vassalHouse.ChiefHouse = player.MainHouse;
+                    }
+                }                
+            }
+
+            int neutralHousesCount;
+            
+            neutralHousesCount = Mathf.FloorToInt(m_World.TileCount * 0.6f);
+
+            for (int i = 0; i < neutralHousesCount; i++)
+            {
+                m_NobleHouses.GenerateRandom(m_Players.NeutralPlayer);
+            }
+        }
+
+        protected void GenerateCities(IEnumerable<NobleHouse> houses)
+        {
+            List<Vector3>       positions;
+            Vector3             position;
+            int                 index;
+            World.Region        region;
+            City                city;
+
+            positions = new List<Vector3>(Hexagon.CalculateTilesForRange(m_World.Range));
+            positions.Remove(Vector3.zero);
+
+            foreach (NobleHouse house in houses)
+            {
+                if (/*house.ChiefHouse == null*/ true)
+                {
+                    index                       =   Random.Range(0, positions.Count);
+                    position                    =   positions[index];
+                    region                      =   m_World.GetRegion(position);
+                    region.ChiefHouse           =   house;
+                    city                        =   new City();
+                    city.Owner                  =   house.Owner;
+                    region.CapitalArea.Element  =   city;
+
+                    UnityEngine.Debug.Log("City created for " + house + " in " + position + "=" + region.CubePosition);
+
+                    positions.Remove(position);                    
                 }
             }
         }
@@ -152,7 +210,7 @@ namespace MS
         public override void FromJSON(JSONNode json)
         {
             m_Players.FromJSON(json["players"]);
-            m_Map.FromJSON(json["map"]);
+            m_World.FromJSON(json["world"]);
 
             m_Turns = new Turns(m_Players);
         }
@@ -162,7 +220,7 @@ namespace MS
             JSONNode json = new JSONNode();
 
             json.Add("players", m_Players.ToJSON());
-            json.Add("map", m_Map.ToJSON());
+            json.Add("world", m_World.ToJSON());
 
             return json;
         }

@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace MS.Model
 {
-    public class Personality : OwnableElement, IEventListener, IEnumerable<Trait>
+    public class Personality : OwnableElement, IEventListener, IEnumerable<Trait>, IHouseOwneable
     {
         public static readonly int CHILD_AGE        =   0;
         public static readonly int ADULT_AGE        =   16;
@@ -22,6 +22,10 @@ namespace MS.Model
         public Ability BaseCharisma;
         public Ability BaseMorality;
 
+        public Personality  Father;
+        public Personality  Mother;
+        public Personality  Partner;
+
         public EGender Gender;
         public float Age;
         public bool Alive;
@@ -29,6 +33,7 @@ namespace MS.Model
 
         protected List<Trait> m_Traits;
         protected List<Relationship> m_Relationships;
+        protected NobleHouse m_House;
 
         public EAgeStage AgeStage
         {
@@ -57,6 +62,14 @@ namespace MS.Model
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return Name + " " + m_House.Name;
+            }
+        }
+
         public int Vigor
         {
             get { return CalculateFinalValue(BaseVigor); }
@@ -81,7 +94,19 @@ namespace MS.Model
         {
             get { return CalculateFinalValue(BaseMorality); }
         }
-       
+
+        public NobleHouse ChiefHouse
+        {
+            get
+            {
+                return m_House;
+            }
+
+            set
+            {
+                m_House = value;
+            }
+        }
 
         public Personality()
         {
@@ -156,6 +181,11 @@ namespace MS.Model
             return relationshipRate;
         }
 
+        public Trait GetRandomTrait()
+        {
+            return m_Traits[UnityEngine.Random.Range(0, m_Traits.Count - 1)];
+        }
+
         public void SubscribeToEvents()
         {
             Game.Instance.Turns.OnAllTurnsFinished += OnTurnEnd;
@@ -216,16 +246,7 @@ namespace MS.Model
 
         public override string ToString()
         {
-            string traits;
-
-            traits = "";
-
-            foreach (Trait trait in m_Traits)
-            {
-                traits += trait.Name + ",";
-            }
-
-            return string.Format("{0} [{1}]", Name, traits);
+            return string.Format("{0} {1}", Name, m_House.Name);
         }
 
         public IEnumerator<Trait> GetEnumerator()

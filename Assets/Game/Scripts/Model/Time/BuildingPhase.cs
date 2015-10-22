@@ -14,15 +14,7 @@ namespace MS.Model
 
         public override void Execute()
         {
-            foreach (City city in Game.Instance.Map.Grid.GetElements(this.Player))
-            {
-                if (city != null)
-                {
-                    city.BuildCompletedBuilding();
-                }
-            }
-
-            Finish();
+            End();
         }
     }
 }

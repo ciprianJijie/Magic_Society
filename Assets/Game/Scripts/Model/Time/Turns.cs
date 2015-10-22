@@ -8,17 +8,13 @@ namespace MS.Model
     /// </summary>
     public class Turns : ModelElement
     {
-        protected   List<Turn>  m_Turns;
-        protected   int         m_CurrentTurn;
+        protected   List<Turn>      m_Turns;
+        protected   int             m_CurrentTurn;
 
-        private     int         m_TurnCounter;
+        private     int             m_TurnCounter;
 
-        public MS.Events.PlayerEvent    OnRecollectionPhase     =   MS.Events.DefaultAction;
-        public MS.Events.PlayerEvent    OnUpkeepPhase           =   MS.Events.DefaultAction;
-        public MS.Events.PlayerEvent    OnMainPhase             =   MS.Events.DefaultAction;
-        public MS.Events.PlayerEvent    OnTurnStarted           =   MS.Events.DefaultAction;
-        public MS.Events.PlayerEvent    OnTurnFinished          =   MS.Events.DefaultAction;
-        public MS.Events.Event          OnAllTurnsFinished      =   MS.Events.DefaultAction;
+        public      Events.Event    OnAllTurnsFinished  =   Events.DefaultAction;
+        public      Events.Event    OnFirstPlayerTurn   =   Events.DefaultAction;
 
         public Turn CurrentTurn
         {
@@ -46,70 +42,61 @@ namespace MS.Model
             {
                 turn = new Turn(player);
 
-                turn.OnTurnFinished +=  OnTurnFinishedEvent;
-                turn.OnTurnStarted  +=  OnTurnStartedEvent;
-
                 m_Turns.Add(turn);
             }
-
-            m_CurrentTurn = -1;
         }
 
-        public void NextTurn()
+        public void Start()
         {
-            m_CurrentTurn++;
+            m_CurrentTurn = 0;
+            OnFirstPlayerTurn();
+        }
 
+        public void Execute()
+        {
             if (m_CurrentTurn >= m_Turns.Count)
             {
-                m_TurnCounter++;
-                m_CurrentTurn = 0;
-
-                OnAllTurnsFinished();
-
-                m_Turns[0].Start();
+                End();
             }
             else
             {
+                m_Turns[m_CurrentTurn].OnFinished += OnTurnFinished;
                 m_Turns[m_CurrentTurn].Start();
+                m_Turns[m_CurrentTurn].Execute();
             }
+        }
 
-            Turn currentTurn;
+        public void AdvanceTurn()
+        {
+            m_CurrentTurn++;
+        }
 
-            currentTurn = m_Turns[m_CurrentTurn];
+        public void End()
+        {
+            m_TurnCounter++;
+            OnAllTurnsFinished();
+            Start();            
+            Execute();
+        }
 
-            if (currentTurn.CurrentPhase is UpkeepPhase)
+        public Phase FindPhase<T>(Player player) where T: Phase
+        {
+            var turn = m_Turns.Find(i => i.Player == player);
+
+            if (turn == null)
             {
-                OnUpkeepPhase(currentTurn.Player);
+                UnityEngine.Debug.LogError("No turn for player " + player);
             }
-            else if (currentTurn.CurrentPhase is RecollectionPhase)
-            {
-                OnRecollectionPhase(CurrentTurn.Player);
-            }
-            else if (currentTurn.CurrentPhase is MainPhase)
-            {
-                OnMainPhase(currentTurn.Player);
-            }
+
+            return turn.FindPhase<T>();
         }
 
-        public override void FromJSON(SimpleJSON.JSONNode json)
-        {
-            throw new System.NotImplementedException();
-        }
+        protected void OnTurnFinished(Turn turn)
+        { 
+            m_Turns[m_CurrentTurn].OnFinished -= OnTurnFinished;
+            AdvanceTurn();
 
-        public override SimpleJSON.JSONNode ToJSON()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected void OnTurnFinishedEvent(Player player)
-        {
-            OnTurnFinished(player);
-            NextTurn();
-        }
-
-        protected void OnTurnStartedEvent(Player player)
-        {
-            OnTurnStarted(player);
+            Execute();
         }
     }
 }

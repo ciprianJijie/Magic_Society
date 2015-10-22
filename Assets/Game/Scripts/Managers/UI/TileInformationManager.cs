@@ -11,36 +11,7 @@ namespace MS.Managers.UI
 
         public void UpdateInfo(int x, int y)
         {
-            Model.Tile tile;
-            Model.MapElement mapElement;
-            Model.ResourceAdvancedAmount amount;
 
-            tile = Game.Instance.Map.Grid.GetTile(x, y);
-            mapElement = Game.Instance.Map.Grid.GetElement(x, y);
-            amount = new MS.Model.ResourceAdvancedAmount();
-
-            foreach (var collected in tile.Collect())
-            {
-                amount.AddAmount(collected);
-            }
-
-            if (mapElement != null && (mapElement is Model.City == false))
-            {
-                IResourceCollector collector;
-
-                collector = mapElement as IResourceCollector;
-
-                if (collector != null)
-                {
-                    foreach (var collected in collector.Collect())
-                    {
-                        amount.AddAmount(collected);
-                    }
-                }
-            }
-
-            ResourceAmountController.ClearViews();
-            ResourceAmountController.Show(amount);
         }
 
         public void Hide()

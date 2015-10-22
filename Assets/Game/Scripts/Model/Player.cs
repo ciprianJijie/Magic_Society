@@ -8,8 +8,9 @@ namespace MS.Model
 {
     public class Player : ModelElement, IResourceWarehouse
     {
-        public int Gold;
-        public int Research;
+        public int          Gold;
+        public int          Research;
+        public NobleHouse   MainHouse;
 
         protected ResourceAdvancedAmount m_GoldCollected;
         protected ResourceAdvancedAmount m_ResearchCollected;
@@ -46,7 +47,7 @@ namespace MS.Model
 
         public virtual void Play<T>(T phase) where T: Phase
         {
-            phase.Finish();
+            phase.End();
         }
 
         public void Store(ResourceAmount amount)

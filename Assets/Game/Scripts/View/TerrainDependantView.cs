@@ -10,30 +10,30 @@ namespace MS.Views
         public GameObject FrozenPrefab;
         public GameObject VolcanicPrefab;
 
-        protected GameObject GetPrefabByTerrain(Model.Tile.Terrain terrainType)
+        protected GameObject GetPrefabByTerrain(Model.World.Area.ETerrainType terrainType)
         {
             switch (terrainType)
             {
-                case MS.Model.Tile.Terrain.Fertile:
+                case MS.Model.World.Area.ETerrainType.Fertile:
                     return FertilePrefab;
-                case MS.Model.Tile.Terrain.Barren:
+                case MS.Model.World.Area.ETerrainType.Barren:
                     return BarrenPrefab;
-                case MS.Model.Tile.Terrain.Desert:
+                case MS.Model.World.Area.ETerrainType.Desert:
                     return DesertPrefab;
-                case MS.Model.Tile.Terrain.Frozen:
+                case MS.Model.World.Area.ETerrainType.Frozen:
                     return FrozenPrefab;
-                case MS.Model.Tile.Terrain.Volcanic:
+                case MS.Model.World.Area.ETerrainType.Volcanic:
                     return VolcanicPrefab;
                 default:
                     return null;
             }
         }
 
-        protected Model.Tile.Terrain TerrainType
+        protected Model.World.Area.ETerrainType TerrainType
         {
             get
             {
-                return GameController.Instance.Game.Map.Grid.GetTile(Model.X, Model.Y).TerrainType;
+                return MS.Model.Game.Instance.World.GetRegion(Model.X, Model.Y).CapitalArea.TerrainType;
             }
         }
     }

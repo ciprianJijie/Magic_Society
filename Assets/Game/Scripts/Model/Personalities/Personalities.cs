@@ -54,11 +54,12 @@ namespace MS.Model
             }
         }
 
-        public Personality CreateRandom(Player Owner)
+        public Personality CreateRandom(NobleHouse house)
         {
             string                  name;
             Personality.EGender     gender;
             Personality             personality;
+            int                     traitsCount;
 
             gender      =   Tools.DiceBag.Roll(1, 20, 0) <= 10 ? Personality.EGender.Male : Personality.EGender.Female;
             name        =   gender == Personality.EGender.Male ? Generators.NameGenerator.RandomMaleName() : Generators.NameGenerator.RandomFemaleName();
@@ -66,26 +67,109 @@ namespace MS.Model
 
             personality.Name                    =   name;
             personality.Gender                  =   gender;
-            personality.Age                     =   UnityEngine.Random.Range(10, 25);
+            personality.Age                     =   UnityEngine.Random.Range(16, 45);
             personality.Portrait                =   RandomPortrait(personality.Gender);
-            personality.Owner                   =   Owner;
-            personality.BaseVigor.Score         =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseManagement.Score    =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseIntrigue.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseCharisma.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
-            personality.BaseMorality.Score      =   Tools.DiceBag.RollAndDiscardLowers(3, 6, 0);
+            personality.Owner                   =   house.Owner;
+            personality.BaseVigor.Score         =   Tools.DiceBag.Roll(3, 6, 0);
+            personality.BaseManagement.Score    =   Tools.DiceBag.Roll(3, 6, 0);
+            personality.BaseIntrigue.Score      =   Tools.DiceBag.Roll(3, 6, 0);
+            personality.BaseCharisma.Score      =   Tools.DiceBag.Roll(3, 6, 0);
+            personality.BaseMorality.Score      =   Tools.DiceBag.Roll(3, 6, 0);
+            traitsCount                         =   UnityEngine.Mathf.FloorToInt(personality.Age / 10.0f) + 2;
 
-            // TODO: Temporal for testing
-            personality.AddPersonalityTrait(RandomTrait());
+            for (int i = 0; i < traitsCount; i++)
+            {
+                personality.AddPersonalityTrait(RandomTrait());
+            }
+
+            personality.ChiefHouse = house;
+
+            m_Personalities.Add(personality);
+            
+            return personality;
+        }
+
+        public Personality Brew(Personality father, Personality mother, NobleHouse house)
+        {
+            string              name;
+            Personality.EGender gender;
+            Personality         personality;
+            int                 vigorModifier;
+            int                 managementModifier;
+            int                 intrigueModifier;
+            int                 charismaModifier;
+            int                 moralityModifier;
+            
+            gender      =   Tools.DiceBag.Roll(1, 20, 0) <= 10 ? Personality.EGender.Male : Personality.EGender.Female;
+            name        =   gender == Personality.EGender.Male ? Generators.NameGenerator.RandomMaleName() : Generators.NameGenerator.RandomFemaleName();
+            personality =   new Personality();
+            
+            if (Tools.DiceBag.Roll(1, 10, 0) > 5)
+            {
+                vigorModifier = Ability.CalculateModifier(father.Vigor);
+            }
+            else
+            {
+                vigorModifier = Ability.CalculateModifier(mother.Vigor);
+            }
+
+            if (Tools.DiceBag.Roll(1, 10, 0) > 5)
+            {
+                managementModifier = Ability.CalculateModifier(father.Management);
+            }
+            else
+            {
+                managementModifier = Ability.CalculateModifier(mother.Management);
+            }
+
+            if (Tools.DiceBag.Roll(1, 10, 0) > 5)
+            {
+                intrigueModifier = Ability.CalculateModifier(father.Intrigue);
+            }
+            else
+            {
+                intrigueModifier = Ability.CalculateModifier(mother.Intrigue);
+            }
+
+            if (Tools.DiceBag.Roll(1, 10, 0) > 5)
+            {
+                charismaModifier = Ability.CalculateModifier(father.Charisma);
+            }
+            else
+            {
+                charismaModifier = Ability.CalculateModifier(mother.Charisma);
+            }
+
+            if (Tools.DiceBag.Roll(1, 10, 0) > 5)
+            {
+                moralityModifier = Ability.CalculateModifier(father.Morality);
+            }
+            else
+            {
+                moralityModifier = Ability.CalculateModifier(mother.Morality);
+            }
+
+            personality.Name                    =   name;
+            personality.Gender                  =   gender;
+            personality.Age                     =   0;
+            personality.Portrait                =   RandomPortrait(personality.Gender);
+            personality.Owner                   =   house.Owner;
+            personality.BaseVigor.Score         =   Tools.DiceBag.Roll(3, 6, vigorModifier);
+            personality.BaseManagement.Score    =   Tools.DiceBag.Roll(3, 6, managementModifier);
+            personality.BaseIntrigue.Score      =   Tools.DiceBag.Roll(3, 6, intrigueModifier);
+            personality.BaseCharisma.Score      =   Tools.DiceBag.Roll(3, 6, charismaModifier);
+            personality.BaseMorality.Score      =   Tools.DiceBag.Roll(3, 6, moralityModifier);
+
+            personality.AddPersonalityTrait(father.GetRandomTrait());
+            personality.AddPersonalityTrait(mother.GetRandomTrait());
+
+            personality.Father      =   father;
+            personality.Mother      =   mother;
+            personality.ChiefHouse  =   house;
 
             m_Personalities.Add(personality);
 
             return personality;
-        }
-
-        public Personality Brew(Personality father, Personality mother, Player Owner)
-        {
-            throw new NotImplementedException();
         }
 
         public Personality Find(string name)

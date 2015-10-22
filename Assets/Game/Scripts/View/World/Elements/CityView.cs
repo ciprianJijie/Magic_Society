@@ -16,11 +16,6 @@ namespace MS
         protected GameObject                m_InstantedCity;
         protected Managers.UI.CityBanner    m_InstancedUIBanner;
 
-        public override void UpdateView()
-        {
-            UpdateBanner(Model);
-        }
-
         public override void UpdateView(City element)
         {
             GameObject prefab;
@@ -35,13 +30,14 @@ namespace MS
             }
             
             m_InstantedCity = Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
-            
-            UpdateBanner(element);            
+
+            //UpdateBanner(element);   
+            m_Model = element;         
         }
 
         public void UpdateBanner()
         {
-            UpdateBanner(Model);
+            //UpdateBanner(Model);
         }
 
         public void UpdateBanner(City element)
@@ -59,27 +55,19 @@ namespace MS
             m_InstancedUIBanner.UpdateBanner(element);
         }
 
-        public void OnMainPhaseStarted(Player player)
+        public void OnMainPhaseStarted(Phase phase)
         {
-            if (player != Model.Owner)
-            {
-                return;
-            }
-
             UpdateView();
         }
 
         protected void Start()
         {
-            GameController.Instance.Game.Turns.OnMainPhase += OnMainPhaseStarted;
+            //Game.Instance.Turns.FindPhase<MainPhase>(m_Model.Owner).OnStarted += OnMainPhaseStarted;
         }
         
         protected void OnDestroy()
         {
-            if (GameController.Instance != null)
-            {
-                GameController.Instance.Game.Turns.OnMainPhase -= OnMainPhaseStarted;
-            }            
+            //Game.Instance.Turns.FindPhase<MainPhase>(m_Model.Owner).OnStarted -= OnMainPhaseStarted;
         }
     }
 }
