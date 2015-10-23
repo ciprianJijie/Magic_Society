@@ -52,7 +52,12 @@ namespace MS.Model.World
 
             set
             {
-                m_ChiefHouse = value;
+                m_ChiefHouse                    =   value;
+
+                if (m_Capital.Element != null)
+                {
+                    m_Capital.Element.ChiefHouse = value;
+                }                
             }
         }
 

@@ -26,18 +26,18 @@ namespace MS.Model
         public Events.CityEvent OnPopulationDecrese =   Events.DefaultAction;
 
         // Elements of City
-        protected int m_Population;
-        protected int m_FoodStored;
-        protected List<Vector2> m_TilesUnderControl;
+        protected int                               m_Population;
+        protected int                               m_FoodStored;
+        protected List<Vector2>                     m_TilesUnderControl;
 
-        protected Kingdom.BuildingQueue m_BuildingQueue;
+        protected Kingdom.BuildingQueue             m_BuildingQueue;
 
-        protected List<MS.Model.Kingdom.Building> m_Buildings;
-        protected Kingdom.Building m_DelayedBuilding;
+        protected List<MS.Model.Kingdom.Building>   m_Buildings;
+        protected Kingdom.Building                  m_DelayedBuilding;
 
         // Resources
-        protected ResourceAdvancedAmount m_FoodCollected;
-        protected ResourceAdvancedAmount m_ProductionCollected;
+        protected ResourceAdvancedAmount            m_FoodCollected;
+        protected ResourceAdvancedAmount            m_ProductionCollected;
 
         public int Population
         {

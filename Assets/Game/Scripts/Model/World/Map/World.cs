@@ -55,8 +55,6 @@ namespace MS.Model.World
 
                 m_Regions.Add(position, region);
             }
-
-            UnityEngine.Debug.Log("Count " + m_Regions.Count);
         }
 
         public MapElement FindElement(Player owner, string name)
