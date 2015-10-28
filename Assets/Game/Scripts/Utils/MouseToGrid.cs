@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using MS.ExtensionMethods;
 
 namespace MS
 {
@@ -53,8 +54,9 @@ namespace MS
                 UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() == false)
             {
                 mousePosition = ray.GetPoint(distance);
+                mousePosition = mousePosition.SwappedYZ();
 
-                tilePosition = Hexagon.WorldToAxial(mousePosition.x, mousePosition.y, mousePosition.z, HexagonSize);
+                tilePosition = Hexagon.WorldToAxial(mousePosition.x, mousePosition.z, mousePosition.y, HexagonSize);
                 LastGridPosition = tilePosition;
 
                 if (Input.GetMouseButtonDown(0))

@@ -383,5 +383,10 @@ namespace MS.Model.World
 
             return Area.ETopographyType.Plains;
         }
+
+		public override string ToString()
+		{
+			return string.Format("[Region: {0}]", CubePosition);
+		}
     }
 }

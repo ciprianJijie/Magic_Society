@@ -13,49 +13,40 @@ namespace MS
         public MouseToGrid                          MouseToGrid;
 
         // Events
-        public MS.Events.GridPositionEvent          OnTileHover         =   MS.Events.DefaultAction;
-        public MS.Events.Event                      OnTileHoverEnds     =   MS.Events.DefaultAction;
-        public MS.Events.CityEvent                  OnCitySelected      =   MS.Events.DefaultAction;
-        public MS.Events.Event                      OnCityDeselected    =   MS.Events.DefaultAction;
-        public MS.Events.Event                      OnPersonalitiesMenu =   MS.Events.DefaultAction;
+        public Events.GridPositionEvent          	OnTileHover         =   Events.DefaultAction;
+        public Events.Event                      	OnTileHoverEnds     =   Events.DefaultAction;
+		public Events.RegionEvent 					OnRegionHover 		= 	Events.DefaultAction;
+		public Events.RegionEvent					OnRegionHoverEnds 	= 	Events.DefaultAction;
+        public Events.CityEvent                  	OnCitySelected      =   Events.DefaultAction;
+        public Events.Event                      	OnCityDeselected    =   Events.DefaultAction;
+        public Events.Event                      	OnPersonalitiesMenu =   Events.DefaultAction;
 
-        private readonly static float               m_TimeToShowTileInformation = 1.25f;
-        private float                               m_TimeHoveringTile;
-        private bool                                m_TileHoverEventSent = false;
-        private Vector2                             m_LastHoveredTile;
         private bool                                m_CitySelected;
+		private bool 								m_RegionHovered;
+		private Model.World.Region					m_LastHoveredRegion;
+		private readonly float 						m_TimeToHover = 1.0f;
+		private float 								m_TimeHovered;
 
         protected void LateUpdate()
         {
             if (EventSystem.IsPointerOverGameObject() == false)
             {
-                if (m_LastHoveredTile == MouseToGrid.LastGridPosition)
-                {
-                    m_TimeHoveringTile += Time.deltaTime;
+				// Region Hovering
+				Model.World.Region  region;
+				Vector2             axialPosition;
+				Vector3 			cubePosition;
 
-                    if (m_TimeHoveringTile >= m_TimeToShowTileInformation && m_TileHoverEventSent == false)
-                    {
-                        m_TileHoverEventSent = true;
-                        OnTileHover((int)m_LastHoveredTile.x, (int)m_LastHoveredTile.y);
-                    }
-                }
-                else
-                {
-                    m_TimeHoveringTile = 0f;
-                    m_TileHoverEventSent = false;
-                    OnTileHoverEnds();
+				axialPosition   =   MouseToGrid.LastGridPosition;
+				cubePosition 	= 	Hexagon.AxialToCube(axialPosition);
+				region          =   Model.Game.Instance.World.GetRegion(cubePosition);
 
-                }
-                m_LastHoveredTile = MouseToGrid.LastGridPosition;
+				CheckRegionHover(region);
 
                 if (InputManager.GetButton("Select"))
                 {
-                    Model.City          city;
-                    Vector2             axialPosition;
-
-                    axialPosition = MouseToGrid.LastGridPosition;
-                    city = Model.Game.Instance.World.GetRegion(axialPosition).CapitalArea.Element as Model.City;
+                    Model.City city;
                     
+                    city = region.CapitalArea.Element as Model.City;
 
                     if (city != null)
                     {
@@ -80,5 +71,29 @@ namespace MS
                 }
             }
         }
+
+		protected void CheckRegionHover(Model.World.Region region)
+		{
+			if (region != null)
+			{
+				if ((region == m_LastHoveredRegion && m_RegionHovered == false) || m_LastHoveredRegion == null)
+				{
+					m_TimeHovered 			+= 	Time.deltaTime;
+
+					if (m_TimeHovered >= m_TimeToHover)
+					{
+						m_RegionHovered = true;
+						OnRegionHover(region);
+					}
+				}
+				else if (m_RegionHovered == true && region != m_LastHoveredRegion)
+				{
+					m_RegionHovered = false;
+					m_TimeHovered = 0f;
+					OnRegionHoverEnds(m_LastHoveredRegion);
+				}
+			}
+			m_LastHoveredRegion = region;
+		}
     }
 }
