@@ -11,7 +11,6 @@ namespace MS.Views.World.Map
         public Controllers.World.Map.CentralAreaController  CentralAreaController;
         public Controllers.Kingdom.CityController           CityController;
         public float 										Size;
-		public TextMesh 									CubePositionText;
 
         protected List<Views.World.Map.AreaView> m_AreaViews;
         protected CityView m_CityView;
@@ -83,8 +82,6 @@ namespace MS.Views.World.Map
             this.transform.position = finalPosition;
 
             this.gameObject.name = "Region (" + element.CubePosition + ")";
-
-			CubePositionText.text = element.CubePosition.ToString();
         }
     }
 }
