@@ -197,10 +197,10 @@ namespace MS.Model
                     region                      =   m_World.GetRegion(position);
                     region.ChiefHouse           =   house;
                     city                        =   new City();
+                    city.RealName               =   Generators.NameGenerator.RandomCityName();
                     city.Owner                  =   house.Owner;
+                    city.ChiefHouse             =   house;
                     region.CapitalArea.Element  =   city;
-
-                    UnityEngine.Debug.Log("City created for " + house + " in " + position + "=" + region.CubePosition);
 
                     positions.Remove(position);                    
                 }

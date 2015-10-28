@@ -41,6 +41,11 @@ namespace MS.Generators
             return ComposeName("", "", "Data/Names/houses");
         }
 
+        public static string RandomCityName()
+        {
+            return ComposeName("", "", "Data/Names/cities");
+        }
+
         private static string ComposeName(string prefix, string suffix, string filePathWithNames)
         {
             string      text;
@@ -53,7 +58,7 @@ namespace MS.Generators
             json            =   JSON.Parse(text);
             array           =   json["names"].AsArray;
             randomIndex     =   Random.Range(0, array.Count);
-            name            =   prefix + array[randomIndex]["name"] + suffix;
+            name            =   prefix + array[randomIndex] + suffix;
 
             return name;
         }

@@ -16,6 +16,7 @@ namespace MS
         public static void DefaultAction(Model.Personality personality) {}
         public static void DefaultAction(Model.Phase phase) {}
         public static void DefaultAction(Model.Turn turn) {}
+		public static void DefaultAction(Model.World.Region region) {}
 
         // Events Types
         public delegate void Event();
@@ -29,5 +30,6 @@ namespace MS
         public delegate void PersonalityEvent(Model.Personality personality);
         public delegate void PhaseEvent(Model.Phase phase);
         public delegate void TurnEvent(Model.Turn turn);
+		public delegate void RegionEvent(Model.World.Region region);
     }
 }

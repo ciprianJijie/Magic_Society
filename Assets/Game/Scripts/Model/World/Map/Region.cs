@@ -52,7 +52,12 @@ namespace MS.Model.World
 
             set
             {
-                m_ChiefHouse = value;
+                m_ChiefHouse                    =   value;
+
+                if (m_Capital.Element != null)
+                {
+                    m_Capital.Element.ChiefHouse = value;
+                }                
             }
         }
 
@@ -378,5 +383,10 @@ namespace MS.Model.World
 
             return Area.ETopographyType.Plains;
         }
+
+		public override string ToString()
+		{
+			return string.Format("[Region: {0}]", CubePosition);
+		}
     }
 }

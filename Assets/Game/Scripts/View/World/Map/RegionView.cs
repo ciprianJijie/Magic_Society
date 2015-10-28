@@ -10,9 +10,11 @@ namespace MS.Views.World.Map
         public Controllers.World.Map.AreaController         AreaController;
         public Controllers.World.Map.CentralAreaController  CentralAreaController;
         public Controllers.Kingdom.CityController           CityController;
-        public float Size;
+        public float 										Size;
+		public TextMesh 									CubePositionText;
 
         protected List<Views.World.Map.AreaView> m_AreaViews;
+        protected CityView m_CityView;
 
         public override void UpdateView(Region element)
         {
@@ -33,22 +35,29 @@ namespace MS.Views.World.Map
 
             centralView.UpdateView(element.CapitalArea);
 
-            // City
-            CityView cityView;
-            Vector3 position;
-
-            cityView = CityController.FindView(element.CapitalArea.Element as Model.City);
-
-            if (cityView == null)
+            if (element.CapitalArea.Element is Model.City)
             {
-                cityView = CityController.CreateView(element.CapitalArea.Element as Model.City) as CityView;
+                // City
+                Vector3 position;
+
+                if (m_CityView == null)
+                {
+                    m_CityView = CityController.CreateView(element.CapitalArea.Element as Model.City) as CityView;
+                }
+
+                position = Hexagon.CubeToWorld(element.CubePosition, Size);
+                position = position.SwappedYZ();
+                m_CityView.transform.position = position;
+
+                m_CityView.UpdateView(element.CapitalArea.Element as Model.City);
             }
-
-            position                    =   Hexagon.CubeToWorld(element.CubePosition, Size);
-            position                    =   position.SwappedYZ();
-            cityView.transform.position =   position;
-
-            cityView.UpdateView(element.CapitalArea.Element as Model.City);
+            else
+            {
+                if (m_CityView != null)
+                {
+                    Destroy(m_CityView.gameObject);
+                }
+            }
 
             areaCount = 0;
 
@@ -74,6 +83,8 @@ namespace MS.Views.World.Map
             this.transform.position = finalPosition;
 
             this.gameObject.name = "Region (" + element.CubePosition + ")";
+
+			CubePositionText.text = element.CubePosition.ToString();
         }
     }
 }

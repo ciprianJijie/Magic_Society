@@ -4,11 +4,27 @@ using System;
 
 namespace MS.Model
 {
-    public class MapElement : ModelElement
+    public class MapElement : ModelElement, IHouseOwneable
     {
         // Attributes
         public int X;
         public int Y;
+
+        protected NobleHouse m_ChiefHouse;
+
+        public NobleHouse ChiefHouse
+        {
+            get
+            {
+                return m_ChiefHouse;
+            }
+
+            set
+            {
+                m_ChiefHouse = value;
+            }
+        }
+
         // ---
 
         public MapElement()

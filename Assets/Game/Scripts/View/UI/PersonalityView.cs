@@ -64,8 +64,7 @@ namespace MS.Views.UI
             {
                 StartCoroutine(LoadPortrait(Model.Portrait.ImagePath));
             }
-
-            //TraitController.ClearViews();
+            
             TraitController.Holder = TraitsHolder;
 
             foreach (Trait trait in element)

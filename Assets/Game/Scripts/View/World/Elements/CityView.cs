@@ -1,6 +1,6 @@
 using UnityEngine;
 using MS.Model;
-using System;
+using MS.Controllers.UI.Heraldry;
 
 namespace MS
 {
@@ -12,6 +12,10 @@ namespace MS
         public GameObject                   MegapolisPrefab;
 
         public Managers.UI.CityBanner       UIBanner;
+        [HideInInspector]
+        public Transform                    BannerHolder;
+
+        public ShieldController             ShieldController;
 
         protected GameObject                m_InstantedCity;
         protected Managers.UI.CityBanner    m_InstancedUIBanner;
@@ -31,43 +35,42 @@ namespace MS
             
             m_InstantedCity = Utils.Instantiate(prefab, this.transform, this.transform.position, this.transform.rotation);
 
-            //UpdateBanner(element);   
-            m_Model = element;         
+            m_Model = element;
+
+            UpdateBanner(element);   
+                    
         }
 
         public void UpdateBanner()
         {
-            //UpdateBanner(Model);
+            UpdateBanner(Model);
         }
 
         public void UpdateBanner(City element)
         {
             if (m_InstancedUIBanner == null)
             {
-                GameObject ui;
-
-                ui = GameObject.FindWithTag("UI");
-
-                m_InstancedUIBanner = Utils.Instantiate<Managers.UI.CityBanner>(UIBanner, ui.transform, this.transform.position, this.transform.rotation);
+                m_InstancedUIBanner = Utils.Instantiate<Managers.UI.CityBanner>(UIBanner, BannerHolder, BannerHolder.position, BannerHolder.rotation);
                 m_InstancedUIBanner.Target = this.gameObject.transform;
+                m_InstancedUIBanner.ShieldController = ShieldController;
             }
 
-            m_InstancedUIBanner.UpdateBanner(element);
+            m_InstancedUIBanner.UpdateBanner(element);          
         }
 
-        public void OnMainPhaseStarted(Phase phase)
+        public void OnTurnsStarted()
         {
-            UpdateView();
+            UpdateView(Model);
         }
 
         protected void Start()
         {
-            //Game.Instance.Turns.FindPhase<MainPhase>(m_Model.Owner).OnStarted += OnMainPhaseStarted;
+            Game.Instance.Turns.OnFirstPlayerTurn += OnTurnsStarted;
         }
         
         protected void OnDestroy()
         {
-            //Game.Instance.Turns.FindPhase<MainPhase>(m_Model.Owner).OnStarted -= OnMainPhaseStarted;
+            Game.Instance.Turns.OnFirstPlayerTurn -= OnTurnsStarted;
         }
     }
 }
